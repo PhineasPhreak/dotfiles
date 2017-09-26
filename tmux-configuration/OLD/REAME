@@ -1,0 +1,10 @@
+TMUX CONFIGURATION:
+
+Metre les 3 fichiers dans le dossier racine [/root/] ou [/home/user/] de votre compte utilisateur,
+en fichier caher.
+
+::::::::::::::::::::
+.bashrc
+.bash_profile
+.tmux.conf
+::::::::::::::::::::
