@@ -20,3 +20,7 @@ Faire la command suivante pour reset le Terminal:
 ```
 chsh -s /bin/bash
 ```
+## Site
+```
+https://fishshell.com/
+```
