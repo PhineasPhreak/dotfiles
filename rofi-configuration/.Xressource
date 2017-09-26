@@ -1,6 +1,7 @@
 ! =================
 ! rofi
 ! =================
+
 #define background #1D1D26
 #define text       #B3B3D4
 #define active     #FFCC66
