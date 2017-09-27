@@ -1,4 +1,4 @@
-# dotfiles
+## dotfiles
 Configuration Files For my Unix System
 
 * Tmux 
@@ -16,4 +16,4 @@ Configuration Files For my Unix System
   * GitHub: https://github.com/oh-my-fish/oh-my-fish
   
 * Rofi
- * GitHub: https://github.com/DaveDavenport/rofi/
+  * GitHub: https://github.com/DaveDavenport/rofi/
