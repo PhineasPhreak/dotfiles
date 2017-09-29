@@ -1,6 +1,7 @@
 ## dotfiles
 Configuration Files For my Unix System
 
+* Firewall
 * Tmux 
 * Fish
 * Rofi
