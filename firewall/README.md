@@ -1,2 +1,2 @@
 ## My Firewall
-**Create with iptables command in linux**
+**Create with iptables**
