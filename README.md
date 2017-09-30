@@ -1,6 +1,8 @@
 ## dotfiles
 Configuration Files For my Unix System
 
+* Vim
+* Bash Shell
 * Firewall
 * Tmux 
 * Fish
