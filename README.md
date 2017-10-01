@@ -3,6 +3,7 @@ Configuration Files For my Unix System
 
 * Vim
 * Bash Shell
+* Sublime Text 3126, 3143
 * Firewall
 * Tmux 
 * Fish
