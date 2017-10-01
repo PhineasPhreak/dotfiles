@@ -1,0 +1,6 @@
+Dayle rees color schemes
+Predawn
+Icons Font
+BracketHighighter
+SublimeCodeIntel
+Enki Theme
