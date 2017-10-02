@@ -15,6 +15,14 @@ EndSection
 Section "Files"
 EndSection
 
+Section "InputClass"
+    Identifier "Gaming Mouse G300"
+    MatchIsPointer "yes"
+    Option "AccelerationNumerator" "1"
+    Option "AccelerationDenominator" "1"
+    Option "AccelerationThreshold" "0"
+EndSection
+
 Section "InputDevice"
 
     # generated from default
