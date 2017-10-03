@@ -1,5 +1,5 @@
 ## Vim Configuration
-![Vim-config](https://github.com/PhineasPhreak/dotfiles/blob/master/screenshots/vim-config.png)
 
-
-*Config Advanced*
+|*Config Advanced*|*Config Basic*|
+|:---------------:|:------------:|
+|![Vim-config-advanced](https://github.com/PhineasPhreak/dotfiles/blob/master/screenshots/vim-config-advanced.png)|![Vim-config-basic](https://github.com/PhineasPhreak/dotfiles/blob/master/screenshots/vim-config-basic.png)|
