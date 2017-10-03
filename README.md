@@ -13,6 +13,7 @@ Cependant, dans certains cas, la détection automatique ne fonctionne pas.
 Il faut donc paramétrer manuellement ce fichier xorg.conf.
 
 Certaine commande peuvent être utile pour configurer (Console *ou* Graphique) Xorg sous Unix:
+
 `nvidia-setting`, `nvidia-xconfig`, `nvidia-smi`, `X`
 
 * Xorg Wiki: https://fr.wikipedia.org/wiki/X.Org
