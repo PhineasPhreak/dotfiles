@@ -38,6 +38,21 @@ set background=dark
 "  filetype plugin indent on
 "endif
 
+" define tabstops as spaces
+set expandtab       " don't use actual tab character (ctrl-v)
+set tabstop=4       " tabs are at proper location
+set softtabstop=4   " indenting is four spaces
+set shiftwidth=4    " indenting is four spaces
+
+" display tabs and trailing spaces
+set list
+set listchars=tab:▷⋅,trail:⋅,nbsp:⋅
+
+" give me some numbers
+"set number
+"set numberwidth=3
+"highlight LineNr ctermfg=008 ctermbg=NONE
+
 " The following are commented out as they cause vim to behave a lot
 " differently from regular Vi. They are highly recommended though.
 set ruler
