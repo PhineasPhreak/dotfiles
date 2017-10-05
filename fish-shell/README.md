@@ -10,7 +10,6 @@ For the file "fish_prompt.fish" copy it here:
 ~/etc/fish/config.fish
 ```
 
-
 Utiliser la command suivant pour faire de Fish votre Terminal par default:
 ```shell
 chsh -s /usr/bin/fish
@@ -20,8 +19,8 @@ Faire la command suivante pour reset le Terminal:
 ```shell
 chsh -s /bin/bash
 ```
-### Site
-
+### Site:
 Site: https://fishshell.com/
+
 Fish GitHub: https://github.com/oh-my-fish
 
