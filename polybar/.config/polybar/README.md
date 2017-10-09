@@ -8,3 +8,5 @@ sudo sh -c 'echo "deb http://archive.getdeb.net/ubuntu xenial-getdeb apps" >> /e
 ```
 ### Site:
 Link: https://www.ubuntuupdates.org/package/getdeb_apps/xenial/apps/getdeb/polybar
+
+Font-Awesome: http://fontawesome.io/cheatsheet/
