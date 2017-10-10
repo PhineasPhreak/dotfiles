@@ -174,5 +174,8 @@ bindsym $mod+r mode "resize"
 # Quand le focus change d'écran, ne pas déplacer la souris
 # mouse_warping none
 
+#for_window [class="^.*"] border pixel 3
+#for_window [class=".*"] title_format "  %title"
+
 # Status bar 'polybar' with configuration file
 exec_always --no-startup-id "killall polybar; polybar -r default"
