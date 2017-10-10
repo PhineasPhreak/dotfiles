@@ -20,6 +20,9 @@ font pango:monospace 9
 # Fond d'ecran
 exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpaper/951373-abstract.jpg
 
+# Lock screen 'for sefaty'
+bindsym $mod+Shift+x exec i3lock --color "#2f343f"
+
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
