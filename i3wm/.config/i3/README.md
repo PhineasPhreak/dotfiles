@@ -1,10 +1,15 @@
 ## i3wm 
-
-### Package Install:
-**feh, [polybar](https://www.ubuntuupdates.org/package/getdeb_apps/xenial/apps/getdeb/polybar)**
+Installation:
 ```shell
 $ sudo apt-get update && sudo apt-get install i3
+```
+After this Installation **Reboot** your system and changed your desktop (Gnome -> i3)
+
+### Package Install:
+feh, lxappearance, [polybar](https://www.ubuntuupdates.org/package/getdeb_apps/xenial/apps/getdeb/polybar)
+```shell
 $ sudo apt-get install feh
+$ sudo apt-get install lxappearance
 ```
 
 ### Others Theme i3
