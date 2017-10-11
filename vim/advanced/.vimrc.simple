@@ -47,6 +47,7 @@ syntax on
 set t_Co=256 " 256 color mode
 " colorscheme OceanicNext
 " colorscheme base16-oceanicnext
+colo  hybrid
 
 " line numbers
 " set relativenumber
