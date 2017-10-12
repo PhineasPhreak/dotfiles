@@ -97,9 +97,11 @@ alias cl='clear'
 alias update='sudo apt-get update'
 alias upgrade='sudo apt-get upgrade'
 alias full-upgrade='sudo apt full-upgrade'
+alias dist-upgrade='sudo apt-get dist-upgrade'
 alias list-upgradable='sudo apt list --upgradable'
 alias autoremove='sudo apt-get autoremove'
 alias cleanliness='sudo apt-get clean'
+alias sources='cat -n /etc/apt/sources.list && ls -lhA /etc/apt/sources.list.d/'
 
 # some more ls aliases
 alias ll='ls -l'
