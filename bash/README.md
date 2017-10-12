@@ -1,10 +1,9 @@
 ## Image Bash Ubuntu 16.04.3 LTS amd64
 ![Bash-ubuntu-with-bashrc](https://github.com/PhineasPhreak/dotfiles/blob/master/screenshots/bash-ubuntu.png)
 
+> *Image Terminal Ubuntu:*
 
-*Image Terminal Ubuntu:*
-
-## Install 
+## Installation:
 Put the file at the root of your user/root account:
 * For Root : `/root/.bashrc`
 * For User : `/home/user/.bashrc`
