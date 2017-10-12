@@ -101,6 +101,8 @@ alias dist-upgrade='sudo apt-get dist-upgrade'
 alias list-upgradable='sudo apt list --upgradable'
 alias autoremove='sudo apt-get autoremove'
 alias cleanliness='sudo apt-get clean'
+alias cache-policy='sudo apt-cache policy'
+alias list-key='sudo apt-key list'
 alias sources='cat -n /etc/apt/sources.list && ls -lhA /etc/apt/sources.list.d/'
 
 # some more ls aliases
