@@ -1,7 +1,7 @@
 ## dotfiles
 Configuration Files For my Unix System
 
-* **Xorg, Vim, Bash Shell, Sublime Text 3126/3143, Firewall, Tmux, Fish, Rofi, i3wm(Soon)**
+* **Xorg, Vim, Bash Shell, Sublime Text 3126/3143, Firewall, Tmux, Fish, Rofi, polybar, i3wm**
 
 ### Xorg For Nvidia
 Pour l'installation des [Drivers Nvidia](https://github.com/PhineasPhreak/dotfiles/blob/master/etc/X11/README.md) pour Unix (Kali Linux, Ubuntu, ArchLinux)
@@ -30,3 +30,10 @@ Certaine commande peuvent être utile pour configurer (Console *ou* Graphique) X
   
 * Rofi
   * GitHub: https://github.com/DaveDavenport/rofi/
+
+* Polybar
+  * GitHub: https://github.com/jaagr/polybar
+
+* i3wm
+  * Site: https://i3wm.org/
+  * Github: https://github.com/i3
