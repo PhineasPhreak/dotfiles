@@ -93,6 +93,14 @@ fi
 # alias 'clear' in 'cl'
 alias cl='clear'
 
+# shorcut 'apt' or 'apt-get'
+alias update='sudo apt-get update'
+alias upgrade='sudo apt-get upgrade'
+alias full-upgrade='sudo apt full-upgrade'
+alias list-upgradable='sudo apt list --upgradable'
+alias autoremove='sudo apt-get autoremove'
+alias cleanliness='sudo apt-get clean'
+
 # some more ls aliases
 alias ll='ls -l'
 alias la='ls -A'
