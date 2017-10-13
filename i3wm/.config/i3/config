@@ -182,7 +182,7 @@ exec_always --no-startup-id "xset s off; xset -dpms; xset s noblank"
 
 # Editting 'Barre d'address' et la border de 3 pixel
 for_window [class="^.*"] border pixel 3
-for_window [class=".*"] title_format "  %title"
+for_window [class=".*"] title_format " %title"
 
 # Status bar 'polybar' with configuration file
 exec_always --no-startup-id "killall polybar; polybar -r default"
