@@ -16,11 +16,10 @@ set $alt Mod1
 #font pango: SFNS Display 10
 font pango:monospace 9
 
-
 # Fond d'ecran
 exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpaper/951373-abstract.jpg
 
-# Lock screen 'for sefaty'
+# Lock screen 'for safety'
 bindsym $mod+Shift+x exec i3lock --color "#2f343f"
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
@@ -39,6 +38,8 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Shift+Return exec gnome-terminal
+bindsym $mod+$alt+Return exec urxvt
 
 # kill focused window
 bindsym $mod+Shift+A kill
@@ -48,6 +49,12 @@ bindsym $mod+Shift+Q kill
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run
 bindsym $mod+c exec rofi -show run -display-run ":"
+
+# Launch navigateurs et gestionnaire de fichier
+bindsym $mod+F1 exec firefox
+bindsym $mod+F2 exec chromium-browser
+bindsym $mod+F3 exec nautilus
+bindsym $mod+F4 exec thunar
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
