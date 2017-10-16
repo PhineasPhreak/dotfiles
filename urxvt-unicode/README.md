@@ -6,6 +6,18 @@
 **Note:**
 For *Paste* and *Copy* use MiddleMouse *OR* Shift+Inser
 
+### Fonts URxvt
+* Install font Ubuntu:
+```shell
+$ sudo apt-get update
+$ sudo apt-get install fonts-ubuntu-font-family-console
+```
+
+* Modify file and added this line in `~/.Xdefaults`
+```
+URxvt.font: xft:UbuntuMono-RI:pixelsize=15
+```
+
 |Liste Themes|Images des Themes|
 |------------|-----------------|
 |CodeSchool|![](https://github.com/PhineasPhreak/dotfiles/blob/master/urxvt-unicode/codeschool/urxvt-unicode-theme-codeschool.png)|
