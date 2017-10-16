@@ -93,6 +93,9 @@ fi
 # alias 'clear' in 'cl'
 alias cl='clear'
 
+# shorcut command
+alias df='df -Th'
+
 # shorcut 'apt' or 'apt-get'
 alias update='sudo apt-get update'
 alias upgrade='sudo apt-get upgrade'
