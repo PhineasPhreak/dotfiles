@@ -1,10 +1,12 @@
 ## URXVT-Unicode
 
 ### Important:
-*Copy file and rename **`~/Xdefaults`** to **`~/.Xdefaults`***
+*Copy file and rename **`Xdefaults`** to **`~/.Xdefaults`***
 
 **Note:**
-For *Paste* and *Copy* use MiddleMouse *OR* Shift+Inser
+For *Copy* and *Paste* in URxvt
+* Copy: CTRL + ALT + C
+* Paste: CTRL + ALT + V
 
 ### Fonts URxvt
 * Install font Ubuntu:
