@@ -1,3 +1,4 @@
+GitHub Original: https://github.com/sciurus/i3tree
 ## OVERVIEW
 i3tree is a program I wrote to help myself adjust to version 4 of the i3 tiling window manager. It displays the containers your windows are children of and what layout those containers are using.
 
