@@ -3,8 +3,18 @@
 ### Important:
 *Copy file and rename **`Xdefaults`** to **`~/.Xdefaults`***
 
-**Note:**
-For *Copy* and *Paste* in URxvt
+### If you use VIM with colorscheme install rxvt-unicode-256color
+```shell
+$ sudo apt-get install rxvt-unicode-256color
+```
+And test your session urxvt with the next command:
+```shell
+$ echo $TERM
+rxvt-unicode-256color
+```
+
+### Clipboard with urxvt
+For *Copying* and *Pasting* with URxvt
 * Copy: CTRL + ALT + C
 * Paste: CTRL + ALT + V
 
