@@ -191,5 +191,9 @@ exec_always --no-startup-id "xset s off; xset -dpms; xset s noblank"
 for_window [class="^.*"] border pixel 3
 for_window [class=".*"] title_format " %title"
 
+# Script perl for i3 listing workspace
+for_window [title="^i3tree$"] floating enable
+bindsym $mod+t exec xterm -hold -title i3tree -e ~/.config/i3/i3tree/i3tree
+
 # Status bar 'polybar' with configuration file
 exec_always --no-startup-id "killall polybar; polybar -r default"
