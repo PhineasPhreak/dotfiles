@@ -14,9 +14,28 @@ rxvt-unicode-256color
 ```
 
 ### Clipboard with urxvt
+**By default**
 For *Copying* and *Pasting* with URxvt
 * Copy: CTRL + ALT + C
 * Paste: CTRL + ALT + V
+
+For changing *Copying* and *Pasting* use this in your configuration file `~/.Xdefaults`
+
+This config will change CTRL + ALT + C; CTRL + ALt + V **in** CTRL + Shift + C; CTRL + Shift + V
+```
+! Disable ISO 14755 unicode input so we can use Ctrl-Shift bindings
+URxvt.iso14755:        false
+URxvt.iso14755_52:     false
+
+! Disable Ctrl-Alt-c & Ctrl-Alt-v bindings (optional)
+URxvt.keysym.C-M-c:    builtin-string:
+URxvt.keysym.C-M-v:    builtin-string:
+
+! Bind Ctrl-Shift-c & Ctrl-Shift-v to copy and paste
+! I dont know why, but I needed to use hex keysym values to get it to work
+URxvt.keysym.C-S-0x43: eval:selection_to_clipboard
+URxvt.keysym.C-S-0x56: eval:paste_clipboard
+```
 
 ### Fonts URxvt
 * Install font Ubuntu:
