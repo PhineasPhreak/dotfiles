@@ -35,7 +35,10 @@ margin-top = 5
 margin-bottom = 5
 
 [bar/default]
-;monitor = ${env:MONITOR:HDMI-1}
+; Use the following command to list available outputs:
+; If unspecified, the application will pick the first one it finds.
+; $ xrandr -q | grep " connected" | cut -d ' ' -f1
+monitor = DVI-D-0
 width = 100%
 height = 27
 offset-x = 0
@@ -109,7 +112,8 @@ mount-0 = /
 ;mount-1 = /home
 ;mount-2 = /invalid/mountpoint
 
-label-mounted = %mountpoint%: %percentage_free%%
+label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
+;label-mounted = %mountpoint%: %percentage_free%%
 
 label-unmounted = %mountpoint%: not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
