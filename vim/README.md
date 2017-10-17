@@ -19,7 +19,7 @@ Wiki colorsheme: https://vim-fr.org/index.php/Le_colorscheme
 
 **.vimrc**
 ```shell
-pspk@kali:~# ls -lhA | grep .vimrc
+pspk@kali:~$ ls -lhA | grep .vimrc
 -rw-r--r-- 1 pspk pspk 3.4K Oct  3 00:44 .vimrc
 ```
 
