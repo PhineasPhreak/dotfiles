@@ -13,6 +13,11 @@ $ sudo apt-get install ranger
 
 In `~/.config/ranger`
 
+For generate the config by default here is the command:
+```shell
+$ ranger --copy-config=all
+```
+
 > **Note Important:** This configuration is the config by default of ranger
 
 ### For Customization:
