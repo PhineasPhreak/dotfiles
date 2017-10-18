@@ -3,7 +3,7 @@ Configuration Files For my Unix System
 
 * **Xorg, Vim, Bash Shell, Sublime Text 3126/3143, Firewall, Tmux, Fish, Rofi, polybar, i3wm, urxvt**
 
-### Xorg For Nvidia
+### Xorg For Nvidia:
 Pour l'installation des [Drivers Nvidia](https://github.com/PhineasPhreak/dotfiles/blob/master/etc/X11/README.md) pour Unix (Kali Linux, Ubuntu, ArchLinux)
 
 Le serveur X se configure automatiquement au démarrage.
@@ -19,7 +19,7 @@ Certaine commande peuvent être utile pour configurer (Console *ou* Graphique) X
 * Xorg Wiki: https://fr.wikipedia.org/wiki/X.Org
 * Xorg ArchWiki: https://wiki.archlinux.org/index.php/xorg
 
-### Site
+### Site:
 * Tmux
   * GitHub: https://github.com/tmux/tmux/wiki
   
@@ -37,3 +37,10 @@ Certaine commande peuvent être utile pour configurer (Console *ou* Graphique) X
 * i3wm
   * Site: https://i3wm.org/
   * Github: https://github.com/i3
+  
+### Other:
+* Example file of Rice unix Distribution
+  * http://dotshare.it/
+  
+* Reddit
+  * https://www.reddit.com/r/unixporn/
