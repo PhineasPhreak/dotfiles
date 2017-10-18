@@ -1,7 +1,7 @@
 ## URXVT-Unicode
 
 ### Important:
-*Copy file and rename **`Xdefaults`** to **`~/.Xdefaults`***
+Copy file and rename **`Xdefaults`** to **`~/.Xdefaults`**
 
 ### If you use VIM with colorscheme install rxvt-unicode-256color
 ```shell
@@ -12,6 +12,13 @@ And test your session urxvt with the next command:
 $ echo $TERM
 rxvt-unicode-256color
 ```
+
+### Tabbed for urxvt
+This is modified tabbed extension for well known urxvt-unicode terminal emulator.
+
+For installation, configuration and features:
+
+GitHub: https://github.com/gryf/tabbed
 
 ### Clipboard with urxvt
 **By default**
