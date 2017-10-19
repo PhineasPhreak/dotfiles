@@ -5,6 +5,17 @@ $ sudo apt-get update && sudo apt-get install i3
 ```
 After this Installation **Reboot** your system and changed your desktop (Gnome -> i3)
 
+### i3 with Multi Monitor
+For multi monitor use multi-monitor config
+* By default multi monitor is 2 screen (Center, Right)
+
+**Don't forget:**
+
+For identifying your Display
+```shell
+$ xrandr -q | grep " connected" | cut -d ' ' -f1
+```
+
 ### Bug - gnome-control-center with i3
 copy few lines in `.profile` file at root directory
 ```
