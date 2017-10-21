@@ -93,12 +93,16 @@ fi
 # alias 'clear' in 'cl'
 alias cl='clear'
 
-# shorcut command
+# shortcut command 'df'
+# color with df command
+#alias df='echo -e "\033[33mCommand: df -Th\033[00m" && df -Th'
+# or normal color command
 alias df='df -Th'
 
 # shorcut 'apt' or 'apt-get'
 alias update='sudo apt-get update'
-alias upgrade='sudo apt-get upgrade'
+alias get-upgrade='sudo apt-get upgrade'
+alias apt-upgrade='sudo apt upgrade'
 alias full-upgrade='sudo apt full-upgrade'
 alias dist-upgrade='sudo apt-get dist-upgrade'
 alias list-upgradable='sudo apt list --upgradable'
