@@ -1,7 +1,7 @@
 ## dotfiles
 Configuration Files For my Unix System
 
-* **Xorg, Vim, Bash Shell, Sublime Text 3126/3143, Firewall, Tmux, Fish, Rofi, polybar, i3wm, urxvt**
+* **Xorg, Vim, Bash Shell, Sublime Text 3126/3143, Firewall, Tmux, Fish, Rofi, polybar, i3wm, urxvt, PyCharm**
 
 ### Xorg For Nvidia:
 Pour l'installation des [Drivers Nvidia](https://github.com/PhineasPhreak/dotfiles/blob/master/etc/X11/README.md) pour Unix (Kali Linux, Ubuntu, ArchLinux)
