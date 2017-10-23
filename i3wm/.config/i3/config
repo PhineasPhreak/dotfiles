@@ -184,8 +184,11 @@ bindsym $mod+r mode "resize"
 # Quand le focus change d'écran, ne pas déplacer la souris
 #mouse_warping none
 
-# Disable screensaver for i3wm
+# Disabled screensaver for i3wm
 exec_always --no-startup-id "xset s off; xset -dpms; xset s noblank"
+
+# Disabled beep terminal for i3
+exec_always --no-startup-id "xset b off"
 
 # Editting 'Barre d'address' et la border de 3 pixel
 for_window [class="^.*"] border pixel 3
