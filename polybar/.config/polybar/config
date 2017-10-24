@@ -90,6 +90,14 @@ tray-padding = 2
 ;scroll-up = i3wm-wsnext
 ;scroll-down = i3wm-wsprev
 
+[bar/right]
+inherit = bar/default
+monitor = VGA-0
+modules-left = i3
+modules-right = xkeyboard date
+padding-left = 3
+padding-right = 3
+
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:45:...%
@@ -240,7 +248,8 @@ label =  %percentage_used%%
 
 [module/wlan]
 type = internal/network
-interface = net1
+;interface = wlan0
+interface = wlan1
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
@@ -331,18 +340,18 @@ format-charging-underline = #ffb52a
 format-discharging = <ramp-capacity> <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
 
-format-full-prefix = " "
+format-full-prefix = " "
 format-full-prefix-foreground = ${colors.foreground-alt}
 format-full-underline = ${self.format-charging-underline}
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
 ramp-capacity-foreground = ${colors.foreground-alt}
 
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
 animation-charging-foreground = ${colors.foreground-alt}
 animation-charging-framerate = 750
 
