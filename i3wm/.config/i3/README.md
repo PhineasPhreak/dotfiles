@@ -15,6 +15,12 @@ For identifying your Display
 ```shell
 $ xrandr -q | grep " connected" | cut -d ' ' -f1
 ```
+For graphical interface of xrandr, install and use **arandr**
+```
+$ sudo apt-get update
+$ sudo apt-get install arandr
+```
+
 ### i3 with laptop touchpad
 Check out the `xinput` command. `xinput list` will give you a list of input devices; find the ID of the one which looks like a touchpad. Then do `xinput list-props <device id>`, which should tell you what properties you can change for the input device. You should find one called something like `Tapping Enabled` and a number in parens after it (in my case, it's `libinput Tapping Enabled (276)`. Finally, run `xinput set-prop <device id> <property id> 1`, and tapping should work.
 
