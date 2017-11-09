@@ -44,3 +44,6 @@ Certaine commande peuvent être utile pour configurer (Console *ou* Graphique) X
   
 * Reddit
   * https://www.reddit.com/r/unixporn/
+
+### Thanks
+Special thanks go to whom I might have stolen scripts and configs
