@@ -101,6 +101,9 @@ alias cl='clear'
 # or normal color command
 alias df='df -Th'
 
+# show free space memory
+alias free='free -ht'
+
 # shorcut 'apt' or 'apt-get'
 alias update='sudo apt-get update'
 alias install-package='sudo apt-get install $argv'
