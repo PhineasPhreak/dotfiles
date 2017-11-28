@@ -1,0 +1,5 @@
+{
+    "cmd": ["/usr/bin/python3.6", "-u", "$file"],
+    "file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
+    "quiet": true
+}
