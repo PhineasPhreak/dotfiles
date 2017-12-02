@@ -35,3 +35,13 @@ total 140K
 -rw-rw-r-- 1 pspk pspk  11K oct.  11 10:21 office-light.vim
 -rw-rw-r-- 1 pspk pspk  47K oct.  11 10:13 solarized.vim
 ```
+
+**plugin**
+
+Installation:
+```shell
+~/.vim/plugin/indentLine.vim
+```
+Original GitHub: https://github.com/Yggdroot/indentLine
+
+*Thank you*
