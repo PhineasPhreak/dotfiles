@@ -32,6 +32,8 @@ For my HP Laptop the command is:
 
 `exec xinput set-prop 11 276 1`
 
+> PS: Use **laptop** configuration because this modification actually done.
+
 ### Disabled beep terminal and screensaver for i3
 * Screensaver
 Add this line to `~/.config/i3/config`
