@@ -1,7 +1,11 @@
 ## dotfiles
-Configuration Files For my Unix System
 
-* **Xorg, Vim, Bash Shell, Sublime Text 3126/3143, Firewall, Tmux, Fish, Rofi, polybar, i3wm, urxvt, PyCharm**
+>Very Important: **[List of packages that must be installed](https://github.com/PhineasPhreak/dotfiles/tree/master/packages)**
+
+Configuration Files For my Unix System
+* **Xorg, Vim, Bash Shell, Sublime Text 3126/3143, Firewall, Tmux, Fish, terminator, Rofi, polybar, i3wm, urxvt, PyCharm**
+
+* PS Book Pentest and Security: **[Git-Pentest](https://github.com/enaqx/awesome-pentest), [Git-Security](https://github.com/sbilly/awesome-security)**
 
 ### Xorg For Nvidia:
 Pour l'installation des [Drivers Nvidia](https://github.com/PhineasPhreak/dotfiles/blob/master/etc/X11/README.md) pour Unix (Kali Linux, Ubuntu, ArchLinux)
@@ -44,6 +48,9 @@ Certaine commande peuvent être utile pour configurer (Console *ou* Graphique) X
   
 * Reddit
   * https://www.reddit.com/r/unixporn/
+  
+* Bash Academy
+  * http://www.bash.academy/
 
 ### Thanks
 Special thanks go to whom I might have stolen scripts and configs
