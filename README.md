@@ -8,7 +8,7 @@ Configuration Files For my Unix System
 * PS Book Pentest and Security: **[Git-Pentest](https://github.com/enaqx/awesome-pentest), [Git-Security](https://github.com/sbilly/awesome-security)**
 
 ### Xorg For Nvidia:
-Pour l'installation des [Drivers Nvidia](https://github.com/PhineasPhreak/dotfiles/blob/master/etc/X11/README.md) pour Unix (Kali Linux, Ubuntu, ArchLinux)
+Pour l'installation des [Drivers Nvidia](https://github.com/PhineasPhreak/dotfiles/blob/master/configs/etc/X11/README.md) pour Unix (Kali Linux, Ubuntu, ArchLinux)
 
 Le serveur X se configure automatiquement au démarrage.
 Le fichier /etc/X11/xorg.conf qui sert à paramétrer le serveur X est donc quasiment vide voire inexistant.
