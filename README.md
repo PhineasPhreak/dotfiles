@@ -1,6 +1,6 @@
 ## dotfiles
 
->Very Important: **[List of packages that must be installed](https://github.com/PhineasPhreak/dotfiles/tree/master/packages)**
+Very Important: **[List of packages that must be installed](https://github.com/PhineasPhreak/dotfiles/tree/master/packages)**
 
 Configuration Files For my Unix System
 * **Xorg, Vim, Bash Shell, Sublime Text 3126/3143, Firewall, Tmux, Fish, terminator, Rofi, polybar, i3wm, urxvt, PyCharm**
