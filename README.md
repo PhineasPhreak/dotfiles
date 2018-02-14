@@ -3,7 +3,7 @@
 Very Important: **[List of packages that must be installed](https://github.com/PhineasPhreak/dotfiles/tree/master/packages)**
 
 Configuration Files For my Unix System
-* **Xorg, Vim, Bash Shell, Sublime Text 3126/3143, Firewall, Tmux, Fish, terminator, Rofi, polybar, i3wm, urxvt, PyCharm**
+* **Xorg, Vim, nano, Bash Shell, Sublime Text 3126/3143, Firewall, Tmux, Fish, terminator, Rofi, polybar, i3wm, urxvt, PyCharm, ranger**
 
 * PS Book Pentest and Security: **[Git-Pentest](https://github.com/enaqx/awesome-pentest), [Git-Security](https://github.com/sbilly/awesome-security), [Git-Linux](https://github.com/aleksandar-todorovic/awesome-linux), [Git-Python](https://github.com/vinta/awesome-python)**
 
