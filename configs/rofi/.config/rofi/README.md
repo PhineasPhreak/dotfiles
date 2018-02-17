@@ -13,7 +13,7 @@ Paste the 'config' file to the home directory
 ~/.config/rofi/config
 ```
 
-### shorcut:
+### Shorcut:
 Use the following command to lauch rofi:
 ```shell
 rofi -show run
