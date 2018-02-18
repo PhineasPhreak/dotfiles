@@ -39,3 +39,5 @@ $ sudo systemctl enable firewall.service
 
 ## List of TCP; UDP Port numbers
 * Wiki: [Listing wiki](https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers)
+* Info: [Firewall avec Iptables](https://www.memoinfo.fr/tutoriels-linux/configurer-firewall-linux-iptables/)
+* Info: [Gestion des services Debian](https://www.memoinfo.fr/tutoriels-linux/gestion-services-debian/)
