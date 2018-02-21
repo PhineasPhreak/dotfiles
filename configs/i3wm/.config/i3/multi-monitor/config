@@ -209,6 +209,9 @@ bindsym $mod+t exec xterm -hold -title i3tree -e ~/.config/i3/i3tree/i3tree
 # Status bar 'polybar' with configuration file
 exec_always --no-startup-id "killall polybar; polybar -r default & polybar -r right"
 
+# Screen resolution config  and video output
+exec_always xrandr --dpi 085 --output VGA-0 --mode 1280x1024 --pos 1920x0 --rotate normal --output DVI-D-0 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-0 --off
+
 # WPS Office
 # for_window [class="et"] border none, move container to workspace "Spreadsheet", layout fullscreen
 # assign [class="WPS Spreadsheet"] "Spreadsheet"
@@ -221,3 +224,4 @@ bindsym $mod+F1 exec firefox
 bindsym $mod+F2 exec chromium-browser
 bindsym $mod+F3 exec nautilus
 bindsym $mod+F4 exec thunar
+bindsym $mod+F4 exec caja
