@@ -23,6 +23,7 @@ Certaine commande peuvent être utile pour configurer (Console *ou* Graphique) X
 * Xorg Wiki: https://fr.wikipedia.org/wiki/X.Org
 * Xorg ArchWiki: https://wiki.archlinux.org/index.php/xorg
 
+**Icon GitHub :** [Icon Here](https://octicons.github.com/)
 ### Site:
 * Tmux
   * GitHub: https://github.com/tmux/tmux/wiki
