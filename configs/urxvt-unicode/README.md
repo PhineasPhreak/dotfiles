@@ -1,4 +1,4 @@
-## URXVT-Unicode
+## URxvt-Unicode
 
 ### Important:
 Copy file and rename **`Xdefaults`** to **`~/.Xdefaults`**
@@ -13,14 +13,14 @@ $ echo $TERM
 rxvt-unicode-256color
 ```
 
-### Tabbed for urxvt
+### Tabbed for URxvt
 This is modified tabbed extension for well known urxvt-unicode terminal emulator.
 
 For installation, configuration and features:
 
 GitHub: https://github.com/gryf/tabbed
 
-### Clipboard with urxvt
+### Clipboard with URxvt
 **By default**
 For *Copying* and *Pasting* with URxvt
 * Copy: CTRL + ALT + C
@@ -44,6 +44,33 @@ URxvt.keysym.C-S-0x43: eval:selection_to_clipboard
 URxvt.keysym.C-S-0x56: eval:paste_clipboard
 ```
 
+### URxvt Transparency
+Urxvt offers two types of transparency for its background :
+
+* A "false" transparency that reproduces the wallpaper in the bottom of the terminal.
+(more precisely, the content of the root window of Xorg)
+* A "true" transparency, which uses the composition manager that runs.
+(xcompmgr, dcompmgr, compiz ...)
+
+If there is no compositing manager running, there is no transparency of everything on a chosen true (composite) transparency.
+
+Edit the `~/.Xdefaults` file and add :
+* For **true** transparency (composite) :
+```
+URxvt*depth: 32
+URxvt*background: rgba:0000/0000/0200/c800
+```
+**OR**
+```
+URxvt.background: [90]black
+```
+
+* For the **false** transparency :
+```
+URxvt*transparent: true
+URxvt*shading: 30
+```
+> **Note:** If you put both, the false transparency passes before the true transparency (composite).
 ### Fonts URxvt
 * Install font Ubuntu:
 ```shell
