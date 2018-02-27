@@ -134,6 +134,11 @@ set tm=500
 " Number for each line
 set number
 
+" Mouse for Vim
+if has('mouse')
+  set mouse=a
+endif
+
 " Properly disable sound on errors on MacVim
 if has("gui_macvim")
     autocmd GUIEnter * set vb t_vb=
