@@ -126,6 +126,9 @@ alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
 
+# mark show hold packages
+alias mark-show-hold='sudo apt-mark showhold'
+
 # some more reboot and poweroff for KALI LINUX
 #alias reboot='sudo reboot'
 #alias poweroff='sudo poweroff'
