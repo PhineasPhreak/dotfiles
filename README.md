@@ -24,37 +24,23 @@ Certaine commande peuvent être utile pour configurer (Console *ou* Graphique) X
 * Xorg ArchWiki: https://wiki.archlinux.org/index.php/xorg
 
 **Icon GitHub :** [Icon Here](https://octicons.github.com/)
-### Site:
-* Tmux
-  * GitHub: https://github.com/tmux/tmux/wiki
-  
-* Fish
-  * Site: https://fishshell.com/
-  * GitHub: https://github.com/fish-shell/fish-shell
-  * GitHub: https://github.com/oh-my-fish/oh-my-fish
-  
-* Rofi
-  * GitHub: https://github.com/DaveDavenport/rofi/
+### Site and Others:
+| **Sites** |                                                  |
+| --------- | ------------------------------------------------ |
+| Tmux      | GitHub: https://github.com/tmux/tmux/wiki        |
+| Fish      | Site: https://fishshell.com/                     |
+|           | GitHub: https://github.com/fish-shell/fish-shell |
+|           | GitHub: https://github.com/oh-my-fish/oh-my-fish |
+| Rofi      | GitHub: https://github.com/DaveDavenport/rofi/   |
+| Polybar   | GitHub: https://github.com/jaagr/polybar         |
+| i3wm      | Site: https://i3wm.org/                          |
+|           | Github: https://github.com/i3                    |
 
-* Polybar
-  * GitHub: https://github.com/jaagr/polybar
-
-* i3wm
-  * Site: https://i3wm.org/
-  * Github: https://github.com/i3
-  
-### Other:
-* Example file of Rice unix Distribution
-  * http://dotshare.it/
-
-* Python Awesome
-  * https://awesome-python.com/
-  
-* Reddit
-  * https://www.reddit.com/r/unixporn/
-  
-* Bash Academy
-  * http://www.bash.academy/
-
+| **Others**                             |                                    |
+| -------------------------------------- | ---------------------------------- |
+| Example file of Rice unix Distribution | http://dotshare.it/                |
+| Python Awesome                         | https://awesome-python.com/        |
+| Reddit                                 | https://www.reddit.com/r/unixporn/ |
+| Bash Academy                           | http://www.bash.academy/           |
 ### Thanks
 Special thanks go to whom I might have stolen scripts and configs
