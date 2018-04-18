@@ -190,6 +190,9 @@ exec_always --no-startup-id "xset s off; xset -dpms; xset s noblank"
 # Disabled beep terminal
 exec_always --no-startup-id "xset b off"
 
+# xrandr screen 
+exec_always --no-startup-id "xrandr --dpi 085"
+
 # Editting 'Barre d'address' et la border de 3 pixel
 for_window [class="^.*"] border pixel 3
 for_window [class=".*"] title_format " %title"
