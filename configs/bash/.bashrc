@@ -131,6 +131,8 @@ alias sc='screen'
 alias scls='screen -ls'
 alias scs='screen -S'
 alias scr='screen -r'
+alias scx='screen -x'
+alias scd='screen -d'
 
 # mark show hold packages
 alias mark-show-hold='sudo apt-mark showhold'
