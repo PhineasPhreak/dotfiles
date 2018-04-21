@@ -126,6 +126,12 @@ alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
 
+# alias "screen" for SSH session
+alias sc='screen'
+alias scls='screen -ls'
+alias scs='screen -S'
+alias scr='screen -r'
+
 # mark show hold packages
 alias mark-show-hold='sudo apt-mark showhold'
 
