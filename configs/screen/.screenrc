@@ -1,0 +1,37 @@
+##########################
+# Configuration SCREEN   #
+##########################
+# Author : Phineasphreak #
+##########################
+
+# mouse active for split window
+mousetrack on
+
+#autodetach on
+altscreen on
+defscrollback 4000
+startup_message off
+
+# Don't block screen session waiting for unresponsive window
+nonblock on
+
+# Visible "hardline" for screen
+hardstatus alwayslastline
+hardstatus string '%S - %{= gk}%-Lw%{= rW}%50> %n%f* %t %{-}%+Lw%< %= %{= kG} %H %{= Bw} %l %{= kG} %Y-%m-%d %c %{g}' 
+
+# Window number starts at 1, not 0
+#bind 'q' quit
+bind c screen 1
+bind 0 select 10
+
+# Tell screen that you term can scroll and bind Shift+PgUp/PgDn
+#termcapinfo xterm ti@:te@
+bindkey -m "^[[5;2~" stuff ^b
+bindkey -m "^[[6;2~" stuff ^f
+
+# Setup our default apps
+#screen -t HTOP 1 htop
+#screen -t DSTAT 2 dstat -cdny
+#screen -t MESSAGES -M 3 tail -n 2000 -F /var/log/messages
+#screen 4 BASH
+#select 1
