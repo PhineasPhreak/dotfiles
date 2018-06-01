@@ -18,7 +18,7 @@ font pango:monospace 8
 
 # class                 border  bground text    indicator child_border
 client.focused          #3F4649 #3F4649 #FFFFFF #2E9EF4   #3F4649
-client.focused_inactive #333333 #2D2F31 #FFFFFF #484E50   #5F676A
+client.focused_inactive #333333 #2D2F31 #FFFFFF #484E50   #2D2F31
 client.unfocused        #333333 #222222 #888888 #292D2E   #222222
 client.urgent           #2F343A #900000 #FFFFFF #900000   #900000
 client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
