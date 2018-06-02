@@ -71,7 +71,17 @@ URxvt*transparent: true
 URxvt*shading: 30
 ```
 > **Note:** If you put both, the false transparency passes before the true transparency (composite).
-### Fonts URxvt
+### URxvt Resize and colors cursor
+Append this code to `~/.Xdefaults`
+```
+!! resize-font
+URxvt.resize-font.smaller:	C-Down
+URxvt.resize-font.bigger:	C-Up
+!! scrollbar-cursors
+URxvt.scrollBar:	false
+URxvt.cursorColor:	white
+```
+### URxvt Fonts
 * Install font Ubuntu:
 ```shell
 $ sudo apt-get update
