@@ -5,6 +5,8 @@ You can use a other configuration of [i3](https://github.com/PhineasPhreak/dotfi
 ```shell
 $ sudo apt-get update && sudo apt-get install i3status
 ```
+### How to use i3status
+Copy `i3status.conf` in `~/.config/i3/`
 
 ### For Font-Awesome :
 ```shell
