@@ -142,7 +142,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 bar {
       font pango:DejaVu Sans Mono, FontAwesome 9
       position top
-      status_command i3status
+      status_command i3status -c ~/.config/i3/i3status.conf
 
       colors {
             separator #666666
