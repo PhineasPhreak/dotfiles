@@ -1,4 +1,4 @@
-### PyCharm Settings
+## PyCharm Settings
 
 Open PyCharm:
 
