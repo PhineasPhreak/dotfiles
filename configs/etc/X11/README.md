@@ -3,25 +3,21 @@
 Installer NVIDIA GPU et CUDA support sur les distributions Unix, ci-dessus:
 
 *Note:* GPUs with a [CUDA Compute Capability](https://developer.nvidia.com/cuda-gpus) > 5.0 are recommended, but GPUs with less will still work.
-
 ```shell
 apt update && apt dist-upgrade -y && reboot
 ```
-
 Let’s determine the exact GPU installed, and check the kernel modules it’s using.
 ```shell
 root@kali:~# lspci -v
 ```
 
 ### Installation
-
 Once the system has rebooted, we will proceed to install the OpenCL ICD Loader, Drivers, and the CUDA toolkit.
 ```shell
 apt install -y ocl-icd-libopencl1 nvidia-driver nvidia-cuda-toolkit
 ```
 
 ### Verify Driver Installation
-
 Now that our system should be ready to go, we need to verify the drivers have been loaded correctly. We can quickly verify this by running the [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) tool.
 ```shell
 root@kali:~# nvidia-smi 
