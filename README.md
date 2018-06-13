@@ -7,7 +7,7 @@ Configuration Files For my Unix System
 
 * PS Book Pentest and Security: **[Git-Pentest](https://github.com/enaqx/awesome-pentest), [Git-Security](https://github.com/sbilly/awesome-security), [Git-Linux](https://github.com/aleksandar-todorovic/awesome-linux), [Git-Python](https://github.com/vinta/awesome-python)**
 
-### Xorg For Nvidia:
+### Xorg For Nvidia
 Pour l'installation des [Drivers Nvidia](https://github.com/PhineasPhreak/dotfiles/blob/master/configs/etc/X11/README.md) pour Unix (Kali Linux, Ubuntu, ArchLinux)
 
 Le serveur X se configure automatiquement au démarrage.
@@ -69,7 +69,7 @@ When you find the package, select it and go to the ***Package*** menu and select
 
 **Icon GitHub :** [Icon Here](https://octicons.github.com/)
 
-### Site and Others:
+### Site and Others
 
 | **Sites** |                                                  |
 | --------- | ------------------------------------------------ |
@@ -88,6 +88,8 @@ When you find the package, select it and go to the ***Package*** menu and select
 | Python Awesome                         | https://awesome-python.com/        |
 | Reddit                                 | https://www.reddit.com/r/unixporn/ |
 | Bash Academy                           | http://www.bash.academy/           |
+| DSASMBLR                               | http://dsasmblr.com/               |
+| Stephen Chapman *(GitHub)*             | https://github.com/dsasmblr        |
 
 ### Thanks
 Special thanks go to whom I might have stolen scripts and configs
