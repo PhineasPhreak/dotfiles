@@ -5,7 +5,7 @@ Very Important: **[List of packages that must be installed](https://github.com/P
 Configuration Files For my Unix System
 * **Xorg, Vim, nano, Bash Shell, Sublime Text 3126/3143, Firewall, Tmux, Fish, terminator, Rofi, polybar, i3wm, urxvt, PyCharm, ranger, vscode**
 
-* PS Book Pentest and Security: **[Git-Pentest](https://github.com/enaqx/awesome-pentest), [Git-Security](https://github.com/sbilly/awesome-security), [Git-Linux](https://github.com/aleksandar-todorovic/awesome-linux), [Git-Python](https://github.com/vinta/awesome-python)**
+* PS Book Pentest and Security: **[Git-Pentest](https://github.com/enaqx/awesome-pentest), [Git-Security](https://github.com/sbilly/awesome-security), [Git-Linux](https://github.com/aleksandar-todorovic/awesome-linux), [Git-Python](https://github.com/vinta/awesome-python), [Git-GameHacking](https://github.com/dsasmblr/game-hacking)**
 
 ### Xorg For Nvidia
 Pour l'installation des [Drivers Nvidia](https://github.com/PhineasPhreak/dotfiles/blob/master/configs/etc/X11/README.md) pour Unix (Kali Linux, Ubuntu, ArchLinux)
