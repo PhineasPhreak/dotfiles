@@ -9,8 +9,7 @@ After this Installation **Reboot** your system and changed your desktop (Gnome -
 For multi monitor use multi-monitor config
 * By default multi monitor is 2 screen (Center, Right)
 
-**Don't forget:**
-
+**Don't forget :**<br>
 For identifying your Display
 ```shell
 $ xrandr -q | grep " connected" | cut -d ' ' -f1
@@ -20,8 +19,7 @@ For graphical interface of xrandr, install and use **arandr**
 $ sudo apt-get update
 $ sudo apt-get install arandr
 ```
-**DPI:**
-
+**DPI :**<br>
 The DPI value of a screen indicates how many dots per inch or pixels per inch it supports. As the resolution increases, the display density also increases. You may know what resolution your display has but you may have no idea what your screen's DPI is.
 
 For this use option of *xrandr*:
