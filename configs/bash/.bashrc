@@ -123,7 +123,8 @@ alias sources='cat -n /etc/apt/sources.list && ls -lhA /etc/apt/sources.list.d/'
 
 # some more ls aliases
 alias ll='ls -l'
-alias la='ls -A'
+alias la='ls -lhA'
+alias lf='ls -lhAF'
 alias l='ls -CF'
 
 # alias "screen" for SSH session
