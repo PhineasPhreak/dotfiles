@@ -163,8 +163,14 @@ if $COLORTERM == 'gnome-terminal'
     set t_Co=256
 endif
 
+" Enable 256 colors palette in Mate Terminal
+if $TERM == 'xterm'
+    set t_Co=256
+endif
+
 try
-    colorscheme desert
+    colorscheme hybrid
+    "colorscheme predawn
 catch
 endtry
 
