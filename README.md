@@ -71,16 +71,17 @@ When you find the package, select it and go to the ***Package*** menu and select
 
 ### Site and Others
 
-| **Sites** |                                                  |
-| --------- | ------------------------------------------------ |
-| Tmux      | GitHub: https://github.com/tmux/tmux/wiki        |
-| Fish      | Site: https://fishshell.com/                     |
-|           | GitHub: https://github.com/fish-shell/fish-shell |
-|           | GitHub: https://github.com/oh-my-fish/oh-my-fish |
-| Rofi      | GitHub: https://github.com/DaveDavenport/rofi/   |
-| Polybar   | GitHub: https://github.com/jaagr/polybar         |
-| i3wm      | Site: https://i3wm.org/                          |
-|           | Github: https://github.com/i3                    |
+| **Sites** |                                                   |
+| --------- | ------------------------------------------------- |
+| Tmux      | GitHub: https://github.com/tmux/tmux/wiki         |
+| Fish      | Site: https://fishshell.com/                      |
+|           | GitHub: https://github.com/fish-shell/fish-shell  |
+|           | GitHub: https://github.com/oh-my-fish/oh-my-fish  |
+| Rofi      | GitHub: https://github.com/DaveDavenport/rofi/    |
+| Polybar   | GitHub: https://github.com/jaagr/polybar          |
+| i3wm      | Site: https://i3wm.org/                           |
+|           | GitHub: https://github.com/i3                     |
+| ccat      | GitHub: https://github.com/jingweno/ccat/releases |
 
 | **Others**                             |                                    |
 | -------------------------------------- | ---------------------------------- |
