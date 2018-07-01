@@ -97,11 +97,11 @@ fi
 alias cl='clear'
 
 # quick switch to directories
-alias cddown='~/Downloads'
-alias cddoc='~/Documents'
-alias cdgit='~/Git'
-alias cdlab='~/Lab'
-alias cdos='~/OS'
+alias cddown='cd ~/Downloads/'
+alias cddoc='cd ~/Documents/'
+alias cdgit='cd ~/Git/'
+alias cdlab='cd ~/Lab/'
+alias cdos='cd ~/OS/'
 
 # prompt before overwrite for "cp", "mv' and "rm"
 alias cp='cp -i'
