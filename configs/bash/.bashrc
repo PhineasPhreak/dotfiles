@@ -102,6 +102,9 @@ alias cl='clear'
 # or normal color command
 alias df='df -Th'
 
+# Summarize disk usage of the set of FILEs, recursively for directories
+alias du='du -h'
+
 # show free space memory
 alias free='free -ht'
 
