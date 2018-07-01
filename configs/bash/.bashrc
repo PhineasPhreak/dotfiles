@@ -96,10 +96,19 @@ fi
 # alias 'clear' in 'cl'
 alias cl='clear'
 
+# quick switch to directories
+alias cddown='~/Downloads'
+alias cddoc='~/Documents'
+alias cdgit='~/Git'
+alias cdlab='~/Lab'
+alias cdos='~/OS'
+
+# prompt before overwrite for "cp", "mv' and "rm"
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -i'
+
 # shortcut command 'df'
-# color with df command
-#alias df='echo -e "\033[33mCommand: df -Th\033[00m" && df -Th'
-# or normal color command
 alias df='df -Th'
 
 # Summarize disk usage of the set of FILEs, recursively for directories
