@@ -3,7 +3,7 @@
 Very Important: **[List of packages that must be installed](https://github.com/PhineasPhreak/dotfiles/tree/master/packages)**
 
 Configuration Files For my Unix System
-* **Xorg, Vim, nano, Bash Shell, Sublime Text 3126/3143, Firewall, Tmux, Fish, terminator, Rofi, polybar, i3wm, urxvt, PyCharm, ranger, vscode**
+* **Xorg, Vim, nano, Bash Shell, Sublime Text 3126/3143/3176, Firewall, Tmux, Fish, terminator, Rofi, polybar, i3wm, urxvt, PyCharm, ranger, vscode**
 
 * PS Book Pentest and Security: **[Git-Pentest](https://github.com/enaqx/awesome-pentest), [Git-Security](https://github.com/sbilly/awesome-security), [Git-Linux](https://github.com/aleksandar-todorovic/awesome-linux), [Git-Python](https://github.com/vinta/awesome-python), [Git-GameHacking](https://github.com/dsasmblr/game-hacking)**
 
@@ -87,6 +87,7 @@ When you find the package, select it and go to the ***Package*** menu and select
 | -------------------------------------- | ---------------------------------- |
 | Example file of Rice unix Distribution | http://dotshare.it/                |
 | Python Awesome                         | https://awesome-python.com/        |
+| Packages Python                        | https://pypi.org/                  |
 | Reddit                                 | https://www.reddit.com/r/unixporn/ |
 | Bash Academy                           | http://www.bash.academy/           |
 | DSASMBLR                               | http://dsasmblr.com/               |
