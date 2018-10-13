@@ -2,6 +2,24 @@
 
 Visual Studio Code : https://code.visualstudio.com/
 
+### Custom `settings.json` file from VSCode
+
+Since VSCode 1.28.1 you can custom the **window.titleBarStyle** in settings.json file. <br>
+Example of `settings.json` :
+```json
+{
+    "editor.fontSize": 14,
+    "editor.mouseWheelZoom": true,
+    "window.zoomLevel": -1,
+    "workbench.iconTheme": "vscode-icons",
+    "python.pythonPath": "/usr/bin/python3.6",
+    "telemetry.enableTelemetry": false,
+    "workbench.colorTheme": "Predawn",
+    "window.titleBarStyle": "custom",
+}
+```
+> My little config for VSCode 1.28.1
+
 ### Installation
 
 Install `libfreetype6_2.8-0.2ubuntu2.1_amd64.deb` on your system.
