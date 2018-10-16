@@ -81,6 +81,8 @@ When you find the package, select it and go to the ***Package*** menu and select
 | Polybar   | GitHub: https://github.com/jaagr/polybar          |
 | i3wm      | Site: https://i3wm.org/                           |
 |           | GitHub: https://github.com/i3                     |
+| awesomewm | Site: https://awesomewm.org/                      |
+|           | GitHub: https://github.com/awesomeWM/awesome      |
 | ccat      | GitHub: https://github.com/jingweno/ccat/releases |
 
 | **Others**                             |                                    |
