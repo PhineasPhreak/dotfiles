@@ -58,7 +58,7 @@ fi
 
 if [ "$color_prompt" = yes ]; then
    if [ "$USERNAME" = root ]; then
-      PS1='${debian_chroot:+($debian_chroot)}\[\033[01;31m\]\u@\[\033[01;35m\]\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+      PS1='${debian_chroot:+($debian_chroot)}\[\033[01;31m\]\u@\[\033[01;31m\]\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
    else
       # Color for Kali Linux
       #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;35m\]\u@\[\033[01;35m\]\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
