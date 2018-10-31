@@ -93,20 +93,25 @@ if [ -x /usr/bin/dircolors ]; then
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
+
+# alias for 'sudo' in 'sd'
+alias sd='sudo '
+
 # alias 'clear' in 'cl'
 alias cl='clear'
 
 # quick switch to directories
 alias cddown='cd ~/Downloads/'
 alias cddoc='cd ~/Documents/'
+alias cdpic='cd ~/Pictures/'
 alias cdgit='cd ~/Git/'
 alias cdlab='cd ~/Lab/'
 alias cdos='cd ~/OS/'
 
 # prompt before overwrite for "cp", "mv' and "rm"
-alias cp='cp -i'
-alias mv='mv -i'
-alias rm='rm -i'
+alias cp='cp -v'
+alias mv='mv -v'
+alias rm='rm -v'
 
 # shortcut command 'df'
 alias df='df -Th'
@@ -134,7 +139,8 @@ alias list-key='sudo apt-key list'
 alias sources='cat -n /etc/apt/sources.list && ls -lhA /etc/apt/sources.list.d/'
 
 # some more ls aliases
-alias ll='ls -l'
+alias ld='ls --color=auto -lhA --group-directories-first'
+alias ll='ls -lh'
 alias la='ls -lhA'
 alias lf='ls -lhAF'
 alias l='ls -CF'
