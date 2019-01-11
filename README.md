@@ -11,7 +11,7 @@ Configuration Files For my Unix System
 Pour l'installation des [Drivers Nvidia](https://github.com/PhineasPhreak/dotfiles/blob/master/configs/etc/X11/README.md) pour Unix (Kali Linux, Ubuntu, ArchLinux)
 
 Le serveur X se configure automatiquement au démarrage.
-Le fichier /etc/X11/xorg.conf qui sert à paramétrer le serveur X est donc quasiment vide voire inexistant.
+Le fichier `/etc/X11/xorg.conf` qui sert à paramétrer le serveur X est donc quasiment vide voire inexistant.
 
 Cependant, dans certains cas, la détection automatique ne fonctionne pas.
 Il faut donc paramétrer manuellement ce fichier xorg.conf.
