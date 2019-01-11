@@ -1,4 +1,6 @@
 ## Configuration nano
+Site for `nanorc.5 man page in HTML format` : [nanorc.5](https://www.nano-editor.org/dist/v3/nanorc.5.html) <br />
+Site for `nano.1 man page in HTML format` : [nanorc.1](https://www.nano-editor.org/dist/v3/nano.1.html)
 
 ## Install
 
