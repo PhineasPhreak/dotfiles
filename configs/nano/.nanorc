@@ -60,6 +60,9 @@ set mouse
 ## Don’t display the help lists at the bottom of the screen
 #set hohelp
 
+## Display line numbers to the left of the text area.
+set linenumbers
+
 ## Don’t add newlines to the ends of files
 #set nonewlines
 
