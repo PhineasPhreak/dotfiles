@@ -59,6 +59,8 @@ macchanger
 unix2dos
 dos2unix
 wavemon
+nmon
+glances
 pv
 dmtx-utils
 iec16022
