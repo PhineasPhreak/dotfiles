@@ -122,6 +122,9 @@ alias du='du -h'
 # show free space memory
 alias free='free -ht'
 
+# show command "jobs" in list format
+alias jobs='jobs -l'
+
 # shorcut 'apt' or 'apt-get'
 alias update='sudo apt-get update'
 alias install-package='sudo apt-get install $argv'
