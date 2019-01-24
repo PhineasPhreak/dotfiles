@@ -86,6 +86,11 @@
 				<execute>lxappearance</execute>
 			</action>
 		</item>
+		<item label="Screen Layout Editor">
+			<action name="Execute">
+				<execute>arandr</execute>
+			</action>
+		</item>
 		<item label="Tint2Conf">
 			<action name="Execute">
 				<execute>tint2conf</execute>
