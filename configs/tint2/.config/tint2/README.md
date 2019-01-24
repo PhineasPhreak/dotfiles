@@ -1,7 +1,9 @@
 ## tint2 Configuration file : 
 tint2 is a simple, unobtrusive and light panel for Xorg. It can be configured to include a system tray, a task list, 
 a battery monitor and more. Its look is configurable and it only has few dependencies, 
-making it ideal for window managers like Openbox, that do not come with a panel. 
+making it ideal for window managers like Openbox, that do not come with a panel.
+
+![Config for tint2](https://github.com/PhineasPhreak/dotfiles/blob/master/screenshots/tint2-config.png)
 
 ### Installation :
 The first time you run tint2, it will create the config file in `$HOME/.config/tint2/tint2rc` 
