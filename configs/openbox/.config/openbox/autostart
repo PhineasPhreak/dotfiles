@@ -1,0 +1,12 @@
+##############################
+### Openbox starting files ###
+##############################
+
+# Use nitrogen package to manage your wallpaper
+#nitrogen --restore
+
+# Use feh
+feh --bg-scale /home/rift/Pictures/Wallpper/Linux-Wallpaper-32.png &
+
+# Launch the tint2 when starting openbox
+tint2 &
