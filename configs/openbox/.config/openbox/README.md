@@ -11,7 +11,7 @@ Github : [Github](https://github.com/danakj/openbox)
 ## Installation Openbox :
 * Run this command to update and install openbox on your distribution :
 ```bash
-$ sudo apt update && audo apt install openbox openbox-menu
+$ sudo apt update && sudo apt install openbox openbox-menu
 ```
 
 * Package to install on the system for `menu.xml`
