@@ -1,80 +1,114 @@
-acpi (laptop)
-cheese (optional)
-fish
-chromium
-lxappearance
-mupdf
-gmrun
-zathura
-obs-studio
-pacli
-pulseaudio-alsa
-pavucontrol
-redshift
-rsync
-ssh
-screenfetch
-stow
-thunar
-nautilus
-caja
-vlock
-transmission-gtk
-ttf-dejavu
-ttf-font-awesome
-ttf-freefont
-ttf-google-fonts
-ttf-source-code
-gpick
-gcolor2
-vim
-mc (midnight-commander)
-vlc
-parole
-mpv
-wget
-aria2
-bless
-wxhexeditor
-dhex
-xarchiver
-wireshark
-nmap
-zenmap
-sslscan
-hping3
-nikto
-htop
-atop
-dstat
-git
-hexedit
-gcp
-bleachbit
-rkhunter
-fwbuilder
-idle-python2.7
-idle-python3.6
-irrsi
-hexchat
-macchanger
-unix2dos
-dos2unix
-wavemon
-nmon
-glances
-pv
-dmtx-utils
-iec16022
-seahorse
-gpa
-gpaste
-gpaint
-qrencode
-barcode
-lshw
-lsscsi
-dmidecode
-bwm-ng
-bmon
-iftop
+sudo (Provide limited super user privileges to specific users)
+cheese (tool to take pictures and videos from your webcam)
+rofi (window switcher, run dialog and dmenu replacement)
+gmrun (Featureful CLI-like GTK+ application launcher)
+tmux (terminal multiplexer)
+screen (terminal multiplexer with VT100/ANSI terminal emulation)
+fish (friendly interactive shell)
+zsh (shell with lots of features)
+termit (Simple terminal emulator based on vte library, embedded lua)
+terminator (multiple GNOME terminals in one window)
+xterm (X terminal emulator)
+rxvt (VT102 terminal emulator for the X Window System)
+rxvt-unicode (RXVT-like terminal emulator with Unicode support)
+rxvt-unicode-256color (multi-lingual terminal emulator with Unicode support for X11)
+firefox-esr (Mozilla Firefox web browser - Extended Support Release (ESR))
+chromium (web browser)
+openbox (standards-compliant, fast, light-weight and extensible window manager)
+openbox-menu (openbox pipe-menu to display entries in *.desktop files)
+obmenu (Graphical menu editor for openbox)
+obconf (preferences manager for Openbox window manager)
+tint2 (lightweight taskbar)
+feh (imlib2 based image viewer)
+nitrogen (wallpaper browser and changing utility for X)
+lxappearance (LXDE GTK+ theme switcher)
+arandr (Simple visual front end for XRandR)
+mupdf (lightweight PDF viewer)
+zathura (document viewer with a minimalistic interface)
+obs-studio (recorder and streamer for live video content)
+acpi [laptop] (displays information on ACPI devices)
+pacli (Puppet module for Joshuabaird IPAclient)
+pulseaudio-alsa (PulseAudio sound server)
+pavucontrol (PulseAudio Volume Control)
+redshift (Adjusts the color temperature of your screen)
+rsync (fast, versatile, remote (and local) file-copying tool)
+ssh (secure shell client and server (metapackage))
+screenfetch (Bash Screenshot Information Tool)
+stow (Organizer for /usr/local software packages)
+thunar (File Manager for Xfce)
+pcmanfm (extremely fast and lightweight file manager)
+nautilus (file manager and graphical shell for GNOME)
+caja (file manager for the MATE desktop)
+i3lock (improved screen locker)
+vlock (Virtual Console locking program)
+transmission-gtk (lightweight BitTorrent client (GTK+ interface))
+ttf-dejavu (transitional dummy package)
+ttf-font-awesome (iconic font designed for use with Twitter Bootstrap)
+ttf-freefont (transitional dummy package)
+ttf-google-fonts ()
+ttf-source-code (source code class and function browser plugin for Gedit)
+gpick (advanced GTK+ color picker)
+gcolor2 (Simple GTK2 color selector and picker)
+nano (small, friendly text editor inspired by Pico)
+vim (Vi IMproved - enhanced vi editor)
+vim-gtk (Vi IMproved - enhanced vi editor - with GTK2 GUI)
+vim-gtk3 (Vi IMproved - enhanced vi editor - with GTK3 GUI)
+mc (Midnight Commander - a powerful file manager)
+ranger (File manager with an ncurses frontend written in Python)
+vlc (multimedia player and streamer)
+parole (media player based on GStreamer framework)
+mpv (video player based on MPlayer/mplayer2)
+wget (retrieves files from the web)
+curl (command line tool for transferring data with URL syntax)
+aria2 (High speed download utility)
+bless (A full featured hexadecimal editor)
+wxhexeditor (hexadecimal editor for massive files)
+dhex (ncurses based hex editor with diff mode)
+gdb (GNU Debugger)
+xarchiver (GTK+ frontend for most used compression formats)
+wireshark (network traffic analyzer - meta-package)
+tshark (network traffic analyzer - console version)
+nmap (The Network Mapper)
+zenmap (The Network Mapper Front End)
+sslscan (Fast SSL scanner)
+hping3 (Active Network Smashing Tool)
+nikto (web server security scanner)
+htop (interactive processes viewer)
+atop (Monitor for system resources and process activity)
+wavemon (Wireless Device Monitoring Application)
+nmon (performance monitoring tool for Linux)
+bmon (portable bandwidth monitor and rate estimator)
+iftop (displays bandwidth usage information on an network interface)
+glances (Curses-based monitoring tool)
+dstat (versatile resource statistics tool)
+git (fast, scalable, distributed revision control system)
+hexedit (view and edit files or devices in hexadecimal or ASCII)
+gcp (advanced command line file copy system)
+bleachbit (delete unnecessary files from the system)
+rkhunter (rootkit, backdoor, sniffer and exploit scanner)
+fwbuilder (Firewall administration tool GUI)
+idle-python2.7 (IDE for Python (v2.7) using Tkinter)
+idle-python3.6 (IDE for Python (v3.6) using Tkinter)
+idle-python3.7 (IDE for Python (v3.7) using Tkinter)
+irssi (terminal based IRC client)
+hexchat (IRC client for X based on X-Chat 2)
+macchanger (utility for manipulating the MAC address of network interfaces)
+unix2dos (Text file format converters)
+dos2unix (Text file format converters)
+pv (Shell pipeline element to meter data passing through)
+dmtx-utils (Utilities for reading and writing Data Matrix 2D barcodes)
+iec16022 (Generates 2d ISO/IEC 16022 barcodes (data matrix/semacode))
+seahorse (GNOME front end for GnuPG)
+gpa (GNU Privacy Assistant (GPA))
+gpaste (Clipboard management system for GNOME)
+clipit (lightweight GTK+ clipboard manager)
+ristretto (lightweight picture-viewer for the Xfce desktop environment)
+shotwell (digital photo organizer)
+gpicview (lightweight image viewer)
+gpaint (GNU Paint - a small, easy to use paint program for GNOME)
+qrencode (QR Code encoder into PNG image)
+barcode (Utility and library for barcode generation)
+lshw (information about hardware configuration)
+lsscsi (list all SCSI devices (or hosts) currently on system)
+dmidecode (SMBIOS/DMI table decoder)
+bwm-ng (small and simple console-based bandwidth monitor)
