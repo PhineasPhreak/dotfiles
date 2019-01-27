@@ -26,3 +26,7 @@ IDE : [Intellij IDEA & Pycharm](https://www.jetbrains.com/products.html?fromMenu
 
 ## Packages (*pkg.lst*)
 List packages to install
+
+**Man Pages :**</br>
+* Linux Commands : [Linux Commands](https://www.commandlinux.com/man-pages-sections)</br>
+* Man pages : [Man.cx](https://man.cx/)
