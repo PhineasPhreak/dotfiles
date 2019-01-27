@@ -1,8 +1,9 @@
-Dayle rees color schemes
-Predawn
-Icons Font
-BracketHighighter
-SublimeCodeIntel
-Enki Theme
-Color Highlighter
-Jedi - Python autocompletion
+Dayle rees color schemes (Colour schemes for a variety of editors created by Dayle Rees.)
+Predawn (Predawn is a dark interface and syntax theme for Sublime Text and Atom.)
+Icons Fonts (Completions for popular icon fonts such as Font Awesome, Glyphicons and many more!)
+BracketHighlighter (Bracket and tag highlighter for Sublime Text http://facelessuser.github.io/BracketHighlighter/)
+SublimeCodeIntel (Full-featured code intelligence and smart autocomplete engine)
+Enki Theme (Enki Theme - A dark theme for Sublime Text)
+Color Highlighter (ColorHighlighter - is a plugin for the Sublime text 2 and 3, which underlays selected hexadecimal colorcodes)
+Jedi - Python autocompletion (awesome Python autocompletion with SublimeText)
+Anaconda (Anaconda turns your Sublime Text 3 in a full featured Python development IDE including autocompletion, code linting, IDE features)
