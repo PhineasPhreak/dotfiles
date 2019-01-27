@@ -57,13 +57,16 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-   if [ "$USERNAME" = root ]; then
-      PS1='${debian_chroot:+($debian_chroot)}\[\033[01;31m\]\u@\[\033[01;31m\]\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+   # var "$UID" is User Identifier 
+   # "$UID" = 0 for root
+   # "$UID" = 1000 for user
+   if [ "$UID" = 0 ]; then
+      PS1='${debian_chroot:+($debian_chroot)}\[\033[01;31m\]\u\[\033[01;31m\]@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
    else
       # Color for Kali Linux
-      #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;35m\]\u@\[\033[01;35m\]\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-      #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\[\033[01;35m\]\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-      PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\[\033[01;31m\]\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+      #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;35m\]\u\[\033[01;35m\]@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+      #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[01;35m\]@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+      PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[01;31m\]@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
    fi
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
@@ -181,4 +184,12 @@ if ! shopt -oq posix; then
   elif [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
   fi
+fi
+
+# Use Powerline
+if [ -f /usr/share/powerline/bindings/bash/powerline.sh ]; then
+    powerline-daemon -q
+    POWERLINE_BASH_CONTINUATION=1
+    POWERLINE_BASH_SELECT=1
+    source /usr/share/powerline/bindings/bash/powerline.sh
 fi
