@@ -1,12 +1,20 @@
-## Image Bash Ubuntu 16.04.3 LTS amd64
+## Image Bash Ubuntu *16.04.3 LTS amd64* and *18.04.1 LTS amd64*
 ![Bash-ubuntu-with-bashrc](https://github.com/PhineasPhreak/dotfiles/blob/master/screenshots/bash-ubuntu.png)
 ![Powerline-ubuntu-with-bashrc](https://github.com/PhineasPhreak/dotfiles/blob/master/screenshots/powerline-ubuntu.png)
 
 > *Image Terminal Ubuntu:*
-## Powerline Installation:
-**Documentation for Powerline : [Read The Docs](https://powerline.readthedocs.io/en/master/)**</br>
-**Github for Powerline : [Github here](https://github.com/powerline/powerline)**</br>
+## Powerline Installation :
+**Documentation for Powerline : [HTML - Read The Docs](https://powerline.readthedocs.io/en/master/)** | **[PDF - Read The Docs](https://media.readthedocs.org/pdf/powerline/stable/powerline.pdf)**</br>
 **Archlinux wiki : [Wiki archlinux](https://wiki.archlinux.org/index.php/Powerline)**
+
+### Powerline Github :
+| Name | Link |
+|:---|:---|
+|Github for Powerline | [Github Powerline](https://github.com/powerline/powerline)|
+|Github for Powerline-fonts | [Github Powerline-fonts](https://github.com/powerline/fonts)|
+|Github for Powerline-shell | [Github Powerline-shell](https://github.com/b-ryan/powerline-shell)|
+|Github for Powerline-gistatus | [Github Powerline-gitstatus](https://github.com/jaspernbrouwer/powerline-gitstatus)|
+</br>
 
 Copy this to `~/.bashrc`
 ```shell
@@ -18,7 +26,7 @@ if [ -f /usr/share/powerline/bindings/bash/powerline.sh ]; then
     source /usr/share/powerline/bindings/bash/powerline.sh
 fi
 ```
-## Classic Installation:
+## Classic Installation :
 Put the file at the root of your user/root account:
 * For Root : `/root/.bashrc`
 * For User : `/home/user/.bashrc`
