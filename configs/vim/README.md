@@ -1,10 +1,15 @@
-## Vim Configuration
+## Vim Configuration :
 
 |*Config Advanced*|*Config Basic*|
 |:---------------:|:------------:|
 |![Vim-config-advanced](https://github.com/PhineasPhreak/dotfiles/blob/master/screenshots/vim-config-advanced.png)|![Vim-config-basic](https://github.com/PhineasPhreak/dotfiles/blob/master/screenshots/vim-config-basic.png)|
 
-## Install
+## Documentation :
+Site: http://vimcolors.com/ </br>
+Wiki colorsheme: https://vim-fr.org/index.php/Le_colorscheme </br>
+Github : https://github.com/vim-airline/vim-airline
+
+## Install :
 Put the file at the root of your user/root account:
 * For Root : `/root/.vimrc`
 * For User : `/home/user/.vimrc`
@@ -12,10 +17,6 @@ Put the file at the root of your user/root account:
 For the `colorsheme` *OR* `colo` 
 * For Root : `/root/.vim/colors/`
 * For User : `/home/user/.vim/colors/`
-
-Site: http://vimcolors.com/
-
-Wiki colorsheme: https://vim-fr.org/index.php/Le_colorscheme
 
 **.vimrc**
 ```shell
