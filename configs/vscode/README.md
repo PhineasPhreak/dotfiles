@@ -1,6 +1,7 @@
 ## Visual Studio Code - (vscode)
 
-Visual Studio Code : https://code.visualstudio.com/
+Visual Studio Code : https://code.visualstudio.com/ </br>
+Visual Studio Code Manage Extention  : [Marketplace](https://marketplace.visualstudio.com/VSCode)
 
 ### Custom `settings.json` file from VSCode
 
