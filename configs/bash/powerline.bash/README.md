@@ -1,5 +1,4 @@
 # `powerline.bash`
-
 `powerline.bash` est une invite de commande dynamique dans le style Powerline,
 pour BASH.
 
@@ -7,7 +6,6 @@ pour BASH.
 
 
 ## Fonctionalités
-
 - S'installe facilement. *Un seul fichier sans dépendances*.
 - *Très rapide*. Environ 30ms pour générer l'invite. *Pas de serveur !*
 - Sur deux lignes pour faciliter le *copicollage* et la garder le curseur au
@@ -23,7 +21,7 @@ pour BASH.
 
 
 ## Installation
-
+Installe le fichier `powerline.bash` dans le repertoire `$HO%E/.config/`
 ``` console
 $ curl -Lo ~/.config/powerline.bash https://gitlab.com/bersace/powerline-bash/raw/master/powerline.bash
 $ $EDITOR ~/.bashrc
@@ -32,6 +30,14 @@ $ $EDITOR ~/.bashrc
 PROMPT_COMMAND='__update_ps1 $?'
 $ exec $SHELL
 ```
+Verification que le fichier `powerline.bash` existe:
+```shell
+if [ -f ${HOME}/.config/powerline.bash ]; then
+    # Copier et adapter ceci dans votre .bashrc
+    . ${HOME}/.config/powerline.bash
+    PROMPT_COMMAND='__update_ps1 $?'
+fi
+```
 
 Les chevrons façon Powerline requièrent une police adaptée. Il y en a plein à
 https://nerdfonts.com/ . J'utilise Sauce Code Pro. Sinon, voir la section dédiée
@@ -39,7 +45,6 @@ ci-dessous.
 
 
 ## Configuration
-
 Les variables d'env sont prise-en-compte sans recharger le shell.
 
 `POWERLINE_SEGMENTS` liste les infos à afficher. Par défaut `hostname pwd venv
