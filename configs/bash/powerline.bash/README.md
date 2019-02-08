@@ -43,7 +43,7 @@ ci-dessous.
 Les variables d'env sont prise-en-compte sans recharger le shell.
 
 `POWERLINE_SEGMENTS` liste les infos à afficher. Par défaut `hostname pwd venv
-git status`.
+git status jobs`.
 
 `POWERLINE_STYLE` le style d'affichage. Par défaut `default`.
 
@@ -53,6 +53,9 @@ git status`.
 
 ![capture d'écran séparateur](screenshot-sep.png)
 
+Pour personnaliser la couleur du prompt utiliser ce tableau:
+
+![capture écran colors](colors.png)
 
 ## Compatibilité avec les polices
 
@@ -68,6 +71,9 @@ Positionner ces variables dans votre `.bashrc`, après l'import de
 
 
 ## Références
-
+- https://gitlab.com/bersace/powerline.bash
 - https://github.com/b-ryan/powerline-shell
 - https://github.com/skeswa/prompt
+
+**Font:**
+- https://github.com/ryanoasis/nerd-fonts
