@@ -226,6 +226,9 @@ __powerline_segment_hostname() {
 
     text="${USER}@${HOSTNAME-*unknown*}"
 
+    # Affiche seulement le nom d'utilisateur dans le prompt
+    #text="${USER}"
+
     # Calculer la couleur à partir du texte à afficher.
     # Par defaut
     #hash=$(sum <<< "${text}")
