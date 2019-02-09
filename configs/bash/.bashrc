@@ -147,7 +147,7 @@ alias sources='cat -n /etc/apt/sources.list && ls -lhA /etc/apt/sources.list.d/'
 # some more ls aliases
 alias ld='ls --color=auto -lhA --group-directories-first'
 alias ll='ls -lh'
-alias la='ls -lhA'
+alias la='ls -lhAF'
 alias lf='ls -lhAF'
 alias l='ls -CF'
 
