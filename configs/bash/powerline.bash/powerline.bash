@@ -328,7 +328,13 @@ __powerline_segment_jobs() {
     local bg
     local fg
     local bold
-    local jobsnum="$(jobs -p|wc -l)"
+    # Ancienne methode pour calculer les "jobs" en cours.
+    #local jobsnum="$(jobs -p | wc -l)"
+
+    # Compte le nombre de "jobs" avec un meilleur affichage pour le terminal
+    # car il permet de choisir uniquement les process "Running" et "Stopped" 
+    # et d'enlever les autres "Terminated" et "Done" qui ne sont pas important.
+    local jobsnum=$(jobs -l | gawk -F" " '{ print $3 }' | grep -E 'Running|Stopped' | wc -l)
 
     fg=234
     # Si command lancer en background depuis le terminal superieur a 5
@@ -347,7 +353,79 @@ __powerline_segment_jobs() {
         return
     fi
 
-    __powerline_retval=("p:48;5;${bg}:38;5;${fg};${bold}:$jobsnum")
+    __powerline_retval=("p:48;5;${bg}:38;5;${fg};${bold}:… $jobsnum")
+}
+
+__powerline_segment_diskp() {
+    local bg
+    local fg
+    local bold
+
+    local usepc=$(df -Th $HOME | awk '/[0-9]%/{print $(NF-1)}')
+    local usepc_int=${usepc::-1}
+
+    fg=234
+    # Affiche le pourcentage du disque utiliser
+    # alors la couleur change et le chiffre se met en gras
+    if [ $usepc_int -le 25 ] ; then
+        bg=28
+        bold=16
+
+    elif [ $usepc_int -le 50 ] ; then
+        bg=172
+        bold=16
+
+    elif [ $usepc_int -ge 50 ] ; then
+        bg=202
+        bold=16
+        if [ $usepc_int -ge 75 ] ; then
+            bg=196
+            bold=16
+        fi
+
+    else
+        bg=16
+        bold=1
+    fi
+
+    # Efface "usepc" si valeur egal a 0
+    if [ $usepc_int -eq 0 ] ; then
+        __powerline_retval=()
+        return
+    fi
+
+    __powerline_retval=("p:48;5;${bg}:38;5;${fg};${bold}:$usepc")
+
+}
+
+__powerline_segment_disku() {
+    # Affiche la taille utiliser sur le disque
+    local bg
+    local fg
+    local bold
+    local used=$(df -Th $HOME | awk '/[0-9]%/{print $(NF-3)}')
+    # local used_int=${used::-1}
+
+    fg=234
+    bg=25
+    bold=16
+
+    __powerline_retval=("p:48;5;${bg}:38;5;${fg};${bold}:$used")
+}
+
+__powerline_segment_diska() {
+    # Affiche la taille disponible sur la disque
+    local bg
+    local fg
+    local bold
+    local avail=$(df -Th $HOME | awk '/[0-9]%/{print $(NF-2)}')
+    # local avail_int=${avail::-1}
+
+    fg=234
+    bg=30
+    bold=16
+
+    __powerline_retval=("p:48;5;${bg}:38;5;${fg};${bold}:$avail")
 }
 
 __powerline_segment_git() {
@@ -356,6 +434,8 @@ __powerline_segment_git() {
     local ab
     local ab_segment=''
     local detached
+
+    #local count_commits=$(git shortlog -s | grep -i "$(git config --global -l | grep -i "name" | gawk -F"=" '{ print $2 }')" | gawk -F" " '{ print $1 }')
 
     if ! status="$(LC_ALL=C.UTF-8 ${__powerline_git_cmd[@]} 2>/dev/null)" ; then
         __powerline_retval=()
