@@ -5,7 +5,10 @@
 # https://github.com/skeswa/prompt
 # Modified by phinasphreak
 #
+# Others icon "⚑", "⬇", "⬆", "★", "●", "✖", "✚", "…", "", "✼", "✔", "✎"
+#
 # Configuration:
+# all option are: hostname diskp disku diska pwd venv git status jobs
 #
 POWERLINE_SEGMENTS="hostname pwd venv git status jobs"
 # POWERLINE_STYLE="default" or your
@@ -111,7 +114,7 @@ function __powerline_parse_git_status_v2() {
             branch="${branch_infos[0]:0:7}"
         fi
     else
-        branch="${branch_infos[1]}"
+        branch=" ${branch_infos[1]}"
     fi
 
     ab="${branch_infos[3]-}"
@@ -140,7 +143,7 @@ function __powerline_parse_git_status_v1() {
             fi
         elif [ -z "${line####*}" ] ; then
             __powerline_split '...' "${line#### }"
-            branch="${__powerline_retval[0]}"
+            branch=" ${__powerline_retval[0]}"
         else
             # Les autres lignes sont des lignes de modification.
             dirty=1
