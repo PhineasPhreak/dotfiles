@@ -267,8 +267,14 @@ __powerline_segment_pwd() {
     __powerline_shorten_dir "$(dirs +0)"
     local short_pwd="${__powerline_retval}"
 
+    if [ "$short_pwd" = "/" ] ; then
+        __powerline_split "" "${short_pwd}"
+        local parts=("${__powerline_retval[@]}")
+
+    else
     __powerline_split / "${short_pwd}"
     local parts=("${__powerline_retval[@]}")
+    fi
 
     __powerline_retval=()
     local sep=p
@@ -276,11 +282,22 @@ __powerline_segment_pwd() {
         if [ "${part}" = '~' -o "${part}" = "" ] ; then
             colors="48;5;31:38;5;15"
             next_sep=p
+
+        # Couleur pour le dossier racine "/"
+        elif [ "${part}" = '/' -o "${part}" = "" ]; then
+            # Couleur grise par defaut
+            colors="48;5;237:38;5;250"
+
+            # Couleur rouge
+            #colors="48;5;88:38;5;15"
+            next_sep=p
+
         else
             colors="48;5;237:38;5;250"
             # Les segments suivants auront un séparateur léger
             next_sep=t
         fi
+
         __powerline_retval+=("${sep}:${colors}:${part}")
         sep=${next_sep}
     done
