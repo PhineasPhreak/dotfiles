@@ -458,11 +458,12 @@ __powerline_segment_git() {
     # Compute ahead/behind segment
     if [ -n "${ab##+0*}" ] ; then
         # No +0, the local branch is ahead upstream.
-        ab_segment="⬆"
+        local count_commits=$(git rev-list origin..HEAD | wc -l)
+        ab_segment="↑ … $count_commits"
     fi
     if [ -n "${ab##+* -0}" ] ; then
         # No -0, the local branch is behind upstream.
-        ab_segment+="⬇"
+        ab_segment+="↓"
     fi
     if [ -n "${ab_segment}" ] ; then
         __powerline_retval+=("p:48;5;240:38;5;250:${ab_segment}")
@@ -547,7 +548,7 @@ __update_ps1() {
 
     # Détecter si on est connecté sur une autre machine ou un autre utilisateur.
     local other=${SSH_CLIENT-${SUDO_USER-${container-}}}
-    local segments=${POWERLINE_SEGMENTS-${other:+hostname} pwd venv git status jobs}
+    local segments=${POWERLINE_SEGMENTS-${other:+hostname} pwd venv git status jobs diskp disku diska}
     local segment
     for segment in ${segments} ; do
         __powerline_segment_${segment} $last_exit_code
