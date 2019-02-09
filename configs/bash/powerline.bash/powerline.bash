@@ -466,7 +466,33 @@ __powerline_segment_git() {
         ab_segment+="↓"
     fi
     if [ -n "${ab_segment}" ] ; then
-        __powerline_retval+=("p:48;5;240:38;5;250:${ab_segment}")
+        # Juste pour tester la colorisation du nombre de commit 
+        #count_commits=$(($count_commits + 41))
+
+        if [ $count_commits -eq 1 ] ; then
+            __powerline_retval+=("p:48;5;240:38;5;250:${ab_segment}")
+
+        elif [ $count_commits -le 3 ] ; then
+            __powerline_retval+=("p:48;5;240:38;5;70:${ab_segment}")
+
+        elif [ $count_commits -le 5 ] ; then
+            __powerline_retval+=("p:48;5;240:38;5;172:${ab_segment}")
+
+        elif [ $count_commits -le 10 ]; then
+            __powerline_retval+=("p:48;5;240:38;5;202:${ab_segment}")
+
+        elif [ $count_commits -le 20 ]; then
+            __powerline_retval+=("p:48;5;240:38;5;88:${ab_segment}")
+
+        elif [ $count_commits -ge 21 ]; then
+            __powerline_retval+=("p:48;5;240:38;5;16:${ab_segment}")
+
+        else
+            __powerline_retval+=("p:48;5;240:38;5;250:${ab_segment}")
+        fi
+
+        # Par defaut sans coloration du nombres de commit
+        #__powerline_retval+=("p:48;5;240:38;5;250:${ab_segment}")
     fi
 }
 
