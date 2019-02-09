@@ -339,12 +339,12 @@ __powerline_segment_jobs() {
     fg=234
     # Si command lancer en background depuis le terminal superieur a 5
     # alors la couleur change et le chiffre se met en gras
-    if [ $jobsnum -ge 5 ] ; then
-        bg=202
-        bold=1
-    else
+    if [ $jobsnum -le 5 ] ; then
         bg=172
         bold=16
+    else
+        bg=202
+        bold=1
     fi
     
     # Efface "jobsnum" si valeur egal a 0
@@ -470,22 +470,28 @@ __powerline_segment_git() {
         #count_commits=$(($count_commits + 41))
 
         if [ $count_commits -eq 1 ] ; then
+            # Couleur = Blanc
             __powerline_retval+=("p:48;5;240:38;5;250:${ab_segment}")
 
         elif [ $count_commits -le 3 ] ; then
+            # Couleur = Vert
             __powerline_retval+=("p:48;5;240:38;5;70:${ab_segment}")
 
         elif [ $count_commits -le 5 ] ; then
+            # Couleur = Jaune
             __powerline_retval+=("p:48;5;240:38;5;172:${ab_segment}")
 
         elif [ $count_commits -le 10 ]; then
+            # Couleur = Orange
             __powerline_retval+=("p:48;5;240:38;5;202:${ab_segment}")
 
         elif [ $count_commits -le 20 ]; then
+            # Couleur = Rouge
             __powerline_retval+=("p:48;5;240:38;5;88:${ab_segment}")
 
         elif [ $count_commits -ge 21 ]; then
-            __powerline_retval+=("p:48;5;240:38;5;16:${ab_segment}")
+            # Couleur = Noir et en gras
+            __powerline_retval+=("p:48;5;240:38;5;16;1:${ab_segment}")
 
         else
             __powerline_retval+=("p:48;5;240:38;5;250:${ab_segment}")
