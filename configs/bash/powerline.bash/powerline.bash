@@ -434,7 +434,8 @@ __powerline_segment_git() {
     local ab
     local ab_segment=''
     local detached
-
+    local change_branch
+    
     #local count_commits=$(git shortlog -s | grep -i "$(git config --global -l | grep -i "name" | gawk -F"=" '{ print $2 }')" | gawk -F" " '{ print $1 }')
 
     if ! status="$(LC_ALL=C.UTF-8 ${__powerline_git_cmd[@]} 2>/dev/null)" ; then
@@ -448,12 +449,22 @@ __powerline_segment_git() {
 
     # Colorer la branche selon l'existance de modifications.
     if [ -n "${__powerline_retval[1]}" ] ; then
+        local count_add=$(git status --short | wc -l)
         branch_colors="48;5;161:38;5;15"
+        change_branch=1
     else
         branch_colors="48;5;148:38;5;0"
+        change_branch=0
     fi
 
-    __powerline_retval=("p:${branch_colors}:${detached:+⚓ }${branch}")
+    if [ $change_branch -eq 1 ] ; then
+        __powerline_retval=("p:${branch_colors}:${detached:+⚓ }${branch} … ${count_add}")
+    else
+        __powerline_retval=("p:${branch_colors}:${detached:+⚓ }${branch}")
+    fi
+
+    # Segments de modification de la branch par defaut
+    #__powerline_retval=("p:${branch_colors}:${detached:+⚓ }${branch}")
 
     # Compute ahead/behind segment
     if [ -n "${ab##+0*}" ] ; then
