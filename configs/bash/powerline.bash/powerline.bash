@@ -214,6 +214,7 @@ __powerline_segment_hostname() {
     local fg
     local text
     local hash
+    local bold_hostname
 
     if [ -z "${HOSTNAME-}" -a -f /etc/hostname ] ; then
         read HOSTNAME < /etc/hostname
@@ -224,8 +225,12 @@ __powerline_segment_hostname() {
         USER=$(whoami)
     fi
 
-    text="${USER}@${HOSTNAME-*unknown*}"
+    # Affiche hostname en gras si valeur egale a 1 mettre la valeur " " pour la police regular
+    bold_hostname=1
 
+    # Valeur hostname par defaut 
+    text="${USER}@${HOSTNAME-*unknown*}"
+    
     # Affiche seulement le nom d'utilisateur dans le prompt
     #text="${USER}"
 
@@ -256,7 +261,7 @@ __powerline_segment_hostname() {
     __powerline_get_foreground "${rgb[@]}"
     fg=${__powerline_retval}
 
-    __powerline_retval=("p:48;5;${bg}:38;5;${fg}:${text}")
+    __powerline_retval=("p:48;5;${bg}:38;5;${fg};${bold_hostname}:${text}")
 }
 
 __powerline_segment_pwd() {
@@ -334,7 +339,7 @@ __powerline_segment_jobs() {
     # Compte le nombre de "jobs" avec un meilleur affichage pour le terminal
     # car il permet de choisir uniquement les process "Running" et "Stopped" 
     # et d'enlever les autres "Terminated" et "Done" qui ne sont pas important.
-    local jobsnum=$(jobs -l | gawk -F" " '{ print $3 }' | grep -E 'Running|Stopped' | wc -l)
+    local jobsnum=$(jobs -l | awk -F" " '{ print $3 }' | grep -E 'Running|Stopped' | wc -l)
 
     fg=234
     # Si command lancer en background depuis le terminal superieur a 5
