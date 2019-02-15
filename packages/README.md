@@ -1,5 +1,5 @@
 ## Developpement (*dev.lst*)
-IDE : [Intellij IDEA & Pycharm](https://www.jetbrains.com/products.html?fromMenu#), [SublimeText](https://www.sublimetext.com/), [Visual Studio Code](https://code.visualstudio.com/)
+IDE : [Intellij IDEA & Pycharm](https://www.jetbrains.com/products.html?fromMenu#), [SublimeText](https://www.sublimetext.com/), [Visual Studio Code](https://code.visualstudio.com/), [Spyder](https://www.spyder-ide.org/)
 
 **Theme for Intellij IDEA *(Pycharm, RubyMine, PhpStorm, WebStrom)* :**
 [Material Theme UI](https://plugins.jetbrains.com/plugin/8006-material-theme-ui)
