@@ -225,8 +225,9 @@ __powerline_segment_hostname() {
         USER=$(whoami)
     fi
 
-    # Affiche hostname en gras si valeur egale a 1 mettre la valeur " " pour la police regular
-    bold_hostname=1
+    # Affiche hostname en gras avec valeur egale a (";1") 
+    # Affiche hostname normalement avec ("")
+    bold_hostname=";1"
 
     # Valeur hostname par defaut 
     text="${USER}@${HOSTNAME-*unknown*}"
@@ -261,7 +262,7 @@ __powerline_segment_hostname() {
     __powerline_get_foreground "${rgb[@]}"
     fg=${__powerline_retval}
 
-    __powerline_retval=("p:48;5;${bg}:38;5;${fg};${bold_hostname}:${text}")
+    __powerline_retval=("p:48;5;${bg}:38;5;${fg}${bold_hostname}:${text}")
 }
 
 __powerline_segment_pwd() {
