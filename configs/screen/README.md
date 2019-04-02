@@ -21,6 +21,11 @@ $ screen -d SCREENID #when the command screen is running in another terminal, re
 $ screen -ls #it will list all the existing screen sessions
 ```
 
+* Rename sockname for sessions
+```shell
+$ screen -S old_session_name -X sessionname new_session_name
+```
+
 * Reattach to a screen session
 ```shell
 $ screen -r #attaches to default session. this works only if you have one screen session
