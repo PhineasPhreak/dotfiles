@@ -1,8 +1,11 @@
 ## Screen Configuration
 * Use this Variable `$STY` for know the Sockname of screen
 
-## How to use the screen
+## Screen Shorcuts
+![Screen Shorcuts](https://github.com/PhineasPhreak/dotfiles/blob/master/screenshots/screen-shorcuts.png)
+> Screen Shorcuts
 
+## How to use the screen
 **For Help use Shorcut**
 `CTRL-a + ?`
 
