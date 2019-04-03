@@ -17,7 +17,9 @@ nonblock on
 
 # Visible "hardline" for screen
 hardstatus alwayslastline
-hardstatus string '%S - %{= gk}%-Lw%{= rW}%50> %n%f* %t %{-}%+Lw%< %= %{= kG} %H %{= Bw} %l %{= kG} %Y-%m-%d %c %{g}' 
+# Theme par defaut
+hardstatus string '%S - %{= gk}%-Lw%{= rW}%50> %n%f* %t %{-}%+Lw%< %= %{= kG} %H %{= Bw} %l %{= kG} %Y-%m-%d %c %{g}'
+#hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %m-%d %{W}%c %{g}]'
 
 # Window number starts at 1, not 0
 #bind 'q' quit
