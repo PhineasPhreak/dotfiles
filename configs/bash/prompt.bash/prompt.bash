@@ -11,6 +11,8 @@ __prompt_retval=""
 
 # Create some color constants to make the prompt a little more readable.
 __prompt_color_prefix="\[\e["
+__prompt_color_prefix_bold="\[\e[1m\]"
+__prompt_color_prefix_no_bold="\[\e[0m\]"
 __prompt_256_prefix="38;5;"
 __prompt_color_suffix="m\]"
 __prompt_no_color="\[\e[0m\]"
@@ -172,7 +174,7 @@ function __prompt_command() {
   local dollar="${dollar_color}$"
 
   # Set the PS1 to the new prompt.
-  PS1="${host} ${short_pwd}${git_stuff}${jobsnum} ${dollar}${__prompt_no_color} "
+  PS1="${__prompt_color_prefix_bold}${host}${__prompt_color_prefix_no_bold} ${short_pwd}${git_stuff}${jobsnum} ${__prompt_color_prefix_bold}${dollar}${__prompt_no_color} "
 }
 
 # Tell bash about the function above.
