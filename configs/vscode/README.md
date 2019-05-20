@@ -11,6 +11,7 @@ Example of `settings.json` :
 {
     "editor.fontSize": 14,
     "editor.mouseWheelZoom": true,
+    "editor.mouseWheelScrollSensitivity": 3,
     "window.zoomLevel": -1,
     "workbench.iconTheme": "vscode-icons",
     "python.pythonPath": "/usr/bin/python3.6",
@@ -19,7 +20,7 @@ Example of `settings.json` :
     "window.titleBarStyle": "custom",
 }
 ```
-> My little config for VSCode 1.28.1
+> My little config for VSCode 1.28.1 and 1.34.0
 
 ### Installation
 
