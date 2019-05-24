@@ -129,11 +129,11 @@ function __prompt_get_git_stuff() {
     if [[ $count_add -eq 0 ]]; then
       count_add=""
     else
-      count_add=":$count_add"
+      count_add="…$count_add"
     fi
     
     # Return the resulting git branch/ref.
-    __prompt_retval=" $branch$count_add"
+    __prompt_retval=":$branch$count_add"
   else
     # Return empty if there is no git stuff.
     __prompt_retval=''
@@ -156,7 +156,7 @@ function __prompt_segment_jobs() {
       return
   fi
 
-  __prompt_retval=" … $jobsnum"
+  __prompt_retval=" …$jobsnum"
 }
 
 # This function creates prompt.
@@ -180,7 +180,7 @@ function __prompt_command() {
 
   __prompt_get_git_stuff
   local git_stuff="${__prompt_git_color}${__prompt_retval}"
-  local dollar="${dollar_color}$"
+  local dollar="${dollar_color}"'\$'
 
   # Set the PS1 to the new prompt.
   PS1="${__prompt_color_prefix_bold}${host}${__prompt_color_prefix_no_bold} ${short_pwd}${git_stuff}${jobsnum} ${__prompt_color_prefix_bold}${dollar}${__prompt_no_color} "
