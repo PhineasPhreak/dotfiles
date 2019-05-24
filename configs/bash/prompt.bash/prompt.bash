@@ -122,9 +122,18 @@ function __prompt_get_git_stuff() {
     if [[ "$branch" == "HEAD" ]]; then
       branch='detached*'
     fi
+    
+    # Added functionality for displaying file modification with git.
+    local count_add=$(git status --short | wc -l)
 
+    if [[ $count_add -eq 0 ]]; then
+      count_add=""
+    else
+      count_add=":$count_add"
+    fi
+    
     # Return the resulting git branch/ref.
-    __prompt_retval=" $branch"
+    __prompt_retval=" $branch$count_add"
   else
     # Return empty if there is no git stuff.
     __prompt_retval=''
