@@ -156,7 +156,7 @@ function __prompt_segment_jobs() {
       return
   fi
 
-  __prompt_retval=" …$jobsnum"
+  __prompt_retval=":$jobsnum"
 }
 
 # This function creates prompt.
