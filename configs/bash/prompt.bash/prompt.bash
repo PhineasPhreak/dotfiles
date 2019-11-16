@@ -19,7 +19,7 @@ __prompt_no_color="\[\e[0m\]"
 
 # Set the path color. Defaults to green. It can be overwritten by
 # `PROMPT_PWD_COLOR`.
-__prompt_pwd_color="${__prompt_color_prefix}${__prompt_256_prefix}43${__prompt_color_suffix}"
+__prompt_pwd_color="${__prompt_color_prefix}${__prompt_256_prefix}39${__prompt_color_suffix}"
 if ! [[ -z $PROMPT_PWD_COLOR ]]; then
   __prompt_pwd_color="${__prompt_color_prefix}${PROMPT_PWD_COLOR}${__prompt_color_suffix}"
 fi
@@ -40,7 +40,7 @@ fi
 
 # Set the user-host color. Defaults to blue. It can be overwritten by
 # `PROMPT_USERHOST_COLOR`.
-__prompt_userhost_color="${__prompt_color_prefix}${__prompt_256_prefix}39${__prompt_color_suffix}"
+__prompt_userhost_color="${__prompt_color_prefix}${__prompt_256_prefix}76${__prompt_color_suffix}"
 if ! [[ -z $PROMPT_USERHOST_COLOR ]]; then
   __prompt_userhost_color="${__prompt_color_prefix}${PROMPT_USERHOST_COLOR}${__prompt_color_suffix}"
 fi
@@ -183,7 +183,7 @@ function __prompt_command() {
   local dollar="${dollar_color}"'\$'
 
   # Set the PS1 to the new prompt.
-  PS1="${__prompt_color_prefix_bold}${host}${__prompt_color_prefix_no_bold} ${short_pwd}${git_stuff}${jobsnum} ${__prompt_color_prefix_bold}${dollar}${__prompt_no_color} "
+  PS1="${__prompt_color_prefix_bold}${host}${__prompt_no_color}${__prompt_color_prefix_no_bold}:${short_pwd}${git_stuff}${jobsnum}${__prompt_color_prefix_bold}${dollar}${__prompt_no_color} "
 }
 
 # Tell bash about the function above.
