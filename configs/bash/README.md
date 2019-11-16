@@ -3,6 +3,20 @@
 ![Powerline-ubuntu-with-bashrc](https://github.com/PhineasPhreak/dotfiles/blob/master/screenshots/powerline-ubuntu.png)
 
 > *Image Terminal Ubuntu:*
+
+## Aliases in Terminal :
+Copy this to `~/.bash_aliases` </br>
+**Add Aliases definition to `.bashrc`**
+```shell
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+```
+
 ## Powerline Installation :
 **Documentation for Powerline : [HTML - Read The Docs](https://powerline.readthedocs.io/en/master/)** | **[PDF - Read The Docs](https://media.readthedocs.org/pdf/powerline/stable/powerline.pdf)**</br>
 **Archlinux wiki : [Wiki archlinux](https://wiki.archlinux.org/index.php/Powerline)**
