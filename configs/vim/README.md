@@ -7,7 +7,8 @@
 ## Documentation :
 Site: http://vimcolors.com/ </br>
 Wiki colorsheme: https://vim-fr.org/index.php/Le_colorscheme </br>
-Github : https://github.com/vim-airline/vim-airline
+Github : https://github.com/vim-airline/vim-airline </br>
+Image Shorcut Cheatsheet : [Shorcut VIM](https://github.com/PhineasPhreak/dotfiles/blob/master/screenshots/vim-shortcut-cheatsheet.png)
 
 ## Install :
 Put the file at the root of your user/root account:
