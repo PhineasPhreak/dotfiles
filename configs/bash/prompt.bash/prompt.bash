@@ -40,9 +40,19 @@ fi
 
 # Set the user-host color. Defaults to blue. It can be overwritten by
 # `PROMPT_USERHOST_COLOR`.
-__prompt_userhost_color="${__prompt_color_prefix}${__prompt_256_prefix}76${__prompt_color_suffix}"
-if ! [[ -z $PROMPT_USERHOST_COLOR ]]; then
-  __prompt_userhost_color="${__prompt_color_prefix}${PROMPT_USERHOST_COLOR}${__prompt_color_suffix}"
+if [ $UID -ne 0 ]; then
+  # For simple user 
+  __prompt_userhost_color="${__prompt_color_prefix}${__prompt_256_prefix}76${__prompt_color_suffix}"
+  if ! [[ -z $PROMPT_USERHOST_COLOR ]]; then
+    __prompt_userhost_color="${__prompt_color_prefix}${PROMPT_USERHOST_COLOR}${__prompt_color_suffix}"
+  fi
+
+else
+  # Color the 'userhost' in RED for ROOT user.
+  __prompt_userhost_color="${__prompt_color_prefix}${__prompt_256_prefix}160${__prompt_color_suffix}"
+  if ! [[ -z $PROMPT_USERHOST_COLOR ]]; then
+    __prompt_userhost_color="${__prompt_color_prefix}${PROMPT_USERHOST_COLOR}${__prompt_color_suffix}"
+  fi
 fi
 
 # Set the error color. Defaults to red. It can be overwritten by
