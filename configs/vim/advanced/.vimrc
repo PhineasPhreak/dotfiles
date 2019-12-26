@@ -266,7 +266,7 @@ map <leader>t<leader> :tabnext
 " Useful mappings for managing tabs for old version of vim
 nnoremap <C-n>     :tabnew<CR>
 nnoremap <C-o>     :tabonly<CR>
-nnoremap <C-w>     :tabclose<CR>
+nnoremap <C-c>     :tabclose<CR>
 nnoremap <C-j>     :tabprevious<CR>
 nnoremap <C-k>     :tabnext<CR>
 
