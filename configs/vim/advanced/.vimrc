@@ -169,7 +169,14 @@ if $TERM == 'xterm'
 endif
 
 try
-    colorscheme hybrid
+    colorscheme hydrid
+    "colorscheme molokai
+    "colorscheme bocau
+    "colorscheme defnoche
+    "colorscheme grubvox
+    "colorscheme vitaminonec
+    "colorscheme spacecamp
+    "colorscheme hemisu
     "colorscheme predawn
 catch
 endtry
