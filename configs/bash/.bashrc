@@ -37,7 +37,7 @@ fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm-color) color_prompt=yes;;
+    xterm-color|*-256color) color_prompt=yes;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -57,17 +57,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-   # var "$UID" is User Identifier 
-   # "$UID" = 0 for root
-   # "$UID" = 1000 for user
-   if [ "$UID" = 0 ]; then
-      PS1='${debian_chroot:+($debian_chroot)}\[\033[01;31m\]\u\[\033[01;31m\]@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-   else
-      # Color for Kali Linux
-      #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;35m\]\u\[\033[01;35m\]@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-      #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[01;35m\]@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-      PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[01;31m\]@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-   fi
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -86,85 +76,19 @@ esac
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
-    alias dir='dir --color=auto'
-    alias vdir='vdir --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
     #alias lls='ls --color=auto -lhF'
     #alias lss='ls --color=auto -lhFA --group-directories-first'
-    alias diff='diff --color=auto'
+    #alias diff='diff --color=auto'
 
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
+    #alias grep='grep --color=auto'
+    #alias fgrep='fgrep --color=auto'
+    #alias egrep='egrep --color=auto'
 fi
 
-# alias for 'sudo' in 'sd'
-alias sd='sudo '
-
-# alias 'clear' in 'cl'
-alias cl='clear'
-
-# quick switch to directories
-alias cddown='cd ~/Downloads/'
-alias cddoc='cd ~/Documents/'
-alias cdpic='cd ~/Pictures/'
-alias cdgit='cd ~/Git/'
-alias cdlab='cd ~/Lab/'
-alias cdos='cd ~/OS/'
-
-# prompt before overwrite for "cp", "mv' and "rm"
-alias cp='cp -v'
-alias mv='mv -v'
-alias rm='rm -v'
-
-# shortcut command 'df'
-alias df='df -Th'
-
-# Summarize disk usage of the set of FILEs, recursively for directories
-alias du='du -h'
-
-# show free space memory
-alias free='free -ht'
-
-# show command "jobs" in list format
-alias jobs='jobs -l'
-
-# shorcut 'apt' or 'apt-get'
-alias update='sudo apt-get update'
-alias install-package='sudo apt-get install $argv'
-alias search-package='sudo apt-cache search $argv'
-alias show-package='sudo apt-cache show $argv'
-alias get-upgrade='sudo apt-get upgrade'
-alias apt-upgrade='sudo apt upgrade'
-alias full-upgrade='sudo apt full-upgrade'
-alias dist-upgrade='sudo apt-get dist-upgrade'
-alias list-upgradable='sudo apt list --upgradable'
-alias autoremove='sudo apt-get autoremove'
-alias cleanliness='sudo apt-get clean'
-alias cache-policy='sudo apt-cache policy'
-alias list-key='sudo apt-key list'
-alias sources='cat -n /etc/apt/sources.list && ls -lhA /etc/apt/sources.list.d/'
-
-# some more ls aliases
-alias ld='ls --color=auto -lhA --group-directories-first'
-alias ll='ls -lh'
-alias la='ls -lhAF'
-alias lf='ls -lhAF'
-alias l='ls -CF'
-
-# alias "screen" for SSH session
-alias sc='screen'
-alias scls='screen -ls'
-alias scs='screen -S'
-alias scr='screen -r'
-alias scx='screen -x'
-alias scd='screen -d'
-
-# mark show hold packages
-alias mark-show-hold='sudo apt-mark showhold'
-
-# some more reboot and poweroff for KALI LINUX
-#alias reboot='sudo reboot'
-#alias poweroff='sudo poweroff'
+# colored GCC warnings and errors
+#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -184,12 +108,4 @@ if ! shopt -oq posix; then
   elif [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
   fi
-fi
-
-# Use Powerline
-if [ -f /usr/share/powerline/bindings/bash/powerline.sh ]; then
-    powerline-daemon -q
-    POWERLINE_BASH_CONTINUATION=1
-    POWERLINE_BASH_SELECT=1
-    source /usr/share/powerline/bindings/bash/powerline.sh
 fi
