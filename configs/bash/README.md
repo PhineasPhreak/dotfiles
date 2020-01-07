@@ -21,6 +21,9 @@ fi
 **Documentation for Powerline : [HTML - Read The Docs](https://powerline.readthedocs.io/en/master/)** | **[PDF - Read The Docs](https://media.readthedocs.org/pdf/powerline/stable/powerline.pdf)**</br>
 **Archlinux wiki : [Wiki archlinux](https://wiki.archlinux.org/index.php/Powerline)**
 
+### Prompt Installation :
+[Markdown for installation](https://github.com/PhineasPhreak/dotfiles/blob/master/configs/bash/prompt.bash/README.md)
+
 ### Powerline Github :
 | Name | Link |
 |:---|:---|
