@@ -32,10 +32,10 @@ alias cdgit='cd ~/Git/'
 alias cdlab='cd ~/Lab/'
 alias cdos='cd ~/OS/'
 
-# prompt before overwrite for "cp", "mv' and "rm"
-alias cp='cp -v'
-alias mv='mv -v'
-alias rm='rm -v'
+# prompt before overwrite with option "-i" for "cp", "mv' and "rm"
+#alias cp='cp -v'
+#alias mv='mv -v'
+#alias rm='rm -v'
 
 # shortcut command 'df'
 alias df='df -Th'
@@ -66,7 +66,8 @@ alias list-key='sudo apt-key list'
 alias sources='cat -n /etc/apt/sources.list && ls -lhA /etc/apt/sources.list.d/'
 
 # some more ls aliases
-alias ld='ls --color=auto -lhA --group-directories-first'
+alias lda='ls --color=auto -lhAF --group-directories-first'
+alias ld='ls --color=auto -lhF --group-directories-first'
 alias ll='ls -lhF'
 alias la='ls -lhAF'
 alias lf='ls -lhAF'
