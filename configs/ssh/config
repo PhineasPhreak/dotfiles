@@ -6,9 +6,9 @@
 # Restricts the following declarations to be only for those hosts that match one of the patterns given after the keyword.
 # The pattern is matched against the host name given on the command line.
 Host rift-srv1
-    User rift
-    HostName 192.168.1.13
-    Port 6060
+    User xxxx
+    HostName xxx.xxx.xxx.xxx
+    Port xxxx
 
     # Specifies the verbosity level of logging messages from ssh.
     # The possible values are: QUIET, FATAL, ERROR, INFO, VERBOSE, DEBUG, DEBUG1, DEBUG2, and DEBUG3.
