@@ -1,0 +1,34 @@
+# Create some aliases for SSH
+# The ssh_config client configuration file has the following format.
+# Both the global /etc/ssh/ssh_config and per-user ~/ssh/config have the same format.
+# site : https://www.ssh.com/ssh/config#format-of-ssh-client-config-file-ssh_config
+
+# Restricts the following declarations to be only for those hosts that match one of the patterns given after the keyword.
+# The pattern is matched against the host name given on the command line.
+Host rift-srv1
+    User rift
+    HostName 192.168.1.13
+    Port 6060
+
+    # Specifies a file from which the user's identity key is read when using public key authentication.
+    # The default for protocol version 1 is
+    # ~/.ssh/identity; and 
+    # ~/.ssh/id_rsa or 
+    # ~/.ssh/id_dsa for protocol version 2.
+    #IdentityFile
+
+
+    # FOR MORE OPTIONS
+
+    # Directs ssh to additionally check the host IP address in the known_hosts file.
+    #CheckHostIP
+    
+    # Specifies the cipher to use for encrypting the session in protocol version 1.
+    # or "Ciphers" for protocol version 2
+    #Cipher
+
+    # Specifies the timeout (in seconds) used when connecting to the SSH server,
+    # instead of using the default system TCP timeout.
+    #ConnectTimeout
+
+
