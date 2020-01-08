@@ -10,6 +10,10 @@ Host rift-srv1
     HostName 192.168.1.13
     Port 6060
 
+    # Specifies the verbosity level of logging messages from ssh.
+    # The possible values are: QUIET, FATAL, ERROR, INFO, VERBOSE, DEBUG, DEBUG1, DEBUG2, and DEBUG3.
+    LogLevel DEBUG
+
     # Specifies a file from which the user's identity key is read when using public key authentication.
     # The default for protocol version 1 is
     # ~/.ssh/identity; and 
@@ -17,8 +21,12 @@ Host rift-srv1
     # ~/.ssh/id_dsa for protocol version 2.
     #IdentityFile
 
+    # Specifies whether to use compression. yes enables compression.
+    #Compression YES
 
-    # FOR MORE OPTIONS
+    ####################
+    # FOR MORE OPTIONS #
+    ####################
 
     # Directs ssh to additionally check the host IP address in the known_hosts file.
     #CheckHostIP
@@ -30,5 +38,4 @@ Host rift-srv1
     # Specifies the timeout (in seconds) used when connecting to the SSH server,
     # instead of using the default system TCP timeout.
     #ConnectTimeout
-
 
