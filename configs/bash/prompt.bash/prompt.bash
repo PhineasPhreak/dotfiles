@@ -19,7 +19,7 @@ __prompt_no_color="\[\e[0m\]"
 
 # Set the path color. Defaults to green. It can be overwritten by
 # `PROMPT_PWD_COLOR`.
-__prompt_pwd_color="${__prompt_color_prefix}${__prompt_256_prefix}39${__prompt_color_suffix}"
+__prompt_pwd_color="${__prompt_color_prefix}${__prompt_256_prefix}33${__prompt_color_suffix}"
 if ! [[ -z $PROMPT_PWD_COLOR ]]; then
   __prompt_pwd_color="${__prompt_color_prefix}${PROMPT_PWD_COLOR}${__prompt_color_suffix}"
 fi
@@ -192,8 +192,11 @@ function __prompt_command() {
   local git_stuff="${__prompt_git_color}${__prompt_retval}"
   local dollar="${dollar_color}"'\$'
 
-  # Set the PS1 to the new prompt.
-  PS1="${__prompt_color_prefix_bold}${host}${__prompt_no_color}${__prompt_color_prefix_no_bold}:${short_pwd}${git_stuff}${jobsnum}${__prompt_color_prefix_bold}${dollar}${__prompt_no_color} "
+  # Set the PS1 to the new prompt. (func pwd not in bold)
+  #PS1="${__prompt_color_prefix_bold}${host}${__prompt_no_color}${__prompt_color_prefix_no_bold}:${short_pwd}${git_stuff}${jobsnum}${__prompt_color_prefix_bold}${dollar}${__prompt_no_color} "
+
+  # Set the PS1 to the new prompt ( with func pwd in bold) 
+  PS1="${__prompt_color_prefix_bold}${host}${__prompt_no_color}${__prompt_color_prefix_no_bold}:${__prompt_color_prefix_bold}${short_pwd}${git_stuff}${__prompt_color_prefix_no_bold}${jobsnum}${__prompt_color_prefix_bold}${dollar}${__prompt_no_color} "
 }
 
 # Tell bash about the function above.
