@@ -63,7 +63,7 @@ alias autoremove='sudo apt-get autoremove'
 alias cleanliness='sudo apt-get clean'
 alias cache-policy='sudo apt-cache policy'
 alias list-key='sudo apt-key list'
-alias sources='cat -n /etc/apt/sources.list && ls -lhA /etc/apt/sources.list.d/'
+#alias sources='cat -n /etc/apt/sources.list && ls -lhA /etc/apt/sources.list.d/'
 
 # some more ls aliases
 alias lda='ls --color=auto -lhAF --group-directories-first'
