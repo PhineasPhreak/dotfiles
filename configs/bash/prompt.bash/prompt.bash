@@ -1,10 +1,11 @@
 #! /bin/bash
 # Merge of 
 # https://github.com/b-ryan/powerline-shell/ and
-# https://github.com/skeswa/prompt
+# https://github.com/skeswa/prompt and
+# https://gist.github.com/sminez/11fe5d763a9e9e63be5d836715c6425c
 # Modified by phinasphreak
 #
-# Others icon "⚑", "⬇", "⬆", "★", "●", "✖", "✚", "…", "", "✼", "✔", "✎"
+# Others icon "⚑","⇣", "⇡", "⬇", "⬆", "★", "●", "✖", "✚", "…", "", "✼", "✔", "✎"
 #
 # This value is used to hold the return value of the prompt sub-functions.
 __prompt_retval=""
