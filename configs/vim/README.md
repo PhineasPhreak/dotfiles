@@ -1,31 +1,38 @@
-## Vim Configuration :
+# Vim Configuration
 
 |*Config Advanced*|*Config Basic*|
 |:---------------:|:------------:|
 |![Vim-config-advanced](https://github.com/PhineasPhreak/dotfiles/blob/master/screenshots/vim-config-advanced.png)|![Vim-config-basic](https://github.com/PhineasPhreak/dotfiles/blob/master/screenshots/vim-config-basic.png)|
 
-## Documentation :
+## Documentation
+
 Site: http://vimcolors.com/ </br>
 Wiki colorsheme: https://vim-fr.org/index.php/Le_colorscheme </br>
 Github : https://github.com/vim-airline/vim-airline </br>
-Image Shorcut Cheatsheet : [Shorcut VIM](https://github.com/PhineasPhreak/dotfiles/blob/master/screenshots/vim-shortcut-cheatsheet.png)
+Image Shorcut Cheatsheet : [Shorcut VIM](https://github.com/PhineasPhreak/dotfiles/blob/master/screenshots/vim-shortcut-cheatsheet.png)</br>
+Github lightline.vim : https://github.com/itchyny/lightline.vim
 
-## Install :
+## Installation configuration file
+
 Put the file at the root of your user/root account:
+
 * For Root : `/root/.vimrc`
 * For User : `/home/user/.vimrc`
 
-For the `colorsheme` *OR* `colo` 
+For the `colorsheme` *OR* `colo`
+
 * For Root : `/root/.vim/colors/`
 * For User : `/home/user/.vim/colors/`
 
 **.vimrc**
+
 ```shell
 pspk@kali:~$ ls -lhA | grep .vimrc
 -rw-r--r-- 1 pspk pspk 3.4K Oct  3 00:44 .vimrc
 ```
 
-**colorsheme**
+### Example of Colorsheme
+
 ```shell
 pspk@kali:~/.vim/colors$ ls -lh
 total 140K
@@ -38,12 +45,18 @@ total 140K
 -rw-rw-r-- 1 pspk pspk  47K oct.  11 10:13 solarized.vim
 ```
 
-**plugin**
+### Plugin
 
-Installation:
+**Installation manually of `indentLine` :**
+
 ```shell
 ~/.vim/plugin/indentLine.vim
 ```
+
 Original GitHub: https://github.com/Yggdroot/indentLine
+
+**Installation of `lightline.vim` :**
+
+Original Github: https://github.com/itchyny/lightline.vim
 
 *Thank you*
