@@ -89,7 +89,10 @@ else
     set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
 endif
 
-"Always show current position
+" Disable syntax conceal for markdown language
+set conceallevel=0
+
+" Always show current position
 set ruler
 
 " Height of the command bar
