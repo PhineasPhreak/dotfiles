@@ -1,5 +1,21 @@
 ## Driver Nvidia For Unix ([Kali Linux](https://docs.kali.org/general-use/install-nvidia-drivers-on-kali-linux), Ubuntu, ArchLinux)
 
+### Xorg For Nvidia
+Pour l'installation des [Drivers Nvidia](https://github.com/PhineasPhreak/dotfiles/tree/master/configs/xorg/etc/X11) pour Unix (Kali Linux, Ubuntu, ArchLinux)
+
+Le serveur X se configure automatiquement au démarrage.
+Le fichier `/etc/X11/xorg.conf` qui sert à paramétrer le serveur X est donc quasiment vide voire inexistant.
+
+Cependant, dans certains cas, la détection automatique ne fonctionne pas.
+Il faut donc paramétrer manuellement ce fichier xorg.conf.
+
+Certaine commande peuvent être utile pour configurer (Console *ou* Graphique) Xorg sous Unix:
+
+`nvidia-setting`, `nvidia-xconfig`, `nvidia-smi`, `X`
+
+* Xorg Wiki: https://fr.wikipedia.org/wiki/X.Org
+* Xorg ArchWiki: https://wiki.archlinux.org/index.php/xorg
+
 Installer NVIDIA GPU et CUDA support sur les distributions Unix, ci-dessus:
 
 *Note:* GPUs with a [CUDA Compute Capability](https://developer.nvidia.com/cuda-gpus) > 5.0 are recommended, but GPUs with less will still work.
