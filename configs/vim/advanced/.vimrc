@@ -61,6 +61,10 @@ let g:mapleader = ","
 " Fast saving
 nmap <leader>w :w!<cr>
 
+" Quickly insert an empty new line without entering insert mode
+nnoremap <Leader>j o<Esc>
+nnoremap <Leader>k O<Esc>
+
 " :W sudo saves the file 
 " (useful for handling the permission-denied error)
 command W w !sudo tee % > /dev/null
