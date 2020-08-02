@@ -174,3 +174,15 @@ if has('mouse')
   set mouse=a
 endif
 
+" With a map leader it's possible to do extra key combinations
+" like <leader>w saves the current file
+let mapleader = ","
+let g:mapleader = ","
+
+" Fast saving
+nmap <leader>w :w!<cr>
+
+" Quickly insert an empty new line without entering insert mode
+nnoremap <Leader>j o<Esc>
+nnoremap <Leader>k O<Esc>
+
