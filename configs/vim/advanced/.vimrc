@@ -218,8 +218,8 @@ set noswapfile
 " => Text, tab and indent related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Change color for tab
-hi TabLineFill ctermfg=lightgreen ctermbg=darkgreen
-hi TabLine ctermfg=Blue ctermbg=Yellow
+hi TabLineFill ctermfg=darkgrey ctermbg=darkgreen
+hi TabLine ctermfg=Blue ctermbg=darkgrey
 hi TabLineSel ctermfg=white ctermbg=black
 
 " Use spaces instead of tabs
