@@ -7,8 +7,14 @@ Configuration Files For my Unix System
 
 * **[Kite](https://kite.com/) is a plugin for your [IDE](https://kite.com/integrations/) that uses machine learning to give you useful code completions for Python.**
 
+## Awesome list
+
 * PS Book Pentest and Security: **[Git-Pentest](https://github.com/enaqx/awesome-pentest), [Git-Security](https://github.com/sbilly/awesome-security), [Git-Linux](https://github.com/aleksandar-todorovic/awesome-linux), [Git-Python](https://github.com/vinta/awesome-python), [Git-GameHacking](https://github.com/dsasmblr/game-hacking), [Git-HoneyPots](https://github.com/paralax/awesome-honeypots)**
 
+* Topics Awesome List on Github [AwesomeLists](https://github.com/topics/awesome)
+
+> Awesome list is a list of awesome things curated [by the community](https://awesome.re/).
+ 
 **Icon GitHub :** [Icon Here](https://octicons.github.com/)
 
 ### Site and Others
