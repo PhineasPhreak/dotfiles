@@ -1,12 +1,12 @@
-## Image Bash Ubuntu *16.04.3 LTS amd64* and *18.04.1 LTS amd64*
+# Images bash with 'prompt.bash' and 'powerline.bash' on Ubuntu
 ![Bash-ubuntu-with-bashrc](https://github.com/PhineasPhreak/dotfiles/blob/master/screenshots/bash-ubuntu.png)
 ![Powerline-ubuntu-with-bashrc](https://github.com/PhineasPhreak/dotfiles/blob/master/screenshots/powerline-ubuntu.png)
 
 > *Image Terminal Ubuntu:*
 
-## Aliases in Terminal :
+## Aliases in Terminal 
 Copy this to `~/.bash_aliases` </br>
-**Add Aliases definition to `.bashrc`**
+Add Aliases definition to `.bashrc`
 ```shell
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -17,14 +17,19 @@ if [ -f ~/.bash_aliases ]; then
 fi
 ```
 
-## Powerline Installation :
+## Powerline Installation
 **Documentation for Powerline : [HTML - Read The Docs](https://powerline.readthedocs.io/en/master/)** | **[PDF - Read The Docs](https://media.readthedocs.org/pdf/powerline/stable/powerline.pdf)**</br>
 **Archlinux wiki : [Wiki archlinux](https://wiki.archlinux.org/index.php/Powerline)**
 
-### Prompt Installation :
+## Prompt Installation
+A fast, simple bash prompt. </br>
 [Markdown for installation](https://github.com/PhineasPhreak/dotfiles/blob/master/configs/bash/prompt.bash/README.md)
 
-### Powerline Github :
+## Git prompt bash
+A `bash` prompt that displays information about the current git repository. In particular the branch name, difference with remote branch, number of files staged, changed, etc. </br>
+[Github repositories](https://github.com/magicmonty/bash-git-prompt)
+
+## Powerline Github 
 | Name | Link |
 |:---|:---|
 |Github for Powerline | [Github Powerline](https://github.com/powerline/powerline)|
@@ -43,7 +48,7 @@ if [ -f /usr/share/powerline/bindings/bash/powerline.sh ]; then
     source /usr/share/powerline/bindings/bash/powerline.sh
 fi
 ```
-## Classic Installation :
+## Classic Installation 
 Put the file at the root of your user/root account:
 * For Root : `/root/.bashrc`
 * For User : `/home/user/.bashrc`
