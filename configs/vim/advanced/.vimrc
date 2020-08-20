@@ -322,7 +322,8 @@ set laststatus=2
 " Format the status line
 hi StatusLine ctermbg=white ctermfg=black
 "set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
-set statusline=%f\ %h%w%m%r\ %=%(%{&ff}\ %(//%)\ %{''.(&fenc!=''?&fenc:&enc).''}\ %(//%)\ \%y\ %-4.(%)\ %3l,%-2v\ %-2.(%)\ %L\ %-4.(%)\ %P%)\ %-3.(%)
+"set statusline=%f\ %h%w%m%r\ %=%(%{&ff}\ %(//%)\ %{''.(&fenc!=''?&fenc:&enc).''}\ %(//%)\ \%y\ %-4.(%)\ %3l,%-2v\ %-2.(%)\ %L\ %-4.(%)\ %P%)\ %-3.(%)
+set statusline=%f\ %h%w%m%r\ %=%(%{&ff}\ %(//%)\ %{''.(&fenc!=''?&fenc:&enc).''}\ %(//%)\ \%{&ft!=#''?&ft:'no-ft'}\ %-4.(%)\ %3l,%-2v\ %-2.(%)\ %L\ %-4.(%)\ %P%)\ %-3.(%)
 "set statusline=\ %F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v]\ [%p%%]\ [LEN=%L] 
 
 

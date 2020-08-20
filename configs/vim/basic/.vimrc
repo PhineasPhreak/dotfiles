@@ -187,5 +187,6 @@ nnoremap <Leader>j o<Esc>
 nnoremap <Leader>k O<Esc>
 
 " Statusline for VIM
-set statusline=%f\ %h%w%m%r\ %=%(%{&ff}\ %(//%)\ %{''.(&fenc!=''?&fenc:&enc).''}\ %(//%)\ \%y\ %-4.(%)\ %3l,%-2v\ %-2.(%)\ %L\ %-4.(%)\ %P%)\ %-3.(%)
+"set statusline=%f\ %h%w%m%r\ %=%(%{&ff}\ %(//%)\ %{''.(&fenc!=''?&fenc:&enc).''}\ %(//%)\ \%y\ %-4.(%)\ %3l,%-2v\ %-2.(%)\ %L\ %-4.(%)\ %P%)\ %-3.(%)
+set statusline=%f\ %h%w%m%r\ %=%(%{&ff}\ %(//%)\ %{''.(&fenc!=''?&fenc:&enc).''}\ %(//%)\ \%{&ft!=#''?&ft:'no-ft'}\ %-4.(%)\ %3l,%-2v\ %-2.(%)\ %L\ %-4.(%)\ %P%)\ %-3.(%)
 
