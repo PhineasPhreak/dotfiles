@@ -12,6 +12,14 @@ Github : https://github.com/vim-airline/vim-airline </br>
 Image Shorcut Cheatsheet : [Shorcut VIM](https://github.com/PhineasPhreak/dotfiles/blob/master/screenshots/vim-shortcut-cheatsheet.png)</br>
 Github lightline.vim : https://github.com/itchyny/lightline.vim
 
+## Themes
+
+* Awesome Vim Color Schemes : [Github-awesome-vim-colorschemes](https://github.com/rafi/awesome-vim-colorschemes)
+> Collection of awesome color schemes for Vim, merged for quick use.
+
+* PaperColor theme : [Github-papercolor-theme](https://github.com/NLKNguyen/papercolor-theme)
+> Light & Dark color schemes for terminal and graphic Vim awesome editor
+
 ## Installation configuration file
 
 Put the file at the root of your user/root account:
