@@ -1,14 +1,20 @@
 #!/bin/bash
 #
-# Merge of https://github.com/b-ryan/powerline-shell/ and
-# https://github.com/skeswa/prompt .
+# Merge of 
+# https://github.com/b-ryan/powerline-shell/ and
+# https://github.com/skeswa/prompt and
+# https://gist.github.com/sminez/11fe5d763a9e9e63be5d836715c6425c
+# Modified by phinasphreak
+#
+# Others icon "⚑","⇣", "⇡", "⬇", "⬆", "★", "●", "✖", "✚", "…", "", "✼", "✔", "✎"
 #
 # Configuration:
+# all option are: hostname diskp disku diska pwd venv git status jobs
 #
-# POWERLINE_SEGMENTS="pwd venv git"
+POWERLINE_SEGMENTS="hostname pwd venv git status jobs"
 # POWERLINE_STYLE="default" or your
-# POWERLINE_SEP=''
-# POWERLINE_THINSEP=''
+POWERLINE_SEP=''
+POWERLINE_THINSEP=''
 #
 # These variables can be set per shell, without export.
 
@@ -109,7 +115,7 @@ function __powerline_parse_git_status_v2() {
             branch="${branch_infos[0]:0:7}"
         fi
     else
-        branch="${branch_infos[1]}"
+        branch=" ${branch_infos[1]}"
     fi
 
     ab="${branch_infos[3]-}"
@@ -138,7 +144,7 @@ function __powerline_parse_git_status_v1() {
             fi
         elif [ -z "${line####*}" ] ; then
             __powerline_split '...' "${line#### }"
-            branch="${__powerline_retval[0]}"
+            branch=" ${__powerline_retval[0]}"
         else
             # Les autres lignes sont des lignes de modification.
             dirty=1
@@ -209,6 +215,7 @@ __powerline_segment_hostname() {
     local fg
     local text
     local hash
+    local bold_hostname
 
     if [ -z "${HOSTNAME-}" -a -f /etc/hostname ] ; then
         read HOSTNAME < /etc/hostname
@@ -219,20 +226,44 @@ __powerline_segment_hostname() {
         USER=$(whoami)
     fi
 
+    # Affiche hostname en gras avec valeur egale a (";1") 
+    # Affiche hostname normalement avec ("")
+    bold_hostname=";1"
+
+    # Valeur hostname par defaut 
     text="${USER}@${HOSTNAME-*unknown*}"
+    
+    # Affiche seulement le nom d'utilisateur dans le prompt
+    #text="${USER}"
 
     # Calculer la couleur à partir du texte à afficher.
+    # Par defaut
+    #hash=$(sum <<< "${text}")
+    #bg=$((1${hash// /} % 215))
+    #rgb=($((bg / 36)) $(((bg % 36) / 6)) $((bg % 6)))
+    #bg=$((16+bg))
+
     hash=$(sum <<< "${text}")
-    bg=$((1${hash// /} % 215))
+    bg=$((1${hash// /} % 1))
     rgb=($((bg / 36)) $(((bg % 36) / 6)) $((bg % 6)))
-    bg=$((16+bg))
+
+    # Change la couleur du background suivant l'utilisateur "green" pour USER et "red" pour ROOT
+    # "$UID = 0" egal ROOT
+    # "$UID = 1000" egal USER
+    if [ "$UID" = "0" ] ; then
+        # ROOT couleur RED
+        bg=$((124+bg))
+    else
+        # USER couleur GREEN
+        bg=$((35+bg))
+    fi
 
     # Assurer la lisibilité en déterminant la couleur du texte en fonction de la
     # clareté du fond.
     __powerline_get_foreground "${rgb[@]}"
     fg=${__powerline_retval}
 
-    __powerline_retval=("p:48;5;${bg}:38;5;${fg}:${text}")
+    __powerline_retval=("p:48;5;${bg}:38;5;${fg}${bold_hostname}:${text}")
 }
 
 __powerline_segment_pwd() {
@@ -243,8 +274,14 @@ __powerline_segment_pwd() {
     __powerline_shorten_dir "$(dirs +0)"
     local short_pwd="${__powerline_retval}"
 
+    if [ "$short_pwd" = "/" ] ; then
+        __powerline_split "" "${short_pwd}"
+        local parts=("${__powerline_retval[@]}")
+
+    else
     __powerline_split / "${short_pwd}"
     local parts=("${__powerline_retval[@]}")
+    fi
 
     __powerline_retval=()
     local sep=p
@@ -252,11 +289,22 @@ __powerline_segment_pwd() {
         if [ "${part}" = '~' -o "${part}" = "" ] ; then
             colors="48;5;31:38;5;15"
             next_sep=p
+
+        # Couleur pour le dossier racine "/"
+        elif [ "${part}" = '/' -o "${part}" = "" ]; then
+            # Couleur grise par defaut
+            colors="48;5;237:38;5;250"
+
+            # Couleur rouge
+            #colors="48;5;88:38;5;15"
+            next_sep=p
+
         else
             colors="48;5;237:38;5;250"
             # Les segments suivants auront un séparateur léger
             next_sep=t
         fi
+
         __powerline_retval+=("${sep}:${colors}:${part}")
         sep=${next_sep}
     done
@@ -283,12 +331,119 @@ __powerline_segment_status() {
     __powerline_retval=("p:48;5;1:38;5;234;1:✘ $ec")
 }
 
+__powerline_segment_jobs() {
+    local bg
+    local fg
+    local bold
+    # Ancienne methode pour calculer les "jobs" en cours.
+    #local jobsnum="$(jobs -p | wc -l)"
+
+    # Compte le nombre de "jobs" avec un meilleur affichage pour le terminal
+    # car il permet de choisir uniquement les process "Running" et "Stopped" 
+    # et d'enlever les autres "Terminated" et "Done" qui ne sont pas important.
+    local jobsnum=$(jobs -l | awk -F" " '{ print $3 }' | grep -E 'Running|Stopped' | wc -l)
+
+    fg=234
+    # Si command lancer en background depuis le terminal superieur a 5
+    # alors la couleur change et le chiffre se met en gras
+    if [ $jobsnum -le 5 ] ; then
+        bg=172
+        bold=16
+    else
+        bg=202
+        bold=1
+    fi
+    
+    # Efface "jobsnum" si valeur egal a 0
+    if [ $jobsnum -eq 0 ] ; then
+        __powerline_retval=()
+        return
+    fi
+
+    __powerline_retval=("p:48;5;${bg}:38;5;${fg};${bold}:… $jobsnum")
+}
+
+__powerline_segment_diskp() {
+    local bg
+    local fg
+    local bold
+
+    local usepc=$(df -Th $HOME | awk '/[0-9]%/{print $(NF-1)}')
+    local usepc_int=${usepc::-1}
+
+    fg=234
+    # Affiche le pourcentage du disque utiliser
+    # alors la couleur change et le chiffre se met en gras
+    if [ $usepc_int -le 25 ] ; then
+        bg=28
+        bold=16
+
+    elif [ $usepc_int -le 50 ] ; then
+        bg=172
+        bold=16
+
+    elif [ $usepc_int -ge 50 ] ; then
+        bg=202
+        bold=16
+        if [ $usepc_int -ge 75 ] ; then
+            bg=196
+            bold=16
+        fi
+
+    else
+        bg=16
+        bold=1
+    fi
+
+    # Efface "usepc" si valeur egal a 0
+    if [ $usepc_int -eq 0 ] ; then
+        __powerline_retval=()
+        return
+    fi
+
+    __powerline_retval=("p:48;5;${bg}:38;5;${fg};${bold}:$usepc")
+
+}
+
+__powerline_segment_disku() {
+    # Affiche la taille utiliser sur le disque
+    local bg
+    local fg
+    local bold
+    local used=$(df -Th $HOME | awk '/[0-9]%/{print $(NF-3)}')
+    # local used_int=${used::-1}
+
+    fg=234
+    bg=25
+    bold=16
+
+    __powerline_retval=("p:48;5;${bg}:38;5;${fg};${bold}:$used")
+}
+
+__powerline_segment_diska() {
+    # Affiche la taille disponible sur la disque
+    local bg
+    local fg
+    local bold
+    local avail=$(df -Th $HOME | awk '/[0-9]%/{print $(NF-2)}')
+    # local avail_int=${avail::-1}
+
+    fg=234
+    bg=30
+    bold=16
+
+    __powerline_retval=("p:48;5;${bg}:38;5;${fg};${bold}:$avail")
+}
+
 __powerline_segment_git() {
     local branch
     local branch_colors
     local ab
     local ab_segment=''
     local detached
+    local change_branch
+    
+    #local count_commits=$(git shortlog -s | grep -i "$(git config --global -l | grep -i "name" | gawk -F"=" '{ print $2 }')" | gawk -F" " '{ print $1 }')
 
     if ! status="$(LC_ALL=C.UTF-8 ${__powerline_git_cmd[@]} 2>/dev/null)" ; then
         __powerline_retval=()
@@ -301,24 +456,67 @@ __powerline_segment_git() {
 
     # Colorer la branche selon l'existance de modifications.
     if [ -n "${__powerline_retval[1]}" ] ; then
+        local count_add=$(git status --short | wc -l)
         branch_colors="48;5;161:38;5;15"
+        change_branch=1
     else
         branch_colors="48;5;148:38;5;0"
+        change_branch=0
     fi
 
-    __powerline_retval=("p:${branch_colors}:${detached:+⚓ }${branch}")
+    if [ $change_branch -eq 1 ] ; then
+        __powerline_retval=("p:${branch_colors}:${detached:+⚓ }${branch} … ${count_add}")
+    else
+        __powerline_retval=("p:${branch_colors}:${detached:+⚓ }${branch}")
+    fi
+
+    # Segments de modification de la branch par defaut
+    #__powerline_retval=("p:${branch_colors}:${detached:+⚓ }${branch}")
 
     # Compute ahead/behind segment
     if [ -n "${ab##+0*}" ] ; then
         # No +0, the local branch is ahead upstream.
-        ab_segment="⬆"
+        local count_commits=$(git rev-list origin..HEAD | wc -l)
+        ab_segment="↑ … $count_commits"
     fi
     if [ -n "${ab##+* -0}" ] ; then
         # No -0, the local branch is behind upstream.
-        ab_segment+="⬇"
+        ab_segment+="↓"
     fi
     if [ -n "${ab_segment}" ] ; then
-        __powerline_retval+=("p:48;5;240:38;5;250:${ab_segment}")
+        # Juste pour tester la colorisation du nombre de commit 
+        #count_commits=$(($count_commits + 41))
+
+        if [ $count_commits -eq 1 ] ; then
+            # Couleur = Blanc
+            __powerline_retval+=("p:48;5;240:38;5;250:${ab_segment}")
+
+        elif [ $count_commits -le 3 ] ; then
+            # Couleur = Vert
+            __powerline_retval+=("p:48;5;240:38;5;70:${ab_segment}")
+
+        elif [ $count_commits -le 5 ] ; then
+            # Couleur = Jaune
+            __powerline_retval+=("p:48;5;240:38;5;172:${ab_segment}")
+
+        elif [ $count_commits -le 10 ]; then
+            # Couleur = Orange
+            __powerline_retval+=("p:48;5;240:38;5;202:${ab_segment}")
+
+        elif [ $count_commits -le 20 ]; then
+            # Couleur = Rouge
+            __powerline_retval+=("p:48;5;240:38;5;88:${ab_segment}")
+
+        elif [ $count_commits -ge 21 ]; then
+            # Couleur = Noir et en gras
+            __powerline_retval+=("p:48;5;240:38;5;16;1:${ab_segment}")
+
+        else
+            __powerline_retval+=("p:48;5;240:38;5;250:${ab_segment}")
+        fi
+
+        # Par defaut sans coloration du nombres de commit
+        #__powerline_retval+=("p:48;5;240:38;5;250:${ab_segment}")
     fi
 }
 
@@ -400,7 +598,7 @@ __update_ps1() {
 
     # Détecter si on est connecté sur une autre machine ou un autre utilisateur.
     local other=${SSH_CLIENT-${SUDO_USER-${container-}}}
-    local segments=${POWERLINE_SEGMENTS-${other:+hostname} pwd venv git status}
+    local segments=${POWERLINE_SEGMENTS-${other:+hostname} pwd venv git status jobs diskp disku diska}
     local segment
     for segment in ${segments} ; do
         __powerline_segment_${segment} $last_exit_code
@@ -411,7 +609,9 @@ __update_ps1() {
     __powerline_render_${POWERLINE_STYLE-default}
     __ps1+="${__powerline_retval}"
     __powerline_dollar $last_exit_code
-    __ps1+="\n${__powerline_retval}"
+
+    # Pour retirer le retour chariot supprimmer "\n" de la ligne suivant
+    __ps1+=" ${__powerline_retval}"
     PS1="${__ps1}"
 }
 
