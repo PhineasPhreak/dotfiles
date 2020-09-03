@@ -14,7 +14,8 @@ Github lightline.vim : https://github.com/itchyny/lightline.vim
 
 ## Tutorials
 
-Vim help files : [vimhelp.org](https://vimhelp.org/)
+Vim help files : [vimhelp.org](https://vimhelp.org/)</br>
+Vim ref card : [Vim Ref Card](https://u-tools.com/vimrefcard.pdf)
 
 ## Themes
 
