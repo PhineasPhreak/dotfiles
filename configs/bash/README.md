@@ -17,6 +17,9 @@ if [ -f ~/.bash_aliases ]; then
 fi
 ```
 
+## Color in Terminal
+Color numbers 0–255 for terminal emulators compatible with xterm 256 colors can be found in the [xterm-256color chart](https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg)
+
 ## Powerline Installation
 **Documentation for Powerline : [HTML - Read The Docs](https://powerline.readthedocs.io/en/master/)** | **[PDF - Read The Docs](https://media.readthedocs.org/pdf/powerline/stable/powerline.pdf)**</br>
 **Archlinux wiki : [Wiki archlinux](https://wiki.archlinux.org/index.php/Powerline)**
