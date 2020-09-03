@@ -457,7 +457,8 @@ __powerline_segment_git_sync() {
 	# Segment d'état de synchronisation.
 	if [ "${ahead}" -gt 0 ] ; then
 		# Il faut pousser des commits.
-		ab_segment="⬆"
+        local count_commits=$(git rev-list origin..HEAD | wc -l)
+		ab_segment="⬆ … $count_commits"
 	fi
 	if [ -n "${ab##+* -0}" ] ; then
 		# Il faut tirer des commits upstream.
