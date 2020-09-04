@@ -577,6 +577,7 @@ __powerline_init_hostname() {
 	local fg
 	local text
 	local hash
+    local bold_hostname
 
 	if [ -z "${HOSTNAME-}" ] && [ -f /etc/hostname ] ; then
 		read -r HOSTNAME < /etc/hostname
@@ -586,6 +587,9 @@ __powerline_init_hostname() {
 	if [ -z "${USER}" ] ; then
 		USER=$(whoami)
 	fi
+
+    # Prompt avec utilisateur et nom machine en gras
+    bold_hostname=";1"
 
 	text="${USER}@${HOSTNAME-*unknown*}"
 
@@ -604,7 +608,11 @@ __powerline_init_hostname() {
         bg=$((35+bg))
     fi
 
-	__powerline_hostname_segment="p:48;5;${bg}:38;5;${fg}:${POWERLINE_HOSTNAME_ICON-}:${text}"
+    # Sans prompt en Gras
+	#__powerline_hostname_segment="p:48;5;${bg}:38;5;${fg}:${POWERLINE_HOSTNAME_ICON-}:${text}"
+
+    # Avec prompt en Gras
+	__powerline_hostname_segment="p:48;5;${bg}:38;5;${fg}${bold_hostname}:${POWERLINE_HOSTNAME_ICON-}:${text}"
 }
 
 __powerline_segment_hostname() {
