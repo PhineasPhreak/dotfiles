@@ -704,8 +704,13 @@ __powerline_segment_pwd() {
 	__powerline_shorten_dir "$(dirs +0)"
 	local short_pwd="${__powerline_retval[0]}"
 
-	__powerline_split / "${short_pwd}"
-	local parts=("${__powerline_retval[@]}")
+    if [ "$short_pwd" = "/" ] ; then
+        __powerline_split "" "${short_pwd}"
+        local parts=("${__powerline_retval[@]}")
+    else
+        __powerline_split / "${short_pwd}"
+        local parts=("${__powerline_retval[@]}")
+    fi
 
 	__powerline_retval=()
 	local sep=p
@@ -718,7 +723,7 @@ __powerline_segment_pwd() {
 			next_sep=p  # plain
 		elif [ "${part}" = "" ] ; then
 			colors="48;5;237:38;5;254"
-			next_sep=t  # thin
+			next_sep=p  # thin or plain
 		else
 			colors="48;5;237:38;5;250"
 			# Les segments suivants auront un séparateur léger
