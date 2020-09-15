@@ -51,6 +51,11 @@ Add this line to `~/.config/i3/config`
 
 `exec_always --no-startup-id "xset b off"`
 
+* How to change cursor speed in the Linux console?
+Add this line to `~/.config/i3/config`
+
+`exec_always --no-startup-id "xset r rate 250 75"`
+
 ### Bug - gnome-control-center with i3
 copy few lines in `.profile` file at home directory
 ```
