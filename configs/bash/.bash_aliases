@@ -19,8 +19,11 @@ if [ -x /usr/bin/dircolors ]; then
     alias ip='ip --color=auto'
 fi
 
+# open files with default application
+alias open='xdg-open'
+
 # alias for 'sudo' in 'sd'
-alias sd='sudo '
+alias sd='sudo'
 
 # alias 'clear' in 'cl'
 alias cl='clear'
@@ -31,7 +34,6 @@ alias cddoc='cd ~/Documents/'
 alias cdpic='cd ~/Pictures/'
 alias cdgit='cd ~/Git/'
 alias cdlab='cd ~/Lab/'
-alias cdos='cd ~/OS/'
 
 # prompt before overwrite with option "-i" for "cp", "mv' and "rm"
 #alias cp='cp -v'
