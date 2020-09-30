@@ -32,6 +32,13 @@ if ! [[ -z $PROMPT_SEGMENT_JOBS_COLOR ]]; then
   __prompt_segment_jobs="${__prompt_color_prefix}${PROMPT_SEGMENT_JOBS_COLOR}${__prompt_color_suffix}"
 fi
 
+# Set the path color. Defaults to purple. It can be overwritten by
+# `PROMPT_SEGMENT_PYTHON_COLOR`.
+__prompt_segment_python_color="${__prompt_color_prefix}${__prompt_256_prefix}220${__prompt_color_suffix}"
+if ! [[ -z $PROMPT_SEGMENT_PYTHON_COLOR ]]; then
+  __prompt_segment_python="${__prompt_color_prefix}${PROMPT_SEGMENT_PYTHON_COLOR}${__prompt_color_suffix}"
+fi
+
 # Set the git color. Defaults to purple. It can be overwritten by
 # `PROMPT_GIT_COLOR`.
 __prompt_git_color="${__prompt_color_prefix}${__prompt_256_prefix}105${__prompt_color_suffix}"
@@ -151,6 +158,48 @@ function __prompt_get_git_stuff() {
   fi
 }
 
+__prompt_segment_python() {
+	local text
+
+	if [ -v VIRTUAL_ENV ] ; then
+		# Les virtualenv python classiques
+		text=${VIRTUAL_ENV##*/}
+	elif [ -v CONDA_ENV_PATH ] ; then
+		text=${CONDA_ENV_PATH##*/}
+	elif [ -v CONDA_DEFAULT_ENV ] ; then
+		text=${CONDA_DEFAULT_ENV##*/}
+	elif [ -v PYENV_ROOT ] ; then
+		# Les virtualenv et versions pyenv
+		__prompt_pyenv_version_name
+		text="${__prompt_retval[*]}"
+	fi
+
+	if [ -n "${text}" ] ; then
+		__prompt_retval=(":${text}")
+	else
+		__prompt_retval=()
+	fi
+}
+
+__prompt_pyenv_version_name() {
+	local dir="$PWD"
+	__prompt_retval=("${PYENV_VERSION-}")
+	if [ -n "${__prompt_retval[*]}" ] ; then
+		return
+	fi
+
+	__prompt_find_parent "${dir}" .python-version
+	if [ -n "${__prompt_retval[*]}" ] && readarray __prompt_retval < "${__prompt_retval[*]}" 2>/dev/null ; then
+		# read a trouvé quelque choses (et l'a enregistré), c'est tout bon.
+		return
+	fi
+
+	# L'existence de ${PYENV_ROOT} a déjà été testée dans le segment "python".
+	if [ -f "${PYENV_ROOT}/version" ] ; then
+		readarray -n 1 -t __prompt_retval < "${PYENV_ROOT}"/version 2>/dev/null
+	fi
+}
+
 # This function creates count for jobs running.
 function __prompt_segment_jobs() {
   # Ancienne methode pour calculer les "jobs" en cours.
@@ -170,6 +219,21 @@ function __prompt_segment_jobs() {
   __prompt_retval=":$jobsnum"
 }
 
+__prompt_find_parent() {
+	local cwd="$1"
+	local name="$2"
+	__prompt_retval=()
+
+	while [ "$cwd" ] ; do
+		if [ -e "$cwd/$name" ] ; then
+			__prompt_retval=("$cwd/$name")
+			return
+		fi
+		# Sinon, on remonte d'un cran dans l'arborescence.
+		cwd="${cwd%/*}"
+	done
+}
+
 # This function creates prompt.
 function __prompt_command() {
   # Make the dollar red if the last command exited with error.
@@ -186,6 +250,9 @@ function __prompt_command() {
   __prompt_segment_jobs
   local jobsnum="${__prompt_segment_jobs_color}${__prompt_retval}"
 
+  __prompt_segment_python
+  local py_segment="${__prompt_segment_python_color}${__prompt_retval}"
+
   __prompt_get_host
   local host="${__prompt_userhost_color}${__prompt_retval}"
 
@@ -196,8 +263,11 @@ function __prompt_command() {
   # Set the PS1 to the new prompt. (func pwd not in bold)
   #PS1="${__prompt_color_prefix_bold}${host}${__prompt_no_color}${__prompt_color_prefix_no_bold}:${short_pwd}${git_stuff}${jobsnum}${__prompt_color_prefix_bold}${dollar}${__prompt_no_color} "
 
-  # Set the PS1 to the new prompt ( with func pwd in bold) 
-  PS1="${__prompt_color_prefix_bold}${host}${__prompt_no_color}${__prompt_color_prefix_no_bold}:${__prompt_color_prefix_bold}${short_pwd}${git_stuff}${__prompt_color_prefix_no_bold}${jobsnum}${__prompt_color_prefix_bold}${dollar}${__prompt_no_color} "
+  # Set the PS1 to the new prompt (with func pwd in bold) (no py_segment)
+  #PS1="${__prompt_color_prefix_bold}${host}${__prompt_no_color}${__prompt_color_prefix_no_bold}:${__prompt_color_prefix_bold}${short_pwd}${git_stuff}${__prompt_color_prefix_no_bold}${jobsnum}${__prompt_color_prefix_bold}${dollar}${__prompt_no_color} "
+  
+  # Set the PS1 to the new prompt (with func pwd in bold) and (with py_segment)
+  PS1="${__prompt_color_prefix_bold}${host}${__prompt_no_color}${__prompt_color_prefix_no_bold}:${__prompt_color_prefix_bold}${short_pwd}${git_stuff}${__prompt_color_prefix_no_bold}${py_segment}${jobsnum}${__prompt_color_prefix_bold}${dollar}${__prompt_no_color} "
 }
 
 # Tell bash about the function above.
