@@ -1,7 +1,7 @@
 ## My Installation :
 * Create `~/.config/prompt/` and copy `git-completion.bash` and `prompt.bash`
 * Edit the `.bashrc` file with :
-```bash
+```shell
 # Use skeswa/prompt
 if [ -f ~/.config/prompt/prompt.bash ]; then
     source ~/.config/prompt/prompt.bash

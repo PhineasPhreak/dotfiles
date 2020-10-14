@@ -17,45 +17,44 @@ if [ -f ~/.bash_aliases ]; then
 fi
 ```
 
+## Prompt Installation
+A fast, simple bash prompt. </br>
+[Markdown for installation](https://github.com/PhineasPhreak/dotfiles/blob/master/configs/bash/)
+
 ## Color in Terminal
 Color numbers 0–255 for terminal emulators compatible with xterm 256 colors can be found in the [xterm-256color chart](https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg)
+
+## History completion
+You can bind the up and down arrow keys to search through Bash's history. In `~/.bashrc`
+```shell
+bind '"\e[A": history-search-backward'
+bind '"\e[B": history-search-forward'
+```
 
 ## Powerline Installation
 **Documentation for Powerline : [HTML - Read The Docs](https://powerline.readthedocs.io/en/master/)** | **[PDF - Read The Docs](https://media.readthedocs.org/pdf/powerline/stable/powerline.pdf)**</br>
 **Archlinux wiki : [Wiki archlinux](https://wiki.archlinux.org/index.php/Powerline)**
 
-## Prompt Installation
-A fast, simple bash prompt. </br>
-[Markdown for installation](https://github.com/PhineasPhreak/dotfiles/blob/master/configs/bash/prompt.bash/README.md)
-
-## Git prompt bash
-A `bash` prompt that displays information about the current git repository. In particular the branch name, difference with remote branch, number of files staged, changed, etc. </br>
-[Github repositories](https://github.com/magicmonty/bash-git-prompt)
-
-## Powerline Github 
+## Powerline Github
 | Name | Link |
 |:---|:---|
 |Github for Powerline | [Github Powerline](https://github.com/powerline/powerline)|
 |Github for Powerline-fonts | [Github Powerline-fonts](https://github.com/powerline/fonts)|
 |Github for Powerline-shell | [Github Powerline-shell](https://github.com/b-ryan/powerline-shell)|
 |Github for Powerline-gistatus | [Github Powerline-gitstatus](https://github.com/jaspernbrouwer/powerline-gitstatus)|
-</br>
 
-Copy this to `~/.bashrc`
-```shell
-# Use Powerline
-if [ -f /usr/share/powerline/bindings/bash/powerline.sh ]; then
-    powerline-daemon -q
-    POWERLINE_BASH_CONTINUATION=1
-    POWERLINE_BASH_SELECT=1
-    source /usr/share/powerline/bindings/bash/powerline.sh
-fi
-```
-## Classic Installation 
+## Git prompt bash
+A `bash` prompt that displays information about the current git repository. In particular the branch name, difference with remote branch, number of files staged, changed, etc. </br>
+[Github repositories](https://github.com/magicmonty/bash-git-prompt)
+
+## Git powerline bash
+`powerline.bash` is a dynamic command prompt in Powerline style, for BASH.
+
+## Classic Installation
 Put the file at the root of your user/root account:
 * For Root : `/root/.bashrc`
 * For User : `/home/user/.bashrc`
-```shell
+```console
 pspk@kali:~# ls -lhA | grep .bashrc
 -rw-r--r-- 1 pspk pspk 3.4K Oct  1 00:44 .bashrc
 ```

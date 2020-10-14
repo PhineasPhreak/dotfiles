@@ -23,7 +23,7 @@ pour BASH.
 ## Installation
 Installe le fichier `powerline.bash` dans le repertoire `$HO%E/.config/`
 puis configurer le fichier `.bashrc`
-``` console
+```console
 $ curl -Lo ~/.config/powerline.bash https://gitlab.com/bersace/powerline-bash/raw/master/powerline.bash
 $ $EDITOR ~/.bashrc
 # Copier et adapter ceci dans votre .bashrc
