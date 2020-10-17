@@ -1,7 +1,7 @@
 #!/bin/bash
 # cf. https://gitlab.com/bersace/powerline.bash
 # cf. Dernier commit depuis ma modification : 
-# 01 Oct, 2020 "Réinitialiser les couleurs en fin de ligne" 3fa92c0881abbf78d4a51247afbab88a89879111
+# 02 Oct, 2020 "Améliorer le choix de la couleur d'hôte en 24bit" 101cac7fcd9c0bfb89ab622ef4ad48c7ffa2da54
 #
 # Cette variable globale permet de retourner une valeurs à du code appelant
 # sans passer par un sous-shell. Cela optimise énormément les performances.
@@ -15,8 +15,6 @@
 # Modified by phinasphreak
 #
 # Others icon "⚑","⇣", "⇡", "⬇", "⬆", "★", "●", "✖", "✚", "…", "", "✼", "✔", "✎", "⚙"
-
-
 __powerline_retval=()
 
 
@@ -42,13 +40,11 @@ __update_ps1() {
 
 	# Prompt without linebreak
 	__ps1+="${__powerline_retval[0]}\\[\\e[0m\\]"
-
 	# Prompt with linebreak
 	#__ps1+="${__powerline_retval[0]}\\[\\e[0m\\]\\n"
+
 	__powerline_dollar "$last_exit_code"
-
-	__ps1+="${__powerline_retval[0]}\\[\\e[0m\\]"
-
+	__ps1+="${__powerline_retval[0]}"
 	PS1="${__ps1}"
 }
 
@@ -156,10 +152,9 @@ __powerline_autosegments() {
 
 	local remote;
 	remote=${SSH_CLIENT-${SUDO_USER-${container-}}}
-	    user_uid=$UID
-    if [ $user_uid -eq 1000 ] ; then
-        __powerline_retval+=(hostname)
-    else
+	if [ $UID -eq 1000 ] ; then
+		__powerline_retval+=(hostname)
+	else
 		if [ -n "${remote}" ] ; then
 			__powerline_retval+=(hostname)
 		fi
@@ -171,7 +166,8 @@ __powerline_autosegments() {
 
 	__powerline_retval+=(pwd)
 
-	if type -p python >/dev/null ; then
+	# Remplacer "python" par "python3" si python2.7 n'est pas installer sur votre système
+	if type -p python3 >/dev/null ; then
 		__powerline_retval+=(python)
 	fi
 
@@ -191,7 +187,11 @@ __powerline_autosegments() {
 		__powerline_retval+=(k8s)
 	fi
 
-	__powerline_retval+=(jobs)
+	# Ajout du test pour le segment "jobs"
+	if type -p jobs >/dev/null ; then
+		__powerline_retval+=(jobs)
+	fi
+
 	__powerline_retval+=(status)
 }
 
@@ -380,6 +380,7 @@ __powerline_git_status=()
 
 
 #	GIT
+
 __powerline_segment_git() {
 	local branch
 	local colors
@@ -595,17 +596,17 @@ __powerline_init_hostname() {
 	fi
 
 	text="${USER}@${HOSTNAME-*unknown*}"
-	h=$(sum <<< "${text}")
+	h=$(cksum <<< "$text")
 	h="${h% *}"
 	if [[ $COLORTERM =~ ^(truecolor|24bit)$ ]] && type -p bc &>/dev/null ; then
-		__powerline_hostname_color24 "$h"
+		__powerline_hostname_color24 "${USER//root/1}" "$h"
 		__powerline_hsl2rgb "${__powerline_retval[@]}"
 		rgb=("${__powerline_retval[@]}")
 		bg="48;2;${rgb[0]};${rgb[1]};${rgb[2]}"
 		fg="38;5;253"
 
-        # Fonction de coloration.
-        __powerline_color_user_root
+		# Fonction de coloration.
+		__powerline_color_user_root
 	else
 		__powerline_hostname_color256 "$h"
 		rgb=("${__powerline_retval[@]}")
@@ -617,28 +618,28 @@ __powerline_init_hostname() {
 		__powerline_get_foreground "${rgb[@]}"
 		fg="38;5;${__powerline_retval[0]}"
 
-        # Fonction de coloration.
-        __powerline_color_user_root
+		# Fonction de coloration.
+		__powerline_color_user_root
 	fi
 
 	__powerline_hostname_segment="${bg}:${fg}:${POWERLINE_HOSTNAME_ICON-}:${text}"
 }
 
 __powerline_color_user_root() {
-    # Coloration suivant si le terminal a les droits Administrateur (root/user).
-    if [ $UID -ne 0 ]; then
-        # With 'bold'
-        bg="1;48;5;36"
+	# Coloration suivant si le terminal a les droits Administrateur (root/user).
+	if [ $UID -ne 0 ]; then
+		# With 'bold'
+		bg="1;48;5;36"
 
-        # Without 'bold'
-        #bg="48;5;36"
-    else
-        # With 'bold'
-        bg="1;48;5;160"
+		# Without 'bold'
+		#bg="48;5;36"
+	else
+		# With 'bold'
+		bg="1;48;5;160"
 
-        # Without 'bold'
-        #bg="48;5;160"
-    fi
+		# Without 'bold'
+		#bg="48;5;160"
+	fi
 
 }
 
@@ -664,26 +665,54 @@ __powerline_hostname_color256() {
 }
 
 __powerline_hostname_color24() {
-	local h="$1"
+	# Quelle couleur choisir pour identifier l'utilisateur et la machine du
+	# shell courant ?
+	#
+	# On va utiliser des teintes dans tout le spectre sauf le rouge et le
+	# vert vif, on les garde pour les autres segments.
+	#
+	# Pour la saturation, on varie sur un bon écart pour bien distinguer
+	# les saturations. On réserve les saturations élevées pour
+	# l'utilisateur root, on va augmenter la staturation. Une couleur plus
+	# pimpante aidera à faire plus attention.
+	#
+	# On reste sur une luminosité moyenne, pour ne pas trop attirer
+	# l'attention par rapport aux autres segments, comme pour le rouge et
+	# le vert.
+	#
+	# Le script tests/pastel.sh affiche toutes les combinaisons possibles.
+
+	local root="$1"
+	local h="$2"
 	local hue
 	local sat
 	local lum
 
-        # Nombre de fraction de 7 (max 15)
-        hue=$((h / 7))
-        # Commencer à 5 (après le rouge vif) et échelonner tout les 5 pour
-        # avoir des couleurs distinctes.
-        hue=$((5 + hue  * 5))
-        # Sauter le vert : 0.3-0.4
-        if [ 30 -le $hue ] ; then
-                hue=$((hue+10))
-        fi
-        printf -v hue "0.%02d" "$hue"
+	# Sat : {2..4} -> 3 valeurs ( +4 pour root )
+	# Teinte : {5..80}/5 - {30,35}/5 -> 16 valeurs
+	# Total: 16 * 3 = 48 couleurs
+	h=$((h % 48))
 
-        # Module de 7, décalé pour commencer après les gris.
-        sat=0.$((2 + h % 7))
-        # Luminance fixe, assez faible pour ne pas capter trop l'attention.
-        lum=0.3
+	# Nombre de fractions de 3 (max 15)
+	hue=$((h / 3))
+	# Commencer à 5 (après le rouge vif) et échelonner tout les 5 pour
+	# avoir des couleurs distinctes.
+	hue=$((5 + hue * 5))
+	# Sauter le vert : 0.3-0.4
+	if [ 30 -le $hue ] ; then
+		hue=$((hue+10))
+	fi
+	printf -v hue "0.%02d" "$hue"
+
+	# Module de 7, décalé pour commencer après les gris.
+	sat=$((2 + h % 3))
+	if [ "$root" = 1 ] ; then
+		sat=$((sat + 4))
+	fi
+	sat=0.$sat
+
+	# Luminance fixe, assez faible pour ne pas capter trop l'attention.
+	lum=0.35
 
 	__powerline_retval=("$hue" "$sat" "$lum")
 }
@@ -776,10 +805,10 @@ __powerline_segment_pwd() {
 	__powerline_shorten_dir "$(dirs +0)"
 	local short_pwd="${__powerline_retval[0]}"
 
-    if [ "$short_pwd" = "/" ] ; then
-        __powerline_split "" "${short_pwd}"
-        local parts=("${__powerline_retval[@]}")
-    else
+	if [ "$short_pwd" = "/" ] ; then
+		__powerline_split "" "${short_pwd}"
+		local parts=("${__powerline_retval[@]}")
+	else
 		__powerline_split / "${short_pwd}"
 		local parts=("${__powerline_retval[@]}")
 	fi
@@ -846,23 +875,25 @@ __powerline_pyenv_version_name() {
 	fi
 }
 
+
+#   JOBS
+
 __powerline_segment_jobs() {
-    # Ancienne methode pour calculer les "jobs" en cours.
-    #local jobsnum="$(jobs -p | wc -l)"
+	# Ancienne methode pour calculer les "jobs" en cours.
+	#local jobsnum="$(jobs -p | wc -l)"
 
-    # Compte le nombre de "jobs" avec un meilleur affichage pour le terminal
-    # car il permet de choisir uniquement les process "Running" et "Stopped" 
-    # et d'enlever les autres "Terminated" et "Done" qui ne sont pas important.
-    local jobsnum=$(jobs -l | awk -F" " '{ print $3 }' | grep -E 'Running|Stopped' | wc -l)
+	# Compte le nombre de "jobs" avec un meilleur affichage pour le terminal
+	# car il permet de choisir uniquement les process "Running" et "Stopped" 
+	# et d'enlever les autres "Terminated" et "Done" qui ne sont pas important.
+	local jobsnum=$(jobs -l | awk -F" " '{ print $3 }' | grep -c -E 'Running|Stopped')
 
-    
-    # Efface "jobsnum" si valeur egal a 0
-    if [ $jobsnum -eq 0 ] ; then
-        __powerline_retval=()
-        return
-    fi
+	# Efface "jobsnum" si valeur egal a 0
+	if [ $jobsnum -eq 0 ] ; then
+		__powerline_retval=()
+		return
+	fi
 
-    __powerline_retval=("${__powerline_colors[SEGMENT_STATUS_BG]}:${__powerline_colors[SEGMENT_STATUS_FG]}:⚙ $jobsnum")
+	__powerline_retval=("${__powerline_colors[SEGMENT_JOBS_BG]}:${__powerline_colors[SEGMENT_JOBS_FG]}:⚙ $jobsnum")
 }
 
 
@@ -1058,7 +1089,7 @@ __powerline_split() {
 
 
 #	C O L O R S
-
+#
 # using an associative array to not overload the environment with dozens of variables
 declare -A __powerline_colors
 
@@ -1105,13 +1136,13 @@ __powerline_setup_colors() {
 	__powerline_colors[SEGMENT_PYTHON_BG]="48;5;25"
 	__powerline_colors[SEGMENT_PYTHON_FG]="38;5;220"
 
+	# jobs
+	__powerline_colors[SEGMENT_JOBS_BG]="48;5;172"
+	__powerline_colors[SEGMENT_JOBS_FG]="38;5;234"
+
 	# status
 	__powerline_colors[SEGMENT_STATUS_BG]="48;5;1" # red
 	__powerline_colors[SEGMENT_STATUS_FG]="1;38;5;253" # bold white
-
-	# jobs
-	__powerline_colors[SEGMENT_STATUS_BG]="48;5;172"
-	__powerline_colors[SEGMENT_STATUS_FG]="38;5;234"
 
 }
 
@@ -1119,4 +1150,3 @@ __powerline_setup_colors() {
 #	F I R E
 
 __powerline_init
-
