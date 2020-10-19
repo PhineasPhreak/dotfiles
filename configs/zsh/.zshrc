@@ -1,5 +1,11 @@
 # ~/.zshrc file for zsh non-login shells.
 # see /usr/share/doc/zsh/examples/zshrc for examples
+#
+# ZSH PACKAGES :
+# "zsh-autosuggestions"     --> Fish-like fast/unobtruusive autosuggestions for zsh
+# "zsh-common"              --> architexture independent files for zsh
+# "zsh-syntax-highlighting" --> Fish shell like syntax highlighting for zsh
+#
 
 setopt autocd              # change directory just by typing its name
 #setopt correct            # auto correct mistakes

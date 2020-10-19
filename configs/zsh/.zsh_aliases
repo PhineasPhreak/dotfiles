@@ -35,6 +35,9 @@ alias cdpic='cd ~/Pictures/'
 alias cdgit='cd ~/Git/'
 alias cdlab='cd ~/Lab/'
 
+alias ..='cd ..'
+alias ...='cd ../..'
+
 # prompt before overwrite with option "-i" for "cp", "mv' and "rm"
 #alias cp='cp -v'
 #alias mv='mv -v'
