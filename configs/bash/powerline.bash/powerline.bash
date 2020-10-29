@@ -433,6 +433,7 @@ __powerline_segment_git_sync() {
 	local ab_segment=''
 	local detached
 	local status_symbol
+	local count_commits
 
 	# Si pas de dossier .git parent, zapper.
 	__powerline_find_parent "${PWD}" .git
@@ -459,7 +460,7 @@ __powerline_segment_git_sync() {
 	# Segment d'état de synchronisation.
 	if [ "${ahead}" -gt 0 ] ; then
 		# Il faut pousser des commits.
-		local count_commits=$(git rev-list origin..HEAD | wc -l)
+		count_commits=$(git rev-list origin..HEAD | wc -l)
 		ab_segment="⬆ … $count_commits"
 		if [ "${POWERLINE_GIT_SYNC_COUNT-}" ] ; then
 			ab_segment+="(+$ahead)"
@@ -885,10 +886,11 @@ __powerline_segment_jobs() {
 	# Compte le nombre de "jobs" avec un meilleur affichage pour le terminal
 	# car il permet de choisir uniquement les process "Running" et "Stopped" 
 	# et d'enlever les autres "Terminated" et "Done" qui ne sont pas important.
-	local jobsnum=$(jobs -l | awk -F" " '{ print $3 }' | grep -c -E 'Running|Stopped')
+	local jobsnum
+	jobsnum=$(jobs -l | awk -F" " '{ print $3 }' | grep -c -E 'Running|Stopped')
 
 	# Efface "jobsnum" si valeur egal a 0
-	if [ $jobsnum -eq 0 ] ; then
+	if [ "$jobsnum" -eq 0 ] ; then
 		__powerline_retval=()
 		return
 	fi
