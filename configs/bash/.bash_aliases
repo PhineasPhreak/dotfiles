@@ -93,3 +93,7 @@ alias mark-show-hold='sudo apt-mark showhold'
 # some more reboot and poweroff for KALI LINUX
 #alias reboot='sudo reboot'
 #alias poweroff='sudo poweroff'
+
+# History completion
+bind '"\e[A": history-search-backward'
+bind '"\e[B": history-search-forward'
