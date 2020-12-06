@@ -21,21 +21,21 @@ pour BASH.
 
 
 ## Installation
-Installe le fichier `powerline.bash` dans le repertoire `$HO%E/.config/`
+Installe le fichier `powerline.bash` dans le repertoire `$HOME/.config/`
 puis configurer le fichier `.bashrc`
 ```console
-$ curl -Lo ~/.config/powerline.bash https://gitlab.com/bersace/powerline-bash/raw/master/powerline.bash
+$ curl -Lo ~/.config/prompt/powerline.bash https://gitlab.com/bersace/powerline-bash/raw/master/powerline.bash
 $ $EDITOR ~/.bashrc
 # Copier et adapter ceci dans votre .bashrc
-. ${HOME}/.config/powerline.bash
+. ${HOME}/.config/prompt/powerline.bash
 PROMPT_COMMAND='__update_ps1 $?'
 $ exec $SHELL
 ```
 Verification que le fichier `powerline.bash` existe:
-```shell
-if [ -f ${HOME}/.config/powerline.bash ]; then
+```bash
+if [ -f ${HOME}/.config/prompt/powerline.bash ]; then
     # Copier et adapter ceci dans votre .bashrc
-    . ${HOME}/.config/powerline.bash
+    . ${HOME}/.config/prompt/powerline.bash
     PROMPT_COMMAND='__update_ps1 $?'
 fi
 ```
