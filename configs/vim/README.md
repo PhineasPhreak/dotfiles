@@ -12,6 +12,15 @@ Github : https://github.com/vim-airline/vim-airline </br>
 Image Shorcut Cheatsheet : [Shorcut VIM](https://github.com/PhineasPhreak/dotfiles/blob/master/screenshots/vim-shortcut-cheatsheet.png)</br>
 Github lightline.vim : https://github.com/itchyny/lightline.vim
 
+View Vi and Vim lesson GIT :
+[lesson-1](https://github.com/PhineasPhreak/dotfiles/blob/master/screenshots/vim-lesson/vi-vim-tutorial-1.gif) |
+[lesson-2](https://github.com/PhineasPhreak/dotfiles/blob/master/screenshots/vim-lesson/vi-vim-tutorial-2.gif) |
+[lesson-3](https://github.com/PhineasPhreak/dotfiles/blob/master/screenshots/vim-lesson/vi-vim-tutorial-3.gif) |
+[lesson-4](https://github.com/PhineasPhreak/dotfiles/blob/master/screenshots/vim-lesson/vi-vim-tutorial-4.gif) |
+[lesson-5](https://github.com/PhineasPhreak/dotfiles/blob/master/screenshots/vim-lesson/vi-vim-tutorial-5.gif) |
+[lesson-6](https://github.com/PhineasPhreak/dotfiles/blob/master/screenshots/vim-lesson/vi-vim-tutorial-6.gif) |
+[lesson-7](https://github.com/PhineasPhreak/dotfiles/blob/master/screenshots/vim-lesson/vi-vim-tutorial-7.gif)
+
 ## Tutorials
 
 Vim help files : [vimhelp.org](https://vimhelp.org/)</br>
