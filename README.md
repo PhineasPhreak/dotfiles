@@ -3,7 +3,7 @@
 Very Important : **[List of packages that must be installed](https://github.com/PhineasPhreak/dotfiles/tree/master/packages)**
 
 Configuration Files For my Unix System
-* **Xorg, Vim, nano, Bash Shell, Sublime Text (3126/3143/3176 in deb) and 3211, Firewall, Tmux, Fish, terminator, Rofi, polybar, i3wm, urxvt, PyCharm, ranger, vscode**
+* **Xorg, Vim, nano, Bash Shell, Sublime Text 3211, Firewall, Tmux, Fish, terminator, Rofi, polybar, i3wm, urxvt, PyCharm, ranger, vscode**
 
 * **[Kite](https://kite.com/) is a plugin for your [IDE](https://kite.com/integrations/) that uses machine learning to give you useful code completions for Python.**
 
@@ -26,12 +26,12 @@ Configuration Files For my Unix System
 A fast and friendly git client for Mac, Windows and Linux
 
 * For Windows and MacOS
-  * [tortoise](https://tortoisegit.org/)
-  * [sourcetree](https://sourcetreeapp.com/)
-  * [fork](https://git-fork.com/)
+  * [tortoise](https://tortoisegit.org/) Windows Shell Interface to Git
+  * [sourcetree](https://sourcetreeapp.com/) Free Git GUI for Mac and Windows
+  * [fork](https://git-fork.com/) a fast and friendly git client for Mac and Windows
 
 * For Linux
-  * [sublime-merge](https://www.sublimemerge.com/)
+  * [sublime-merge](https://www.sublimemerge.com/) Line-by-line Staging. Commit Editing. Unmatched Performance.
   * [qgit](https://packages.debian.org/buster/qgit) *Debian Repositories*
   * [gitg](https://packages.debian.org/buster/gitg) *Debian Repositories*
   * [gitk](https://packages.debian.org/buster/gitk) *Debian Repositories*
