@@ -90,6 +90,9 @@ alias scd='screen -d'
 # mark show hold packages
 alias mark-show-hold='sudo apt-mark showhold'
 
+# command watch with interpret ANSI color
+alias watch='watch --color'
+
 # some more reboot and poweroff for KALI LINUX
 #alias reboot='sudo reboot'
 #alias poweroff='sudo poweroff'
