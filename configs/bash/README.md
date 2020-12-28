@@ -1,6 +1,7 @@
-# Images bash with 'prompt.bash' and 'powerline.bash' on Ubuntu
-![Bash-ubuntu-with-bashrc](https://github.com/PhineasPhreak/dotfiles/blob/master/screenshots/bash-ubuntu.png)
-![Powerline-ubuntu-with-bashrc](https://github.com/PhineasPhreak/dotfiles/blob/master/screenshots/powerline-ubuntu.png)
+# Images bash with `'prompt.bash'` and `'powerline.bash'` on Ubuntu
+|*`prompt.bash`*|*`powerline.bash`*|
+|:---------------:|:------------:|
+|![Bash-ubuntu-with-bashrc](https://github.com/PhineasPhreak/dotfiles/blob/master/screenshots/bash-ubuntu.png)|![Powerline-ubuntu-with-bashrc](https://github.com/PhineasPhreak/dotfiles/blob/master/screenshots/powerline-ubuntu.png)|
 
 > *Image Terminal Ubuntu:*
 
