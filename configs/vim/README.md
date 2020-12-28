@@ -48,14 +48,14 @@ For the `colorsheme` *OR* `colo`
 
 **.vimrc**
 
-```shell
+```console
 pspk@kali:~$ ls -lhA | grep .vimrc
 -rw-r--r-- 1 pspk pspk 3.4K Oct  3 00:44 .vimrc
 ```
 
 ### Example of Colorsheme
 
-```shell
+```console
 pspk@kali:~/.vim/colors$ ls -lh
 total 140K
 -rw-rw-r-- 1 pspk pspk 6,6K oct.  11 10:13 bocau.vim
