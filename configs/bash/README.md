@@ -3,7 +3,7 @@
 |:---------------:|:------------:|
 |![Bash-ubuntu-with-bashrc](https://github.com/PhineasPhreak/dotfiles/blob/master/screenshots/bash-ubuntu.png)|![Powerline-ubuntu-with-bashrc](https://github.com/PhineasPhreak/dotfiles/blob/master/screenshots/powerline-ubuntu.png)|
 
-> *Image Terminal Ubuntu with theme [WhiteSur GTK](https://www.gnome-look.org/p/1403328/*
+> *Image Terminal Ubuntu with theme [WhiteSur GTK](https://www.gnome-look.org/p/1403328/)*
 
 ## Aliases in Terminal 
 Copy this to `~/.bash_aliases` </br>
