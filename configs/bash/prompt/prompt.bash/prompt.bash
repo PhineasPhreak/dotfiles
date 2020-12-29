@@ -240,7 +240,7 @@ function __prompt_command() {
   local last_command_retval="$?"
   local dollar_color="$__prompt_dollar_color"
   if [ $last_command_retval -ne 0 ]; then
-    dollar_color="$__prompt_error_color"
+    dollar_color="${__prompt_error_color}:${last_command_retval}"
   fi
 
   # Calculate prompt parts.
