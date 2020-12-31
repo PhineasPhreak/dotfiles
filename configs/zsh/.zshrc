@@ -1,4 +1,4 @@
-# ~/.zshrc file for zsh non-login shells.
+# ~/.zshrc file for zsh non-login (interactive)shells.
 # see /usr/share/doc/zsh/examples/zshrc for examples
 #
 # ZSH PACKAGES :
@@ -10,7 +10,7 @@
 setopt autocd              # change directory just by typing its name
 #setopt correct            # auto correct mistakes
 setopt interactivecomments # allow comments in interactive mode
-setopt ksharrays           # arrays start at 0
+#setopt ksharrays           # arrays start at 0
 setopt magicequalsubst     # enable filename expansion for arguments of the form ‘anything=expression’
 setopt nonomatch           # hide error message if there is no match for the pattern
 setopt notify              # report the status of background jobs immediately
@@ -20,18 +20,19 @@ setopt promptsubst         # enable command substitution in prompt
 WORDCHARS=${WORDCHARS//\/} # Don't consider certain characters part of the word
 
 # hide EOL sign ('%')
-export PROMPT_EOL_MARK=""
-
+#export PROMPT_EOL_MARK=""
+PROMPT_EOL_MARK=""
 # configure key keybindings
 bindkey -e                                        # emacs key bindings
 bindkey ' ' magic-space                           # do history expansion on space
 bindkey '^[[3;5~' kill-word                       # ctrl + Supr
+bindkey '^[[3~' delete-char                       # delete
 bindkey '^[[1;5C' forward-word                    # ctrl + ->
-bindkey '^[[C' forward-word                       # ctrl + ->
 bindkey '^[[1;5D' backward-word                   # ctrl + <-
-bindkey '^[[D' backward-word                      # ctrl + <-
 bindkey '^[[5~' beginning-of-buffer-or-history    # page up
 bindkey '^[[6~' end-of-buffer-or-history          # page down
+bindkey '^[[H' beginning-of-line                  # home
+bindkey '^[[F' end-of-line                        # end
 bindkey '^[[Z' undo                               # shift + tab undo last action
 
 # enable completion features
@@ -86,7 +87,10 @@ if [ "$color_prompt" = yes ]; then
     # Link for terminal emulators compatible with xterm 256 colors can be found in the:
     # https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg
     #
-    # The default prompt from kalilinux 2020.3
+    ## The default prompt from Kali Linux 2020.4 W53
+    #PROMPT=$'%F{%(#.blue.green)}┌──${debian_chroot:+($debian_chroot)──}(%B%F{%(#.red.blue)}%n%(#.💀.㉿)%m%b%F{%(#.blue.green)})-[%B%F{reset}%(6~.%-1~/…/%4~.%5~)%b%F{%(#.blue.green)}]\n└─%B%(#.%F{red}#.%F{blue}$)%b%F{reset} '
+    #
+    ## The default prompt from kalilinux 2020.3
     #PROMPT=$'%F{%(#.blue.green)}${debian_chroot:+($debian_chroot)}(%B%F{%(#.red.blue)}%n%(#.💀.@)%m%b%F{%(#.blue.green)})-[%B%F{reset}%(6~.%-1~/…/%4~.%5~)%b%F{%(#.blue.green)}]%B%(#.%F{red}#.%F{blue}$)%b%F{reset} '
     #RPROMPT=$'%(?.. %? %F{red}%B⨯%b%F{reset})%(1j. %j %F{yellow}%B⚙%b%F{reset}.)'
     
@@ -104,7 +108,7 @@ if [ "$color_prompt" = yes ]; then
 	# ksharrays breaks the plugin. This is fixed now but let's disable it in the
 	# meantime.
 	# https://github.com/zsh-users/zsh-syntax-highlighting/pull/689
-	unsetopt ksharrays
+	#unsetopt ksharrays
 	. /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 	ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 	ZSH_HIGHLIGHT_STYLES[default]=none
@@ -157,7 +161,7 @@ unset color_prompt force_color_prompt
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
-    TERM_TITLE='\e]0;${debian_chroot:+($debian_chroot)}%n@%m: %~\a'
+    TERM_TITLE=$'\e]0;${debian_chroot:+($debian_chroot)}%n@%m: %~\a'
     ;;
 *)
     ;;
@@ -226,4 +230,3 @@ function _pip_completion {
 }
 compctl -K _pip_completion pip3
 # pip zsh completion end
-
