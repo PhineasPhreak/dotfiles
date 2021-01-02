@@ -23,7 +23,7 @@ fi
 
 
 # change the prompt if powerline fonts is supported or not
-if [[ $TERM == "xterm-256color" ]]; then
+if [[ $TERM == "xterm-256color" || $TERM == "screen-256color" ]]; then
     if [[ $PWL_PRT == "powerline.bash" ]]; then
         # You choose "powerline.bash"
         # Use powerline.bash for shell
