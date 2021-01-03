@@ -65,6 +65,9 @@ nmap <leader>w :w!<cr>
 nnoremap <Leader>j o<Esc>
 nnoremap <Leader>k O<Esc>
 
+" Deleting without copying to clipboard
+noremap <Leader>d "_dd
+
 " :W sudo saves the file 
 " (useful for handling the permission-denied error)
 command W w !sudo tee % > /dev/null
