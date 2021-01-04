@@ -18,7 +18,7 @@ let g:indentLine_first_char = get(g:, 'indentLine_first_char', (&encoding ==# "u
 let g:indentLine_indentLevel = get(g:, 'indentLine_indentLevel', 20)
 let g:indentLine_enabled = get(g:, 'indentLine_enabled', 1)
 let g:indentLine_fileType = get(g:, 'indentLine_fileType', [])
-let g:indentLine_fileTypeExclude = get(g:, 'indentLine_fileTypeExclude', [])
+let g:indentLine_fileTypeExclude = get(g:, 'indentLine_fileTypeExclude', ['leaderf'])
 let g:indentLine_bufNameExclude = get(g:, 'indentLine_bufNameExclude', [])
 let g:indentLine_bufTypeExclude = get(g:, 'indentLine_bufTypeExclude', [])
 let g:indentLine_showFirstIndentLevel = get(g:, 'indentLine_showFirstIndentLevel', 0)
@@ -439,15 +439,15 @@ augroup END
 command! -nargs=? IndentLinesReset call s:ResetWidth(<f-args>)
 command! IndentLinesToggle call s:IndentLinesToggle()
 if g:indentLine_newVersion
-    command! IndentLinesEnable let b:indentLine_enabled = 1 | call s:IndentLinesEnable()
-    command! IndentLinesDisable let b:indentLine_enabled = 0 | call s:IndentLinesDisable()
-    command! LeadingSpaceEnable let b:indentLine_leadingSpaceEnabled = 1 | call s:LeadingSpaceEnable()
-    command! LeadingSpaceDisable let b:indentLine_leadingSpaceEnabled = 0 | call s:LeadingSpaceDisable()
+    command! -bar IndentLinesEnable let b:indentLine_enabled = 1 | call s:IndentLinesEnable()
+    command! -bar IndentLinesDisable let b:indentLine_enabled = 0 | call s:IndentLinesDisable()
+    command! -bar LeadingSpaceEnable let b:indentLine_leadingSpaceEnabled = 1 | call s:LeadingSpaceEnable()
+    command! -bar LeadingSpaceDisable let b:indentLine_leadingSpaceEnabled = 0 | call s:LeadingSpaceDisable()
 else
-    command! IndentLinesEnable call s:IndentLinesEnable()
-    command! IndentLinesDisable call s:IndentLinesDisable()
-    command! LeadingSpaceEnable call s:LeadingSpaceEnable()
-    command! LeadingSpaceDisable call s:LeadingSpaceDisable()
+    command! -bar IndentLinesEnable call s:IndentLinesEnable()
+    command! -bar IndentLinesDisable call s:IndentLinesDisable()
+    command! -bar LeadingSpaceEnable call s:LeadingSpaceEnable()
+    command! -bar LeadingSpaceDisable call s:LeadingSpaceDisable()
 endif
 command! LeadingSpaceToggle call s:LeadingSpaceToggle()
 
