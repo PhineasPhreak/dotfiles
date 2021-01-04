@@ -35,6 +35,8 @@ let g:colors_name = 'defnoche'
 
 "" Helper color groups
 hi DefNocheBold guibg=NONE guifg=#e4e4e4 gui=bold ctermfg=254 ctermbg=NONE cterm=bold
+hi DefNocheNormal guibg=#000000 guifg=#d0d0d0 gui=NONE ctermbg=0 ctermfg=252
+
 
 "" General
 hi Normal guibg=#000000 guifg=#d0d0d0 gui=NONE ctermbg=0 ctermfg=252
@@ -50,13 +52,13 @@ hi! link Todo Title
 
 "" UI
 hi Statusline guibg=#5c5c5c guifg=#d0d0d0 gui=NONE ctermbg=241 ctermfg=252 cterm=NONE
-hi StatuslineNC guibg=#3c3c3c guifg=#9b9b9b gui=NONE ctermbg=241 ctermfg=237
+hi StatuslineNC guibg=#3a3a3a guifg=#9e9e9e gui=NONE ctermbg=237 ctermfg=247 cterm=NONE
 hi StatuslineTerm guibg=#005f87 guifg=#d0d0d0 gui=NONE ctermbg=24 ctermfg=252 cterm=NONE
 hi StatuslineTermNC guibg=#005f87 guifg=#9b9b9b gui=NONE ctermbg=24 ctermfg=237 cterm=NONE
-hi VertSplit guibg=#3c3c3c guifg=#3c3c3c gui=NONE ctermbg=241 ctermfg=241 cterm=NONE
+hi VertSplit guibg=#3a3a3a guifg=#3a3a3a gui=NONE ctermbg=237 ctermfg=237 cterm=NONE
 hi! link TabLine StatusLineNC
 hi! link TabLineFill TabLine
-hi! link TabLineSel Normal
+hi! link TabLineSel DefNocheNormal
 hi WildMenu guibg=#ffff00 guifg=#000000 gui=NONE ctermbg=11 ctermfg=16
 hi Folded guibg=#252525 guifg=#909090 gui=NONE ctermbg=235 ctermfg=246 cterm=NONE
 hi! link FoldColumn Folded
@@ -71,13 +73,15 @@ hi PmenuSbar guibg=#3a3a3a ctermbg=237
 hi PmenuThumb guibg=#808080 ctermbg=244
 hi QuickFixLine guibg=#707070 guifg=#d0d0d0 gui=none ctermbg=3 ctermfg=252
 hi! link ColorColumn CursorLine
-hi EndOfBuffer guifg=#444444 ctermbg=238
+hi EndOfBuffer guibg=NONE guifg=#444444 ctermbg=0 ctermfg=238
+hi MatchParen guibg=#303030 ctermbg=236
 
 
 "" Syntax
 
 " generic group-names
 hi Comment guifg=#5e5e5e gui=NONE ctermfg=241
+hi Conceal guifg=#5e5e5e guibg=NONE gui=NONE ctermfg=241 ctermbg=NONE cterm=NONE
 
 hi Constant guifg=#e6a657 gui=NONE ctermfg=179
 hi String guifg=#49b34e gui=NONE ctermfg=77
@@ -86,7 +90,7 @@ hi String guifg=#49b34e gui=NONE ctermfg=77
 " hi! link Boolean Constant
 " hi! link Float Constant
 
-hi Identifier guifg=#909090 gui=NONE ctermfg=245
+hi Identifier guifg=#949494 gui=NONE ctermfg=246
 " hi! link Function Identifier
 
 hi Statement guifg=#f070f0 gui=NONE ctermfg=170
@@ -117,14 +121,12 @@ hi Special guifg=#00a3ab gui=NONE ctermfg=38
 
 hi Underlined guifg=#8798e5 gui=underline ctermbg=0 ctermfg=68
 
-hi! link Conceal Comment
-
 " vim
-hi link vimFuncName Statement
+hi link vimFuncName Identifier
 hi link vimHighlight Statement
-hi link vimVar Normal
-hi link vimOper Normal
-hi link vimParenSep Normal
+hi link vimVar DefNocheNormal
+hi link vimOper DefNocheNormal
+hi link vimParenSep DefNocheNormal
 hi link vimMapModKey Special
 hi link vimMapMod vimMapModKey
 hi link vimAutoEvent Constant
@@ -133,9 +135,9 @@ hi link vimHiCtermColor Constant
 hi link vimCommentTitle Constant
 hi link vimLineComment Comment
 hi link vimCommentString Comment
-hi link vimOption Normal
-hi link vimSubstPat Normal
-hi link vimCmdSep Normal
+hi link vimOption DefNocheNormal
+hi link vimSubstPat DefNocheNormal
+hi link vimCmdSep DefNocheNormal
 
 " python
 hi link pythonInclude Statement
@@ -152,7 +154,7 @@ hi link rubyClass Statement
 hi link rubyMacro Statement
 hi link rubyStringDelimiter String
 hi link rubyDefine Statement
-hi link rubyMethodName Normal
+hi link rubyMethodName DefNocheNormal
 
 " lua
 hi link luaFunction Statement
@@ -166,7 +168,7 @@ hi link elixirDefine Statement
 hi link elixirAtom Constant
 hi link elixirExUnitMacro Statement
 hi link elixirBlockDefinition Statement
-hi link elixirFunctionDeclaration Normal
+hi link elixirFunctionDeclaration DefNocheNormal
 hi link elixirStringDelimiter String
 hi link elixirMapDelimiter Special
 hi link elixirOperator Identifier
@@ -176,12 +178,12 @@ hi link elixirDocTest Identifier
 hi link elixirVariable Constant
 hi link elixirUnusedVariable Comment
 hi link elixirKeyword Statement
-hi link elixirId Normal
+hi link elixirId DefNocheNormal
 
 
 " properties
 hi link jpropertiesIdentifier Statement
-hi link jpropertiesString Normal
+hi link jpropertiesString DefNocheNormal
 
 " kotlin
 hi link ktStructure Statement
@@ -254,7 +256,7 @@ hi link yamlDocumentStart Comment
 hi link jsonKeyword Statement
 hi link jsonKeywordMatch Statement
 hi link jsonString String
-hi link jsonQuote Normal
+hi link jsonQuote DefNocheNormal
 hi link yamlKeyValueDelimiter Statement
 
 " sql
@@ -279,13 +281,18 @@ hi link csStorage Statement
 hi link csModifier Statement
 hi link csClass Statement
 hi link csType Statement
-hi link csOpSymbols Normal
-hi link csLogicSymbols Normal
+hi link csOpSymbols DefNocheNormal
+hi link csLogicSymbols DefNocheNormal
 
 " clojure
 hi link clojureMacro Statement
 hi link clojureDefine Statement
 hi link clojureFunc Statement
+
+" groovy
+hi link groovyExternal Statement
+hi link groovyExceptions DefNocheNormal
+hi link groovyJDKbuiltin Statement
 
 " php
 hi link phpDocTags String
@@ -296,22 +303,26 @@ hi link phpStorageClass Statement
 hi link phpDefine Statement
 hi link phpVarSelector Identifier
 hi link phpSpecialFunction Identifier
-hi link phpOperator Normal
-hi link phpComparison Normal
+hi link phpOperator DefNocheNormal
+hi link phpComparison DefNocheNormal
 hi link phpType Constant
 
 " dos batch
 hi link dosbatchImplicit Statement
 
+" golang
+hi goSpaceError guibg=#302020 ctermbg=236
+
 " sh
 hi link shSet Statement
 hi link shQuote Identifier
+hi link shForPP DefNocheNormal
 
 " R
 hi link rFunction Statement
 hi link rType Statement
-hi link rOperator Normal
-hi link rAssign Normal
+hi link rOperator DefNocheNormal
+hi link rAssign DefNocheNormal
 
 " markdown
 hi link markdownH1 Title
@@ -332,10 +343,19 @@ hi link markdownCode Constant
 hi link markdownCodeDelimiter markdownCode
 
 " asciidoctor
-hi link asciidoctorListMarker Special
-hi link asciidoctorOption Special
+hi link asciidoctorTitle Title
 hi link asciidoctorMacro Special
-hi asciidoctorIndented guifg=#949494 ctermfg=246
+hi link asciidoctorListMarker Special
+hi link asciidoctorCaption Identifier
+hi asciidoctorOption guifg=#505050
+hi link asciidoctorBlock asciidoctorOption
+hi link asciidoctorBlockOptions asciidoctorBlock
+hi link asciidoctorTableCell asciidoctorBlock
+hi link asciidoctorAttribute Constant
+hi asciidoctorCode guifg=#a0a0a0 guibg=#202020 ctermfg=240
+hi asciidoctorIndented guifg=#909090 guibg=NONE ctermfg=240
+hi link asciidoctorLiteralBlock DefNocheNormal
+hi link asciidoctorListingBlock DefNocheNormal
 
 "" Diff
 hi diffAdd guibg=#294929 ctermbg=22
@@ -366,7 +386,7 @@ hi diffRemoved guibg=NONE guifg=#f04749 ctermfg=196
 hi link gitCommitSummary Title
 hi link gitCommitHeader fugitiveHeader
 hi link gitCommitSelectedType Constant
-hi link gitCommitSelectedFile Normal
+hi link gitCommitSelectedFile DefNocheNormal
 
 "" Flog
 hi! link flogDate Identifier
@@ -390,7 +410,7 @@ hi link minpacStatus String
 hi link minpacStar Special
 
 "" UltiSnips
-hi link snipSnippetTrigger Normal
+hi link snipSnippetTrigger DefNocheNormal
 hi link snipMirror Special
 hi link snipTabStop Special
 
@@ -406,13 +426,18 @@ hi helpSectionDelim guifg=#909090 ctermfg=245
 hi link helpOption Constant
 
 "" netrw
-hi link netrwDateSep Normal
-hi link netrwTimeSep Normal
+hi link netrwDateSep DefNocheNormal
+hi link netrwTimeSep DefNocheNormal
 hi link netrwExe Constant
 hi link netrwDir Directory
 hi link netrwClassify Directory
 hi link netrwTreeBar Delimiter
 hi link netrwMarkFile Statement
+
+"" dirvish
+hi link dirvishSuffix Identifier
+hi link dirvishColumnHead Comment
+hi link dirvishPathHead Comment
 
 "" quickfix
 hi link qfFilename Comment
@@ -424,8 +449,8 @@ hi! link CtrlPMode1 StatusLine
 hi! link CtrlPMode2 StatusLine
 hi CtrlPMatch guifg=#0087d7 gui=bold ctermfg=33 cterm=bold
 hi link CtrlPNoEntries WarningMsg
-hi! link CtrlPPrtText Normal
-hi! link CtrlPPrtBase Normal
+hi! link CtrlPPrtText DefNocheNormal
+hi! link CtrlPPrtBase DefNocheNormal
 hi! link CtrlPBufname Comment
 hi! link CtrlPBufferPath Comment
 hi! link CtrlPTagKind Statement
@@ -448,7 +473,8 @@ hi link plantumlPreProc Statement
 hi link plantumlKeyword Statement
 hi link plantumlTypeKeyword Statement
 hi link plantumlColonLine String
-hi link plantumlActivityLabel Normal
+hi link plantumlActivityLabel DefNocheNormal
+hi link plantumlActivityThing DefNocheNormal
 hi link plantumlHorizontalArrow Special
 hi link plantumlDirectedOrVerticalArrowLR Special
 hi link plantumlDirectedOrVerticalArrowRL Special
@@ -456,8 +482,8 @@ hi link plantumlDirectedOrVerticalArrowRL Special
 "" Dart
 hi link dartType Statement
 hi link dartTypeDef Statement
-hi link dartTypeName Normal
-hi link dartCoreClass Normal
+hi link dartTypeName DefNocheNormal
+hi link dartCoreClass DefNocheNormal
 hi link dartStorageClass Statement
 hi link dartInterpolation Constant
 hi link dartOperator Statement
@@ -467,11 +493,11 @@ hi link DoOutlineLevel0 Title
 hi link DoOutlineLevel1 Statement
 hi link DoOutlineLevel2 Constant
 hi link DoOutlineLevel3 String
-hi link DoOutlineLevel4 Normal
+hi link DoOutlineLevel4 DefNocheNormal
 hi link DoOutlineLevel5 Identifier
-hi link DoOutlineLevel6 Normal
+hi link DoOutlineLevel6 DefNocheNormal
 hi link DoOutlineLevel7 Identifier
-hi link DoOutlineLevel8 Normal
+hi link DoOutlineLevel8 DefNocheNormal
 hi link DoOutlineLevel9 Identifier
 
 "" vim-lsp
@@ -515,7 +541,7 @@ hi Lf_hl_stlFuzzyMode guibg=#3c3c3c guifg=#909090 gui=NONE ctermbg=241 ctermfg=2
 hi Lf_hl_stlTotal guibg=#3c3c3c guifg=#909090 gui=NONE ctermbg=241 ctermfg=252
 hi Lf_hl_stlBlank guibg=#5c5c5c guifg=#909090 gui=NONE ctermbg=241 ctermfg=252
 
-hi! link Lf_hl_popup_window Normal
+hi! link Lf_hl_popup_window DefNocheNormal
 hi! link Lf_hl_popup_inputMode StatusLine 
 hi! link Lf_hl_popup_inputText StatusLineNC
 hi! link Lf_hl_popup_prompt StatusLine
