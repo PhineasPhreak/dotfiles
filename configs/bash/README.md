@@ -29,11 +29,11 @@ fi
 
 ## Prompt Installation
 A fast, simple bash prompt. </br>
-[Markdown for installation](https://github.com/PhineasPhreak/dotfiles/blob/master/configs/bash/prompt.bash/)
+[Markdown for installation](https://github.com/PhineasPhreak/dotfiles/blob/master/configs/bash/prompt/prompt.bash/)
 
 ## Git powerline bash
 `powerline.bash` is a dynamic command prompt in Powerline style, for BASH. </br>
-[Markdown for installation](https://github.com/PhineasPhreak/dotfiles/blob/master/configs/bash/powerline.bash/)
+[Markdown for installation](https://github.com/PhineasPhreak/dotfiles/blob/master/configs/bash/prompt/powerline.bash/)
 
 ## Git prompt bash
 A `bash` prompt that displays information about the current git repository. In particular the branch name, difference with remote branch, number of files staged, changed, etc. </br>
