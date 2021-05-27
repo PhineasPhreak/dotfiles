@@ -22,8 +22,4 @@ Example of `settings.json` :
     "window.titleBarStyle": "custom",
 }
 ```
-> My little config for VSCode 1.28.1 and 1.34.0
-
-### Fix Font Rendering vscode
-
-Holding Package on Linux : [Command Here](https://github.com/PhineasPhreak/dotfiles#holding-packages-with-dpkg-apt)
+> My little config for VSCode 1.56.2
