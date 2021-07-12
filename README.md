@@ -2,8 +2,8 @@
 
 Very Important : **[List of packages that must be installed](https://github.com/PhineasPhreak/dotfiles/tree/master/packages)**
 
-Configuration Files For my Unix System
-* **Xorg, Vim, nano, Bash Shell, Sublime Text 3211, Firewall, Tmux, Fish, terminator, Rofi, polybar, i3wm, urxvt, PyCharm, ranger, vscode**
+Configuration Files For my Linux System
+* **Xorg, Vim, nano, Bash Shell, Sublime Text 4, Firewall, Tmux, Fish, terminator, Rofi, polybar, i3wm, urxvt, PyCharm, ranger, vscode**
 
 * **[Kite](https://kite.com/) is a plugin for your [IDE](https://kite.com/integrations/) that uses machine learning to give you useful code completions for Python.**
 
