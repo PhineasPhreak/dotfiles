@@ -4,23 +4,19 @@ IDE : [Intellij IDEA & Pycharm](https://www.jetbrains.com/products.html?fromMenu
 **Theme for Intellij IDEA *(Pycharm, RubyMine, PhpStorm, WebStrom)* :**
 [Material Theme UI](https://plugins.jetbrains.com/plugin/8006-material-theme-ui)
 
+## Browser Extensions (Chrome/Brave and Firefox)
+Small programs that add new features to your browser and personalize your browsing experience.
+
+* chrome-extensions.lst
+* firefox-add-ons.lst
+
 ## Gnome Shell Extension (*gnome-shell-extension.lst*)
 [Gnome Extension](https://extensions.gnome.org/)
 
 ## i3wm (*i3wm.lst*)
-**Depot packages :**
-* `feh`
-* `rofi`
-* `rxvt-unicode-256color`
-* `arandr`
-* `compton`
+Multiple packages for the i3wm desktop
 
-**Included in package "i3" :**
-* `i3blocks`
-* `i3lock`
-* `i3status`
-
-**Polybar :**
+**Polybar configuration :**
 
 `polybar` [Myconfig polybar](https://github.com/PhineasPhreak/dotfiles/tree/master/configs/polybar/.config/polybar)
 
@@ -30,3 +26,4 @@ List packages to install
 **Man Pages :**</br>
 * Linux Commands : [Linux Commands](https://www.commandlinux.com/man-pages-sections)</br>
 * Man pages : [Man.cx](https://man.cx/)
+
