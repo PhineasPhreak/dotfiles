@@ -54,7 +54,9 @@ nnoremap <Leader>j o<Esc>
 nnoremap <Leader>k O<Esc>
 
 " Deleting without copying to clipboard
-noremap <Leader>d "_dd
+nnoremap <leader>d "_d
+xnoremap <leader>d "_d
+xnoremap <leader>p "_dP
 
 " :W sudo saves the file 
 " (useful for handling the permission-denied error)
