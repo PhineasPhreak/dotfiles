@@ -17,6 +17,15 @@ Gist : https://gist.github.com/rufoa/78e45d70f560f53678853c92dae2598a
 
 Gist : https://gist.github.com/maboloshi/feaa63c35f4c2baab24c9aaf9b3f4e47#how-to-crack-sublime-merge-build-2059
 
+## Configuration
+`Preferences` -> `Edit Settings`
+```json
+{
+    "font_size": 9,
+    "ui_scale": 0.80,
+    "theme": "Merge Dark.sublime-theme",
+}
+```
 
 Use the Key after script above.
 ```text

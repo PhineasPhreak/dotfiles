@@ -14,6 +14,16 @@ Use bash script to install sublime text
 $ bash subl-install-apt.sh
 ```
 
+## Configuration
+`Preferences` -> `Settings`
+```json
+{
+    "font_size": 15,
+    "theme": "Adaptive.sublime-theme",
+    "ui_scale": 0.80,
+}
+```
+
 ## Sublime Text `Package Control`
 ***install Package Control, Manually***
 
