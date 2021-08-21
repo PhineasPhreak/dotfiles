@@ -52,6 +52,9 @@ alias du='du -h'
 # show free space memory
 alias free='free -ht'
 
+# ps
+alias psa='ps auxf'
+
 # show command "jobs" in list format
 alias jobs='jobs -l'
 
