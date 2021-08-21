@@ -10,6 +10,13 @@ Small programs that add new features to your browser and personalize your browsi
 * chrome-extensions.lst
 * firefox-add-ons.lst
 
+## Python Package with pip3
+`pip` is the package installer for Python. You can use pip to install packages from the Python Package Index and other indexes.
+
+* Site : [pypi](https://pypi.org/)
+* Package : `bpytop`
+
+
 ## Gnome Shell Extension (*gnome-shell-extension.lst*)
 [Gnome Extension](https://extensions.gnome.org/)
 
