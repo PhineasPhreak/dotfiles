@@ -7,6 +7,11 @@ Configuration Files For my Linux System
 
 * **[Kite](https://kite.com/) is a plugin for your [IDE](https://kite.com/integrations/) that uses machine learning to give you useful code completions for Python.**
 
+Flash OS images to SD cards & USB drives, safely and easily.
+* balenaEtcher : https://www.balena.io/etcher
+
+* UNetbootin : https://unetbootin.github.io/
+
 ## Awesome list
 
 * PS Book Pentest and Security: **[Git-Pentest](https://github.com/enaqx/awesome-pentest), [Git-Security](https://github.com/sbilly/awesome-security), [Git-Linux](https://github.com/aleksandar-todorovic/awesome-linux), [Git-Python](https://github.com/vinta/awesome-python), [Git-GameHacking](https://github.com/dsasmblr/game-hacking), [Git-HoneyPots](https://github.com/paralax/awesome-honeypots)**
