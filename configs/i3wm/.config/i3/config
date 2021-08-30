@@ -233,6 +233,9 @@ bar {
         #font pango:Hack Nerd Font Mono Bold 9
         #font pango:JetBrainsMono Nerd Font Mono Bold 8
         font pango:Hack Bold 8
+
+        # For AwesomeFont installed on your system
+        #font pango:FontAwesome Bold 8
         
         #separator_symbol ":|:"
         separator_symbol "//"
