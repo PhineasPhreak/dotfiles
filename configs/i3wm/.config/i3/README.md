@@ -1,7 +1,6 @@
 # i3wm 
 ## Installation
 * Installation for `Debian`, `Ubuntu`
-
 ```shell
 $ sudo apt-get update
 $ sudo apt-get install i3 i3blocks i3status i3lock dmenu
