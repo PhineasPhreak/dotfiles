@@ -1,30 +1,40 @@
 # i3wm 
-## Installation:
+## Installation
+* Installation for `Debian`, `Ubuntu`
+
 ```shell
-$ sudo apt-get update && sudo apt-get install i3
+$ sudo apt-get update
+$ sudo apt-get install i3 i3blocks i3status i3lock dmenu
 ```
+
+* For `Archlinux`
+```shell
+$ sudo pacman -S i3wm i3lock i3blocks i3status dmenu
+```
+
 After this Installation **Reboot** your system and changed your desktop (Gnome -> i3)
 
 ## i3 with Multi Monitor
-For multi monitor use multi-monitor config
-* By default multi monitor is 2 screen (Center, Right)
+By default multi monitor is 2 screen (`Center`, `Right`)
 
-**Don't forget :**<br>
+**Don't forget :**
+
 For identifying your Display
 ```shell
 $ xrandr -q | grep " connected" | cut -d ' ' -f1
 ```
-For graphical interface of xrandr, install and use **arandr**
+For graphical interface of xrandr, install and use **`arandr`**
 ```
 $ sudo apt-get update
 $ sudo apt-get install arandr
 ```
-**DPI :**<br>
+**DPI :**
+
 The DPI value of a screen indicates how many dots per inch or pixels per inch it supports. As the resolution increases, the display density also increases. You may know what resolution your display has but you may have no idea what your screen's DPI is.
 
-For this use option of *xrandr*:
+For this use option of *`xrandr`*:
 ```
-xrandr --dpi 085
+$ xrandr --dpi 85
 ```
 
 ## i3 with laptop touchpad
@@ -73,9 +83,7 @@ After this correction **Reboot** your system
 ## Package Install:
 feh, lxappearance, [polybar](https://www.ubuntuupdates.org/package/getdeb_apps/xenial/apps/getdeb/polybar)
 ```shell
-$ sudo apt-get install feh
-$ sudo apt-get install lxappearance
-$ sudo apt-get install polybar
+$ sudo apt-get install feh polybar lxappearance
 ```
 
 ## Others Settings for i3
