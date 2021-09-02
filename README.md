@@ -46,6 +46,10 @@ A fast and friendly git client for Mac, Windows and Linux
 
 | **Sites** | |
 | --------- | ------------------------------------------------- |
+| Typora    | GitHub: https://github.com/typora                 |
+|           | Site: https://typora.io/                          |
+| drawio    | Github: https://github.com/jgraph/drawio-desktop  |
+|           | Site: https://app.diagrams.net/                   |
 | Tmux      | Github: https://github.com/tmux/tmux/wiki         |
 | Fish      | Site: https://fishshell.com/                      |
 |           | Github: https://github.com/fish-shell/fish-shell  |
