@@ -223,7 +223,12 @@ bar {
         output primary
         status_command i3status --config ~/.config/i3/i3status.conf
         
-        #mode show|hide
+        # Display mode
+        # The default mode is dock mode; in hide mode, the default modifier is Mod4 (usually the windows key). The default value for the hidden_state is hide.
+        #mode dock|show|hide
+        #hidden_state hide|show
+        #modifier <Modifier>|None
+        
         workspace_buttons yes
         workspace_min_width 45
         position top
