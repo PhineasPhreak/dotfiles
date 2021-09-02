@@ -4,58 +4,104 @@
 # Should you change your keyboard layout some time, delete
 # this file and re-run i3-config-wizard(1).
 #
-
+### Phineasphreak (PSPK)
+# Config Dual monitor with i3wm and i3status bar
+#
 # i3 config file (v4)
 #
-# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+# Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
+# "Super" is the primary key to use i3
 set $mod Mod4
+
+# "ALT" is the secondary key for more keybinds
+set $alt Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 9
+#font pango:monospace 9
+font pango:Hack Bold 8
 
-# Fond d'ecran
-exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpaper/951373-abstract.jpg
+# ORIGINAL COLOR for i3
+# # class                 border  bground text    indicator child_border
+# client.focused          #4C7899 #285577 #FFFFFF #2E9EF4   #285577
+# client.focused_inactive #333333 #5F676A #FFFFFF #484E50   #5F676A
+# client.unfocused        #333333 #222222 #888888 #292D2E   #222222
+# client.urgent           #2F343A #900000 #FFFFFF #900000   #900000
+# client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
 
-# Lock screen 'for sefaty'
+# client.background       #FFFFFF
+
+# Color 
+client.focused          #5F676A #222222 #FFFFFF #285577   #5F676A
+client.focused_inactive #333333 #3A3A3A #FFFFFF #484E50   #222222
+client.unfocused        #333333 #3A3A3A #888888 #292D2E   #222222
+client.urgent           #2F343A #C82828 #FFFFFF #C82828   #C82828
+client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
+
+client.background       #FFFFFF
+
+# Config wallpaper with feh
+exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/wallhaven-g8r373.png
+
+# Lock screen 'for safety'
 bindsym $mod+Shift+x exec i3lock -f --color "#2f343f"
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
 
-# Before i3 v4.8, we used to recommend this one as the default:
-# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-# The font above is very space-efficient, that is, it looks good, sharp and
-# clear in small sizes. However, its unicode glyph coverage is limited, the old
-# X core fonts rendering does not support right-to-left and this being a bitmap
-# font, it doesn’t scale on retina/hidpi displays.
+# The combination of xss-lock, nm-applet and pactl is a popular choice, so
+# they are included here as an example. Modify as you see fit.
+
+# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
+# screen before suspend. Use loginctl lock-session to lock your screen.
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+
+# NetworkManager is the most popular way to manage wireless networks on Linux,
+# and nm-applet is a desktop environment-independent system tray GUI for it.
+exec --no-startup-id nm-applet
+
+# Use pactl to adjust volume in PulseAudio.
+set $refresh_i3status killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal
+# start a terminal (default)
 #bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec gnome-terminal
-bindsym $mod+Mod1+Return exec urxvt
+bindsym $mod+Return exec lxterminal 
 
 # kill focused window
-bindsym $mod+Shift+A kill
+bindsym $mod+Shift+q kill
+bindsym $mod+q kill
+bindsym $alt+F4 kill
 
 # start dmenu (a program launcher)
-# bindsym $mod+d exec dmenu_run
-bindsym $mod+c exec rofi -show run -display-run ":"
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+#bindsym $mod+d exec --no-startup-id dmenu_run
+bindsym $mod+d exec "dmenu_run -nf '#BBBBBB' -nb '#3A3A3A' -sb '#5F676A' -sf '#EEEEEE' -fn 'Hack-9' -p ' '"
+
+# A more modern dmenu replacement is rofi (More theme in '/usr/share/rofi/themes'):
+# bindcode $mod+40 exec "rofi -modi drun,run -show drun"
+bindsym $mod+c exec rofi -show run -theme Arc-Dark -font "Hack 10" -display-run "Cmd"
+bindsym $mod+x exec rofi -show window -theme Arc-Dark -font "Hack Bold 10" -display-window "Window"
+
+# There also is i3-dmenu-desktop which only displays applications shipping a
+# .desktop file. It is a wrapper around dmenu, so you need that installed.
+# bindcode $mod+4 exec --no-startup-id i3-dmenu-desktop
+
+bindsym $mod+F1 exec firefox
+bindsym $mod+F2 exec brave
 
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
 bindsym $mod+l focus up
-bindsym $mod+m focus right
+bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -67,7 +113,7 @@ bindsym $mod+Right focus right
 bindsym $mod+Shift+j move left
 bindsym $mod+Shift+k move down
 bindsym $mod+Shift+l move up
-bindsym $mod+Shift+M move right
+bindsym $mod+Shift+semicolon move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -86,7 +132,7 @@ bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
-bindsym $mod+z layout tabbed
+bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
@@ -96,26 +142,40 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+q focus parent
+bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
 
-# Workspaces
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
-set $monitorCenter DVI-D-0
-set $monitorRight  VGA-0
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 "1:"
+set $ws2 "2:²"
+set $ws3 "3:"
+set $ws4 "4:"
+set $ws5 "5:²"
+set $ws6 "6:"
+set $ws7 "7:"
+set $ws8 "8:"
+set $ws9 "9:"
+set $ws10 "10:"
+set $monitorCenter Virtual-1
+set $monitorRight Virtual-2
 
-# # Ecran associé à chaque Workspace
+# switch to workspace
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+
+
+# Screen associated with each Workspace 
 workspace $ws1 output $monitorCenter
 workspace $ws2 output $monitorCenter
 workspace $ws3 output $monitorCenter
@@ -127,37 +187,24 @@ workspace $ws8 output $monitorRight
 workspace $ws9 output $monitorRight
 workspace $ws10 output $monitorRight
 
-
-# switch to workspace
-bindsym $mod+ampersand workspace 1
-bindsym $mod+eacute workspace 2
-bindsym $mod+quotedbl workspace 3
-bindsym $mod+apostrophe workspace 4
-bindsym $mod+parenleft workspace 5
-bindsym $mod+minus workspace 6
-bindsym $mod+egrave workspace 7
-bindsym $mod+underscore workspace 8
-bindsym $mod+ccedilla workspace 9
-bindsym $mod+agrave workspace 10
-
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+eacute move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+egrave move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+ccedilla move container to workspace 9
-bindsym $mod+Shift+agrave move container to workspace 10
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -170,7 +217,7 @@ mode "resize" {
         bindsym j resize shrink width 5 px or 5 ppt
         bindsym k resize grow height 5 px or 5 ppt
         bindsym l resize shrink height 5 px or 5 ppt
-        bindsym m resize grow width 5 px or 5 ppt
+        bindsym semicolon resize grow width 5 px or 5 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 5 px or 5 ppt
@@ -178,50 +225,159 @@ mode "resize" {
         bindsym Up resize shrink height 5 px or 5 ppt
         bindsym Right resize grow width 5 px or 5 ppt
 
-        # back to normal: Enter or Escape
+        # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
         bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
 }
 
 bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-#bar {
-#        status_command i3status
-#        tray_output primar
-#}
+bar {
+        output $monitorCenter
+        status_command i3status --config ~/.config/i3/i3status.conf
 
-# Quand le focus change d'écran, ne pas déplacer la souris
-#mouse_warping none
+        # Display mode
+        # The default mode is dock mode; in hide mode, the default modifier is Mod4 (usually the windows key). The default value for the hidden_state is hide.
+        #mode dock|show|hide
+        #hidden_state hide|show
+        #modifier <Modifier>|None
 
-# Disable screensaver for i3wm
+        workspace_buttons yes
+        workspace_min_width 45
+        position top
+
+        # Tray i3status
+        tray_output $monitorCenter
+        tray_padding 0
+        
+        # Select font for i3status
+        #font pango:DejaVu Sans Mono 10
+        #font pango:Hack Nerd Font Mono Bold 9
+        #font pango:JetBrainsMono Nerd Font Mono Bold 8
+        font pango:Hack Bold 8
+
+        # For AwesomeFont installed on your system
+        #font pango:FontAwesome Bold 8
+
+        #separator_symbol ":|:"
+        separator_symbol "//"
+
+        # Change ORIGINAL COLOR
+        # colors {
+        #         background #000000
+        #         statusline #FFFFFF
+        #         separator  #666666
+
+        #         focused_workspace  #4C7899 #285577 #FFFFFF
+        #         active_workspace   #333333 #222222 #FFFFFF
+        #         inactive_workspace #333333 #222222 #888888
+        #         urgent_workspace   #2F343A #900000 #FFFFFF
+        #         binding_mode       #2F343A #900000 #FFFFFF
+  #}
+
+        colors {
+                background #3A3A3A
+                statusline #FFFFFF
+                separator  #2E9EF4
+
+                focused_workspace  #333333 #717171 #FFFFFF
+                active_workspace   #333333 #3A3A3A #FFFFFF
+                inactive_workspace #333333 #3A3A3A #888888
+                urgent_workspace   #FF0000 #C82828 #FFFFFF
+                binding_mode       #FF0000 #C82828 #FFFFFF
+  }
+}
+
+bar {
+        output $monitorRight
+        status_command i3status --config ~/.config/i3/i3status-dual.conf
+
+        # Display mode
+        # The default mode is dock mode; in hide mode, the default modifier is Mod4 (usually the windows key). The default value for the hidden_state is hide.
+        #mode dock|show|hide
+        #hidden_state hide|show
+        #modifier <Modifier>|None
+
+        workspace_buttons yes
+        workspace_min_width 45
+        position top
+
+        # Tray i3status
+        tray_output $monitorCenter
+        tray_padding 0
+        
+        # Select font for i3status
+        #font pango:DejaVu Sans Mono 10
+        #font pango:Hack Nerd Font Mono Bold 9
+        #font pango:JetBrainsMono Nerd Font Mono Bold 8
+        font pango:Hack Bold 8
+
+        # For AwesomeFont installed on your system
+        #font pango:FontAwesome Bold 8
+
+        #separator_symbol ":|:"
+        separator_symbol "//"
+
+        # Change ORIGINAL COLOR
+        # colors {
+        #         background #000000
+        #         statusline #FFFFFF
+        #         separator  #666666
+
+        #         focused_workspace  #4C7899 #285577 #FFFFFF
+        #         active_workspace   #333333 #222222 #FFFFFF
+        #         inactive_workspace #333333 #222222 #888888
+        #         urgent_workspace   #2F343A #900000 #FFFFFF
+        #         binding_mode       #2F343A #900000 #FFFFFF
+  #}
+        colors {
+                background #3A3A3A
+                statusline #FFFFFF
+                separator  #2E9EF4
+
+                focused_workspace  #333333 #717171 #FFFFFF
+                active_workspace   #333333 #3A3A3A #FFFFFF
+                inactive_workspace #333333 #3A3A3A #888888
+                urgent_workspace   #FF0000 #C82828 #FFFFFF
+                binding_mode       #FF0000 #C82828 #FFFFFF
+
+    }
+}
+# Disabled screensaver for i3wm
 exec_always --no-startup-id "xset s off; xset -dpms; xset s noblank"
 
-# Editting 'Barre d'address' et la border de 3 pixel
-for_window [class="^.*"] border pixel 3
+# Disable beep terminal for i3wm
+exec_always --no-startup-id "xset b off"
+
+# speed cursor in terminal
+exec_always --no-startup-id "xset r rate 250 75"
+
+# Editting 'Address Bar' and border with 3 pixel
+#for_window [class="^.*"] border pixel 3
 for_window [class=".*"] title_format " %title"
 
-# Script perl for i3 listing workspace
-for_window [title="^i3tree$"] floating enable
-bindsym $mod+t exec xterm -hold -title i3tree -e ~/.config/i3/i3tree/i3tree
+# Align text to the center in address bar
+title_align center
 
-# Status bar 'polybar' with configuration file
-exec_always --no-startup-id "killall polybar; polybar -r default & polybar -r right"
+# Constraining floating window size
+floating_minimum_size 75 x 50
+floating_maximum_size -1 x -1
 
-# Screen resolution config  and video output
-exec_always xrandr --dpi 085 --output VGA-0 --mode 1280x1024 --pos 1920x0 --rotate normal --output DVI-D-0 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-0 --off
+# Start picom configuration for i3wm
+exec_always --no-startup-id "picom -b --config ~/.config/i3/picom.conf"
 
-# WPS Office
-# for_window [class="et"] border none, move container to workspace "Spreadsheet", layout fullscreen
-# assign [class="WPS Spreadsheet"] "Spreadsheet"
-# for_window [class="wps"] border none, move container to workspace "Writer", layout fullscreen
-# assign [class="WPS Writer"] "Writer"
-# for_window [class="wpp"] border none, move container to workspace "Presentation", layout fullscreen
-# assign [class="WPS Presentation"] "Presentation"
-#
-bindsym $mod+F1 exec firefox
-bindsym $mod+F2 exec chromium-browser
-bindsym $mod+F3 exec nautilus
-bindsym $mod+F4 exec thunar
-bindsym $mod+F5 exec caja
+# Start 'polybar' with a specific configuration file
+#exec_always --no-startup-id "killall polybar; polybar -r default"
+
+# Pulse Audio controls
+# Where 0 is your sink number found with
+# $ pactl list sinks
+bindsym $alt+Shift+Up exec pactl set-sink-volume 0 +5% #increase sound volume
+bindsym $alt+Shift+Down exec pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym $alt+Shift+m exec pactl set-sink-mute 0 toggle # mute sound
+
+# Use xrand for the config for monitor
+#exec --no-startup-id "xrandr --output Virtual-1 --primary --mode preferred --dpi 080 --pos 0x0 --rotate normal"
