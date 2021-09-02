@@ -5,6 +5,8 @@
 
 > *Image Terminal Ubuntu with theme [WhiteSur GTK](https://www.gnome-look.org/p/1403328/)*
 
+Create, view and edit terminal colorschemes use : [terminal.sexy](https://terminal.sexy/) | [github-terminal.sexy](https://github.com/stayradiated/terminal.sexy)
+
 ## Aliases in Terminal 
 Copy this to `~/.bash_aliases` </br>
 Add Aliases definition to `.bashrc`
