@@ -2,6 +2,26 @@
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
+#
+
+# Make vim the default editor
+export EDITOR='vim'
+export EDITOR='vim'
+
+# shopt
+shopt -s autocd # change to named directory
+shopt -s cdspell # autocorrects cd misspellings
+shopt -s cmdhist # save multi-line commands in history as single line
+shopt -s dotglob # bash includes filenames beginning with a '.' in the results of filename expansion
+shopt -s histappend # do not overwrite history
+shopt -s expand_aliases # expand aliases
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -18,6 +38,12 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
     alias ip='ip --color=auto'
 fi
+
+# get the error messages from journalctl
+alias jctl="journalctl -p 3 -xb"
+
+# systemctl info
+alias sysfailed="systemctl list-units --failed"
 
 # open files with default application
 alias open='xdg-open'
@@ -103,3 +129,7 @@ alias watch='watch --color'
 # History completion
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
+
+#ignore upper and lowercase when TAB completion
+bind "set completion-ignore-case on"
+
