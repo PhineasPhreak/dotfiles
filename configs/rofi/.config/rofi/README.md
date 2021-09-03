@@ -5,6 +5,8 @@ Rofi is a window switcher, run dialog, ssh-launcher
 
 * archlinux wiki : [rofi archlinux wiki](https://wiki.archlinux.org/title/Rofi)
 
+* Rofi theme generator : [rofi theme generator](https://comfoxx.github.io/rofi-old-generator/p11-Generator.html)
+
 ## Installation
 Update your Repositories and install `rofi`:
 
