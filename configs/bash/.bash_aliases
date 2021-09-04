@@ -127,8 +127,10 @@ alias watch='watch --color'
 #alias poweroff='sudo poweroff'
 
 # History completion
+# Just edit your ~/.inputrc (you might need to create one or copy the one in /etc/inputrc there)
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
+bind '"\C-H": shell-backward-kill-word'  # CTRL+Backspace
 
 #ignore upper and lowercase when TAB completion
 bind "set completion-ignore-case on"
