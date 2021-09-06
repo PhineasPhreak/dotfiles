@@ -1,13 +1,10 @@
 # Vim Configuration
-
 |*Config Advanced*|*Config Basic*|
 |:---------------:|:------------:|
 |![Vim-config-advanced](https://github.com/PhineasPhreak/dotfiles/blob/master/screenshots/vim-config-advanced.png)|![Vim-config-basic](https://github.com/PhineasPhreak/dotfiles/blob/master/screenshots/vim-config-basic.png)|
 
 ## Documentation
-
-Site: http://vimcolors.com/ </br>
-Wiki colorsheme: https://vim-fr.org/index.php/Le_colorscheme </br>
+Site: [vimcolorschenes](https://vimcolorschemes.com/) </br>
 Github : https://github.com/vim-airline/vim-airline </br>
 Image Shorcut Cheatsheet : [Shorcut VIM](https://github.com/PhineasPhreak/dotfiles/blob/master/screenshots/vim-shortcut-cheatsheet.png)</br>
 Github lightline.vim : https://github.com/itchyny/lightline.vim
@@ -22,12 +19,10 @@ View Vi and Vim lesson GIT :
 [lesson-7](https://github.com/PhineasPhreak/dotfiles/blob/master/screenshots/vim-lesson/vi-vim-tutorial-7.gif)
 
 ## Tutorials
-
 Vim help files : [vimhelp.org](https://vimhelp.org/)</br>
 Vim ref card : [Vim Ref Card](https://u-tools.com/vimrefcard.pdf)
 
 ## Themes
-
 * Awesome Vim Color Schemes : [Github-awesome-vim-colorschemes](https://github.com/rafi/awesome-vim-colorschemes)
 > Collection of awesome color schemes for Vim, merged for quick use.
 
@@ -35,7 +30,6 @@ Vim ref card : [Vim Ref Card](https://u-tools.com/vimrefcard.pdf)
 > Light & Dark color schemes for terminal and graphic Vim awesome editor
 
 ## Installation configuration file
-
 Put the file at the root of your user/root account:
 
 * For Root : `/root/.vimrc`
@@ -54,7 +48,6 @@ pspk@kali:~$ ls -lhA | grep .vimrc
 ```
 
 ### Example of Colorsheme
-
 ```console
 pspk@kali:~/.vim/colors$ ls -lh
 total 140K
@@ -68,7 +61,6 @@ total 140K
 ```
 
 ### Plugin
-
 **Installation manually of `indentLine` :**
 
 ```shell
