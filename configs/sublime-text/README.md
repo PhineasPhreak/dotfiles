@@ -1,6 +1,5 @@
 # Sublime Text
-
-[![Aperçu de Sublime text](screenshots/sublime-text-3143.png)](https://github.com/PhineasPhreak/dotfiles/blob/master/screenshots/sublime-text-3143.png)
+Site : [Sublime-text](https://www.sublimetext.com/)
 
 ## Installation `Sublime Text` and `Sublime Merge`
 * Site : [Sublime Text](https://www.sublimetext.com/3) |
@@ -25,6 +24,6 @@ $ bash subl-install-apt.sh
 ```
 
 ## Sublime Text `Package Control`
-***install Package Control, Manually***
+**install Package Control, Manually**
 
 * Site: https://packagecontrol.io/

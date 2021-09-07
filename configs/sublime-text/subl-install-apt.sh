@@ -1,4 +1,6 @@
-#! /usr/bin/bash
+#!/bin/bash
+# The apt repository contains packages for both x86-64 and arm64.
+
 
 # Import GPG key for apt-key
 echo '[*] Install Linux Package Manager Repositories'
