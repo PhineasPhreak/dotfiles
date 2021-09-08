@@ -1,9 +1,11 @@
-## URxvt-Unicode
+# URxvt-Unicode
 
-### Important:
-Copy file and rename **`Xdefaults`** to **`~/.Xdefaults`**
+## Important:
+Copy file and rename `.Xresources` to `~/.Xresources` **or** `~/.Xdefaults`
 
-### If you use VIM with colorscheme install rxvt-unicode-256color
+Use the command `xrdb -merge ~/.Xresources` to update.
+
+## If you use VIM with colorscheme install rxvt-unicode-256color
 ```shell
 $ sudo apt-get install rxvt-unicode-256color
 ```
@@ -13,20 +15,20 @@ $ echo $TERM
 rxvt-unicode-256color
 ```
 
-### Tabbed for URxvt
+## Tabbed for URxvt
 This is modified tabbed extension for well known urxvt-unicode terminal emulator.
 
 For installation, configuration and features:
 
 GitHub: https://github.com/gryf/tabbed
 
-### Clipboard with URxvt
+## Clipboard with URxvt
 **By default**
 For *Copying* and *Pasting* with URxvt
 * Copy: CTRL + ALT + C
 * Paste: CTRL + ALT + V
 
-For changing *Copying* and *Pasting* use this in your configuration file `~/.Xdefaults`
+For changing *Copying* and *Pasting* use this in your configuration file `~/.Xresources`
 
 This config will change CTRL + ALT + C; CTRL + ALt + V **in** CTRL + Shift + C; CTRL + Shift + V
 ```
@@ -44,7 +46,7 @@ URxvt.keysym.C-S-0x43: eval:selection_to_clipboard
 URxvt.keysym.C-S-0x56: eval:paste_clipboard
 ```
 
-### URxvt Transparency
+## URxvt Transparency
 Urxvt offers two types of transparency for its background :
 
 * A "false" transparency that reproduces the wallpaper in the bottom of the terminal.
@@ -54,7 +56,7 @@ Urxvt offers two types of transparency for its background :
 
 If there is no compositing manager running, there is no transparency of everything on a chosen true (composite) transparency.
 
-Edit the `~/.Xdefaults` file and add :
+Edit the `~/.Xresources` file and add :
 * For **true** transparency (composite) :
 ```
 URxvt*depth: 32
@@ -71,8 +73,8 @@ URxvt*transparent: true
 URxvt*shading: 30
 ```
 > **Note:** If you put both, the false transparency passes before the true transparency (composite).
-### URxvt Resize and colors cursor
-Append this code to `~/.Xdefaults`
+## URxvt Resize and colors cursor
+Append this code to `~/.Xresources`
 ```
 !! resize-font
 URxvt.resize-font.smaller:	C-Down
@@ -81,14 +83,14 @@ URxvt.resize-font.bigger:	C-Up
 URxvt.scrollBar:	false
 URxvt.cursorColor:	white
 ```
-### URxvt Fonts
+## URxvt Fonts
 * Install font Ubuntu:
 ```shell
 $ sudo apt-get update
 $ sudo apt-get install fonts-ubuntu-font-family-console
 ```
 
-* Modify file and added this line in `~/.Xdefaults`
+* Modify file and added this line in `~/.Xresources`
 ```
 URxvt.font: xft:UbuntuMono-RI:pixelsize=15
 ```
