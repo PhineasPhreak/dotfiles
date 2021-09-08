@@ -13,6 +13,26 @@ $ sudo pacman -S i3wm i3lock i3blocks i3status dmenu
 
 After this Installation **Reboot** your system and changed your desktop (Gnome -> i3)
 
+## X Resources Configuration on i3wm
+If you are not using a desktop environment such as KDE, Xfce, or other that manipulates the X settings for you, you can set the desired [DPI setting manually](https://wiki.archlinux.org/title/HiDPI) via the `Xft.dpi` variable in [Xresources](https://wiki.archlinux.org/title/Xresources):
+```
+Xft.dpi: 96
+
+! These might also be useful depending on your monitor and personal preference:
+Xft.autohint: 0
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintfull
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
+```
+
+For `Xft.dpi`, using integer multiples of 96 usually works best, e.g. 192 for 200% scaling.
+
+Make sure the settings are loaded properly when X starts, for instance in your `~/.xinitrc` with `xrdb -merge ~/.Xresources` (see [Xresources](https://wiki.archlinux.org/title/Xresources) for more information).
+
+This will make the font render properly in most toolkits and applications, it will however not affect things such as icon size! Setting `Xft.dpi` at the same time as toolkit scale (e.g. `GDK_SCALE`) may cause interface elements to be much larger than intended in some programs like firefox.
+
 ## i3 with Multi Monitor
 By default multi monitor is 2 screen (`Center`, `Right`)
 
