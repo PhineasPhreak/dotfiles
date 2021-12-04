@@ -189,8 +189,13 @@ __powerline_autosegments() {
 
 	local remote;
 	remote=${SSH_CLIENT-${SUDO_USER-${container-}}}
-	if [ -n "${remote}" ] ; then
+	# Pour afficher user@hostname
+	if [ $UID -eq 1000 ] ; then
 		__powerline_retval+=(hostname)
+	else
+		if [ -n "${remote}" ] ; then
+			__powerline_retval+=(hostname)
+		fi
 	fi
 
 	if [ -v POWERLINE_MAILDIR ] ; then
