@@ -40,7 +40,7 @@ client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
 
 client.background       #FFFFFF
 
-# Config wallpaper with feh
+# Config wallpaper with feh or nitrogen
 exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/wallhaven-g8r373.png
 
 # Lock screen 'for safety'
@@ -72,8 +72,8 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a terminal (default)
-#bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec lxterminal 
+#bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
+bindsym $mod+Return exec --no-startup-id lxterminal 
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -93,8 +93,8 @@ bindsym $mod+x exec rofi -show window -theme Arc-Dark -font "Hack Bold 10" -disp
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+4 exec --no-startup-id i3-dmenu-desktop
 
-bindsym $mod+F1 exec firefox
-bindsym $mod+F2 exec brave
+bindsym $mod+F1 exec --no-startup-id firefox
+bindsym $mod+F2 exec --no-startup-id brave-browser
 
 # change focus
 bindsym $mod+j focus left
