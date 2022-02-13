@@ -1,5 +1,6 @@
 # i3wm 
 ## Installation
+In general, you should use the repositories of your distribution.
 * Installation for `Debian`, `Ubuntu`
 ```shell
 $ sudo apt-get update
@@ -10,6 +11,9 @@ $ sudo apt-get install i3 i3blocks i3status i3lock dmenu
 ```shell
 $ sudo pacman -S i3wm i3lock i3blocks i3status dmenu
 ```
+
+If you want the [latest i3 development](https://i3wm.org/docs/repositories.html) version.
+If you are using Debian (Debian-derived systems might work, too) or Ubuntu and want the latest development version of i3, you should use our Debian repository.
 
 After this Installation **Reboot** your system and changed your desktop (Gnome -> i3)
 
