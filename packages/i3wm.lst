@@ -1,7 +1,7 @@
-feh
-polybar
+nitrogen
+polybar (source git)
 rofi
 rxvt-unicode-256color
 arandr
-i3tree (source-git)
-compton
+lxrandr
+picom (source git)
