@@ -3,6 +3,10 @@
 Visual Studio Code : https://code.visualstudio.com/ </br>
 Visual Studio Code Manage Extention  : [Marketplace](https://marketplace.visualstudio.com/VSCode)
 
+## VScodium
+
+[VSCodium](https://vscodium.com/#moreinfo) is a community-driven, freely-licensed binary distribution of Microsoft’s editor VS Code.
+
 ### Custom `settings.json` file from VSCode
 
 Since VSCode 1.28.1 you can custom the **window.titleBarStyle** in settings.json file. <br>
@@ -22,4 +26,5 @@ Example of `settings.json` :
     "window.titleBarStyle": "custom",
 }
 ```
-> My little config for VSCode 1.56.2
+> My little config for VSCode
+
