@@ -161,10 +161,8 @@ el
 en
 set formatoptions+=nj " support formatting of numbered lists
 
-" Tabs and spaces
-set listchars+=tab:▸\ ,trail:⋅,nbsp:␣
-" Eols and others
-set listchars+=eol:¬,extends:»,precedes:«
+" display indentation guides
+set list listchars=tab:❘-,trail:·,extends:»,precedes:«,nbsp:×
 
 "Hhighlight columns after 'textwidth'
 set colorcolumn=+1,+2,+4,+5,+6,+7,+8

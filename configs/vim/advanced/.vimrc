@@ -233,6 +233,8 @@ set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
 
+" display indentation guides
+set list listchars=tab:❘-,trail:·,extends:»,precedes:«,nbsp:×
 
 """"""""""""""""""""""""""""""
 " => Visual mode related
