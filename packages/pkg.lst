@@ -1,6 +1,7 @@
 build-essential (Informational list of build-essential packages)
 sudo (Provide limited super user privileges to specific users)
 cheese (tool to take pictures and videos from your webcam)
+yt-dlp (downloader of videos from YouTube and other sites)
 rofi (window switcher, run dialog and dmenu replacement)
 gmrun (Featureful CLI-like GTK+ application launcher)
 tmux (terminal multiplexer)
