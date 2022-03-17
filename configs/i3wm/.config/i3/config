@@ -146,6 +146,9 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+# switch focus to the previous viewed workspace
+bindsym $alt+Tab workspace back_and_forth
+
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1:"
@@ -300,6 +303,10 @@ floating_maximum_size -1 x -1
 
 # Start 'polybar' with a specific configuration file
 #exec_always --no-startup-id "killall polybar; polybar -r default"
+
+# Authentication agent and i3wm
+# Installed the following Polkit related packages (policykit-desktop-privileges, policykit-1-gnome) or lxpolkit
+exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 
 # Pulse Audio controls
 # Where 0 is your sink number found with
