@@ -1,7 +1,7 @@
 #!/bin/bash
 # cf. https://gitlab.com/bersace/powerline.bash
 # cf. Dernier commit depuis ma modification : 
-# 25 Nov, 2021 "Merge branch 'sort' into 'master'" 3dde833d9a1d25f3c4fa71a787502fc05f5256eb
+# 29 Mar, 2022 "doc: Capture d'écran automatique" 2c272ac9ebf16b9fd80de162b9535dcb947d3af2
 #
 # Cette variable globale permet de retourner une valeurs à du code appelant
 # sans passer par un sous-shell. Cela optimise énormément les performances.
@@ -19,21 +19,22 @@
 __powerline_retval=()
 
 declare -A __powerline_colors
+declare -A __powerline_context
 
 
 # Point d'entrée pour exécution dans PROMPT_COMMAND.
 __update_ps1() {
 	local last_exit_code=${1-$?}
-	local __powerline_segments=()
+	local segments=()
 	local segname
 
 	__powerline_git_status=()
 	for segname in ${POWERLINE_SEGMENTS-hostname pwd status} ; do
 		"__powerline_segment_${segname}" "$last_exit_code"
 		if [ "${POWERLINE_DIRECTION}" = "ltr" ] ; then
-			__powerline_segments+=("${__powerline_retval[@]}")
+			segments+=("${__powerline_retval[@]}")
 		else
-			__powerline_segments=("${__powerline_retval[@]}" "${__powerline_segments[@]}")
+			segments=("${__powerline_retval[@]}" "${segments[@]}")
 		fi
 	done
 
@@ -43,11 +44,11 @@ __update_ps1() {
 		__ps1+="\\[\\e]0;${POWERLINE_WINDOW_TITLE}\\a\\]"
 	fi
 
-	"__powerline_render_${POWERLINE_STYLE-default}"
+	"__powerline_render_${POWERLINE_STYLE-default}" "${segments[@]}"
 
 	# Affichage par défaut sur 2 lignes, 1 ligne si option
 	__ps1+="${__powerline_retval[0]}\\[\\e[0m\\]"
-	if [ "${POWERLINE_ONELINE}" = true ] && [ "${POWERLINE_DIRECTION}" != "rtl" ] ; then
+	if [ "${POWERLINE_ONELINE-}" = true ] && [ "${POWERLINE_DIRECTION-}" != "rtl" ] ; then
 		__ps1+=" "
 	else
 		# Prompt with linebreak
@@ -64,10 +65,13 @@ __update_ps1() {
 }
 
 
-#    I N I T I A L I S A T I O N
+#       I N I T I A L I S A T I O N
 
 
 __powerline_init() {
+	__powerline_colors=()
+	__powerline_context=()
+
 	: "${POWERLINE_DIRECTION:=ltr}"
 	if [ "${POWERLINE_DIRECTION}" = "rtl" ] ; then
 		: "${POWERLINE_STYLE:=align_right}"
@@ -76,8 +80,10 @@ __powerline_init() {
 	fi
 
 	__powerline_autoicons
+	__powerline_hostname_class
+	__powerline_context[hostname-class]="${__powerline_retval[0]}"
 	# Initialiser les segments à partir de l'environnement.
-	__powerline_autosegments
+	__powerline_autosegments "${__powerline_context[hostname-class]}"
 	: "${POWERLINE_SEGMENTS:=${__powerline_retval[*]}}"
 	__powerline_init_segments
 	__powerline_init_colors
@@ -170,7 +176,7 @@ __powerline_autoicons() {
 			: "${POWERLINE_PYTHON_ICON:=$'\uE235 '}"        # nf-fae-python
 			: "${POWERLINE_DOCKER_ICON:=$'\uF308 '}"        # nf-linux-docker
 			: "${POWERLINE_K8S_ICON:=$'\uFD31 '}"           # nf-mdi-ship_wheel
-			: "${POWERLINE_ETCKEEPER_ICON:=$'\uF992 '}"   # nf-mdi-message_settings
+			: "${POWERLINE_ETCKEEPER_ICON:=$'\uF992 '}"     # nf-mdi-message_settings
 			;;
 		*)
 			echo "POWERLINE_ICONS=${mode} inconnu." >&2
@@ -180,22 +186,12 @@ __powerline_autoicons() {
 
 
 __powerline_autosegments() {
+	local class="$1"
 	# Détermine les segments pertinent pour l'environnement.
 	__powerline_retval=()
 
-	if [ -f /.dockerenv ] ; then
-		container=docker
-	fi
-
-	local remote;
-	remote=${SSH_CLIENT-${SUDO_USER-${container-}}}
-	# Pour afficher user@hostname
-	if [ $UID -eq 1000 ] ; then
+	if [ "$class" != "local" ] ; then
 		__powerline_retval+=(hostname)
-	else
-		if [ -n "${remote}" ] ; then
-			__powerline_retval+=(hostname)
-		fi
 	fi
 
 	if [ -v POWERLINE_MAILDIR ] ; then
@@ -204,8 +200,7 @@ __powerline_autosegments() {
 
 	__powerline_retval+=(pwd)
 
-	# Remplacer "python" par "python3" si python2.7 n'est pas installer sur votre système
-	if type -p python3 >/dev/null ; then
+	if type -p python2 >/dev/null || type -p python3 >/dev/null ; then
 		__powerline_retval+=(python)
 	fi
 
@@ -233,6 +228,7 @@ __powerline_autosegments() {
 	if type -p jobs >/dev/null ; then
 		__powerline_retval+=(jobs)
 	fi
+
 	__powerline_retval+=(status)
 }
 
@@ -247,7 +243,6 @@ __powerline_init_segments() {
 	done
 }
 
-#    C O L O R S
 
 __powerline_init_colors() {
 	__powerline_colors=(
@@ -304,7 +299,7 @@ __powerline_init_colors() {
 		[git-sync-texte]=gris-clair0
 
 		[k8s-fond]=bleu-kubernetes
-		[k8s-texte]=gris-clair
+		[k8s-texte]=gris-clair4
 
 		[maildir-fond]=jaune
 		[maildir-texte]="48;5;20;1"  # bleu gras
@@ -324,11 +319,15 @@ __powerline_init_colors() {
 		[python-texte]=jaune-python
 
 		# jobs segment
-		[jobs-bg]="48;5;172"
-		[jobs-fg]="48;5;234"
+		[jobs-bg]="48;5;172"  # jaune fonce
+		[jobs-fg]="48;5;234"  # gris fonce
+
+
+		[user-color]="48;5;036"
+		[root-color]="48;5;160"
 
 		[status-fond]=rouge
-		[status-texte]=gris-clair3
+		[status-texte]=gris-clair4
 	)
 
 	# Charger la personnalisation.
@@ -352,7 +351,7 @@ __powerline_init_colors() {
 }
 
 
-#    R E N D U
+#       R E N D U
 
 # A render function is a bash function starting with `__powerline_render_`. It puts
 # a PS1 string in `__powerline_retval`.
@@ -383,7 +382,7 @@ __powerline_render_default() {
 	local text
 	local separator
 
-	for segment in "${__powerline_segments[@]}" ; do
+	for segment in "$@" ; do
 		if [ -z "${segment}" ] ; then
 			continue
 		fi
@@ -470,7 +469,7 @@ __powerline_render_align_right() {
 	local text
 	local separator
 
-	for segment in "${__powerline_segments[@]}" ; do
+	for segment in "$@" ; do
 		if [ -z "${segment}" ] ; then
 			continue
 		fi
@@ -543,7 +542,7 @@ __powerline_render_align_right() {
 }
 
 
-#    S E G M E N T S
+#       S E G M E N T S
 
 # Un segment est une fonction bash préfixé par `__powerline_segment_`. Le
 # retour est un tableau contenant des chaînes au format :
@@ -593,7 +592,7 @@ __powerline_segment_docker() {
 }
 
 
-#    ETCKEEPER
+# ETCKEEPER
 #
 # autosegment n'active pas ce segment car l'usage de sudo peut déclencher des
 # mails de sécurité en cas de mauvaise configuration. Émettre un mail à chaque
@@ -625,7 +624,7 @@ __powerline_segment_etckeeper(){
 __powerline_git_status=()
 
 
-#    GIT
+# GIT
 __powerline_segment_git() {
 	local branch
 	local colors
@@ -680,7 +679,10 @@ __powerline_segment_git_sync() {
 	local ab_segment=''
 	local detached
 	local status_symbol
-	local count_commits
+	# local count_commits
+
+	# affiche le compteur de commit désynchronisé
+	POWERLINE_GIT_SYNC_COUNT=1
 
 	# Si pas de dossier .git parent, zapper.
 	__powerline_find_parent "${PWD}" .git
@@ -698,6 +700,7 @@ __powerline_segment_git_sync() {
 	if [ -n "${detached}" ] ; then
 		# Pas de push dans une commit détachée.
 		ahead=0
+	# elif ! ahead="$(git rev-list --count "@..@{push}" -- 2>/dev/null)" ; then
 	elif ! ahead="$(git rev-list --count "@{push}..@" -- 2>/dev/null)" ; then
 		# En cas d'erreur, on considère qu'il n'y a pas de branche
 		# @{push}, donc rien à pousser.
@@ -705,24 +708,26 @@ __powerline_segment_git_sync() {
 	fi
 
 	# Segment d'état de synchronisation.
-	if [ "${ahead}" -gt 0 ] ; then
-		# Il faut pousser des commits.
-		count_commits=$(git rev-list origin..HEAD | wc -l)
-		ab_segment="⬆ … $count_commits"
-		if [ "${POWERLINE_GIT_SYNC_COUNT-}" ] ; then
-			ab_segment+="(+$ahead)"
-		fi
-	fi
 	if [ -n "${ab##+* -0}" ] ; then
 		# Il faut tirer des commits upstream.
 		ab_segment+="⬇"
 		if [ "${POWERLINE_GIT_SYNC_COUNT-}" ] ; then
-			ab_segment+="(${ab##+* })"
+			ab_segment+=" ${ab##+* -} "
+		fi
+	fi
+	if [ "${ahead}" -gt 0 ] ; then
+		# Il faut pousser des commits.
+		# 
+		# count_commits="$(git rev-list origin..HEAD | wc -l)"
+		# ab_segment+="⬆ … $count_commits"
+		ab_segment+="⬆ …"
+		if [ "${POWERLINE_GIT_SYNC_COUNT-}" ] ; then
+			ab_segment+=" $ahead "
 		fi
 	fi
 	if [ -n "${ab_segment}" ] ; then
 		__powerline_retval=(
-			"::git-sync-fond:git-sync-texte:${ab_segment}"
+			"::git-sync-fond:git-sync-texte:${ab_segment% }"
 		)
 	else
 		__powerline_retval=()
@@ -818,7 +823,7 @@ __powerline_init_git() {
 	# (ahead-behind) cf. https://man.netbsd.org/NetBSD-9.0/sort.1,
 	# https://www.unix.com/man-page/FreeBSD/1/sort/ et
 	# https://ss64.com/osx/sort.html.
-	if printf '2.11.0\n%s' "$v" | sort --numeric --field-separator=. -k 1,1 -k 2,2 -k 3,3 -c 2>/dev/null; then
+	if printf '2.11.0\n%s' "$v" | sort -n -t . -k 1,1 -k 2,2 -k 3,3 -c 2>/dev/null; then
 		__powerline_git_cmd+=("--porcelain=v2")
 		__powerline_git_parser=__powerline_parse_git_status_v2
 	else
@@ -828,7 +833,7 @@ __powerline_init_git() {
 }
 
 
-#    HOSTNAME
+# HOSTNAME
 
 __powerline_init_hostname() {
 	# Comme le segment hostname est fixe tout au long de l'exécution du
@@ -838,6 +843,22 @@ __powerline_init_hostname() {
 	local fg
 	local text
 	local h
+
+	# Personnaliser la couleur du segment hostname
+	# POWERLINE_HOSTNAME_BG="48;5;036"
+	# POWERLINE_HOSTNAME_FG="38;5;015"
+
+	# Coloration suivant si le terminal a les droits Administrateur (root/user).
+	if [ $UID -ne 0 ]; then
+		# USER
+		POWERLINE_HOSTNAME_BG="user-color"
+		POWERLINE_HOSTNAME_FG="38;5;015"
+	else
+		# ROOT
+		POWERLINE_HOSTNAME_BG="root-color"
+		POWERLINE_HOSTNAME_FG="38;5;015"
+	fi
+
 
 	if [ -z "${HOSTNAME-}" ] && [ -f /etc/hostname ] ; then
 		read -r HOSTNAME < /etc/hostname
@@ -850,20 +871,18 @@ __powerline_init_hostname() {
 
 	text="${USER}@${HOSTNAME-*unknown*}"
 
-	if [ -n "${POWERLINE_HOSTNAME_BG}" ] && [ -n "${POWERLINE_HOSTNAME_FG}" ]; then
+	if [ -n "${POWERLINE_HOSTNAME_BG-}" ] && [ -n "${POWERLINE_HOSTNAME_FG-}" ]; then
 		fg="${POWERLINE_HOSTNAME_FG}"
 		bg="${POWERLINE_HOSTNAME_BG}"
 	else
 		h=$(cksum <<< "$text")
 		h="${h% *}"
-		if [[ $COLORTERM =~ ^(truecolor|24bit)$ ]] && type -p bc &>/dev/null ; then
-			__powerline_hostname_color24 "${USER//root/1}" "$h"
+		if [[ $COLORTERM =~ ^(truecolor|24bit)$ ]] && type -p awk &>/dev/null ; then
+			__powerline_hostname_color24 "${__powerline_context[hostname-class]}" "$h"
 			__powerline_hsl2rgb "${__powerline_retval[@]}"
 			rgb=("${__powerline_retval[@]}")
 			bg="48;2;${rgb[0]};${rgb[1]};${rgb[2]}"
 			fg="38;5;253"
-			# Fonction de coloration.
-			__powerline_color_user_root
 		else
 			__powerline_hostname_color256 "$h"
 			rgb=("${__powerline_retval[@]}")
@@ -874,30 +893,10 @@ __powerline_init_hostname() {
 			# clareté du fond.
 			__powerline_get_foreground "${rgb[@]}"
 			fg="38;5;${__powerline_retval[0]}"
-			# Fonction de coloration.
-			__powerline_color_user_root
 		fi
 	fi
 
-	__powerline_hostname_segment=":${POWERLINE_HOSTNAME_ICON-}:${bg}:${fg}:${text}"
-}
-
-__powerline_color_user_root() {
-	# Coloration suivant si le terminal a les droits Administrateur (root/user).
-	if [ $UID -ne 0 ]; then
-		# With 'bold'
-		bg="1;48;5;36"
-
-		# Without 'bold'
-		#bg="48;5;36"
-	else
-		# With 'bold'
-		bg="1;48;5;160"
-
-		# Without 'bold'
-		#bg="48;5;160"
-	fi
-
+	__powerline_context[hostname-segment]=":${POWERLINE_HOSTNAME_ICON-}:${bg}:${fg}:${text}"
 }
 
 __powerline_hostname_color256() {
@@ -908,6 +907,8 @@ __powerline_hostname_color256() {
 	#
 	# Retourne les valeurs de chaques composants RGB. Pour obtenir le code
 	# 256, utiliser __powerline_color256.
+	#
+	# Le script tests/hostname256.sh affiche toutes les combinaisons possibles.
 
 	local h="$1"
 	h=$((h % 60))
@@ -937,35 +938,56 @@ __powerline_hostname_color24() {
 	# l'attention par rapport aux autres segments, comme pour le rouge et
 	# le vert.
 	#
-	# Le script tests/pastel.sh affiche toutes les combinaisons possibles.
+	# Le script tests/hostname24.sh affiche toutes les combinaisons possibles.
 
-	local root="$1"
+	local class="$1"
 	local h="$2"
 	local hue
 	local sat
 	local lum
 
-	# Sat : {2..4} -> 3 valeurs ( +4 pour root )
-	# Teinte : {5..80}/5 - {30,35}/5 -> 16 valeurs
-	# Total: 16 * 3 = 48 couleurs
-	h=$((h % 48))
+	# Saturations : {2..8} -> 7 valeurs
+	local shift_sat=2
+	local num_sat=7
+	local shift_hue
+	local num_hue
+	case "$class" in
+		local)
+			# Teintes : 5 ou 9 -> 2 valeurs
+			shift_hue=5
+			num_hue=2
+			;;
+		remote)
+			# Teintes : 13, 17, 21 -> 3 valeurs
+			shift_hue=13
+			num_hue=3
+			;;
+		container|virtualmachine)
+			# Teintes : {45..77}/4 -> 9 valeurs
+			shift_hue=45
+			num_hue=9
+			;;
+		root)
+			# Teintes : {81..93}/4: -> 4 valeurs
+			shift_hue=81
+			num_hue=4
+			# Saturations : {6..8} -> 3 valeurs
+			shift_sat=6
+			num_sat=3
+			;;
+		*)
+			# Un orange fixe pour le repli.
+			__powerline_retval=(0.09 0.60 0.35)
+			return
+			;;
+	esac
 
-	# Nombre de fractions de 3 (max 15)
-	hue=$((h / 3))
-	# Commencer à 5 (après le rouge vif) et échelonner tout les 5 pour
-	# avoir des couleurs distinctes.
-	hue=$((5 + hue * 5))
-	# Sauter le vert : 0.3-0.4
-	if [ 30 -le $hue ] ; then
-		hue=$((hue+10))
-	fi
+	h=$((h % (num_sat * num_hue)))
+
+	hue=$((shift_hue + (h / num_sat) * 4))
 	printf -v hue "0.%02d" "$hue"
 
-	# Module de 7, décalé pour commencer après les gris.
-	sat=$((2 + h % 3))
-	if [ "$root" = 1 ] ; then
-		sat=$((sat + 4))
-	fi
+	sat=$((shift_sat + h % num_sat))
 	sat=0.$sat
 
 	# Luminance fixe, assez faible pour ne pas capter trop l'attention.
@@ -974,34 +996,62 @@ __powerline_hostname_color24() {
 	__powerline_retval=("$hue" "$sat" "$lum")
 }
 
+__powerline_hostname_class() {
+	__powerline_retval=(local)
+
+	if [ "${USER}" = "root" ] ; then
+		__powerline_retval=(root)
+	elif [ "${UID}" -eq 1000 ] ; then
+		__powerline_retval=()
+	# elif [ "${USER}" = "pspk" ] ; then
+	# 	__powerline_retval=()
+	elif [ -f /.dockerenv ] ; then
+		__powerline_retval=(container)
+	elif LC_ALL=C lscpu |& grep -iq 'hypervisor vendor' ; then
+		__powerline_retval=(virtualmachine)
+	elif [ -v SSH_CLIENT ] ; then
+		__powerline_retval=(remote)
+	elif [ -v POWERLINE_HOSTNAME_CLASS ] ; then
+		__powerline_retval=("${POWERLINE_HOSTNAME_CLASS}")
+	fi
+}
+
 __powerline_segment_hostname() {
-	__powerline_retval=("$__powerline_hostname_segment")
+	# Initialisation paresseuse, cela permet d'activer le segment hostname
+	# à chaud.
+	if [ -z "${__powerline_context[hostname-segment]-}" ] ; then
+		__powerline_init_hostname
+	fi
+	__powerline_retval=("${__powerline_context[hostname-segment]}")
 }
 
 
-#    KUBERNETES
+# KUBERNETES
 
 __powerline_segment_k8s() {
 	__powerline_retval=()
-	local seg
+	local contexte namespace texte
+	local format='{..current-context}|{..namespace}'
 
-	local ctx ns
-	ctx=$(kubectl config current-context)
-	ns=$(kubectl config view --minify --output 'jsonpath={..namespace}')
-
-	if [ "${POWERLINE_K8S_CTX_SHOW:-0}" == "1" ]; then
-		seg="${ctx}/${ns}"
-	else
-		seg="${ns}"
+	if ! [ -f "${KUBE_CONFIG-$HOME/.kube/config}" ] ; then
+		return
 	fi
 
+	texte="$(kubectl config view --minify --output "jsonpath=$format" 2>/dev/null)"
+	if [ -z "$texte" ] ; then
+		return
+	fi
+	contexte="${texte%%|*}"
+	namespace="${texte##*|}"
+
 	__powerline_retval=(
-		":${POWERLINE_K8S_ICON-}:k8s-fond:k8S-texte:$seg"
+		":${POWERLINE_K8S_ICON-}:k8s-fond:k8s-texte:$contexte"
+		"::k8s-fond:k8s-texte:$namespace"
 	)
 }
 
 
-#    MAILDIR
+# MAILDIR
 
 __powerline_init_maildir() {
 	if ! [ -v POWERLINE_MAILDIR ] ; then
@@ -1023,7 +1073,7 @@ __powerline_segment_maildir() {
 }
 
 
-#    OPENSTACK
+# OPENSTACK
 
 __powerline_segment_openstack() {
 	__powerline_retval=()
@@ -1051,7 +1101,7 @@ __powerline_segment_openstack() {
 }
 
 
-#    PWD
+# PWD
 
 __powerline_segment_pwd() {
 	local colors
@@ -1061,6 +1111,7 @@ __powerline_segment_pwd() {
 	__powerline_shorten_dir "$(dirs +0)"
 	local short_pwd="${__powerline_retval[0]}"
 
+	# Affichage de la branche "/" dans le prompt
 	if [ "$short_pwd" = "/" ] ; then
 		__powerline_split "" "${short_pwd}"
 		local parts=("${__powerline_retval[@]}")
@@ -1068,9 +1119,6 @@ __powerline_segment_pwd() {
 		__powerline_split / "${short_pwd}"
 		local parts=("${__powerline_retval[@]}")
 	fi
-	# Copy original code
-	# __powerline_split / "${short_pwd}"
-	# local parts=("${__powerline_retval[@]}")
 
 	__powerline_retval=()
 	for part in "${parts[@]}" ; do
@@ -1080,7 +1128,8 @@ __powerline_segment_pwd() {
 			colors="pwd-home-fond:pwd-home-texte"
 		elif [ "${part}" = "" ] ; then
 			icon="${POWERLINE_PWD_ICON-}"  # Icône hors ~
-			colors="pwd-sys-fond:pwd-sys-texte"
+			# colors="pwd-sys-fond:pwd-sys-texte"
+			colors="user-color:pwd-home-texte"
 		else
 			icon=
 			colors="pwd-fond:pwd-texte"
@@ -1090,7 +1139,7 @@ __powerline_segment_pwd() {
 }
 
 
-#    PYTHON
+# PYTHON
 
 __powerline_segment_python() {
 	local text
@@ -1134,7 +1183,8 @@ __powerline_pyenv_version_name() {
 		readarray -n 1 -t __powerline_retval < "${PYENV_ROOT}"/version 2>/dev/null
 	fi
 }
-#    JOBS
+
+# JOBS
 
 __powerline_segment_jobs() {
 	# Ancienne methode pour calculer les "jobs" en cours.
@@ -1152,10 +1202,10 @@ __powerline_segment_jobs() {
 		return
 	fi
 
-	__powerline_retval=("::jobs-bg:jobs-fg:⚙ $jobsnum")
+	# __powerline_retval=("::jobs-bg:jobs-fg:⚙ $jobsnum")
+	__powerline_retval=("jobs-fg:⚙:jobs-bg:jobs-fg:$jobsnum")
 }
-
-#    STATUS
+# STATUS
 
 __powerline_segment_status() {
 	local ec=$1
@@ -1171,7 +1221,7 @@ __powerline_segment_status() {
 }
 
 
-#    T O O L I N G
+#      T O O L I N G
 
 __powerline_find_parent() {
 	local cwd="$1"
@@ -1238,16 +1288,8 @@ __powerline_hsl2rgb() {
 	local l="$3"
 
 	# cf. https://github.com/python/cpython/blob/3.6/Lib/colorsys.py#L70
-	rvb=$(bc -l <<-EOF
-	scale = 20
-	if ( $l <= 0.5 ) {
-		m2 = $l * (1 + $s)
-	} else {
-		m2 = $l + $s - $l * $s
-	}
-	m1 = 2 * $l - m2
-
-	define component(hue) {
+	rvb=$(awk -f - <<-EOF
+	function component(hue, m1, m2) {
 		if ( hue < 0 ) hue = hue + 1
 		if ( 1 < hue ) hue = hue - 1
 
@@ -1262,19 +1304,25 @@ __powerline_hsl2rgb() {
 		}
 	}
 
+	BEGIN {
+
+	if ( $l <= 0.5 ) {
+		m2 = $l * (1 + $s)
+	} else {
+		m2 = $l + $s - $l * $s
+	}
+	m1 = 2 * $l - m2
+
 	if ( $s == 0 ) {
 		r = v = b = $l
 	} else {
-		r = component($h + 1/3)
-		v = component($h)
-		b = component($h - 1/3)
+		r = component($h + 1/3, m1, m2)
+		v = component($h, m1, m2)
+		b = component($h - 1/3, m1, m2)
 	}
 
-	# Arrondi à l'entier.
-	scale = 0
-	255 * r / 1
-	255 * v / 1
-	255 * b / 1
+	printf "%d\n%d\n%d\n", 255 * r / 1, 255 * v / 1, 255 * b / 1
+	}
 	EOF
 	)
 	readarray -t __powerline_retval <<<"$rvb"
