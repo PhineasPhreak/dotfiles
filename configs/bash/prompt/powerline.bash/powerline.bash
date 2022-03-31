@@ -65,7 +65,7 @@ __update_ps1() {
 }
 
 
-#       I N I T I A L I S A T I O N
+#	I N I T I A L I S A T I O N
 
 
 __powerline_init() {
@@ -232,6 +232,7 @@ __powerline_autosegments() {
 	__powerline_retval+=(status)
 }
 
+
 __powerline_init_segments() {
 	local segment
 	local init
@@ -318,13 +319,16 @@ __powerline_init_colors() {
 		[python-fond]=indigo
 		[python-texte]=jaune-python
 
-		# jobs segment
+		# Jobs segment
 		[jobs-bg]="48;5;172"  # jaune fonce
 		[jobs-fg]="48;5;234"  # gris fonce
 
+		# Coloration pour les utilisateurs USER/ROOT
+		[user-color-bg]="48;5;036"  # USER -> vert
+		[user-color-fg]="38;5;015"  # Blanc
 
-		[user-color]="48;5;036"
-		[root-color]="48;5;160"
+		[root-color-bg]="48;5;160"  # ROOT -> rouge
+		[root-color-fg]="38;5;015"  # Blanc
 
 		[status-fond]=rouge
 		[status-texte]=gris-clair4
@@ -351,7 +355,7 @@ __powerline_init_colors() {
 }
 
 
-#       R E N D U
+#	R E N D U
 
 # A render function is a bash function starting with `__powerline_render_`. It puts
 # a PS1 string in `__powerline_retval`.
@@ -542,7 +546,7 @@ __powerline_render_align_right() {
 }
 
 
-#       S E G M E N T S
+#	S E G M E N T S
 
 # Un segment est une fonction bash préfixé par `__powerline_segment_`. Le
 # retour est un tableau contenant des chaînes au format :
@@ -592,7 +596,7 @@ __powerline_segment_docker() {
 }
 
 
-# ETCKEEPER
+#	ETCKEEPER
 #
 # autosegment n'active pas ce segment car l'usage de sudo peut déclencher des
 # mails de sécurité en cas de mauvaise configuration. Émettre un mail à chaque
@@ -624,7 +628,7 @@ __powerline_segment_etckeeper(){
 __powerline_git_status=()
 
 
-# GIT
+#	GIT
 __powerline_segment_git() {
 	local branch
 	local colors
@@ -671,6 +675,7 @@ __powerline_segment_git() {
 	)
 }
 
+
 __powerline_segment_git_sync() {
 	local branch
 	local colors
@@ -700,6 +705,7 @@ __powerline_segment_git_sync() {
 	if [ -n "${detached}" ] ; then
 		# Pas de push dans une commit détachée.
 		ahead=0
+	# Ne fonction pas avec GIT 2.25.1
 	# elif ! ahead="$(git rev-list --count "@..@{push}" -- 2>/dev/null)" ; then
 	elif ! ahead="$(git rev-list --count "@{push}..@" -- 2>/dev/null)" ; then
 		# En cas d'erreur, on considère qu'il n'y a pas de branche
@@ -772,6 +778,7 @@ __powerline_parse_git_status_v2() {
 	__powerline_retval=("${branch}" "${dirty}" "${ab}" "${detached}")
 }
 
+
 # Analyser la sortie v1 de git status --porcelain
 __powerline_parse_git_status_v1() {
 	local status="$1"
@@ -833,7 +840,7 @@ __powerline_init_git() {
 }
 
 
-# HOSTNAME
+#	HOSTNAME
 
 __powerline_init_hostname() {
 	# Comme le segment hostname est fixe tout au long de l'exécution du
@@ -850,13 +857,13 @@ __powerline_init_hostname() {
 
 	# Coloration suivant si le terminal a les droits Administrateur (root/user).
 	if [ $UID -ne 0 ]; then
-		# USER
-		POWERLINE_HOSTNAME_BG="user-color"
-		POWERLINE_HOSTNAME_FG="38;5;015"
+		# USER (texte blanc sur fond vert)
+		POWERLINE_HOSTNAME_BG="user-color-bg"
+		POWERLINE_HOSTNAME_FG="user-color-fg"
 	else
-		# ROOT
-		POWERLINE_HOSTNAME_BG="root-color"
-		POWERLINE_HOSTNAME_FG="38;5;015"
+		# ROOT (text blanc sur fond rouge)
+		POWERLINE_HOSTNAME_BG="root-color-bg"
+		POWERLINE_HOSTNAME_FG="root-color-fg"
 	fi
 
 
@@ -899,6 +906,7 @@ __powerline_init_hostname() {
 	__powerline_context[hostname-segment]=":${POWERLINE_HOSTNAME_ICON-}:${bg}:${fg}:${text}"
 }
 
+
 __powerline_hostname_color256() {
 	# Calcule une couleur parmi les 215 couleurs RGB de la palette. Pour
 	# éviter un effet fluo, on se restreint au couleurs pastels. Pour cela,
@@ -921,6 +929,7 @@ __powerline_hostname_color256() {
 		$((1 + h % 4))
 	)
 }
+
 
 __powerline_hostname_color24() {
 	# Quelle couleur choisir pour identifier l'utilisateur et la machine du
@@ -996,6 +1005,7 @@ __powerline_hostname_color24() {
 	__powerline_retval=("$hue" "$sat" "$lum")
 }
 
+
 __powerline_hostname_class() {
 	__powerline_retval=(local)
 
@@ -1016,6 +1026,7 @@ __powerline_hostname_class() {
 	fi
 }
 
+
 __powerline_segment_hostname() {
 	# Initialisation paresseuse, cela permet d'activer le segment hostname
 	# à chaud.
@@ -1026,7 +1037,7 @@ __powerline_segment_hostname() {
 }
 
 
-# KUBERNETES
+#	KUBERNETES
 
 __powerline_segment_k8s() {
 	__powerline_retval=()
@@ -1051,13 +1062,14 @@ __powerline_segment_k8s() {
 }
 
 
-# MAILDIR
+#	MAILDIR
 
 __powerline_init_maildir() {
 	if ! [ -v POWERLINE_MAILDIR ] ; then
 		echo "POWERLINE_MAILDIR indéfini. Voir la documentation." >&2
 	fi
 }
+
 
 __powerline_segment_maildir() {
 	__powerline_retval=()
@@ -1073,7 +1085,7 @@ __powerline_segment_maildir() {
 }
 
 
-# OPENSTACK
+#	OPENSTACK
 
 __powerline_segment_openstack() {
 	__powerline_retval=()
@@ -1101,7 +1113,7 @@ __powerline_segment_openstack() {
 }
 
 
-# PWD
+#	PWD
 
 __powerline_segment_pwd() {
 	local colors
@@ -1129,7 +1141,7 @@ __powerline_segment_pwd() {
 		elif [ "${part}" = "" ] ; then
 			icon="${POWERLINE_PWD_ICON-}"  # Icône hors ~
 			# colors="pwd-sys-fond:pwd-sys-texte"
-			colors="user-color:pwd-home-texte"
+			colors="user-color-bg:pwd-home-texte"
 		else
 			icon=
 			colors="pwd-fond:pwd-texte"
@@ -1139,7 +1151,7 @@ __powerline_segment_pwd() {
 }
 
 
-# PYTHON
+#	PYTHON
 
 __powerline_segment_python() {
 	local text
@@ -1165,6 +1177,7 @@ __powerline_segment_python() {
 	fi
 }
 
+
 __powerline_pyenv_version_name() {
 	local dir="$PWD"
 	__powerline_retval=("${PYENV_VERSION-}")
@@ -1184,7 +1197,8 @@ __powerline_pyenv_version_name() {
 	fi
 }
 
-# JOBS
+
+#	JOBS
 
 __powerline_segment_jobs() {
 	# Ancienne methode pour calculer les "jobs" en cours.
@@ -1205,7 +1219,9 @@ __powerline_segment_jobs() {
 	# __powerline_retval=("::jobs-bg:jobs-fg:⚙ $jobsnum")
 	__powerline_retval=("jobs-fg:⚙:jobs-bg:jobs-fg:$jobsnum")
 }
-# STATUS
+
+
+#	STATUS
 
 __powerline_segment_status() {
 	local ec=$1
@@ -1221,7 +1237,7 @@ __powerline_segment_status() {
 }
 
 
-#      T O O L I N G
+#	T O O L I N G
 
 __powerline_find_parent() {
 	local cwd="$1"
@@ -1244,6 +1260,7 @@ __powerline_color256() {
 		$((16 + $1 * 36 + $2 * 6 + $3))
 	)
 }
+
 
 __powerline_get_foreground() {
 	local R=$1
@@ -1416,6 +1433,6 @@ __powerline_trace_off()
 }
 
 
-#      F I R E
+#	F I R E
 
 __powerline_init
