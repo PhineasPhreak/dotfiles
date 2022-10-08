@@ -7,7 +7,7 @@ See [GitHub](http://github.com/joewing/jwm/) for recent updates.
 # Installation
 JWM is distributed in source form (available here), however, several distributions make JWM available as a binary package. Note that pre-compiled versions of JWM are often older than the newest version available here. To check the version of JWM, run "jwm -v" from a command line.
 
-To customize JWM, copy `.jwmrc` file to `"$HOME/.jwmrc"`
+To customize JWM, copy `.jwmrc` file to `"$HOME/.jwmrc"` and then modify it using your favorite text editor.
 
 
 # Documentation
