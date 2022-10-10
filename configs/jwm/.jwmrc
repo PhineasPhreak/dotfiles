@@ -58,7 +58,7 @@ Packages : lxterminal, i3lock, dmenu, rofi
 
         <TaskList maxwidth="200"/>
 
-	<!-- <Swallow width="32" height="32" name="xclock">xclock</Swallow> -->
+    <!-- <Swallow width="32" height="32" name="xclock">xclock</Swallow> -->
 
         <Dock/>
         <Clock format="%l:%M:%S %p"><Button mask="123">exec:xclock</Button></Clock>
@@ -212,11 +212,10 @@ Packages : lxterminal, i3lock, dmenu, rofi
     <Key key="Escape">escape</Key>
 
     <!-- Walkthrough windows with Alt+Tab and Super+Tab -->
-    <Key mask="A" key="Tab">nextstacked</Key>
     <Key mask="4" key="Tab">nextstacked</Key>
+    <Key mask="A" key="Tab">nextstacked</Key>
 
     <!-- Change desktops 4 by defaults -->
-    <Key mask="A" key="#">desktop#</Key>
     <Key mask="4" key="#">desktop#</Key>
 
     <!-- Show desktop -->
@@ -225,41 +224,40 @@ Packages : lxterminal, i3lock, dmenu, rofi
     <Key mask="A" key="F4">close</Key>
     <Key mask="A" key="F1">root:1</Key>
     <Key mask="A" key="F2">window</Key>
-    <Key mask="A" key="F11">fullscreen</Key>
-    <Key mask="A" key="F10">maximize</Key>
-    <Key mask="A" key="Up">maximize</Key>
-    <Key mask="A" key="Down">restore</Key>
+    <Key mask="4" key="F11">fullscreen</Key>
+    <Key mask="4" key="F10">maximize</Key>
+    <Key mask="4" key="Up">maximize</Key>
+    <Key mask="4" key="Down">restore</Key>
     <Key mask="CA" key="Down">minimize</Key>
 
     <!-- Maximize to half screen with C-A-<arrow> -->
-    <Key mask="A" key="minus">maxh</Key>
-    <Key mask="AS" key="bar">maxv</Key>
-    <Key mask="A" key="equal">maxtop</Key>
-    <Key mask="AS" key="underscore">maxbottom</Key>
-    <Key mask="A" key="Right">maxright</Key>
-    <Key mask="A" key="Left">maxleft</Key>
+    <Key mask="4" key="minus">maxh</Key>
+    <Key mask="4S" key="bar">maxv</Key>
+    <Key mask="4" key="equal">maxtop</Key>
+    <Key mask="4S" key="underscore">maxbottom</Key>
+    <Key mask="4" key="Right">maxright</Key>
+    <Key mask="4" key="Left">maxleft</Key>
 
     <Key mask="CA" key="Right">sendr</Key>
     <Key mask="CA" key="Left">sendl</Key>
 
-    <Key mask="A" key="Next">rdesktop</Key>
-    <Key mask="A" key="Prior">ldesktop</Key>
-    <Key mask="A" key="semicolon">shade</Key>
+    <Key mask="4" key="Next">rdesktop</Key>
+    <Key mask="4" key="Prior">ldesktop</Key>
+    <Key mask="4" key="semicolon">shade</Key>
 
     <!-- <Key mask="A" key="Up">udesktop</Key> -->
     <!-- <Key mask="A" key="Down">ddesktop</Key> -->
 
     <!-- Some application shortcuts -->
     <!-- Execute dmenu_run with Alt+c -->
-    <Key mask="A" key="c">exec:dmenu_run  -nf '#BBBBBB' -nb '#3A3A3A' -sb '#5F676A' -sf '#EEEEEE' -fn 'Hack-10' -p '>'</Key>
+    <Key mask="4" key="c">exec:dmenu_run  -nf '#BBBBBB' -nb '#3A3A3A' -sb '#5F676A' -sf '#EEEEEE' -fn 'Hack-10' -p '>'</Key>
     <!-- Open a terminal with Alr+Enter and Super+Enter-->
-    <Key mask="A" key="Return">exec:lxterminal</Key>
     <Key mask="4" key="Return">exec:lxterminal</Key>
     <!-- Lock screen -->
     <Key mask="4" key="x">exec:i3lock -f --color "#2f343f"</Key>
     <!-- More fancy using Rofi -->
-    <Key mask="A" key="f">exec:rofi -show run -theme Pop-Dark -font "Hack 10" -display-run "Cmd"</Key>
-    <Key mask="A" key="w">exec:rofi -show window -theme Pop-Dark -font "Hack Bold 10" -display-window "Window"</Key>
+    <Key mask="4" key="f">exec:rofi -show run -theme Pop-Dark -font "Hack 10" -display-run "Cmd"</Key>
+    <Key mask="4" key="w">exec:rofi -show window -theme Pop-Dark -font "Hack Bold 10" -display-window "Window"</Key>
     
     <!-- Mouse bindings -->
     <Mouse context="root" button="4">ldesktop</Mouse>
