@@ -13,6 +13,7 @@ More information about keycode use the command : "xmodmap -pke"
 Packages : lxterminal, i3lock, dmenu, rofi
  -->
 <JWM>
+    <!-- A command to run when JWM starts. -->
     <StartupCommand>
     
     </StartupCommand>
@@ -58,7 +59,7 @@ Packages : lxterminal, i3lock, dmenu, rofi
 
         <TaskList maxwidth="200"/>
 
-    <!-- <Swallow width="32" height="32" name="xclock">xclock</Swallow> -->
+        <!-- <Swallow width="32" height="32" name="xclock">xclock</Swallow> -->
 
         <Dock/>
         <Clock format="%l:%M:%S %p"><Button mask="123">exec:xclock</Button></Clock>
