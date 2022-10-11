@@ -1,0 +1,4 @@
+# Start command...
+
+# Modification of the delay and repetition of the keys
+xset r rate 300 50
