@@ -15,7 +15,7 @@ Packages : lxterminal, i3lock, dmenu, rofi
 <JWM>
     <!-- A command to run when JWM starts. -->
     <StartupCommand>
-    
+    bash .onstart
     </StartupCommand>
 
     <!-- The root menu. -->
