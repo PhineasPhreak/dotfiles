@@ -9,9 +9,9 @@ Visual Studio Code Manage Extention  : [Marketplace](https://marketplace.visuals
 
 ### Custom `settings.json` file from VSCode
 
-Since VSCode 1.28.1 you can custom the **window.titleBarStyle** in settings.json file. <br>
+Since VSCode 1.73.1 you can custom the **window.titleBarStyle** in settings.json file. <br>
 Example of `settings.json` :
-```json
+```
 {
     // THEME
     // Specifies the color theme used in the workbench
