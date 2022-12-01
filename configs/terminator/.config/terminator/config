@@ -1,30 +1,41 @@
 [global_config]
-  focus = mouse
-  handle_size = 1
-  suppress_multiple_term_dialog = True
-  title_inactive_bg_color = "#404040"
-  title_transmit_bg_color = "#848484"
-  title_transmit_fg_color = "#cccccc"
+  title_inactive_fg_color = "#c0bebf"
+  title_inactive_bg_color = "#000000"
+  inactive_color_offset = 0.8084415584415584
   title_use_system_font = False
+  title_font = DejaVuSansMono Nerd Font Bold 11
 [keybindings]
-[layouts]
-  [[default]]
-    [[[child1]]]
-      directory = ""
-      parent = window0
-      profile = default
-      type = Terminal
-    [[[window0]]]
-      parent = ""
-      type = Window
-[plugins]
+  split_horiz = <Primary>h
+  split_vert = <Primary>v
+  copy = <Primary><Alt>c
+  paste = <Primary><Alt>v
+  scaled_zoom = <Primary>z
+  switch_to_tab_1 = <Alt>1
+  switch_to_tab_2 = <Alt>2
+  switch_to_tab_3 = <Alt>3
+  switch_to_tab_4 = <Alt>4
+  switch_to_tab_5 = <Alt>5
+  switch_to_tab_6 = <Alt>6
+  switch_to_tab_7 = <Alt>7
+  switch_to_tab_8 = <Alt>8
+  switch_to_tab_9 = <Alt>9
+  switch_to_tab_10 = <Alt>0
 [profiles]
   [[default]]
-    antialias = False
-    background_color = "#002b36"
-    background_darkness = 0.9
-    background_image = None
-    background_type = transparent
-    foreground_color = "#839496"
-    palette = "#000000:#cc0000:#4e9a06:#c4a000:#3465a4:#75507b:#06989a:#d3d7cf:#555753:#ef2929:#8ae234:#fce94f:#729fcf:#ad7fa8:#34e2e2:#eeeeec"
+    background_color = "#202020"
+    cursor_color = "#aaaaaa"
+    font = DejaVuSansMono Nerd Font Mono Bold 11
+    foreground_color = "#eaeaea"
     scrollbar_position = hidden
+    scrollback_lines = 9000
+    use_system_font = False
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+      profile = default
+[plugins]
