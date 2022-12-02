@@ -31,7 +31,7 @@ Example of `settings.json` :
     "editor.fontSize": 14,
 
     // Controls the line height
-    //"editor.lineHeight": 28,
+    //"editor.lineHeight": 22,
 
     // Zoom the font of the editor when using mouse wheel and holding Ctrl
     "editor.mouseWheelZoom": true,
@@ -76,7 +76,7 @@ Example of `settings.json` :
     "editor.fontFamily": "'JetBrains Mono', 'Fira Code', 'Operator Mono Lig', monospace",
 
     // Enables/Disables font ligatures
-    "editor.fontLigatures": true,
+    "editor.fontLigatures": false,
 
     // Controls how lines should wrap
     "editor.wordWrap": "on",
@@ -86,6 +86,9 @@ Example of `settings.json` :
 
     // Controls whether suggestions should be accepted on commit characters
     "editor.acceptSuggestionOnCommitCharacter": false,
+
+    // Controls the maximum number of lines the terminal keeps in its buffer
+    "terminal.integrated.scrollback": 1000
 }
 ```
 > My little config for VSCode
