@@ -1,6 +1,9 @@
 # zsh
 Zsh is a powerful shell that operates as both an interactive shell and as scripting language interpreter.
 
+## Others config zsh
+dotfiles site: [nickjj](https://github.com/nickjj/dotfiles)
+
 ## Installation
 * On Ubuntu or Debian
 ```shell
