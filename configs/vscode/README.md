@@ -84,6 +84,12 @@ Example of `settings.json` :
     // Controls whether words are overwritten when accepting completions
     "editor.suggest.insertMode": "replace",
 
+    // Controls the cursor style
+    "editor.cursorStyle": "line",
+
+    // Controls the width of the cursor when "editor.cursorStyle" is set to "line"
+    "editor.cursorWidth": 3,
+
     // Controls whether suggestions should be accepted on commit characters
     "editor.acceptSuggestionOnCommitCharacter": false,
 
