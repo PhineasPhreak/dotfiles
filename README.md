@@ -8,9 +8,9 @@ Configuration Files For my Linux System
 * **[Kite](https://kite.com/) is a plugin for your [IDE](https://kite.com/integrations/) that uses machine learning to give you useful code completions for Python.**
 
 Flash OS images to SD cards & USB drives, safely and easily.
-* balenaEtcher : https://www.balena.io/etcher
-
-* UNetbootin : https://unetbootin.github.io/
+* balenaEtcher : [balenaEtcher](https://www.balena.io/etcher)
+* UNetbootin : [Unetbootin](https://unetbootin.github.io/)
+* gnome-multi-writer : In Ubuntu `source.list` for Gnome desktop
 
 ## Awesome list
 
@@ -19,7 +19,7 @@ Flash OS images to SD cards & USB drives, safely and easily.
 * Topics Awesome List on Github [AwesomeLists](https://github.com/topics/awesome)
 
 > Awesome list is a list of awesome things curated [by the community](https://awesome.re/).
- 
+
 **Icon GitHub :** [Icon Here](https://octicons.github.com/)
 
 ## Git Tips
@@ -39,7 +39,7 @@ A fast and friendly git client for Mac, Windows and Linux
   * [sublime-merge](https://www.sublimemerge.com/) Line-by-line Staging. Commit Editing. Unmatched Performance.
   * [qgit](https://packages.debian.org/buster/qgit) *Debian Repositories*
   * [gitg](https://packages.debian.org/buster/gitg) *Debian Repositories*
-  * [gitk](https://packages.debian.org/buster/gitk) *Debian Repositories*
+  * [git-gui](https://packages.debian.org/bullseye/git-gui), [gitk](https://packages.debian.org/buster/gitk) *Debian Repositories*
 
 
 ## Site and Others
@@ -61,6 +61,9 @@ A fast and friendly git client for Mac, Windows and Linux
 | dwm       | Github: https://dwm.suckless.org/                 |
 | awesomewm | Site: https://awesomewm.org/                      |
 |           | Github: https://github.com/awesomeWM/awesome      |
+| jwm       | Site: https://joewing.net/projects/jwm/           |
+| iceWM     | Site: https://ice-wm.org/                         |
+| qtile     | Site: http://www.qtile.org/                       |
 | ccat      | Github: https://github.com/jingweno/ccat/releases |
 | lsd       | Github: https://github.com/Peltoche/lsd           |
 
@@ -72,7 +75,7 @@ A fast and friendly git client for Mac, Windows and Linux
 | Reddit                                 | https://www.reddit.com/r/unixporn/ |
 | Bash Academy                           | http://www.bash.academy/           |
 | DSASMBLR                               | http://dsasmblr.com/               |
-| Stephen Chapman *(GitHub)*             | https://github.com/dsasmblr        |
+| Stephen Chapman *(GitHub)*               | https://github.com/dsasmblr        |
 
 ## Thanks
 
