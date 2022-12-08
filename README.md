@@ -67,15 +67,19 @@ A fast and friendly git client for Mac, Windows and Linux
 | ccat      | Github: https://github.com/jingweno/ccat/releases |
 | lsd       | Github: https://github.com/Peltoche/lsd           |
 
-| **Others** | |
-| -------------------------------------- | ---------------------------------- |
-| Example file of Rice unix Distribution | http://dotshare.it/                |
-| Python Awesome                         | https://awesome-python.com/        |
-| Packages Python                        | https://pypi.org/                  |
-| Reddit                                 | https://www.reddit.com/r/unixporn/ |
-| Bash Academy                           | http://www.bash.academy/           |
-| DSASMBLR                               | http://dsasmblr.com/               |
-| Stephen Chapman *(GitHub)*               | https://github.com/dsasmblr        |
+| **Others** Docs & Dotfiles | |
+| -------------------------------------- | ------------------------------------------ |
+| Example file of Rice unix Distribution | http://dotshare.it/                        |
+| Python Awesome                         | https://awesome-python.com/                |
+| Packages Python                        | https://pypi.org/                          |
+| Reddit                                 | https://www.reddit.com/r/unixporn/         |
+| Bash Academy                           | http://www.bash.academy/                   |
+| DSASMBLR                               | http://dsasmblr.com/                       |
+| Stephen Chapman *(GitHub)*             | https://github.com/dsasmblr                |
+| *Dotfiles Awesome* | |
+| Dotfiles Awesome                       | https://github.com/webpro/awesome-dotfiles |
+| Nickjj                                 | https://github.com/nickjj/dotfiles         |
+| Alfunx                                 | https://github.com/alfunx/.dotfiles        |
 
 ## Thanks
 
