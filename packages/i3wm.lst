@@ -1,7 +1,11 @@
-nitrogen
-polybar (source git)
-rofi
-rxvt-unicode-256color
-arandr
-lxrandr
-picom (source git)
+nitrogen (wallpaper browser and changing utility for X)
+feh (imlib2 based image viewer)
+polybar (Fast and easy-to-use tool for creating status bars)
+rofi (window switcher, run dialog and dmenu replacement)
+rxvt (RXVT-like terminal emulator with Unicode and 256-color support)
+arandr (Simple visual front end for XRandR)
+lxrandr (LXDE monitor configuration tool)
+lxterminal (LXDE terminal emulator)
+lxappearance (LXDE GTK+ theme switcher)
+picom (lightweight compositor for X11)
+

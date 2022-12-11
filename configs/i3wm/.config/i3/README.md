@@ -1,21 +1,47 @@
 # i3wm 
+
+## Site
+One of i3’s goals is good documentation.
+
+* [i3wm](https://i3wm.org/)
+* [i3wm USERGUIDE](https://i3wm.org/docs/userguide.html)
+* [i3wm VERSION REPOSITORIES](https://i3wm.org/docs/repositories.html)
+* [i3wm I3STATUS DOCS](https://i3wm.org/docs/i3status.html)
+* [i3wm PY3STATUS DOCS](https://i3wm.org/docs/user-contributed/py3status.html)
+
 ## Installation
 In general, you should use the repositories of your distribution.
 * Installation for `Debian`, `Ubuntu`
 ```shell
 $ sudo apt-get update
-$ sudo apt-get install i3 i3blocks i3status i3lock dmenu
+$ sudo apt-get install i3 i3blocks i3status py3status i3lock suckless-tools
 ```
 
 * For `Archlinux`
 ```shell
-$ sudo pacman -S i3wm i3lock i3blocks i3status dmenu
+$ sudo pacman -S i3wm i3lock i3blocks py3status i3status dmenu
 ```
 
 If you want the [latest i3 development](https://i3wm.org/docs/repositories.html) version.
 If you are using Debian (Debian-derived systems might work, too) or Ubuntu and want the latest development version of i3, you should use our Debian repository.
 
-After this Installation **Reboot** your system and changed your desktop (Gnome -> i3)
+Now importing a GPG key with `apt-key add -` **is deprecated.** Use this method instead :
+```shell
+$ curl https://baltocdn.com/i3-window-manager/signing.asc | sudo tee /etc/apt/trusted.gpg.d/signing.asc
+$ sudo apt install apt-transport-https --yes
+$ echo "deb https://baltocdn.com/i3-window-manager/i3/i3-autobuild-ubuntu/ all main" | sudo tee /etc/apt/sources.list.d/i3-autobuild.list
+$ sudo apt update
+$ sudo apt install i3
+```
+> For more information just see : `man apt-key`
+
+After this Installation **Reboot** your system and changed your desktop (Gnome/KDE/XFCE -> i3)
+
+## Customization
+For a better use of i3wm, you can install other programs for a little customization :
+```shell
+sudo apt install nitrogen feh rofi arandr lxrandr lxterminal lxappearance # picom
+```
 
 ## X Resources Configuration on i3wm
 If you are not using a desktop environment such as KDE, Xfce, or other that manipulates the X settings for you, you can set the desired [DPI setting manually](https://wiki.archlinux.org/title/HiDPI) via the `Xft.dpi` variable in [Xresources](https://wiki.archlinux.org/title/Xresources):
@@ -49,7 +75,7 @@ $ xrandr -q | grep " connected" | cut -d ' ' -f1
 For graphical interface of xrandr, install and use **`arandr`**
 ```
 $ sudo apt-get update
-$ sudo apt-get install arandr
+$ sudo apt-get install arandr lxrandr
 ```
 **DPI :**
 
@@ -103,16 +129,8 @@ fi
 After this correction **Reboot** your system
 > *Test on:* Ubuntu 16.04.3 LTS
 
-## Package Install:
-feh, lxappearance, [polybar](https://www.ubuntuupdates.org/package/getdeb_apps/xenial/apps/getdeb/polybar)
-```shell
-$ sudo apt-get install feh polybar lxappearance
-```
-
 ## Others Settings for i3
 HiDPI : https://wiki.archlinux.org/title/HiDPI
 gpix13 GitHub: https://github.com/gpix13/i3
 Online Colorscheme Configurator for i3, i3status, dmenu : https://thomashunter.name/i3-configurator/
 
-## Site:
-Link: https://i3wm.org/
