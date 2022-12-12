@@ -9,6 +9,9 @@ Github : https://github.com/vim-airline/vim-airline </br>
 Image Shorcut Cheatsheet : [Shorcut VIM](https://github.com/PhineasPhreak/dotfiles/blob/master/screenshots/vim-shortcut-cheatsheet.png)</br>
 Github lightline.vim : https://github.com/itchyny/lightline.vim
 
+Site Learnbyexample:
+[Vim Reference Guide](https://learnbyexample.github.io/vim_reference/cover.html)
+
 View Vi and Vim lesson GIT :
 [lesson-1](https://github.com/PhineasPhreak/dotfiles/blob/master/screenshots/vim-lesson/vi-vim-tutorial-1.gif) |
 [lesson-2](https://github.com/PhineasPhreak/dotfiles/blob/master/screenshots/vim-lesson/vi-vim-tutorial-2.gif) |
