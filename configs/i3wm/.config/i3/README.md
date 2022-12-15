@@ -44,9 +44,9 @@ sudo apt install nitrogen feh rofi arandr lxrandr lxterminal lxappearance # pico
 ```
 
 ## X Resources Configuration on i3wm
-If you are not using a desktop environment such as KDE, Xfce, or other that manipulates the X settings for you, you can set the desired [DPI setting manually](https://wiki.archlinux.org/title/HiDPI) via the `Xft.dpi` variable in [Xresources](https://wiki.archlinux.org/title/Xresources):
+If you are not using a desktop environment such as KDE, Xfce, or other that manipulates the X settings for you, you can set the desired [DPI setting manually](https://wiki.archlinux.org/title/HiDPI) via the `Xft.dpi` variable in [Xresources](https://gist.github.com/PhineasPhreak/c286cc729da190bc0852c08d72158b53):
 ```
-Xft.dpi: 96
+Xft.dpi: 80
 
 ! These might also be useful depending on your monitor and personal preference:
 Xft.autohint: 0
@@ -130,7 +130,7 @@ After this correction **Reboot** your system
 > *Test on:* Ubuntu 16.04.3 LTS
 
 ## Others Settings for i3
-HiDPI : https://wiki.archlinux.org/title/HiDPI
-gpix13 GitHub: https://github.com/gpix13/i3
+HiDPI : https://wiki.archlinux.org/title/HiDPI \
+gpix13 GitHub: https://github.com/gpix13/i3 \
 Online Colorscheme Configurator for i3, i3status, dmenu : https://thomashunter.name/i3-configurator/
 
