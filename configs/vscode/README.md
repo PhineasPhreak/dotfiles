@@ -75,6 +75,9 @@ Example of `settings.json` :
     // Controls the font family.
     "editor.fontFamily": "'JetBrains Mono', 'Fira Code', 'Operator Mono Lig', monospace",
 
+    //Controls the font weight. Accepts "normal" and "bold" keywords or numbers between 1 and 1000.
+    "editor.fontWeight": "550"
+
     // Enables/Disables font ligatures
     "editor.fontLigatures": false,
 
