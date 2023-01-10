@@ -43,37 +43,20 @@ For the `colorsheme` *OR* `colo`
 * For Root : `/root/.vim/colors/`
 * For User : `/home/user/.vim/colors/`
 
-**.vimrc**
+## Plugin
+- Install Vim-Plug Plug-ins manager for Vim
+Follow the [instructions here](https://github.com/junegunn/vim-plug/wiki/tutorial) for installations.
+Several steps for VIM, NEOVIM and WINDOWS : [Guide here](https://fanwangecon.github.io/Tex4Econ/nontex/install/linux/fn_vim.html)
 
-```console
-pspk@kali:~$ ls -lhA | grep .vimrc
--rw-r--r-- 1 pspk pspk 3.4K Oct  3 00:44 .vimrc
-```
+- Awesome Vim plugins from across the universe : [Vimawesome](https://vimawesome.com/)
 
-### Example of Colorsheme
-```console
-pspk@kali:~/.vim/colors$ ls -lh
-total 140K
--rw-rw-r-- 1 pspk pspk 6,6K oct.  11 10:13 bocau.vim
--rw-rw-r-- 1 pspk pspk  32K oct.  11 10:13 grubvox.vim
--rw-rw-r-- 1 pspk pspk 7,9K oct.  11 10:13 hemisu.vim
--rw-rw-r-- 1 pspk pspk  17K oct.  11 10:13 hybrid.vim
--rw-rw-r-- 1 pspk pspk  10K oct.  11 10:21 office-dark.vim
--rw-rw-r-- 1 pspk pspk  11K oct.  11 10:21 office-light.vim
--rw-rw-r-- 1 pspk pspk  47K oct.  11 10:13 solarized.vim
-```
+## Manual Plugin
+The manual installation of the plugins is done in the folder `~/.vim/plugin/`
 
-### Plugin
-**Installation manually of `indentLine` :**
-
-```shell
-~/.vim/plugin/indentLine.vim
-```
-
+- Installation manually of `indentLine` :
 Original GitHub: https://github.com/Yggdroot/indentLine
 
-**Installation of `lightline.vim` :**
-
+- Installation of `lightline.vim` :
 Original Github: https://github.com/itchyny/lightline.vim
 
 *Thank you*
