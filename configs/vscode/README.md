@@ -76,7 +76,7 @@ Example of `settings.json` :
     "editor.fontFamily": "'JetBrains Mono', 'Fira Code', 'Operator Mono Lig', monospace",
 
     //Controls the font weight. Accepts "normal" and "bold" keywords or numbers between 1 and 1000.
-    "editor.fontWeight": "550"
+    "editor.fontWeight": "550",
 
     // Enables/Disables font ligatures
     "editor.fontLigatures": false,
@@ -98,6 +98,9 @@ Example of `settings.json` :
 
     // Controls the maximum number of lines the terminal keeps in its buffer
     "terminal.integrated.scrollback": 1000
+
+    // Controls whether all non-basic ASCII characters are highlighted. Only characters between U+0020 and U+007E, tab, line-feed and carriage-return are considered basic ASCII
+    "editor.unicodeHighlight.nonBasicASCII": false
 }
 ```
 > My little config for VSCode
