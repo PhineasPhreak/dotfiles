@@ -1,7 +1,7 @@
 #!/bin/bash
 # cf. https://gitlab.com/bersace/powerline.bash
 # cf. Dernier commit depuis ma modification : 
-# 19 Apr, 2022 "Affadir les @ dans les segments" 084e3c3782063cfeec2631b1f28f895c39ff3f5d
+# 21 Feb, 2023 "Supprimer l'alias gris-foncé sans numéro" 1ba846949a41004ee57036476f07858666618aad
 #
 # Cette variable globale permet de retourner une valeurs à du code appelant
 # sans passer par un sous-shell. Cela optimise énormément les performances.
@@ -115,6 +115,8 @@ __powerline_init() {
 __powerline_autoicons() {
 	# Configurer les séparateurs
 	local mode
+    # Déclaration de la variable "POWERLINE_ICONS" Pour l'utilisation d'un font en particulier nerd-fonts, etc.
+    #POWERLINE_ICONS="nerd-fonts"
 	mode=${POWERLINE_ICONS-auto}
 	__powerline_icons=(
 		# Par défaut, les valeurs powerline.
@@ -148,6 +150,7 @@ __powerline_autoicons() {
 		[linuxmint]="lm"
 		[logo-inconnu]="?"
 		[manjaro]="M"
+        [raspbian]="RPI"
 		[redhat]="RH"
 		[slackware]=".S"
 		[suse]="S"
@@ -233,6 +236,7 @@ __powerline_autoicons() {
 				[linux]=$'\uE23A'
 				[linuxmint]=$'\uE9DD'
 				[manjaro]=$'\uE9F1'
+                [raspbian]=$'\uE9F0'
 				[suse]=$'\uE9E1'
 				[slackware]=$'\uE9E3'
 				[ubuntu]=$'\uE9E6'
@@ -249,6 +253,8 @@ __powerline_autoicons() {
 				[fail]=$'\uF071 '          # nf-fa-exclamation_triangle
 				[git-detached]=$'\uF06A '  # nf-fa-exclamation_circle
 				[git]=$'\uE725 '           # nf-dev-git_branch
+                # Icône nerd-fonts pour le "tilde"
+				#[home]=$'\uFC23 '          # nf-md-tilde
 				[home]=$'\uF7DB '          # nf-mdi-home
 				[hostname]=$'\uF015 '      # nf-fa-home
 				[jobs]="⚙"                 # Perso
@@ -272,6 +278,7 @@ __powerline_autoicons() {
 				[linuxmint]=$'\uF30E'      # nf-linux-linuxmint
 				[logo-inconnu]=$'\uE795'   # nf-dev-terminal
 				[manjaro]=$'\uF312'        # nf-linux-manjaro
+                [raspbian]=$'\uF315'       # nf-linux-raspbian
 				[redhat]=$'\uF316'         # nf-linux-redhat
 				[slackware]=$'\uF318'      # nf-linux-slackware
 				[suse]=$'\uF314'           # nf-linux-opensuse
@@ -381,9 +388,6 @@ __powerline_init_colors() {
 		[gris-foncé3]="48;5;237"
 		[gris-foncé4]="48;5;238"
 		[gris-foncé5]="48;5;239"
-		[gris-foncé]="48;5;236"
-		[gris-foncé]="48;5;236"
-		[gris-foncé]=gris-foncé2
 		[gris]="48;5;240"
 		[indigo]="48;5;25"
 		[jaune-python]="48;5;220"
@@ -400,7 +404,7 @@ __powerline_init_colors() {
 		[archi-icone]=noir
 		[archi-texte]=jaune
 
-		[heure-fond]=gris-foncé
+		[heure-fond]=gris-foncé2
 		[heure-texte]=gris-clair
 
 		[jobs-fond]=gris-foncé4
@@ -440,7 +444,7 @@ __powerline_init_colors() {
 		[logo-fedora-fond]=bleu-fedora
 		[logo-fedora-texte]=blanc
 
-		[logo-freebsd-fond]=gris-foncé
+		[logo-freebsd-fond]=gris-foncé2
 		[logo-freebsd-texte]=rouge-sombre
 
 		[violet-gentoo]="48;2;83;71;120"
@@ -454,12 +458,17 @@ __powerline_init_colors() {
 		[logo-linux-texte]=noir
 
 		[vert-manjaro]="48;2;52;190;91"
-		[logo-manjaro-fond]=gris-foncé
+		[logo-manjaro-fond]=gris-foncé2
 		[logo-manjaro-texte]=vert-manjaro
 
 		[vert-mint]="48;2;135;189;74"
 		[logo-mint-fond]=vert-mint
 		[logo-mint-texte]=blanc
+
+        [rouge-raspbian]="48;2;188;17;66"
+		[logo-raspbian-fond]=rouge-raspbian
+		[logo-raspbian-texte]=noir
+
 
 		[logo-redhat-fond]=rouge-sombre
 		[logo-redhat-texte]=noir
@@ -469,7 +478,7 @@ __powerline_init_colors() {
 		[logo-suse-fond]=vert-foncé-suse
 		[logo-suse-texte]=vert-clair-suse
 
-		[logo-slackware-fond]=gris-foncé
+		[logo-slackware-fond]=gris-foncé2
 		[logo-slackware-texte]=blanc
 
 		[orange-ubuntu]="48;2;221;72;20"
@@ -480,7 +489,7 @@ __powerline_init_colors() {
 		[logo-windows-fond]=bleu-windows
 		[logo-windows-texte]=blanc
 
-		[commande-utilisateur]=blanc-gras
+		[commande-utilisateur]="0;1"
 
 		[docker-erreur]=violet
 		[docker-succes]=bleu-docker
@@ -500,7 +509,7 @@ __powerline_init_colors() {
 		[git-modifications-texte]=blanc-cassé
 		[git-propre-fond]=vert-fluo
 		[git-propre-texte]=noir
-		[git-sync-fond]=gris-foncé
+		[git-sync-fond]=gris-foncé2
 		[git-sync-texte]=gris-clair0
 
 		[k8s-fond]=bleu-kubernetes
@@ -510,14 +519,14 @@ __powerline_init_colors() {
 		[maildir-texte]=bleu-gras
 
 		[openstack-fond]=gris-clair1
-		[openstack-texte]=gris-foncé
+		[openstack-texte]=gris-foncé2
 		[openstack-icone]=rouge
 
-		[pwd-fond]=gris-foncé
+		[pwd-fond]=gris-foncé2
 		[pwd-texte]=gris-clair0
 		[pwd-home-fond]=turquoise
 		[pwd-home-texte]=blanc
-		[pwd-sys-fond]=gris-foncé
+		[pwd-sys-fond]=gris-foncé2
 		[pwd-sys-texte]=gris-clair4
 
 		[python-fond]=indigo
@@ -548,7 +557,6 @@ __powerline_init_colors() {
 				[gris-clair2]=gris-clair
 				[gris-clair3]=gris-clair
 				[gris-clair4]=gris-clair
-				[gris-foncé]=noir
 				[orange]=jaune
 				[rouge-sombre]=rouge
 				[rose]=magenta
@@ -579,7 +587,6 @@ __powerline_init_colors() {
 				[gris-clair2]="48;5;252"
 				[gris-clair3]="48;5;253"
 				[gris-clair4]="48;5;254"
-				[gris-foncé]="48;5;236"
 				[orange]="48;5;166"
 				[rouge-sombre]="48;5;124"
 				[rose]="48;5;161"
@@ -936,6 +943,9 @@ __powerline_init_logo() {
 		ubuntu)
 			printf -v s ":ubuntu:logo-ubuntu-fond:logo-ubuntu-texte:"
 			;;
+		raspbian)
+			printf -v s ":raspbian:logo-raspbian-fond:logo-raspbian-texte:"
+			;;
 		redhat)
 			printf -v s ":redhat:rouge-sombre:noir:"
 			;;
@@ -962,6 +972,7 @@ __powerline_segment_logo() {
 
 __powerline_segment_docker() {
 	local bg
+	local composefiles
 	local dir
 	local project
 	local service_names
@@ -971,15 +982,22 @@ __powerline_segment_docker() {
 
 	__powerline_retval=()
 
-	__powerline_find_parent "$PWD" docker-compose.yml
-	if [ -z "${__powerline_retval[*]}" ] ; then
-		return
+	if [ -v COMPOSE_FILE ] ; then
+		__powerline_split ':' "${COMPOSE_FILE}"
+		composefiles=("${__powerline_retval[@]}")
+	else
+		__powerline_find_parent "$PWD" docker-compose.yml
+		if [ -z "${__powerline_retval[*]}" ] ; then
+			return
+		fi
+		composefiles=(
+			"${__powerline_retval[*]}"
+			"${__powerline_retval[*]/.yml/.override.yml}"
+		)
 	fi
-	local composefile="${__powerline_retval[*]}"
-	local composeoverride="${composefile/.yml/.override.yml}"
 
 	# Extraire les noms uniques des services. La locale LANG=C est plus rapide pour sort.
-	service_names="$(LANG=C.UTF-8 sed --separate '0,/^services:/d;/^[[:alpha:]]/,$d;/^ *#/d;/^   /d;/^$/d' "${composefile}" "${composeoverride}" 2>/dev/null | sort -u)"
+	service_names="$(LANG=C.UTF-8 sed --separate '0,/^services:/d;/^[[:alpha:]]/,$d;/^ *#/d;/^   /d;/^$/d' "${composefiles[@]}" 2>/dev/null | sort -u)"
 	# Compter le nombre de services dans le fichier compose.
 	readarray service_names_a <<<"${service_names}"
 	service_nr="${#service_names_a[@]}"
@@ -991,7 +1009,7 @@ __powerline_segment_docker() {
 	started=$(docker ps --format "{{ .Status }}" --filter label=com.docker.compose.project="$project")
 	__powerline_split $'\n' "${started}"
 	started=("${__powerline_retval[@]}")
-	if [ "${#started[@]}" -eq "${service_nr}" ] ; then
+	if [ "${#started[@]}" -ge "${service_nr}" ] ; then
 		bg=docker-succes
 	else
 		bg=docker-erreur
@@ -1621,8 +1639,11 @@ __powerline_segment_python() {
 	local text
 
 	if [ -v VIRTUAL_ENV ] ; then
-		# Les virtualenv python classiques
-		text=${VIRTUAL_ENV##*/}
+        # Lire le nom du venv dans le prompt. (pour les .venv/bin/activate)
+		if ! text="$(grep -m 1 -Po 'PS1="\(\K[^)]+' "$VIRTUAL_ENV/bin/activate" 2>/dev/null)" ; then
+			# ou utiliser le dossier
+			text=${VIRTUAL_ENV##*/}
+		fi
 	elif [ -v CONDA_ENV_PATH ] ; then
 		text=${CONDA_ENV_PATH##*/}
 	elif [ -v CONDA_DEFAULT_ENV ] ; then
