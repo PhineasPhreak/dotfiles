@@ -1,5 +1,5 @@
 #! /bin/bash
-# Merge of 
+# Merge of
 # https://github.com/b-ryan/powerline-shell/ and
 # https://github.com/skeswa/prompt and
 # https://gist.github.com/sminez/11fe5d763a9e9e63be5d836715c6425c
@@ -140,7 +140,7 @@ function __prompt_get_git_stuff() {
     if [[ "$branch" == "HEAD" ]]; then
       branch='detached*'
     fi
-    
+
     # Added functionality for displaying file modification with git.
     local count_add=$(git status --short | wc -l)
 
@@ -149,7 +149,7 @@ function __prompt_get_git_stuff() {
     else
       count_add="…$count_add"
     fi
-    
+
     # Return the resulting git branch/ref.
     __prompt_retval=":$branch$count_add"
   else
@@ -209,7 +209,7 @@ function __prompt_segment_jobs() {
   # car il permet de choisir uniquement les process "Running" et "Stopped" 
   # et d'enlever les autres "Terminated" et "Done" qui ne sont pas important.
   local jobsnum=$(jobs -l | awk -F" " '{ print $3 }' | grep -E 'Running|Stopped' | wc -l)
-    
+
   # Efface "jobsnum" si valeur egal a 0
   if [ $jobsnum -eq 0 ] ; then
       __prompt_retval=''
@@ -265,7 +265,7 @@ function __prompt_command() {
 
   # Set the PS1 to the new prompt (with func pwd in bold) (no py_segment)
   #PS1="${__prompt_color_prefix_bold}${host}${__prompt_no_color}${__prompt_color_prefix_no_bold}:${__prompt_color_prefix_bold}${short_pwd}${git_stuff}${__prompt_color_prefix_no_bold}${jobsnum}${__prompt_color_prefix_bold}${dollar}${__prompt_no_color} "
-  
+
   # Set the PS1 to the new prompt (with func pwd in bold) and (with py_segment)
   PS1="${__prompt_color_prefix_bold}${host}${__prompt_no_color}${__prompt_color_prefix_no_bold}:${__prompt_color_prefix_bold}${short_pwd}${git_stuff}${__prompt_color_prefix_no_bold}${py_segment}${jobsnum}${__prompt_color_prefix_bold}${dollar}${__prompt_no_color} "
 }
