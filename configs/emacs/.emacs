@@ -6,14 +6,33 @@
 ;; Emacs Wiki :
 ;; https://www.emacswiki.org/emacs/SiteMap
 ;;
-;; Smart Configuration for Emacs :
-;; https://github.com/patrickt/emacs
-
+;; - Smart Configuration for Emacs :
+;;   https://github.com/patrickt/emacs
+;; - Everything with Emacs
+;;   https://irfu.cea.fr/Pisp/vianney.lebouteiller/emacs.html
+;;
+;; Packages :
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
+;;
+;; The most common method of installing packages of Emacs Lisp
+;; From: https://www.emacswiki.org/emacs/InstallingPackages
+
+;; Activate all the packages (in particular autoloads)
 (package-initialize)
+
+;; Additional package archives such as MELPA exist to supplement what is in GnuELPA.
+;; From: https://www.emacswiki.org/emacs/MELPA
+;; List the repositories containing them
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa-stable" . "https://stable.melpa.org/packages/"))
+
+;; List the packages you want
+;(setq package-list '(use-package markdown-mode))
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -23,18 +42,20 @@
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
  '(column-number-mode t)
- '(custom-enabled-themes (quote (misterioso)))
+ '(custom-enabled-themes (quote (wombat)))
+ '(delete-selection-mode t)
  '(global-display-line-numbers-mode t)
  '(inhibit-startup-screen t)
+ '(package-selected-packages (quote (markdown-mode)))
+ '(prefer-coding-system (quote utf-8-unix))
  '(save-place-mode t)
+ '(savehist-mode nil)
+ '(set-charset-priority (quote unicode))
  '(show-paren-mode t)
  '(size-indication-mode t)
  '(tool-bar-mode nil)
- '(savehist-mode)
- '(delete-selection-mode t)
- '(set-charset-priority 'unicode)
- '(prefer-coding-system 'utf-8-unix)
- )
+ '(scroll-margin 7))
+
 
 (setq
  ;; No need to see GNU agitprop.
@@ -67,8 +88,14 @@
  auto-save-default nil
  create-lockfiles nil
 
- ;; keep the point in the same place while scrolling
+ ;; Keep the point in the same place while scrolling
  scroll-preserve-screen-position t
+
+ ;; You can control the amount in variable
+ mouse-wheel-scroll-amount '(0.07 ((shift) . 1) ((control) . 10))
+
+ ;; nicer behaviour for the scrolling
+ mouse-wheel-progressive-speed nil
  )
 
 
@@ -82,6 +109,7 @@
  show-trailing-whitespace t
  )
 
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -89,3 +117,8 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "Source Code Pro" :foundry "ADBO" :slant normal :weight semi-bold :height 145 :width normal)))))
 
+;; Switch focus after buffer split in emacs.
+;; Unfortunately, though, this has the side-effect of selecting the *Completions* buffer when you hit TAB in the minibuffer.
+;(defadvice split-window (after move-point-to-new-window activate)
+;  "Moves the point to the newly created window after splitting."
+;  (other-window 1))
