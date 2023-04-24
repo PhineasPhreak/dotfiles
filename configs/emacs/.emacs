@@ -6,11 +6,15 @@
 ;; Emacs Wiki :
 ;; https://www.emacswiki.org/emacs/SiteMap
 ;;
+;; Example :
 ;; - Smart Configuration for Emacs :
 ;;   https://github.com/patrickt/emacs
 ;; - Everything with Emacs
 ;;   https://irfu.cea.fr/Pisp/vianney.lebouteiller/emacs.html
-;;
+;; - Kevin Borling <https://github.com/kborling>
+;;   https://gist.github.com/kborling/13f2300e60ae4878d5d96f5f4d041664
+
+
 ;; Packages :
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
@@ -54,50 +58,57 @@
  '(show-paren-mode t)
  '(size-indication-mode t)
  '(tool-bar-mode nil)
- '(scroll-margin 7))
-
-
-(setq
- ;; No need to see GNU agitprop.
- inhibit-startup-screen t
-
- ;; No need to remind me what a scratch buffer is.
- initial-scratch-message nil
-
- ;; turn on visible bell
- visible-bell t
-
- ;; Never ding at me, ever.
- ring-bell-function 'ignore
-
- ;; search should be case-sensitive by default
- ;case-fold-search nil
-
- ;; accept 'y' or 'n' instead of yes/no
- ;; the documentation advises against setting this variable
- ;; the documentation can get bent imo
- use-short-answers t
-
- ;; when I say to quit, I mean quit
- confirm-kill-processes nil
-
- ;; Emacs is super fond of littering filesystems with backups and autosaves,
- ;; since it was built with the assumption that multiple users could be using
- ;; the same Emacs instance on the same filesystem. This was valid in 1980. It is no longer the case.
- make-backup-files nil
- auto-save-default nil
- create-lockfiles nil
-
- ;; Keep the point in the same place while scrolling
- scroll-preserve-screen-position t
-
- ;; You can control the amount in variable
- mouse-wheel-scroll-amount '(0.07 ((shift) . 1) ((control) . 10))
-
- ;; nicer behaviour for the scrolling
- mouse-wheel-progressive-speed nil
+ '(scroll-margin 7)
  )
 
+
+;; No need to see GNU agitprop.
+(setq inhibit-startup-screen t)
+
+;; No need to remind me what a scratch buffer is.
+(setq initial-scratch-message nil)
+
+;; turn on visible bell
+(setq visible-bell t)
+
+;; Never ding at me, ever.
+(setq ring-bell-function 'ignore)
+
+;; search should be case-sensitive by default
+;(setq case-fold-search nil)
+
+;; accept 'y' or 'n' instead of yes/no
+;; the documentation advises against setting this variable
+;; the documentation can get bent imo
+(setq use-short-answers t)
+
+;; when I say to quit, I mean quit
+(setq confirm-kill-processes nil)
+
+;; Emacs is super fond of littering filesystems with backups and autosaves,
+;; since it was built with the assumption that multiple users could be using
+;; the same Emacs instance on the same filesystem. This was valid in 1980. It is no longer the case.
+(setq make-backup-files nil)
+(setq auto-save-default nil)
+(setq create-lockfiles nil)
+
+;; Keep the point in the same place while scrolling
+(setq scroll-preserve-screen-position t)
+
+;; You can control the amount in variable
+(setq mouse-wheel-scroll-amount '(0.07 ((shift) . 1) ((control) . 10)))
+
+;; nicer behaviour for the scrolling
+(setq mouse-wheel-progressive-speed nil)
+
+;; Enable indentation+completion using the TAB key.
+(setq tab-always-indent 'complete)
+
+
+;; Indentation
+(setq-default indent-tabs-mode nil
+              tab-stop-list    ()
+              tab-width        2)
 
 (setq-default
  ;; Never mix tabs and spaces. Never use tabs, period.
@@ -106,9 +117,41 @@
  ;indent-tabs-mode nil
 
  ;; simple mode to highlight trailing whitespaces
- show-trailing-whitespace t
- )
+ show-trailing-whitespace t)
 
+;; Keybindings
+
+(let ((map global-map))
+  ;; Remove suspend
+  ;(define-key map (kbd "C-z") nil)
+  ;(define-key map (kbd "C-x C-z") nil)
+
+  (define-key map (kbd "C-;") #'comment-line)
+
+  ;(define-key map (kbd "C-t") #'other-window)
+  ;(define-key map (kbd "C-c C-<tab>") #'next-window)
+  ;(define-key map (kbd "C-c C-p") #'previous-buffer)
+  ;(define-key map (kbd "C-c C-n") #'next-buffer)
+
+  ;; Misc
+  ;(define-key map (kbd "C-x C-b") #'ibuffer)
+  ;(define-key map (kbd "M-z") #'zap-up-to-char)
+
+  ;; Isearch
+  ;(define-key map (kbd "C-s") #'isearch-forward-regexp)
+  ;(define-key map (kbd "C-r") #'isearch-backward-regexp)
+  ;(define-key map (kbd "C-M-s") #'isearch-forward)
+  ;(define-key map (kbd "C-M-r") #'isearch-backward)
+
+  ;; Open applications
+  ;(define-key map (kbd "C-c o e") #'eshell)
+  ;(define-key map (kbd "C-c o d") #'dired)
+  ;(define-key map (kbd "C-c o f") #'treemacs)
+  )
+
+;; Can I use 'y-or-n-p' always, or 'yes-or-no-p' always?
+;; If you want to use 'y' always, do this.
+(defalias 'yes-or-no-p 'y-or-n-p)
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
