@@ -6,6 +6,9 @@
 ;; Emacs Wiki :
 ;; https://www.emacswiki.org/emacs/SiteMap
 ;;
+;; Info :
+;; More information about Variable use C-h v <variable> for help.
+;;
 ;; Example :
 ;; - Smart Configuration for Emacs :
 ;;   https://github.com/patrickt/emacs
@@ -16,8 +19,8 @@
 
 
 ;; Packages :
-;; Added by Package.el.  This must come before configurations of
-;; installed packages.  Don't delete this line.  If you don't want it,
+;; Added by Package.el. This must come before configurations of
+;; installed packages. Don't delete this line. If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
 ;;
@@ -68,21 +71,21 @@
 ;; No need to remind me what a scratch buffer is.
 (setq initial-scratch-message nil)
 
-;; turn on visible bell
+;; Turn on visible bell
 (setq visible-bell t)
 
 ;; Never ding at me, ever.
 (setq ring-bell-function 'ignore)
 
-;; search should be case-sensitive by default
+;; Search should be case-sensitive by default
 ;(setq case-fold-search nil)
 
-;; accept 'y' or 'n' instead of yes/no
+;; Accept 'y' or 'n' instead of yes/no
 ;; the documentation advises against setting this variable
 ;; the documentation can get bent imo
 (setq use-short-answers t)
 
-;; when I say to quit, I mean quit
+;; When I say to quit, I mean quit
 (setq confirm-kill-processes nil)
 
 ;; Emacs is super fond of littering filesystems with backups and autosaves,
@@ -98,17 +101,25 @@
 ;; You can control the amount in variable
 (setq mouse-wheel-scroll-amount '(0.07 ((shift) . 1) ((control) . 10)))
 
-;; nicer behaviour for the scrolling
+;; Nicer behaviour for the scrolling
 (setq mouse-wheel-progressive-speed nil)
 
 ;; Enable indentation+completion using the TAB key.
 (setq tab-always-indent 'complete)
 
+;; Make the minibuffer case-insensitive
+(setq completion-ignore-case t)
+
+;; When completing file names, make case-insensitive
+(setq read-file-name-completion-ignore-case t)
+
+;; When switch the buffer make case-insensitive
+(setq read-buffer-completion-ignore-case t)
 
 ;; Indentation
 (setq-default indent-tabs-mode nil
               tab-stop-list    ()
-              tab-width        2)
+              tab-width        4)
 
 (setq-default
  ;; Never mix tabs and spaces. Never use tabs, period.
@@ -116,11 +127,12 @@
  ;; a buffer-local variable when set.
  ;indent-tabs-mode nil
 
- ;; simple mode to highlight trailing whitespaces
+ ;; Simple mode to highlight trailing whitespaces
  show-trailing-whitespace t)
 
+;;
 ;; Keybindings
-
+;;
 (let ((map global-map))
   ;; Remove suspend
   ;(define-key map (kbd "C-z") nil)
@@ -128,7 +140,9 @@
 
   (define-key map (kbd "C-;") #'comment-line)
 
+  (define-key map (kbd "C-<up>") #'other-window)
   ;(define-key map (kbd "C-t") #'other-window)
+
   ;(define-key map (kbd "C-c C-<tab>") #'next-window)
   ;(define-key map (kbd "C-c C-p") #'previous-buffer)
   ;(define-key map (kbd "C-c C-n") #'next-buffer)
