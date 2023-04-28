@@ -140,7 +140,7 @@
 
   (define-key map (kbd "C-;") #'comment-line)
 
-  (define-key map (kbd "C-<up>") #'other-window)
+  (define-key map (kbd "C-x w") #'other-window)
   ;(define-key map (kbd "C-t") #'other-window)
 
   ;(define-key map (kbd "C-c C-<tab>") #'next-window)
