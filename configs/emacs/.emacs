@@ -57,12 +57,11 @@
  '(prefer-coding-system (quote utf-8-unix))
  '(save-place-mode t)
  '(savehist-mode nil)
+ '(scroll-margin 7)
  '(set-charset-priority (quote unicode))
  '(show-paren-mode t)
  '(size-indication-mode t)
- '(tool-bar-mode nil)
- '(scroll-margin 7)
- )
+ '(tool-bar-mode nil))
 
 
 ;; No need to see GNU agitprop.
@@ -172,7 +171,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Source Code Pro" :foundry "ADBO" :slant normal :weight semi-bold :height 145 :width normal)))))
+ '(default ((t (:family "Source Code Pro" :foundry "ADBO" :slant normal :weight semi-bold :height 134 :width normal)))))
 
 ;; Switch focus after buffer split in emacs.
 ;; Unfortunately, though, this has the side-effect of selecting the *Completions* buffer when you hit TAB in the minibuffer.
