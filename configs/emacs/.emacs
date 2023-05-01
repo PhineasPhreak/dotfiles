@@ -98,7 +98,7 @@
 (setq scroll-preserve-screen-position t)
 
 ;; You can control the amount in variable
-(setq mouse-wheel-scroll-amount '(0.07 ((shift) . 1) ((control) . 10)))
+(setq mouse-wheel-scroll-amount '(0.07 ((shift) . 10)))
 
 ;; Nicer behaviour for the scrolling
 (setq mouse-wheel-progressive-speed nil)
@@ -138,8 +138,8 @@
   ;(define-key map (kbd "C-x C-z") nil)
 
   (define-key map (kbd "C-;") #'comment-line)
-
-  (define-key map (kbd "C-x w") #'other-window)
+  (define-key map (kbd "C-x w") #'keyboard-escape-quit)
+  (define-key map (kbd "C-<tab>") #'other-window)
   ;(define-key map (kbd "C-t") #'other-window)
 
   ;(define-key map (kbd "C-c C-<tab>") #'next-window)
