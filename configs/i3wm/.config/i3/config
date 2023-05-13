@@ -31,7 +31,7 @@ font pango:Hack Bold 8
 
 # client.background       #FFFFFF
 
-# Color 
+# Color
 client.focused          #5F676A #222222 #FFFFFF #285577   #5F676A
 client.focused_inactive #333333 #3A3A3A #FFFFFF #484E50   #222222
 client.unfocused        #333333 #3A3A3A #888888 #292D2E   #222222
@@ -73,7 +73,7 @@ floating_modifier $mod
 
 # start a terminal (default)
 #bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
-bindsym $mod+Return exec --no-startup-id lxterminal 
+bindsym $mod+Return exec --no-startup-id lxterminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -225,21 +225,21 @@ bindsym $mod+r mode "resize"
 bar {
         output primary
         status_command i3status --config ~/.config/i3/i3status.conf
-        
+
         # Display mode
         # The default mode is dock mode; in hide mode, the default modifier is Mod4 (usually the windows key). The default value for the hidden_state is hide.
         #mode dock|show|hide
         #hidden_state hide|show
         #modifier <Modifier>|None
-        
+
         workspace_buttons yes
         workspace_min_width 45
         position top
-        
+
         # Tray i3status
         tray_output primary
         tray_padding 0
-        
+
         # Select font for i3status
         #font pango:DejaVu Sans Mono 10
         #font pango:Hack Nerd Font Mono Bold 9
@@ -248,7 +248,7 @@ bar {
 
         # For AwesomeFont installed on your system
         #font pango:FontAwesome Bold 8
-        
+
         #separator_symbol ":|:"
         separator_symbol "//"
 
