@@ -158,5 +158,6 @@ After this correction **Reboot** your system
 
 ## Others Settings for i3
 HiDPI : https://wiki.archlinux.org/title/HiDPI \
+i3wm-configuration : https://github.com/vincentbernat/i3wm-configuration/tree/master/dotfiles \
 Online Colorscheme Configurator for i3, i3status, dmenu : https://thomashunter.name/i3-configurator/
 
