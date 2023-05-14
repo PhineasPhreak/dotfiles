@@ -7,5 +7,7 @@ arandr (Simple visual front end for XRandR)
 lxrandr (LXDE monitor configuration tool)
 lxterminal (LXDE terminal emulator)
 lxappearance (LXDE GTK+ theme switcher)
+qt5ct (Qt5 Configuration Utility)
+breeze (Default Plasma theme (Metapackage))
+adwaita-icon-theme-full (default icon theme of GNOME)
 picom (lightweight compositor for X11)
-
