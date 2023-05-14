@@ -69,16 +69,21 @@ Depending on the type of i3 installation you are doing.
 You will need to set up the [~/.profile](https://gist.github.com/PhineasPhreak/0801c2c5bac8edd47cb65232ddce1e7d) and [~/.xinitrc](https://gist.github.com/PhineasPhreak/793345f482b5642bb9b9303fccd55410) files in the user folder.
 * Example with i3 installation on `ubuntu-server` without Login Manager (Display Manager)
 
-## Configuration for `qt`, `GTK` applications
-To start with you need to install `breeze` and `qt5ct` :
+## Configuration for `Qt`, `GTK` applications
+To start with you need to install `breeze` and `qt5ct` for QT and `adwaita-icon-theme-full`, `lxappearance` for GTK :
 > NOTE: qt5ct is Qt5 Configuration Utility
 ```shell
-sudo apt-get install breeze qt5ct lxappearance
+sudo apt-get install breeze adwaita-icon-theme-full qt5ct lxappearance
 ```
+> NOTE PACKAGES:
+> breeze: Install default theme for Qt applications
+> adwaita: Install default theme for GTK applications
+> qt5ct: Configuration utility for Qt applications
+> lxappearance : Configuration utility for GTK applications
 
 Once `lxappearance` and `qt5ct` are installed, set the `breeze-dark` or `breeze` theme in both applications.
 
-And to make all `qt` applications support this theme, you need to export some variables :
+And to make all `Qt` applications support this theme, you need to export some variables :
 ```shell
 # Set some XDG_* variables
 export XDG_SESSION_DESKTOP=i3
