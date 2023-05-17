@@ -23,6 +23,12 @@ sudo apt-get install fonts-hack  # font used in the i3 config file
 sudo pacman -S i3wm i3lock i3blocks py3status i3status dmenu
 ```
 
+Two others packages are similar to `i3status` like :
+
+- [i3pystatus](https://i3pystatus.readthedocs.io/) : A complete replacement for i3status ([by enkore](https://github.com/enkore/i3pystatus))
+- [py3status](https://py3status.readthedocs.io/) : py3status is an extensible i3status wrapper written in python ([by ultrabug](https://github.com/ultrabug/py3status))
+Compare [py3status vs i3pystatus](https://www.libhunt.com/compare-py3status-vs-i3pystatus) and see what are their differences.
+
 If you want the [latest i3 development](https://i3wm.org/docs/repositories.html) version.
 If you are using Debian (Debian-derived systems might work, too) or Ubuntu and want the latest development version of i3, you should use our Debian repository.
 
