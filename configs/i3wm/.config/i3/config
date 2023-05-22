@@ -44,7 +44,8 @@ client.background       #FFFFFF
 exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/wallhaven-g8r373.png
 
 # Lock screen 'for safety'
-bindsym $mod+Shift+x exec i3lock -f --color "#2f343f"
+bindsym $mod+Shift+z exec i3lock -f --color "#2f343f"
+bindsym $mod+z exec i3lock -f --color "#2f343f"
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -285,7 +286,7 @@ exec_always --no-startup-id "xset s off; xset -dpms; xset s noblank"
 exec_always --no-startup-id "xset b off"
 
 # speed cursor in terminal
-exec_always --no-startup-id "xset r rate 250 75"
+exec_always --no-startup-id "xset r rate 500 50"
 
 # Editting 'Address Bar' and border with 3 pixel
 #for_window [class="^.*"] border pixel 3
