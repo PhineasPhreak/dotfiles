@@ -2,7 +2,13 @@
 The [EmacsWiki](https://www.emacswiki.org/emacs/SiteMap) is dedicated to documenting and discussing [EmacsAndXEmacs](https://www.emacswiki.org/emacs/EmacsAndXEmacs) and [EmacsLisp](https://www.emacswiki.org/emacs/EmacsLisp). See the [MissionStatement](https://www.emacswiki.org/emacs/MissionStatement) for more information.
 
 ## Installation
-Copy `.emacs` in your home directory
+* Linux :
+
+  Copy `.emacs` in your home directory
+
+* Windows :
+
+  Copy `.emacs` in `C:\Users\<username>\AppData\Roaming`
 
 ## How do I remove the gap around maximized Emacs frame on KDE?
 Link question : [here](https://askubuntu.com/questions/787694/how-do-i-remove-the-gap-around-maximized-emacs-frame-on-kde)
