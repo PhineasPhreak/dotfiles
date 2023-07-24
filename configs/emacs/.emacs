@@ -38,7 +38,7 @@
              '("melpa-stable" . "https://stable.melpa.org/packages/"))
 
 ;; List the packages you want
-;(setq package-list '(use-package markdown-mode))
+;(setq package-list '(use-package markdown-mode auctex))
 
 
 (custom-set-variables
