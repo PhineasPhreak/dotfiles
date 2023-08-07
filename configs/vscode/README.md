@@ -11,11 +11,11 @@ Visual Studio Code Manage Extention  : [Marketplace](https://marketplace.visuals
 
 Since VSCode 1.73.1 you can custom the **window.titleBarStyle** in settings.json file. <br>
 Example of `settings.json` :
-```
+```json
 {
     // THEME
     // Specifies the color theme used in the workbench
-    "workbench.colorTheme": "Tokyo Night",
+    //"workbench.colorTheme": "GitHub Dark Dimmed",
 
     // ICONE
     // Specifies the file icon theme used in the workbench or 'null' to not show any file icons
@@ -24,8 +24,23 @@ Example of `settings.json` :
     // Open the Welcome page, with content to aid in getting started with VS Code and extensions.
     "workbench.startupEditor": "welcomePage", // Use "none" for empty welcomepage
 
+    // Controls tree indentation in pixels
+    "workbench.tree.indent": 15,
+
+    // Controls whether the tree should render indent guides
+    "workbench.tree.renderIndentGuides": "always",
+
+    // Controls whether opened editors show as preview editors
+    "workbench.editor.enablePreview": false,
+
     // Adjust the appearance of the window title bar. On Linux and Windows
     "window.titleBarStyle": "custom",
+
+    // Adjust the zoom level of the window.
+    // The original size is 0 and each increment above (e.g. 1) or below (e.g. -1)
+    // represents zooming 20% larger or smaller.
+    // You can also enter decimals to adjust the zoom level with a finer granularity
+    "window.zoomLevel": 1,
 
     // Controls the font size in pixels
     "editor.fontSize": 14,
@@ -39,12 +54,6 @@ Example of `settings.json` :
     // A multiplier to be used on the deltaX and deltaY of mouse wheel scroll events
     "editor.mouseWheelScrollSensitivity": 3,
 
-    // Adjust the zoom level of the window. 
-    // The original size is 0 and each increment above (e.g. 1) or below (e.g. -1) 
-    // represents zooming 20% larger or smaller.
-    // You can also enter decimals to adjust the zoom level with a finer granularity
-    "window.zoomLevel": 1,
-
     // No telemetry Windows Thanks... or Use VScodium
     // Controls Visual Studio Code telemetry, first-party extension telemetry and participating third-party extension telemetry.
     "telemetry.telemetryLevel": "off",
@@ -56,15 +65,6 @@ Example of `settings.json` :
 
     // Controls how the editor should render whitespace characters
     "editor.renderWhitespace": "trailing",
-
-    // Controls tree indentation in pixels
-    //"workbench.tree.indent": 15,
-
-    // Controls whether the tree should render indent guides
-    "workbench.tree.renderIndentGuides": "always",
-
-    // Controls whether opened editors show as preview editors
-    "workbench.editor.enablePreview": false,
 
     // Controls whether the minimap is shown
     "editor.minimap.enabled": true,
@@ -99,8 +99,22 @@ Example of `settings.json` :
     // Controls the maximum number of lines the terminal keeps in its buffer
     "terminal.integrated.scrollback": 1000,
 
+    // Controls the font size in pixels of the terminal.
+    "terminal.integrated.fontSize": 15,
+
+    // Controls the font family of the terminal. Defaults to Editor: Font Family's value.
+    "terminal.integrated.fontFamily": "'JetBrains Mono', 'Fira Code', 'Hack', 'Operator Mono Lig', monospace",
+
+    // The font weight to use within the terminal for non-bold text. Accepts "normal" and "bold" keywords or numbers between 1 and 1000.
+    "terminal.integrated.fontWeight": "normal",
+
+    // The font weight to use within the terminal for bold text. Accepts "normal" and "bold" keywords or numbers between 1 and 1000.
+    "terminal.integrated.fontWeightBold": "bold",
+
     // Controls whether all non-basic ASCII characters are highlighted. Only characters between U+0020 and U+007E, tab, line-feed and carriage-return are considered basic ASCII
-    "editor.unicodeHighlight.nonBasicASCII": false
+    "editor.unicodeHighlight.nonBasicASCII": false,
+    "git.openRepositoryInParentFolders": "never",
+    "python.defaultInterpreterPath": "/home/pspk/Documents/Projects/py/env"
 }
 ```
 > My little config for VSCode
