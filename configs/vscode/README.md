@@ -1,17 +1,16 @@
 ## Visual Studio Code - (vscode)
+Visual Studio Code : https://code.visualstudio.com/
 
-Visual Studio Code : https://code.visualstudio.com/ </br>
 Visual Studio Code Manage Extention  : [Marketplace](https://marketplace.visualstudio.com/VSCode)
 
 ## VScodium
-
 [VSCodium](https://vscodium.com/#moreinfo) is a community-driven, freely-licensed binary distribution of Microsoft’s editor VS Code.
 
 ### Custom `settings.json` file from VSCode
+Since VSCode 1.83.1 you can custom the **window.titleBarStyle** in settings.json file.
 
-Since VSCode 1.73.1 you can custom the **window.titleBarStyle** in settings.json file. <br>
 Example of `settings.json` :
-```json
+```text
 {
     // THEME
     // Specifies the color theme used in the workbench
@@ -96,6 +95,9 @@ Example of `settings.json` :
     // Controls whether suggestions should be accepted on commit characters
     "editor.acceptSuggestionOnCommitCharacter": false,
 
+    // Render vertical rulers after a certain number of monospace characters. Use multiple values for multiple rulers. No rulers are drawn if array is empty.
+    "editor.rulers": [79, 120],
+
     // Controls the maximum number of lines the terminal keeps in its buffer
     "terminal.integrated.scrollback": 1000,
 
@@ -113,8 +115,8 @@ Example of `settings.json` :
 
     // Controls whether all non-basic ASCII characters are highlighted. Only characters between U+0020 and U+007E, tab, line-feed and carriage-return are considered basic ASCII
     "editor.unicodeHighlight.nonBasicASCII": false,
-    "git.openRepositoryInParentFolders": "never",
-    "python.defaultInterpreterPath": "/home/pspk/Documents/Projects/py/env"
+
+    // Controls whether or not Workspace Trust is enabled within VS Code.
+    "security.workspace.trust.enabled": false
 }
 ```
-> My little config for VSCode
