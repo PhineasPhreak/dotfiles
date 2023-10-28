@@ -1,14 +1,20 @@
 #!/bin/bash
 # cf. https://gitlab.com/bersace/powerline.bash
-# cf. Dernier commit depuis ma modification : 
-# 21 Feb, 2023 "Supprimer l'alias gris-foncé sans numéro" 1ba846949a41004ee57036476f07858666618aad
+# cf. Dernier commit depuis ma modification :
+# Apr 14, 2023 "Accepter une couleur vide" f89d877c2bb456eb9ca72474ef55bdfbf4362088
 #
+# invocation sort équivalent à GNU sort --version-sort --check=quiet
+if ! printf "4.4.12\n%s" "${BASH_VERSION-0}" | sort -n -t . -k 1,1 -k 2,2 -k 3,3 -c 2>/dev/null ; then
+	echo "erreur: powerline.bash requiert bash, en version 4.4.12 ou supérieur." >&2
+	return
+fi
+
 # Cette variable globale permet de retourner une valeurs à du code appelant
 # sans passer par un sous-shell. Cela optimise énormément les performances.
 # Cette valeur doit toujours être un tableau, contenant une seule valeur si la
 # fonction retourne un scalaire.
 #
-# Merge of 
+# Merge of
 # https://gitlab.com/bersace/powerline.bash
 # https://github.com/b-ryan/powerline-shell/
 # https://github.com/skeswa/prompt
@@ -115,7 +121,7 @@ __powerline_init() {
 __powerline_autoicons() {
 	# Configurer les séparateurs
 	local mode
-    # Déclaration de la variable "POWERLINE_ICONS" Pour l'utilisation d'un font en particulier nerd-fonts, etc.
+	# Déclaration de la variable "POWERLINE_ICONS" Pour l'utilisation d'un font en particulier nerd-fonts, etc.
     #POWERLINE_ICONS="nerd-fonts"
 	mode=${POWERLINE_ICONS-auto}
 	__powerline_icons=(
@@ -150,7 +156,7 @@ __powerline_autoicons() {
 		[linuxmint]="lm"
 		[logo-inconnu]="?"
 		[manjaro]="M"
-        [raspbian]="RPI"
+		[raspbian]="RPI"
 		[redhat]="RH"
 		[slackware]=".S"
 		[suse]="S"
@@ -236,7 +242,7 @@ __powerline_autoicons() {
 				[linux]=$'\uE23A'
 				[linuxmint]=$'\uE9DD'
 				[manjaro]=$'\uE9F1'
-                [raspbian]=$'\uE9F0'
+				[raspbian]=$'\uE9F0'
 				[suse]=$'\uE9E1'
 				[slackware]=$'\uE9E3'
 				[ubuntu]=$'\uE9E6'
@@ -253,11 +259,11 @@ __powerline_autoicons() {
 				[fail]=$'\uF071 '          # nf-fa-exclamation_triangle
 				[git-detached]=$'\uF06A '  # nf-fa-exclamation_circle
 				[git]=$'\uE725 '           # nf-dev-git_branch
-                # Icône nerd-fonts pour le "tilde"
+				# Icône nerd-fonts pour le "tilde"
 				#[home]=$'\uFC23 '          # nf-md-tilde
 				[home]=$'\uF7DB '          # nf-mdi-home
 				[hostname]=$'\uF015 '      # nf-fa-home
-				[jobs]="⚙"                 # Perso
+				[jobs]="⚙"                # Perso
 				[k8s]=$'\uFD31 '           # nf-mdi-ship_wheel
 				[newmail]=$'\uFBCD'        # nf-mdi-email_alert
 				[openstack]=$'\uFCB4 '     # nf-mdi-cloud_tags
@@ -278,7 +284,7 @@ __powerline_autoicons() {
 				[linuxmint]=$'\uF30E'      # nf-linux-linuxmint
 				[logo-inconnu]=$'\uE795'   # nf-dev-terminal
 				[manjaro]=$'\uF312'        # nf-linux-manjaro
-                [raspbian]=$'\uF315'       # nf-linux-raspbian
+				[raspbian]=$'\uF315'       # nf-linux-raspbian
 				[redhat]=$'\uF316'         # nf-linux-redhat
 				[slackware]=$'\uF318'      # nf-linux-slackware
 				[suse]=$'\uF314'           # nf-linux-opensuse
@@ -360,6 +366,10 @@ __powerline_init_segments() {
 
 __powerline_init_colors() {
 	__powerline_colors=(
+		[reset]="0"
+		[gras]="1"
+		[fade]="2"
+
 		# Nom de couleurs.
 		#
 		# Attention à définir avec 48; (c'est-à-dire couleur de fond).
@@ -410,7 +420,7 @@ __powerline_init_colors() {
 		[jobs-fond]=gris-foncé4
 		[jobs-texte]=bleu-docker
 
-		[sortie-commande]="0"  # reset
+		[sortie-commande]=reset
 
 		[bleu-alpine]="48;2;11;88;126"
 		[logo-alpine-fond]=blanc
@@ -465,10 +475,9 @@ __powerline_init_colors() {
 		[logo-mint-fond]=vert-mint
 		[logo-mint-texte]=blanc
 
-        [rouge-raspbian]="48;2;188;17;66"
+		[rouge-raspbian]="48;2;188;17;66"
 		[logo-raspbian-fond]=rouge-raspbian
 		[logo-raspbian-texte]=noir
-
 
 		[logo-redhat-fond]=rouge-sombre
 		[logo-redhat-texte]=noir
@@ -489,7 +498,7 @@ __powerline_init_colors() {
 		[logo-windows-fond]=bleu-windows
 		[logo-windows-texte]=blanc
 
-		[commande-utilisateur]="0;1"
+		[commande-utilisateur]=gras
 
 		[docker-erreur]=violet
 		[docker-succes]=bleu-docker
@@ -497,7 +506,7 @@ __powerline_init_colors() {
 		[docker-icone]=blanc
 
 		[dollar-erreur]=rouge
-		[dollar-succes]="0"  # reset
+		[dollar-succes]=""
 
 		[etckeeper-propre-fond]=git-propre-fond
 		[etckeeper-propre-texte]=git-propre-texte
@@ -537,6 +546,7 @@ __powerline_init_colors() {
 
 		[root-color-bg]="48;5;160"  # ROOT -> rouge
 		[root-color-fg]="38;5;015"  # Blanc
+
 		[status-fond]=rouge
 		[status-texte]=gris-clair4
 	)
@@ -611,6 +621,9 @@ __powerline_init_colors() {
 		loop=
 		for key in "${!__powerline_colors[@]}" ; do
 			color="${__powerline_colors[$key]}"
+			if [ -z "$color" ] ; then
+				continue
+			fi
 			[ -z "${__powerline_colors[$color]-}" ] && continue
 			__powerline_colors[$key]="${__powerline_colors[$color]}"
 			loop=1
@@ -658,7 +671,7 @@ __powerline_dollar() {
 
 	dollar="${__powerline_icons[invite]}"
 	# Afficher le dollar sur une nouvelle ligne, pas en mode powerline
-	__powerline_retval=("\\[\\e[${fg}m\\]$dollar\\[\\e[${color}m\\] ")
+	__powerline_retval=("\\[\\e[${fg}m\\]$dollar\\[\\e[0;${color}m\\] ")
 }
 
 
@@ -679,7 +692,6 @@ __powerline_render_default() {
 			continue
 		fi
 
-		old_bg=${bg-}
 		__powerline_split ':' "${segment}"
 		infos=("${__powerline_retval[@]}")
 		icon_fg="${infos[0]}"
@@ -689,16 +701,6 @@ __powerline_render_default() {
 		fi
 		icon="${icon//\\/\\\\}"
 
-		bg="${infos[2]%%:}"
-		bg="${__powerline_colors[$bg]-$bg}"
-		fg="${infos[3]%%:}"
-		fg="${__powerline_colors[$fg]-$fg}"
-		fg="${fg/#48;/38;}"
-
-		icon_fg="${icon_fg:-${fg/#1;/}}"
-		icon_fg="${__powerline_colors[$icon_fg]-$icon_fg}"
-		icon_fg="${icon_fg/#48;/38;}"
-
 		# Recoller les entrées suivantes avec ':'
 		printf -v text ":%s" "${infos[@]:4}"
 		text=${text:1}
@@ -706,9 +708,26 @@ __powerline_render_default() {
 		text="${text##[[:space:]]}"
 		text="${text%%[[:space:]]}"
 		# Sauter les segments vides
-		if [ -z "${text}" ] && [ -z "$icon" ]; then
+		if [ -z "${icon// }${text// }" ]; then
 			continue
 		fi
+
+		old_bg=${bg-}
+		bg="${infos[2]%%:}"
+		# Appliquer les alias
+		bg="${__powerline_colors[$bg]-$bg}"
+		# Ignorer les alias inconnus.
+		bg="${bg//[-[:alpha:]]}"
+		fg="${infos[3]%%:}"
+		fg="${__powerline_colors[$fg]-$fg}"
+		fg="${fg//[-[:alpha:]]}"
+		# Basculer fond->texte
+		fg="${fg/#48;/38;}"
+
+		icon_fg="${icon_fg:-${fg/#1;/}}"
+		icon_fg="${__powerline_colors[$icon_fg]-$icon_fg}"
+		icon_fg="${icon_fg//[-[:alpha:]]}"
+		icon_fg="${icon_fg/#48;/38;}"
 
 		# D'abord, afficher le chevron avec la transition de fond.
 		if [ -n "${old_bg}" ] ; then
@@ -738,7 +757,7 @@ __powerline_render_default() {
 		if [ -n "${text}" ] ; then
 			# Affadir les @.
 			if [[ "$text" == *@* ]] ; then
-				text="${text//@/\\[\\e[2m\\]@\\[\\e[0;$fg;${bg}m\\]}"
+				text="${text//@/\\[\\e[2m\\]@\\[\\e[22m\\]}"
 			fi
 			ps+=" $text"
 		fi
@@ -774,7 +793,6 @@ __powerline_render_align_right() {
 			continue
 		fi
 
-		old_bg=${bg-}
 		__powerline_split ':' "${segment}"
 		infos=("${__powerline_retval[@]}")
 		icon_fg="${infos[0]}"
@@ -784,6 +802,15 @@ __powerline_render_align_right() {
 		fi
 		icon="${icon//\\/\\\\}"
 
+		# Recoller les entrées suivantes avec ':'
+		printf -v text ":%s" "${infos[@]:4}"
+		text=${text:1}
+		# Sauter les segments vides
+		if [ -z "${text}" ] && [ -z "$icon" ]; then
+			continue
+		fi
+
+		old_bg=${bg-}
 		bg="${infos[2]%%:}"
 		bg="${__powerline_colors[$bg]-$bg}"
 		fg="${infos[3]%%:}"
@@ -793,14 +820,6 @@ __powerline_render_align_right() {
 		icon_fg="${icon_fg:-${fg/#1;/}}"
 		icon_fg="${__powerline_colors[$icon_fg]-$icon_fg}"
 		icon_fg="${icon_fg/#48;/38;}"
-
-		# Recoller les entrées suivantes avec ':'
-		printf -v text ":%s" "${infos[@]:4}"
-		text=${text:1}
-		# Sauter les segments vides
-		if [ -z "${text}" ] && [ -z "$icon" ]; then
-			continue
-		fi
 
 		# D'abord, afficher le chevron avec la transition de fond.
 		if [ "$bg" = "$old_bg" ] ; then
@@ -1109,6 +1128,7 @@ __powerline_segment_git_sync() {
 	local status_symbol
 	# affiche le compteur de commit désynchronisé
 	POWERLINE_GIT_SYNC_COUNT=1
+
 	# Si pas de dossier .git parent, zapper.
 	__powerline_find_parent "${PWD}" .git
 	if [ -z "${__powerline_retval[*]}" ] ; then
@@ -1639,10 +1659,10 @@ __powerline_segment_python() {
 	local text
 
 	if [ -v VIRTUAL_ENV ] ; then
-        # Lire le nom du venv dans le prompt. (pour les .venv/bin/activate)
+		# Lire le nom du venv dans le prompt. (pour les .venv/bin/activate)
 		if ! text="$(grep -m 1 -Po 'PS1="\(\K[^)]+' "$VIRTUAL_ENV/bin/activate" 2>/dev/null)" ; then
 			# ou utiliser le dossier
-			text=${VIRTUAL_ENV##*/}
+				text=${VIRTUAL_ENV##*/}
 		fi
 	elif [ -v CONDA_ENV_PATH ] ; then
 		text=${CONDA_ENV_PATH##*/}
