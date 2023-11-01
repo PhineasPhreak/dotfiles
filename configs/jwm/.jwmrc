@@ -96,7 +96,7 @@ Packages : konsole, i3lock, dmenu, rofi
       <Font>Sans-10</Font>
       <Background>#333333</Background>
       <Foreground>#FFFFFF</Foreground>
-      <Opacity>0.75</Opacity>
+      <Opacity>1.0</Opacity>
     </TrayStyle>
     <TaskListStyle list="desktop" group="true">
       <Font>Sans-10</Font>
