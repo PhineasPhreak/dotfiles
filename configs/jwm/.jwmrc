@@ -1,90 +1,101 @@
 <?xml version="1.0"?>
-<!-- 
+<!--
 PSPK : PhineasPhreak
 Configuration File for JWM (https://joewing.net/projects/jwm/)
-Docs : https://joewing.net/projects/jwm/config.html
-Themes : Fluent on pling.com
+
+Docs:
+- https://joewing.net/projects/jwm/config.html
+- https://wiki.archlinux.org/title/JWM (All windows are transparent using picom)
 
 Information Keybinds :
 Docs : https://joewing.net/projects/jwm/config.html#key
 Configuration with en_US.UTF-8 keyboard
 More information about keycode use the command : "xmodmap -pke"
 
-Packages : lxterminal, i3lock, dmenu, rofi
- -->
+Desktop : KDE Plasma
+Packages : konsole, i3lock, dmenu, rofi
+-->
 <JWM>
     <!-- A command to run when JWM starts. -->
     <StartupCommand>
-    bash .onstart
+      bash .onstart
     </StartupCommand>
 
     <!-- The root menu. -->
-    <RootMenu onroot="12">
-        <!-- <Include>/etc/jwm/debian-menu</Include> -->
+    <RootMenu onroot="123">
+      <!-- <Include>/etc/jwm/debian-menu</Include> -->
+      <!-- <Separator/> -->
 
-        <Program icon="utilities-terminal" label="Terminal">lxterminal</Program>
-        <Separator/>
-        <Program icon="lock" label="Lock">
-           xscreensaver-command -lock
-        </Program>
-        <Separator/>
-        <Restart label="Restart" icon="reload"/>
-        <Program label="Power Off">/usr/libexec/jwm/jwm-poweroff.sh</Program>
-        <Exit label="Log Out" confirm="true" icon="exit"/>
+      <Program label="Terminal" tooltip="Open a Terminal" icon="utilities-terminal">konsole</Program>
+      <Separator/>
+      <!-- <Program label="Lock" icon="lock">xscreensaver-command -lock</Program> -->
+      <Program label="Lock" tooltip="Lock Session" icon="lock">i3lock -f --color "#2f343f"</Program>
+      <Separator/>
+      <Restart label="Restart" tooltip="Reinitializes the JWM configuration" icon="reload"/>
+      <Program label="Reboot" tooltip="Restart computer">systemctl reboot</Program>
+      <Program label="Power Off" tooltip="Turn off computer">/usr/libexec/jwm/jwm-poweroff.sh</Program>
+      <Exit label="Log Out" tooltip="Quit the current session" confirm="true" icon="exit"/>
     </RootMenu>
 
     <!-- Options for program groups. -->
     <Group>
-        <Option>tiled</Option>
+      <Option>tiled</Option>
     </Group>
     <Group>
-        <Name>xterm</Name>
-        <Option>vmax</Option>
+      <Name>xterm</Name>
+      <Option>vmax</Option>
     </Group>
     <Group>
-        <Name>xclock</Name>
-        <Option>drag</Option>
-        <Option>notitle</Option>
+      <Name>xclock</Name>
+      <Option>drag</Option>
+      <Option>notitle</Option>
     </Group>
 
     <!-- Tray at the bottom. -->
-    <Tray x="0" y="-1" height="20" autohide="off" delay="1000">
+    <Tray x="0" y="-1" height="25" autohide="off" delay="1000">
+      <!-- GRAY JWM LOGO -->
+      <TrayButton icon="/usr/share/jwm/jwm-gray.svg">root:1</TrayButton>
+      <!-- RED JWM LOGO -->
+      <!-- <TrayButton icon="/usr/share/jwm/jwm-red.svg">root:1</TrayButton> -->
+      <Spacer width="2"/>
+      <TrayButton label="_">showdesktop</TrayButton>
+      <Spacer width="2"/>
+      <Pager labeled="true"/>
+      <TaskList maxwidth="200"/>
 
-        <TrayButton icon="/usr/share/jwm/jwm-red.svg">root:1</TrayButton>
-        <Spacer width="2"/>
-        <TrayButton label="_">showdesktop</TrayButton>
-        <Spacer width="2"/>
+      <!-- Swallow a program into the tray. The text of this tag gives the command to run. -->
+      <!-- <Swallow width="32" height="32" name="xclock">xclock</Swallow> -->
+      <!-- <Swallow width="32" height="32" name="qps">qps</Swallow> -->
 
-        <Pager labeled="true"/>
-
-        <TaskList maxwidth="200"/>
-
-        <!-- <Swallow width="32" height="32" name="xclock">xclock</Swallow> -->
-
-        <Dock/>
-        <Clock format="%l:%M:%S %p"><Button mask="123">exec:xclock</Button></Clock>
-
+      <Dock/>
+      <Clock format="%l:%M:%S %p"><Button mask="123">exec:xclock</Button></Clock>
     </Tray>
 
     <!-- Visual Styles -->
     <WindowStyle decorations="motif">
-        <Font>Sans-10:bold</Font>
-        <Width>3</Width>
-        <Corner>0</Corner>
+      <Font>Sans-10:bold</Font>
+      <Width>3</Width>
+      <!-- The height of window title bars in pixels. -->
+      <!-- <Height>15</Height> -->
+      <Corner>5</Corner>
+      <Foreground>#FFFFFF</Foreground>
+      <Background>#555555</Background>
+      <Opacity>0.5</Opacity>
+      <!-- The color of the window outline. -->
+      <!-- <Outline>#555555</Outline>  -->
+      <Active>
         <Foreground>#FFFFFF</Foreground>
-        <Background>#555555</Background>
-        <Opacity>0.5</Opacity>
-        <Active>
-            <Foreground>#FFFFFF</Foreground>
-            <Background>#0077CC</Background>
-            <Opacity>1.0</Opacity>
-        </Active>
+        <Background>#0077CC</Background>
+        <Opacity>1.0</Opacity>
+        <!-- The color of the window outline. -->
+        <!-- <Outline>#0077CC</Outline>  -->
+      </Active>
     </WindowStyle>
     <TrayStyle decorations="motif">
-        <Font>Sans-10</Font>
-        <Background>#333333</Background>
-        <Foreground>#FFFFFF</Foreground>
-        <Opacity>0.75</Opacity>
+      <Font>Sans-10</Font>
+      <Background>#333333</Background>
+      <Foreground>#FFFFFF</Foreground>
+      <Opacity>0.75</Opacity>
     </TrayStyle>
     <TaskListStyle list="desktop" group="true">
       <Font>Sans-10</Font>
@@ -96,34 +107,35 @@ Packages : lxterminal, i3lock, dmenu, rofi
       <Background>#333333</Background>
     </TaskListStyle>
     <PagerStyle>
-        <Foreground>#555555</Foreground>
-        <Background>#333333</Background>
-        <Text>#FFFFFF</Text>
-        <Active>
-            <Foreground>#0077CC</Foreground>
-            <Background>#004488</Background>
-        </Active>
+      <Foreground>#555555</Foreground>
+      <Background>#333333</Background>
+      <Text>#FFFFFF</Text>
+      <Active>
+        <Foreground>#0077CC</Foreground>
+        <Background>#004488</Background>
+      </Active>
     </PagerStyle>
     <MenuStyle decorations="motif">
-        <Font>Sans-10</Font>
+      <Font>Sans-10</Font>
+      <Foreground>#FFFFFF</Foreground>
+      <Background>#333333</Background>
+      <Active>
         <Foreground>#FFFFFF</Foreground>
-        <Background>#333333</Background>
-        <Active>
-            <Foreground>#FFFFFF</Foreground>
-            <Background>#0077CC</Background>
-        </Active>
-        <Opacity>0.85</Opacity>
+        <Background>#0077CC</Background>
+      </Active>
+      <Opacity>0.85</Opacity>
     </MenuStyle>
     <PopupStyle>
-        <Font>Sans-10</Font>
-        <Foreground>#000000</Foreground>
-        <Background>#999999</Background>
+      <Font>Sans-10</Font>
+      <Foreground>#000000</Foreground>
+      <Background>#999999</Background>
     </PopupStyle>
 
     <!-- Path where icons can be found.
          IconPath can be listed multiple times to allow searching
          for icons in multiple paths.
-      -->
+    -->
+
     <IconPath>/usr/share/icons/gnome/256x256/actions</IconPath>
     <IconPath>/usr/share/icons/gnome/256x256/apps</IconPath>
     <IconPath>/usr/share/icons/gnome/256x256/categories</IconPath>
@@ -177,9 +189,25 @@ Packages : lxterminal, i3lock, dmenu, rofi
         <!-- Default background. Note that a Background tag can be
               contained within a Desktop tag to give a specific background
               for that desktop.
-         -->
-         <!-- Background for all Desktop... -->
-        <Background type="solid">#111111</Background>
+        -->
+        <Desktop name="1">
+          <Background type="solid">#333333</Background>
+        </Desktop>
+
+        <Desktop name="2">
+          <Background type="solid">#444444</Background>
+        </Desktop>
+
+        <Desktop name="3">
+          <Background type="solid">#555555</Background>
+        </Desktop>
+
+        <Desktop name="4">
+          <Background type="solid">#666666</Background>
+        </Desktop>
+
+        <!-- Background for all Desktop... -->
+        <!-- <Background type="solid">#111111</Background> -->
     </Desktops>
 
     <!-- Double click speed (in milliseconds) -->
@@ -253,13 +281,13 @@ Packages : lxterminal, i3lock, dmenu, rofi
     <!-- Execute dmenu_run with Alt+c -->
     <Key mask="4" key="c">exec:dmenu_run  -nf '#BBBBBB' -nb '#3A3A3A' -sb '#5F676A' -sf '#EEEEEE' -fn 'Hack-10' -p '>'</Key>
     <!-- Open a terminal with Alr+Enter and Super+Enter-->
-    <Key mask="4" key="Return">exec:lxterminal</Key>
+    <Key mask="4" key="Return">exec:konsole</Key>
     <!-- Lock screen -->
-    <Key mask="4" key="x">exec:i3lock -f --color "#2f343f"</Key>
+    <Key mask="4" key="z">exec:i3lock -f --color "#2f343f"</Key>
     <!-- More fancy using Rofi -->
-    <Key mask="4" key="f">exec:rofi -show run -theme Pop-Dark -font "Hack 10" -display-run "Cmd"</Key>
-    <Key mask="4" key="w">exec:rofi -show window -theme Pop-Dark -font "Hack Bold 10" -display-window "Window"</Key>
-    
+    <Key mask="4" key="x">exec:rofi -show run -theme DarkBlue -font "Hack 10" -display-run "CMD"</Key>
+    <Key mask="4" key="w">exec:rofi -show window -theme DarkBlue -font "Hack Bold 10" -display-window "Window"</Key>
+
     <!-- Mouse bindings -->
     <Mouse context="root" button="4">ldesktop</Mouse>
     <Mouse context="root" button="5">rdesktop</Mouse>
