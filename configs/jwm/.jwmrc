@@ -22,7 +22,7 @@ Packages : konsole, i3lock, dmenu, rofi
     </StartupCommand>
 
     <!-- The root menu. -->
-    <RootMenu onroot="123">
+    <RootMenu height="20" onroot="123">
       <!-- <Include>/etc/jwm/debian-menu</Include> -->
       <!-- <Separator/> -->
 
@@ -68,7 +68,8 @@ Packages : konsole, i3lock, dmenu, rofi
       <!-- <Swallow width="32" height="32" name="qps">qps</Swallow> -->
 
       <Dock/>
-      <Clock format="%l:%M:%S %p"><Button mask="123">exec:xclock</Button></Clock>
+      <!-- <Clock format="%l:%M:%S %p"><Button mask="123">exec:xclock</Button></Clock> -->
+      <Clock format="%a %b %d %H:%M %p"><Button mask="123">exec:xclock</Button></Clock>
     </Tray>
 
     <!-- Visual Styles -->
@@ -80,7 +81,7 @@ Packages : konsole, i3lock, dmenu, rofi
       <Corner>5</Corner>
       <Foreground>#FFFFFF</Foreground>
       <Background>#555555</Background>
-      <Opacity>0.5</Opacity>
+      <Opacity>1.0</Opacity>
       <!-- The color of the window outline. -->
       <!-- <Outline>#555555</Outline>  -->
       <Active>
