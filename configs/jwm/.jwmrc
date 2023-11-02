@@ -27,6 +27,7 @@ Packages : konsole, i3lock, dmenu, rofi
       <!-- <Separator/> -->
 
       <Program label="Terminal" tooltip="Open a Terminal" icon="utilities-terminal">konsole</Program>
+      <Program label="XTerm" tooltip="standard terminal emulator for the X window system" icon="mini.xterm">xterm</Program>
       <Separator/>
       <!-- <Program label="Lock" icon="lock">xscreensaver-command -lock</Program> -->
       <Program label="Lock" tooltip="Lock Session" icon="lock">i3lock -f --color "#2f343f"</Program>
@@ -40,6 +41,10 @@ Packages : konsole, i3lock, dmenu, rofi
     <!-- Options for program groups. -->
     <Group>
       <Option>tiled</Option>
+    </Group>
+    <Group>
+      <Name>emacs</Name>
+      <Option>iignore</Option>
     </Group>
     <Group>
       <Name>xterm</Name>
@@ -68,6 +73,7 @@ Packages : konsole, i3lock, dmenu, rofi
       <!-- <Swallow width="32" height="32" name="qps">qps</Swallow> -->
 
       <Dock/>
+
       <!-- <Clock format="%l:%M:%S %p"><Button mask="123">exec:xclock</Button></Clock> -->
       <Clock format="%a %b %d %H:%M %p"><Button mask="123">exec:xclock</Button></Clock>
     </Tray>
@@ -136,6 +142,8 @@ Packages : konsole, i3lock, dmenu, rofi
          IconPath can be listed multiple times to allow searching
          for icons in multiple paths.
     -->
+    <!-- Custom icons path. -->
+    <!-- <Include>jwmrc-icons.xml</Include> -->
 
     <IconPath>/usr/share/icons/gnome/256x256/actions</IconPath>
     <IconPath>/usr/share/icons/gnome/256x256/apps</IconPath>
@@ -162,6 +170,100 @@ Packages : konsole, i3lock, dmenu, rofi
     <IconPath>/usr/share/icons/gnome/scalable/mimetypes</IconPath>
     <IconPath>/usr/share/icons/gnome/scalable/places</IconPath>
     <IconPath>/usr/share/icons/gnome/scalable/status</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/22x22/devices</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/22x22/mimetypes</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/22x22/status</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/22x22/places</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/22x22/emblems</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/256x256/mimetypes</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/256x256/status</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/256x256/places</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/8x8/emblems</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/8x8/legacy</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/48x48/ui</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/48x48/devices</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/48x48/emotes</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/48x48/categories</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/48x48/mimetypes</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/48x48/status</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/48x48/places</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/48x48/emblems</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/48x48/apps</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/48x48/actions</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/48x48/legacy</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/96x96/ui</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/96x96/devices</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/96x96/emotes</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/96x96/categories</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/96x96/mimetypes</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/96x96/status</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/96x96/places</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/96x96/emblems</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/96x96/apps</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/96x96/actions</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/96x96/legacy</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/64x64/ui</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/64x64/devices</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/64x64/emotes</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/64x64/categories</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/64x64/mimetypes</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/64x64/status</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/64x64/places</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/64x64/emblems</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/64x64/apps</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/64x64/actions</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/64x64/legacy</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/16x16/ui</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/16x16/devices</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/16x16/emotes</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/16x16/categories</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/16x16/mimetypes</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/16x16/status</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/16x16/places</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/16x16/emblems</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/16x16/apps</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/16x16/actions</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/16x16/legacy</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/24x24/ui</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/24x24/devices</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/24x24/emotes</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/24x24/categories</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/24x24/mimetypes</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/24x24/status</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/24x24/places</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/24x24/emblems</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/24x24/apps</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/24x24/actions</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/24x24/legacy</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/512x512/devices</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/512x512/mimetypes</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/512x512/status</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/512x512/places</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/512x512/emblems</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/32x32/ui</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/32x32/devices</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/32x32/emotes</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/32x32/categories</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/32x32/mimetypes</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/32x32/status</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/32x32/places</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/32x32/emblems</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/32x32/apps</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/32x32/actions</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/32x32/legacy</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/scalable</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/scalable/actions</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/scalable/apps</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/scalable/categories</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/scalable/devices</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/scalable/emblems</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/scalable/emotes</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/scalable/legacy</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/scalable/mimetypes</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/scalable/places</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/scalable/status</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/scalable/ui</IconPath>
+    <IconPath>/usr/share/icons/Adwaita/scalable-up-to-32</IconPath>
     <IconPath>/usr/share/icons/hicolor/256x256/apps</IconPath>
     <IconPath>/usr/share/icons/hicolor/256x256/mimetypes</IconPath>
     <IconPath>/usr/share/icons/hicolor/32x32/actions</IconPath>
@@ -188,8 +290,8 @@ Packages : konsole, i3lock, dmenu, rofi
     <!-- Desktop tags can be contained within Desktops for desktop names. -->
     <Desktops width="4" height="1">
         <!-- Default background. Note that a Background tag can be
-              contained within a Desktop tag to give a specific background
-              for that desktop.
+             contained within a Desktop tag to give a specific background
+             for that desktop.
         -->
         <Desktop name="1">
           <Background type="solid">#333333</Background>
@@ -217,7 +319,7 @@ Packages : konsole, i3lock, dmenu, rofi
     <!-- Double click delta (in pixels) -->
     <DoubleClickDelta>2</DoubleClickDelta>
 
-    <!-- The focus model (sloppy or click) -->
+    <!-- The focus model (click, clicktitle, sloppy or sloppytitle) -->
     <FocusModel>sloppy</FocusModel>
 
     <!-- The snap mode (none, screen, or border) -->
@@ -228,6 +330,17 @@ Packages : konsole, i3lock, dmenu, rofi
 
     <!-- The resize mode (outline or opaque) -->
     <ResizeMode>opaque</ResizeMode>
+
+    <!--
+        Customize window icons
+    -->
+    <!-- For custom Button (Min, Max, MaxActive and Close) with icons from Adwaita theme (Gnome) -->
+    <ButtonMin>window-minimize-symbolic.svg</ButtonMin>
+    <ButtonMax>window-maximize-symbolic.svg</ButtonMax>
+    <ButtonMaxActive>focus-windows-symbolic.svg</ButtonMaxActive>
+    <!-- Alternate icon for ButtonMaxActive (bad rendering) -->
+    <!-- <ButtonMaxActive>window-restore-symbolic.svg</ButtonMaxActive> -->
+    <ButtonClose>window-close-symbolic.svg</ButtonClose>
 
     <!-- Key bindings -->
     <Key key="Up">up</Key>
@@ -242,23 +355,35 @@ Packages : konsole, i3lock, dmenu, rofi
     <Key key="Escape">escape</Key>
 
     <!-- Walkthrough windows with Alt+Tab and Super+Tab -->
+    <!-- <Key mask="4" key="Tab">nextstacked</Key> -->
+    <!-- <Key mask="A" key="Tab">nextstacked</Key> -->
     <Key mask="4" key="Tab">nextstacked</Key>
-    <Key mask="A" key="Tab">nextstacked</Key>
+    <Key mask="4S" key="Tab">prevstacked</Key>
+    <Key mask="A" key="Tab">next</Key>
+    <Key mask="AS" key="Tab">prev</Key>
 
     <!-- Change desktops 4 by defaults -->
     <Key mask="4" key="#">desktop#</Key>
 
-    <!-- Show desktop -->
+    <!-- Show desktop & Move one desktop to the right/left or up/down -->
     <Key mask="4" key="d">showdesktop</Key>
+    <Key mask="4" key="Next">rdesktop</Key>
+    <Key mask="4" key="Prior">ldesktop</Key>
+    <!-- <Key mask="A" key="Next">udesktop</Key> -->
+    <!-- <Key mask="A" key="Prior">ddesktop</Key> -->
 
-    <Key mask="A" key="F4">close</Key>
+    <!-- Multi actions for windows -->
     <Key mask="A" key="F1">root:1</Key>
     <Key mask="A" key="F2">window</Key>
-    <Key mask="4" key="F11">fullscreen</Key>
-    <Key mask="4" key="F10">maximize</Key>
+    <Key mask="A" key="F4">close</Key>
+    <Key key="F11">fullscreen</Key>
+    <Key key="F10">maximize</Key>
+    <Key key="F8">move</Key>
+    <Key key="F9">resize</Key>
     <Key mask="4" key="Up">maximize</Key>
     <Key mask="4" key="Down">restore</Key>
     <Key mask="CA" key="Down">minimize</Key>
+    <Key mask="4" key="semicolon">shade</Key>
 
     <!-- Maximize to half screen with C-A-<arrow> -->
     <Key mask="4" key="minus">maxh</Key>
@@ -268,15 +393,14 @@ Packages : konsole, i3lock, dmenu, rofi
     <Key mask="4" key="Right">maxright</Key>
     <Key mask="4" key="Left">maxleft</Key>
 
+    <!-- Send the active window right/left or up/down -->
     <Key mask="CA" key="Right">sendr</Key>
     <Key mask="CA" key="Left">sendl</Key>
+    <Key mask="CA" key="Up">sendu</Key>
+    <Key mask="CA" key="Down">sendd</Key>
 
-    <Key mask="4" key="Next">rdesktop</Key>
-    <Key mask="4" key="Prior">ldesktop</Key>
-    <Key mask="4" key="semicolon">shade</Key>
-
-    <!-- <Key mask="A" key="Up">udesktop</Key> -->
-    <!-- <Key mask="A" key="Down">ddesktop</Key> -->
+    <!-- Exit JWM. -->
+    <Key mask="CA" key="Delete">exit</Key>
 
     <!-- Some application shortcuts -->
     <!-- Execute dmenu_run with Alt+c -->
