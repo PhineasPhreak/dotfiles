@@ -335,12 +335,12 @@ Packages : konsole, i3lock, dmenu, rofi
         Customize window icons
     -->
     <!-- For custom Button (Min, Max, MaxActive and Close) with icons from Adwaita theme (Gnome) -->
-    <ButtonMin>window-minimize-symbolic.svg</ButtonMin>
-    <ButtonMax>window-maximize-symbolic.svg</ButtonMax>
-    <ButtonMaxActive>focus-windows-symbolic.svg</ButtonMaxActive>
+    <ButtonMin>/usr/share/icons/Adwaita/scalable/ui/window-minimize-symbolic.svg</ButtonMin>
+    <ButtonMax>/usr/share/icons/Adwaita/scalable/ui/window-maximize-symbolic.svg</ButtonMax>
+    <ButtonMaxActive>/usr/share/icons/Adwaita/scalable/ui/focus-windows-symbolic.svg</ButtonMaxActive>
     <!-- Alternate icon for ButtonMaxActive (bad rendering) -->
-    <!-- <ButtonMaxActive>window-restore-symbolic.svg</ButtonMaxActive> -->
-    <ButtonClose>window-close-symbolic.svg</ButtonClose>
+    <!-- <ButtonMaxActive>/usr/share/icons/Adwaita/scalable/ui/window-restore-symbolic.svg</ButtonMaxActive> -->
+    <ButtonClose>/usr/share/icons/Adwaita/scalable/ui/window-close-symbolic.svg</ButtonClose>
 
     <!-- Key bindings -->
     <Key key="Up">up</Key>
