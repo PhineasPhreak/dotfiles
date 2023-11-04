@@ -57,7 +57,7 @@
  '(prefer-coding-system (quote utf-8-unix))
  '(save-place-mode t)
  '(savehist-mode nil)
- '(scroll-margin 7)
+ ;; '(scroll-margin 7)
  '(set-charset-priority (quote unicode))
  '(show-paren-mode t)
  '(size-indication-mode t)
