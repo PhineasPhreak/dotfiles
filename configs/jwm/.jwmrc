@@ -24,6 +24,7 @@ Packages : konsole, i3lock, dmenu, rofi
     <!-- The root menu. -->
     <RootMenu height="20" onroot="123">
       <!-- <Include>/etc/jwm/debian-menu</Include> -->
+      <!-- <Include>jwmrc-menu.xml</Include> -->
       <!-- <Separator/> -->
 
       <Program label="Terminal" tooltip="Open a Terminal" icon="utilities-terminal">konsole</Program>
@@ -86,13 +87,17 @@ Packages : konsole, i3lock, dmenu, rofi
       <!-- <Height>15</Height> -->
       <Corner>5</Corner>
       <Foreground>#FFFFFF</Foreground>
-      <Background>#555555</Background>
+      <Background>#333333</Background>
+      <!-- Default Color: Charcoal grey -->
+      <!-- <Background>#555555</Background> -->
       <Opacity>1.0</Opacity>
       <!-- The color of the window outline. -->
       <!-- <Outline>#555555</Outline>  -->
       <Active>
         <Foreground>#FFFFFF</Foreground>
-        <Background>#0077CC</Background>
+        <Background>#555555</Background>
+        <!-- Default Color: Dark sky blue -->
+        <!-- <Background>#0077CC</Background> -->
         <Opacity>1.0</Opacity>
         <!-- The color of the window outline. -->
         <!-- <Outline>#0077CC</Outline>  -->
@@ -334,6 +339,7 @@ Packages : konsole, i3lock, dmenu, rofi
     <!--
         Customize window icons
     -->
+    <!-- ADWAITA -->
     <!-- For custom Button (Min, Max, MaxActive and Close) with icons from Adwaita theme (Gnome) -->
     <ButtonMin>/usr/share/icons/Adwaita/scalable/ui/window-minimize-symbolic.svg</ButtonMin>
     <ButtonMax>/usr/share/icons/Adwaita/scalable/ui/window-maximize-symbolic.svg</ButtonMax>
@@ -341,6 +347,12 @@ Packages : konsole, i3lock, dmenu, rofi
     <!-- Alternate icon for ButtonMaxActive (bad rendering) -->
     <!-- <ButtonMaxActive>/usr/share/icons/Adwaita/scalable/ui/window-restore-symbolic.svg</ButtonMaxActive> -->
     <ButtonClose>/usr/share/icons/Adwaita/scalable/ui/window-close-symbolic.svg</ButtonClose>
+
+    <!-- BREEZE-DARK -->
+    <!-- <ButtonMin>/usr/share/icons/breeze-dark/actions/16/window-minimize.svg</ButtonMin> -->
+    <!-- <ButtonMax>/usr/share/icons/breeze-dark/actions/16/window-maximize.svg</ButtonMax> -->
+    <!-- <ButtonMaxActive>/usr/share/icons/breeze-dark/actions/16/window-restore.svg</ButtonMaxActive> -->
+    <!-- <ButtonClose>/usr/share/icons/breeze-dark/actions/16/window-close.svg</ButtonClose> -->
 
     <!-- Key bindings -->
     <Key key="Up">up</Key>
