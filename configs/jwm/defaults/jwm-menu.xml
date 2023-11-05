@@ -1,0 +1,171 @@
+<JWM>
+  <!-- Menu start -->
+  <Menu label="Development" icon="applications-development">
+    <Program label="Cervisia" icon="cervisia">cervisia -qwindowtitle</Program>
+    <Program label="Git GUI" icon="git">git gui</Program>
+    <Program label="Micro" icon="/usr/share/micro/micro-logo-mark.svg">micro</Program>
+    <Program label="Vim" icon="gvim">vim</Program>
+    <Program label="GVim" icon="gvim">gvim</Program>
+    <Program label="Emacs (GUI)" icon="emacs">/usr/bin/emacs</Program>
+    <Program label="Emacs (Terminal)" icon="emacs">/usr/bin/emacs -nw</Program>
+    <Program label="Kate" icon="kate">kate</Program>
+    <!-- <Program label="Geany" icon="geany">geany</Program> -->
+    <Program label="Kexi" icon="kexi-3.2">kexi-3.2</Program>
+    <Program label="Microsoft Visual Studio Code" icon="vscode">/usr/share/code/code</Program>
+    <Program label="Sublime Text - New File" icon="sublime-text">/opt/sublime_text/sublime_text --command new_file</Program>
+    <Program label="Sublime Merge - New Window" icon="sublime-merge">/opt/sublime_merge/sublime_merge --launch-or-new-window</Program>
+    <!-- Development end -->
+  </Menu>
+  <!-- <Menu label="Games" icon="applications-games"> -->
+  <!--   <Program label="Factorio" icon="/home/pspk/.local/share/Factorio/data/core/graphics/factorio.ico">~/.local/share/Factorio/bin/x64/factorio</Program> -->
+  <!--   <!-\- Games end -\-> -->
+  <!-- </Menu> -->
+  <Menu label="Graphics" icon="applications-graphics">
+    <Program label="GNU Image Manipulation Program" icon="gimp">gimp</Program>
+    <Program label="Krita" icon="krita">krita</Program>
+    <Program label="Inkscape" icon="inkscape">inkscape</Program>
+    <Program label="Darktable" icon="darktable">darktable</Program>
+    <Program label="Gpick" icon="gpick">gpick</Program>
+    <Program label="KColorChooser" icon="kcolorchooser">kcolorchooser</Program>
+    <Program label="Gwenview" icon="gwenview">gwenview</Program>
+    <Program label="Kdenlive" icon="kdenlive">kdenlive</Program>
+    <Program label="OBS Studio" icon="com.obsproject.Studio">obs</Program>
+    <Program label="Kontrast" icon="org.kde.kontrast">kontrast</Program>
+    <Program label="Flameshot" icon="org.flameshot.Flameshot">flameshot</Program>
+    <Program label="Flameshot - Open launcher" icon="org.flameshot.Flameshot">flameshot launcher</Program>
+    <!-- Graphics end -->
+  </Menu>
+  <Menu label="Internet" icon="applications-internet">
+    <Program label="Kmail - Check Mail" icon="mail-receive">kmail</Program>
+    <Program label="Thunderbird" icon="thunderbird">/usr/bin/thunderbird</Program>
+    <!-- <Program label="Avahi SSH Server Browser" icon="network-wired">/usr/bin/bssh</Program> -->
+    <!-- <Program label="Avahi VNC Server Browser" icon="network-wired">/usr/bin/bvnc</Program> -->
+    <!-- <Program label="ELinks" icon="browser">/usr/bin/elinks</Program> -->
+    <Program label="FileZilla" icon="filezilla">filezilla</Program>
+    <Program label="KRDC" icon="krdc">krdc -qwindowtitle</Program>
+    <Program label="Brave - New Window" icon="brave-browser">/usr/bin/brave-browser-stable</Program>
+    <Program label="Brave - New Incognito Window" icon="brave-browser">/usr/bin/brave-browser-stable --incognito</Program>
+    <Program label="Firefox" icon="firefox">/usr/lib/firefox/firefox</Program>
+    <Program label="Firefox ESR" icon="firefox-esr">/usr/lib/firefox-esr/firefox-esr</Program>
+    <Program label="HexChat" icon="io.github.Hexchat">hexchat --existing</Program>
+    <Program label="Transmission" icon="transmission">transmission-gtk</Program>
+    <Program label="Ktorrent" icon="ktorrent">ktorrent</Program>
+    <!-- <Program label="Tor Browser" icon="torbrowser">torbrowser-launcher</Program> -->
+    <!-- <Program label="Tor Browser Launcher Settings" icon="torbrowser">torbrowser-launcher -\-settings</Program> -->
+    <!-- Internet end -->
+  </Menu>
+  <Menu label="Multimedia" icon="applications-multimedia">
+    <Program label="VLC media player" icon="vlc">/usr/bin/vlc --started-from-file</Program>
+    <Program label="mpv Media Player" icon="mpv">mpv --player-operation-mode</Program>
+    <Program label="Audacious" icon="audacious">audacious</Program>
+    <Program label="Audacity" icon="audacity">audacity</Program>
+    <Program label="Dragon Player" icon="dragonplayer">dragon</Program>
+    <Program label="Kwave Sound Editor" icon="kwave">kwave</Program>
+    <Program label="JuK" icon="juk">juk</Program>
+    <Program label="Elisa" icon="elisa">elisa</Program>
+    <Program label="Lollypop" icon="org.gnome.Lollypop">lollypop -p</Program>
+    <Program label="Easytag" icon="easytag">easytag</Program>
+    <Program label="OBS Studio" icon="com.obsproject.Studio">obs</Program>
+    <!-- Multimedia end -->
+  </Menu>
+  <Menu label="Office" icon="applications-office">
+    <Program label="xpdf" icon="xpdf">xpdf</Program>
+    <Program label="Okular" icon="okular">okular</Program>
+    <Program label="Kalendar" icon="org.kde.kalendar">kalendar</Program>
+    <Program label="KOrganizer" icon="korganizer">korganizer</Program>
+    <Program label="LibreOffice" icon="libreoffice-startcenter">libreoffice</Program>
+    <Program label="LibreOffice - New Formula" icon="libreoffice-startcenter">libreoffice --math</Program>
+    <Program label="LibreOffice - New Document" icon="libreoffice-startcenter">libreoffice --writer</Program>
+    <Program label="LibreOffice - New Drawing" icon="libreoffice-startcenter">libreoffice --draw</Program>
+    <Program label="LibreOffice - New Formula" icon="libreoffice-startcenter">libreoffice --math</Program>
+    <Program label="LibreOffice - New Presentation" icon="libreoffice-startcenter">libreoffice --impress</Program>
+    <Program label="LibreOffice - New Spreadsheet" icon="libreoffice-startcenter">libreoffice --calc</Program>
+    <Program label="DesktopEditor" icon="onlyoffice-desktopeditors">/usr/bin/onlyoffice-desktopeditors</Program>
+    <Program label="DesktopEditor - New Document" icon="onlyoffice-desktopeditors">/usr/bin/onlyoffice-desktopeditors --new=doc</Program>
+    <Program label="DesktopEditor - New Spreadsheet" icon="onlyoffice-desktopeditors">/usr/bin/onlyoffice-desktopeditors --new=cell</Program>
+    <Program label="DesktopEditor - New Presentation" icon="onlyoffice-desktopeditors">/usr/bin/onlyoffice-desktopeditors --new=slide</Program>
+    <Program label="TeXstudio" icon="texstudio">texstudio</Program>
+    <Program label="ghostwriter" icon="ghostwriter">ghostwriter</Program>
+    <Program label="skrooge" icon="skrooge">skrooge</Program>
+    <!-- Office end -->
+  </Menu>
+  <Menu label="Settings" icon="applications-system">
+    <Program label="ARandR" icon="video-display">arandr</Program>
+    <Program label="Monitor Settings" icon="video-display">lxrandr</Program>
+    <Program label="Discover Sofware" icon="update-low">plasma-discover</Program>
+    <Program label="Discover Sofware Update" icon="system-software-update">plasma-discover-update</Program>
+    <Program label="Bluetooth Adapters" icon="blueman-device">blueman-adapters</Program>
+    <Program label="Bluetooth Manager" icon="blueman">blueman-manager</Program>
+    <Program label="Add Bluetooth Device" icon="preferences-system-bluetooth">bluedevil-wizard</Program>
+    <Program label="Bluetooth File Transfer" icon="preferences-system-bluetooth">bluedevil-sendfile -k</Program>
+    <Program label="Customize Look and Feel" icon="preferences-desktop-theme">lxappearance</Program>
+    <!-- <Program label="Tint2 Settings" icon="tint2conf">tint2conf</Program> -->
+    <Program label="Qt5 Settings" icon="preferences-desktop-theme">qt5ct</Program>
+    <Program label="Display Configuration" icon="preferences-desktop">systemsettings5</Program>
+    <Program label="IBus Hangul Preferences" icon="ibus-setup-hangul">ibus-setup-hangul</Program>
+    <Program label="IBus Preferences" icon="ibus-setup">ibus-setup</Program>
+    <Program label="Keyboard and Mouse" icon="input-keyboard">lxinput</Program>
+    <!-- Settings end -->
+  </Menu>
+  <Menu label="System" icon="systemsettings">
+    <Program label="Dolphin" icon="system-file-manager">dolphin</Program>
+    <Program label="File Manager PCManFM" icon="system-file-manager">pcmanfm</Program>
+    <Program label="Krusader" icon="krusader_user">krusader -qwindowtitle</Program>
+    <Program label="KDE Partition Manager" icon="partitionmanager">partitionmanager</Program>
+    <Program label="GParted" icon="gparted">/usr/sbin/gparted</Program>
+    <Program label="Htop" icon="htop">htop</Program>
+    <Program label="Info Center" icon="hwinfo">kinfocenter</Program>
+    <Program label="KDiskFree" icon="kdf">kdf</Program>
+    <Program label="KWalletManager" icon="kwalletmanager">kwalletmanager5</Program>
+    <!-- <Program label="Avahi Zeroconf Browser" icon="network-wired">/usr/bin/avahi-discover</Program> -->
+    <Program label="System Monitor" icon="utilities-system-monitor">plasma-systemmonitor</Program>
+    <Program label="Termite" icon="utilities-terminal">termite</Program>
+    <!-- <Program label="Tint2" icon="panel">tint2</Program> -->
+    <Program label="UXTerm" icon="xterm-color_48x48">uxterm</Program>
+    <Program label="XTerm" icon="xterm-color_48x48">xterm</Program>
+    <Program label="urxvt" icon="utilities-terminal">urxvt</Program>
+    <Program label="ranger" icon="file-manager">ranger</Program>
+    <Program label="qps" icon="qps">qps</Program>
+    <!-- System end -->
+  </Menu>
+  <Menu label="Accessories" icon="applications-accessories">
+    <Program label="Diodon" icon="diodon">diodon</Program>
+    <Program label="Klipper" icon="klipper">klipper</Program>
+    <Program label="Dolphin" icon="system-file-manager">dolphin</Program>
+    <Program label="File Manager PCManFM" icon="system-file-manager">pcmanfm</Program>
+    <Program label="Xfburn" icon="stock_xfburn">xfburn</Program>
+    <Program label="Brasero" icon="brasero">brasero</Program>
+    <Program label="nitrogen" icon="nitrogen">nitrogen</Program>
+    <!-- Accessories end -->
+  </Menu>
+  <Menu label="Utility" icon="games-config-options">
+    <Program label="Ark" icon="ark">ark</Program>
+    <Program label="Xarchiver" icon="utilities-file-archiver">xarchiver</Program>
+    <Program label="Configure Printer" icon="printer">configure-printer</Program>
+    <Program label="Filelight" icon="filelight">filelight</Program>
+    <Program label="Font Manager" icon="org.gnome.FontManager">font-manager</Program>
+    <Program label="Font Viewer" icon="org.gnome.FontViewer">/usr/libexec/font-manager/font-viewer</Program>
+    <Program label="KFontView" icon="kfontview">kfontview</Program>
+    <Program label="KCalc" icon="accessories-calculator">kcalc</Program>
+    <Program label="KFind" icon="kfind">kfind</Program>
+    <Program label="Kleopatra" icon="kleopatra">kleopatra</Program>
+    <Program label="KGpg" icon="kgpg">kgpg</Program>
+    <Program label="KMag" icon="kmag">kmag</Program>
+    <Program label="KMouseTool" icon="kmousetool">kmousetool</Program>
+    <Program label="KMouth" icon="kmouth">kmouth</Program>
+    <Program label="KRename" icon="krename">krename -qwindowtitle</Program>
+    <Program label="Mousepad" icon="accessories-text-editor">mousepad</Program>
+    <Program label="KWrite" icon="kwrite">kwrite</Program>
+    <Program label="KDiff3" icon="kdiff3">kdiff3</Program>
+    <Program label="Kompare" icon="kompare">kompare</Program>
+    <Program label="Launch without taking a screenshot" icon="spectacle">spectacle</Program>
+    <Program label="Knotes - New Note" icon="mail-message-new">knotes</Program>
+    <Program label="Okteta" icon="okteta">okteta</Program>
+    <Program label="Smb4K" icon="smb4k">smb4k</Program>
+    <Program label="Sweeper" icon="sweeper">sweeper</Program>
+    <Program label="Tigervnc Viewer" icon="tigervnc">vncviewer</Program>
+    <Program label="Virtualbox" icon="virtualbox">virtualbox</Program>
+    <!-- Utility end -->
+  </Menu>
+  <!-- Menu end -->
+</JWM>
