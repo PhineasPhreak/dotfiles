@@ -24,7 +24,7 @@ Packages : konsole, i3lock, dmenu, rofi
     <!-- The root menu. -->
     <RootMenu height="20" onroot="123">
       <!-- <Include>/etc/jwm/debian-menu</Include> -->
-      <!-- <Include>jwmrc-menu.xml</Include> -->
+      <!-- <Include>.jwm/jwm-menu.xml</Include> -->
       <!-- <Separator/> -->
 
       <Program label="Terminal" tooltip="Open a Terminal" icon="utilities-terminal">konsole</Program>
@@ -148,7 +148,7 @@ Packages : konsole, i3lock, dmenu, rofi
          for icons in multiple paths.
     -->
     <!-- Custom icons path. -->
-    <!-- <Include>jwmrc-icons.xml</Include> -->
+    <!-- <Include>.jwm/jwm-icons.xml</Include> -->
 
     <IconPath>/usr/share/icons/gnome/256x256/actions</IconPath>
     <IconPath>/usr/share/icons/gnome/256x256/apps</IconPath>
