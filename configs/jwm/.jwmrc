@@ -369,10 +369,10 @@ Packages : konsole, i3lock, dmenu, rofi
     <!-- Walkthrough windows with Alt+Tab and Super+Tab -->
     <!-- <Key mask="4" key="Tab">nextstacked</Key> -->
     <!-- <Key mask="A" key="Tab">nextstacked</Key> -->
-    <Key mask="4" key="Tab">nextstacked</Key>
-    <Key mask="4S" key="Tab">prevstacked</Key>
-    <Key mask="A" key="Tab">next</Key>
-    <Key mask="AS" key="Tab">prev</Key>
+    <Key mask="A" key="Tab">nextstacked</Key>
+    <Key mask="AS" key="Tab">prevstacked</Key>
+    <Key mask="4" key="Tab">next</Key>
+    <Key mask="4S" key="Tab">prev</Key>
 
     <!-- Change desktops 4 by defaults -->
     <Key mask="4" key="#">desktop#</Key>
