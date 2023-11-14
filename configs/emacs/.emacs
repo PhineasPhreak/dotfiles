@@ -38,7 +38,7 @@
              '("melpa-stable" . "https://stable.melpa.org/packages/"))
 
 ;; List the packages you want
-;(setq package-list '(use-package markdown-mode auctex))
+;; (setq package-list '(use-package markdown-mode auctex))
 
 
 (custom-set-variables
@@ -137,6 +137,7 @@
   ;(define-key map (kbd "C-z") nil)
   ;(define-key map (kbd "C-x C-z") nil)
 
+  (define-key map (kbd "C-c d") #'kill-whole-line)
   (define-key map (kbd "C-x ,") #'revert-buffer)
   (define-key map (kbd "C-;") #'comment-line)
   (define-key map (kbd "C-x w") #'keyboard-escape-quit)
@@ -162,6 +163,37 @@
   ;(define-key map (kbd "C-c o d") #'dired)
   ;(define-key map (kbd "C-c o f") #'treemacs)
   )
+
+;; Docs: https://www.emacswiki.org/emacs/CopyingWholeLines#h5o-10
+;; Duplicate the current line
+(defun duplicate-current-line (&optional n)
+  "duplicate current line, make more than 1 copy given a numeric argument"
+  (interactive "p")
+  (save-excursion
+    (let ((nb (or n 1))
+    	  (current-line (thing-at-point 'line)))
+      ;; when on last line, insert a newline first
+      (when (or (= 1 (forward-line 1)) (eq (point) (point-max)))
+    	(insert "\n"))
+
+      ;; now insert as many time as requested
+      (while (> n 0)
+    	(insert current-line)
+    	(decf n)))))
+;; Key bindings for duplicate-current-line
+(global-set-key (kbd "C-c w") 'duplicate-current-line)
+
+;; Docs: https://www.emacswiki.org/emacs/CopyingWholeLines#h5o-5
+;; Copy the whole current line
+(defun copy-line (arg)
+  "Copy lines (as many as prefix argument) in the kill ring"
+  (interactive "p")
+  (kill-ring-save (line-beginning-position)
+                  (line-beginning-position (+ 1 arg)))
+  (message "%d line%s copied" arg (if (= 1 arg) "" "s")))
+;; Key bindings for copy-line
+(global-set-key (kbd "C-c c") 'copy-line)
+
 
 ;; Can I use 'y-or-n-p' always, or 'yes-or-no-p' always?
 ;; If you want to use 'y' always, do this.
