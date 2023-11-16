@@ -183,6 +183,7 @@
 ;; Key bindings for duplicate-current-line
 (global-set-key (kbd "C-c w") 'duplicate-current-line)
 
+
 ;; Docs: https://www.emacswiki.org/emacs/CopyingWholeLines#h5o-5
 ;; Copy the whole current line
 (defun copy-line (arg)
@@ -193,6 +194,56 @@
   (message "%d line%s copied" arg (if (= 1 arg) "" "s")))
 ;; Key bindings for copy-line
 (global-set-key (kbd "C-c c") 'copy-line)
+
+
+;; Delete text not kill it into kill-ring
+;; https://www.reddit.com/r/emacs/comments/2ny06e/delete_text_not_kill_it_into_killring/
+;; https://www.reddit.com/r/emacs/comments/2s0hiq/how_can_i_make_backwardkillword_not_save_to_the/
+;; https://www.emacswiki.org/emacs/BackwardDeleteWord
+(defun delete-word (arg)
+  "Delete characters forward until encountering the end of a word.
+With argument, do this that many times.
+This command does not push erased text to kill-ring."
+  (interactive "p")
+  (if (use-region-p)
+      (delete-region (region-beginning) (region-end))
+    (delete-region (point) (progn (forward-word arg) (point)))))
+;; Key bindings for delete-word
+(global-set-key (kbd "M-DEL") 'delete-word)
+
+
+(defun backward-delete-word (arg)
+  "Delete characters backward until encountering the beginning of a word.
+With argument, do this that many times.
+This command does not push erased text to kill-ring."
+  (interactive "p")
+  (delete-word (- arg)))
+;; Key bindings for backward-delete-word
+(global-set-key (kbd "<M-backspace>") 'backward-delete-word)
+
+
+(defun my-delete-line ()
+  "Delete text from current position to end of line char."
+  (interactive)
+  (let (x1 x2)
+    (setq x1 (point))
+    (move-end-of-line 1)
+    (setq x2 (point))
+    (delete-region x1 x2)))
+;; Key bindings for delete-line
+(global-set-key (kbd "M-K") 'my-delete-line)
+
+
+(defun my-delete-line-backward ()
+  "Delete text between the beginning of the line to the cursor position."
+  (interactive)
+  (let (x1 x2)
+    (setq x1 (point))
+    (move-beginning-of-line 1)
+    (setq x2 (point))
+    (delete-region x1 x2)))
+;; Key bindings for delete-line-backward
+(global-set-key (kbd "C-c k") 'my-delete-line-backward)
 
 
 ;; Can I use 'y-or-n-p' always, or 'yes-or-no-p' always?
