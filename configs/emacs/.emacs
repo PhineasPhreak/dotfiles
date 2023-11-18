@@ -61,8 +61,8 @@
  '(set-charset-priority (quote unicode))
  '(show-paren-mode t)
  '(size-indication-mode t)
- '(tool-bar-mode nil))
-
+ '(tool-bar-mode nil)
+ )
 
 ;; No need to see GNU agitprop.
 (setq inhibit-startup-screen t)
@@ -137,6 +137,7 @@
   ;(define-key map (kbd "C-z") nil)
   ;(define-key map (kbd "C-x C-z") nil)
 
+  (define-key map (kbd "C-c a") #'mark-whole-buffer)
   (define-key map (kbd "C-c d") #'kill-whole-line)
   (define-key map (kbd "C-x ,") #'revert-buffer)
   (define-key map (kbd "C-;") #'comment-line)
@@ -209,7 +210,7 @@ This command does not push erased text to kill-ring."
       (delete-region (region-beginning) (region-end))
     (delete-region (point) (progn (forward-word arg) (point)))))
 ;; Key bindings for delete-word
-(global-set-key (kbd "M-DEL") 'delete-word)
+(global-set-key (kbd "<M-delete>") 'delete-word)
 
 
 (defun backward-delete-word (arg)
