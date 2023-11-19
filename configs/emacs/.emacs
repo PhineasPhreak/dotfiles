@@ -210,7 +210,7 @@ This command does not push erased text to kill-ring."
       (delete-region (region-beginning) (region-end))
     (delete-region (point) (progn (forward-word arg) (point)))))
 ;; Key bindings for delete-word
-(global-set-key (kbd "<M-delete>") 'delete-word)
+(global-set-key (kbd "M-<delete>") 'delete-word)
 
 
 (defun backward-delete-word (arg)
@@ -220,7 +220,7 @@ This command does not push erased text to kill-ring."
   (interactive "p")
   (delete-word (- arg)))
 ;; Key bindings for backward-delete-word
-(global-set-key (kbd "<M-backspace>") 'backward-delete-word)
+(global-set-key (kbd "M-<backspace>") 'backward-delete-word)
 
 
 (defun my-delete-line ()
