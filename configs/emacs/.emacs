@@ -251,6 +251,39 @@ This command does not push erased text to kill-ring."
 ;; If you want to use 'y' always, do this.
 (defalias 'yes-or-no-p 'y-or-n-p)
 
+;; https://emacs.stackexchange.com/questions/7151/is-there-a-way-to-detect-that-emacs-is-running-in-a-terminal
+;; https://emacs.stackexchange.com/questions/13050/different-theme-for-nw-terminal
+;; (when (display-graphic-p)
+;;   ;; Do any keybindings and theme setup here
+;;   (load-theme 'wombat t)
+;;   )
+
+;; A way to detect that emacs is running in a terminal
+(unless (display-graphic-p)
+  ;; Remove any keybindings and theme setup here
+  (load-theme 'wombat t)
+
+  ;; Changed the xterm-standard-colors variable
+  ;; (set 'xterm-standard-colors
+  ;;      '(("black"          0 (  0   0   0))
+  ;;        ("red"            1 (255   0   0))
+  ;;        ("green"          2 (  0 255   0))
+  ;;        ("yellow"         3 (255 255   0))
+  ;;        ("blue"           4 (  0   0 255))
+  ;;        ("magenta"        5 (255   0 255))
+  ;;        ("cyan"           6 (  0 255 255))
+  ;;        ("white"          7 (255 255 255))
+  ;;        ("brightblack"    8 (127 127 127))
+  ;;        ("brightred"      9 (255   0   0))
+  ;;        ("brightgreen"   10 (  0 255   0))
+  ;;        ("brightyellow"  11 (255 255   0))
+  ;;        ("brightblue"    12 (92   92 255))
+  ;;        ("brightmagenta" 13 (255   0 255))
+  ;;        ("brightcyan"    14 (  0 255 255))
+  ;;        ("brightwhite"   15 (255 255 255)))
+  ;;      )
+  )
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
