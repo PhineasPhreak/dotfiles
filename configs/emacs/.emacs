@@ -263,6 +263,9 @@ This command does not push erased text to kill-ring."
   ;; Remove any keybindings and theme setup here
   (load-theme 'wombat t)
 
+  ;; Enable mouse support in terminal
+  (xterm-mouse-mode 1)
+
   ;; Changed the xterm-standard-colors variable
   ;; (set 'xterm-standard-colors
   ;;      '(("black"          0 (  0   0   0))
