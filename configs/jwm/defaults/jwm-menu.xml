@@ -62,6 +62,7 @@
     <Program label="Dragon Player" icon="dragonplayer">dragon</Program>
     <Program label="Kwave Sound Editor" icon="kwave">kwave</Program>
     <Program label="JuK" icon="juk">juk</Program>
+    <Program label="Strawberry" icon="strawberry">strawberry</Program>
     <Program label="Elisa" icon="elisa">elisa</Program>
     <Program label="Lollypop" icon="org.gnome.Lollypop">lollypop -p</Program>
     <Program label="Easytag" icon="easytag">easytag</Program>
