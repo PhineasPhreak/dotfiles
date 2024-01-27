@@ -7,6 +7,7 @@ Configuration Files For my Linux System
 * **Xorg, Vim, Emacs, nano, Bash Shell, Sublime Text 4, Firewall, Tmux, Fish, terminator, Rofi, polybar, i3wm, urxvt, PyCharm, ranger, vscode**
 
 Flash OS images to SD cards & USB drives, safely and easily.
+* Rufus : [Rufus](https://rufus.ie/)
 * balenaEtcher : [balenaEtcher](https://www.balena.io/etcher)
 * UNetbootin : [Unetbootin](https://unetbootin.github.io/)
 * gnome-multi-writer : In Ubuntu `source.list` for Gnome desktop
