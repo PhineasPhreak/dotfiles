@@ -1,7 +1,7 @@
 #!/bin/bash
 # cf. https://gitlab.com/bersace/powerline.bash
 # cf. Dernier commit depuis ma modification :
-# Apr 14, 2023 "Accepter une couleur vide" f89d877c2bb456eb9ca72474ef55bdfbf4362088
+# Oct 06, 2023 "Correction icônes MDI pour Nerd Fonts ≥ 3.0.0" 2778c0b0152dff318f86417b3136690258424d70
 #
 # invocation sort équivalent à GNU sort --version-sort --check=quiet
 if ! printf "4.4.12\n%s" "${BASH_VERSION-0}" | sort -n -t . -k 1,1 -k 2,2 -k 3,3 -c 2>/dev/null ; then
@@ -114,7 +114,7 @@ __powerline_init() {
 	# juste avant la sortie de la commande.
 	color="${__powerline_colors[sortie-commande]}"
 	color="${color/#48;/38;}"
-	PS0="${PS0-}\\[\e[${color}m\\]"
+	PS0="\e[${color}m${PS0-}"
 }
 
 
@@ -122,7 +122,7 @@ __powerline_autoicons() {
 	# Configurer les séparateurs
 	local mode
 	# Déclaration de la variable "POWERLINE_ICONS" Pour l'utilisation d'un font en particulier nerd-fonts, etc.
-    #POWERLINE_ICONS="nerd-fonts"
+    # POWERLINE_ICONS="nerd-fonts"
 	mode=${POWERLINE_ICONS-auto}
 	__powerline_icons=(
 		# Par défaut, les valeurs powerline.
@@ -134,7 +134,7 @@ __powerline_autoicons() {
 		[git-detached]="@"
 		[home]="~"
 		[hostname]=""
-		[jobs]="⚙"
+		[jobs]="⚑"
 		[invite]="\\$"
 		[k8s]=$'\u2638 '  # de la police Powerline
 		[newmail]="M"
@@ -253,20 +253,17 @@ __powerline_autoicons() {
 		nerd-fonts)
 			# cf. https://www.nerdfonts.com/cheat-sheet
 			__powerline_icons+=(
-				[architecture]=$'\uFB19'   # nf-mdi-chip
+				[architecture]=$'\UF061A'  # nf-md-chip
 				[docker]=$'\uF308 '        # nf-linux-docker
-				[etckeeper]=$'\uF992 '     # nf-mdi-message_settings
+				[etckeeper]=$'\uF013 '     # nf-fa-gear
 				[fail]=$'\uF071 '          # nf-fa-exclamation_triangle
 				[git-detached]=$'\uF06A '  # nf-fa-exclamation_circle
 				[git]=$'\uE725 '           # nf-dev-git_branch
-				# Icône nerd-fonts pour le "tilde"
-				#[home]=$'\uFC23 '          # nf-md-tilde
-				[home]=$'\uF7DB '          # nf-mdi-home
+				[home]=$'\UF02DC '         # nf-md-home
 				[hostname]=$'\uF015 '      # nf-fa-home
-				[jobs]="⚙"                # Perso
-				[k8s]=$'\uFD31 '           # nf-mdi-ship_wheel
-				[newmail]=$'\uFBCD'        # nf-mdi-email_alert
-				[openstack]=$'\uFCB4 '     # nf-mdi-cloud_tags
+				[k8s]=$'\UF0833 '          # nf-md-ship_wheel
+				[newmail]=$'\UF06CF'       # nf-md-email_alert
+				[openstack]=$'\UF07B6 '    # nf-md-cloud_tags
 				[pwd]=$'\uF07B '           # nf-fa-folder
 				[python]=$'\uE235 '        # nf-fae-python
 
@@ -378,7 +375,7 @@ __powerline_init_colors() {
 		# Les 8 couleurs élémentaires.
 		#
 		[blanc-cassé]="48;5;230"
-		[blanc-gras]="48;5;15;1"
+		[blanc-gras]="1;48;5;15"
 		[blanc]="48;5;15"
 		[bleu-canard]="48;5;31"
 		[bleu-docker]="48;5;39"
@@ -441,7 +438,7 @@ __powerline_init_colors() {
 		[logo-centos-fond]=magenta-centos
 		[logo-centos-texte]=blanc
 
-		[rouge-debian]="48;2;167;12;52;1"  # rouge gras
+		[rouge-debian]="1;48;2;167;12;52"  # rouge gras
 		[logo-debian-fond]=gris-clair4
 		[logo-debian-texte]=rouge-debian
 
@@ -585,7 +582,7 @@ __powerline_init_colors() {
 				# Le script sait transposer en couleur de texte au besoin.
 				[blanc-cassé]="48;5;230"
 				[bleu]="48;5;20"
-				[bleu-gras]="48;5;20;1"
+				[bleu-gras]="1;48;5;20"
 				[bleu-canard]="48;5;31"
 				[bleu-docker]="48;5;39"
 				[bleu-kubernetes]="48;5;27"
@@ -632,6 +629,30 @@ __powerline_init_colors() {
 }
 
 
+__powerline_resolve_color() {
+	local input="$1"
+	name="${input#[[:digit:]];}" # Supprimer la graisse
+	name="${name##[[:digit:]]*}" # Supprimer un code couleur (commence par un chiffre).
+	if [ -z "$name" ] ; then
+		__powerline_retval=("$input")
+	else
+		__powerline_retval=("${input/$name/${__powerline_colors[$name]-badcolor}}")
+	fi
+}
+
+__powerline_foreground_color() {
+	case "$1" in
+		'1;'*)
+			__powerline_retval=("${1/#1;48;/1;38;}")
+			;;
+		'2;'*)
+			__powerline_retval=("${1/#2;48;/2;38;}")
+			;;
+		*)
+			__powerline_retval=("${1/#48;/38;}")
+	esac
+}
+
 __powerline_palette() {
 	local auto ident
 	ident="${COLORTERM:-${OLDTERM:-$TERM}}"
@@ -662,12 +683,13 @@ __powerline_dollar() {
 	local last_exit_code=$1
 	# Déterminer la couleur du dollar
 	if [ "$last_exit_code" -gt 0 ] ; then
-		fg="1;${__powerline_colors[dollar-erreur]/#48;/38;}"
+		__powerline_foreground_color "${__powerline_colors[dollar-erreur]}"
+		fg="1;${__powerline_retval[0]}"
 	else
 		fg="${__powerline_colors[dollar-succes]}"
 	fi
-	color="${__powerline_colors[commande-utilisateur]}"
-	color="${color/#48;/38;}"
+	__powerline_foreground_color "${__powerline_colors[commande-utilisateur]}"
+	color="${__powerline_retval[0]}"
 
 	dollar="${__powerline_icons[invite]}"
 	# Afficher le dollar sur une nouvelle ligne, pas en mode powerline
@@ -713,31 +735,34 @@ __powerline_render_default() {
 		fi
 
 		old_bg=${bg-}
-		bg="${infos[2]%%:}"
-		# Appliquer les alias
-		bg="${__powerline_colors[$bg]-$bg}"
-		# Ignorer les alias inconnus.
-		bg="${bg//[-[:alpha:]]}"
-		fg="${infos[3]%%:}"
-		fg="${__powerline_colors[$fg]-$fg}"
-		fg="${fg//[-[:alpha:]]}"
-		# Basculer fond->texte
-		fg="${fg/#48;/38;}"
+		__powerline_resolve_color "${infos[2]%%:}"
+		bg="${__powerline_retval[0]}"
+		__powerline_resolve_color "${infos[3]%%:}"
+		__powerline_foreground_color "${__powerline_retval[0]}"
+		fg="${__powerline_retval[0]}"
 
-		icon_fg="${icon_fg:-${fg/#1;/}}"
-		icon_fg="${__powerline_colors[$icon_fg]-$icon_fg}"
-		icon_fg="${icon_fg//[-[:alpha:]]}"
-		icon_fg="${icon_fg/#48;/38;}"
+		icon_fg="${icon_fg:-${fg/#1;}}" # Supprimer la graisse
+		icon_fg="${icon_fg/#2;}" # Supprimer la sécheresse
+		__powerline_resolve_color "$icon_fg"
+		__powerline_foreground_color "${__powerline_retval[0]}"
+		icon_fg="${__powerline_retval[0]}"
 
 		# D'abord, afficher le chevron avec la transition de fond.
 		if [ -n "${old_bg}" ] ; then
 			if [ "$bg" = "$old_bg" ]; then
 				# Séparateur léger, même couleurs que le texte.
 				separator="${__powerline_icons[sep-fin]-}"
-				colors="${fg};${bg}"
+				fgsep="$fg"
+				fgsep="${fgsep#1;}" # Supprimer la graisse
+				fgsep="${fgsep#2;}" # Supprimer la sècheresse.
+				colors="$fgsep;$bg"
 			else
 				separator="${__powerline_icons[sep]-}"
-				colors="${old_bg/48;/38;};${bg}"
+				__powerline_foreground_color "$old_bg"
+				fgsep="${__powerline_retval[0]}"
+				fgsep="${fgsep#1;}" # Supprimer la graisse
+				fgsep="${fgsep#2;}" # Supprimer la sècheresse.
+				colors="$fgsep;$bg"
 			fi
 			ps+="\\[\\e[0;${colors}m\\]${separator}"
 		fi
@@ -767,7 +792,9 @@ __powerline_render_default() {
 	# Afficher le dernier chevron, transition du fond vers rien.
 	old_bg=${bg-}
 	if [ -n "${old_bg}" ] ; then
-		ps+="\\[\\e[0;${old_bg/#48;/38;}m\\]${__powerline_icons[sep]-}"
+		__powerline_foreground_color "$old_bg"
+		fgsep="${__powerline_retval[0]}"
+		ps+="\\[\\e[0;${fgsep}m\\]${__powerline_icons[sep]-}"
 	fi
 
 	# Retourner l'invite de commande
@@ -811,24 +838,34 @@ __powerline_render_align_right() {
 		fi
 
 		old_bg=${bg-}
-		bg="${infos[2]%%:}"
-		bg="${__powerline_colors[$bg]-$bg}"
-		fg="${infos[3]%%:}"
-		fg="${__powerline_colors[$fg]-$fg}"
-		fg="${fg/#48;/38;}"
+		__powerline_resolve_color "${infos[2]%%:}"
+		bg="${__powerline_retval[0]}"
+		__powerline_resolve_color "${infos[3]%%:}"
+		__powerline_foreground_color "${__powerline_retval[0]}"
+		fg="${__powerline_retval[0]}"
 
-		icon_fg="${icon_fg:-${fg/#1;/}}"
-		icon_fg="${__powerline_colors[$icon_fg]-$icon_fg}"
-		icon_fg="${icon_fg/#48;/38;}"
+		if [ -n "${icon_fg}" ] ; then
+			__powerline_resolve_color "$icon_fg"
+			__powerline_foreground_color "${__powerline_retval[0]}"
+			icon_fg="${__powerline_retval[0]}"
+		else
+			icon_fg="${icon_fg:-${fg/#1;}}"
+			icon_fg="${fg/#2;}"
+		fi
 
 		# D'abord, afficher le chevron avec la transition de fond.
 		if [ "$bg" = "$old_bg" ] ; then
 			# Séparateur léger, même couleurs que le texte
 			separator="${__powerline_icons[sep-fin]}"
-			colors="${fg};${bg}"
+			fgsep="${fg#1;}"
+			fgsep="${fgsep#2;}"
+			colors="$fgsep;$bg"
 		else
 			separator="${__powerline_icons[sep]}"
-			colors="${bg/48;/38;};${old_bg}"
+			__powerline_foreground_color "$bg"
+			fgsep="${__powerline_retval[0]#1;}"
+			fgsep="${fgsep#2;}"
+			colors="$fgsep;$old_bg"
 		fi
 		ps+="\\[\\e[0;${colors%;}m\\]${separator}"
 		raw_ps+="$separator"
@@ -872,7 +909,7 @@ __powerline_render_align_right() {
 # S E G M E N T S
 
 # Un segment est une fonction bash préfixé par `__powerline_segment_`. Le
-# retour est un tableau contenant des chaînes au format :
+# retour est un tableau contenant des chaînes au format :
 # `<couleur-icône>:<icône>:<couleur-fond>:<couleur-texte>:<texte>`. Chaque
 # chaîne correspond à un segment.
 
@@ -1179,7 +1216,7 @@ __powerline_segment_git_sync() {
 # Analye git status --porcelain=v2
 __powerline_parse_git_status_v2() {
 	local status="$1"
-	# Le retour de la fonction : sha, name, upstream, ahead/behind
+	# Le retour de la fonction : sha, name, upstream, ahead/behind
 	local branch_infos=()
 	local dirty=
 	local ab
@@ -1613,7 +1650,7 @@ __powerline_segment_pwd() {
 	local short_pwd
 	local icon
 
-	__powerline_shorten_dir "$(dirs +0)"
+	"__powerline_shorten_dir_${POWERLINE_PWD_SHORTENING-initiale}" "$PWD"
 	local short_pwd="${__powerline_retval[0]}"
 
 	# Affichage de la branche "/" dans le prompt
@@ -1626,7 +1663,14 @@ __powerline_segment_pwd() {
 	fi
 
 	__powerline_retval=()
-	for part in "${parts[@]}" ; do
+	for i in "${!parts[@]}" ; do
+		part="${parts[$i]}"
+		if [ "$((i+1))" -eq "${#parts[@]}" ] ; then
+			graisse=1
+		else
+			graisse=2
+		fi
+
 		if [ "${part}" = '~' ] ; then
 			icon="home"
 			part=
@@ -1646,7 +1690,7 @@ __powerline_segment_pwd() {
 			fi
 		else
 			icon=
-			colors="pwd-fond:pwd-texte"
+			colors="pwd-fond:$graisse;pwd-texte"
 		fi
 		__powerline_retval+=(":$icon:$colors:$part")
 	done
@@ -1829,9 +1873,11 @@ __powerline_hsl2rgb() {
 
 
 # Abrège les dossiers intermédiaires pour raccourcir le chemine complet.
-__powerline_shorten_dir() {
-	local short_pwd
+__powerline_shorten_dir_initiale() {
+	local short_pwd=
 	local dir="$1"
+
+	dir="${dir/$HOME/'~'}"  # Abbréger home avec ~
 
 	__powerline_split / "${dir##/}"
 	dir_parts=("${__powerline_retval[@]}")
@@ -1844,18 +1890,9 @@ __powerline_shorten_dir() {
 	fi
 	# Leave the last 2 part parts alone.
 	local last_index="$(( number_of_parts - 3 ))"
-	local short_pwd=""
-
-	# Check for a leading slash.
-	if [[ "${dir:0:1}" == "/" ]]; then
-		# If there is a leading slash, add one to `short_pwd`.
-		short_pwd+='/'
-	fi
 
 	for i in "${!dir_parts[@]}"; do
-		# Append a '/' before we do anything (provided this isn't the
-		# first part).
-		if [[ "$i" -gt "0" ]]; then
+		if ! [ '~' = "${dir_parts[$i]}" ] ; then
 			short_pwd+='/'
 		fi
 
@@ -1869,6 +1906,35 @@ __powerline_shorten_dir() {
 			# the middle like this.
 			short_pwd+="${dir_parts[i]:0:1}"
 		fi
+	done
+
+	__powerline_retval=("$short_pwd")
+}
+
+__powerline_shorten_dir_ellipse() {
+	local short_pwd=
+	local dir="$1"
+
+	dir="${dir/$HOME/'~'}"  # Abbréger home avec ~
+
+	__powerline_split / "${dir##/}"
+	dir_parts=("${__powerline_retval[@]}")
+	local number_of_parts=${#dir_parts[@]}
+
+	# Ne pas abbréger les chemins de moins de 5 segments
+	if [[ "$number_of_parts" -lt "5" ]]; then
+		__powerline_retval=("${dir}")
+		return
+	fi
+	# Laisser les deux derniers dossiers.
+	local last_index="$(( number_of_parts - 2 ))"
+
+	for part in "${dir_parts[@]:0:2}" $'\u2026' "${dir_parts[@]:$last_index}"; do
+		if ! [ '~' = "$part" ] ; then
+			short_pwd+=/
+		fi
+
+		short_pwd+="$part"
 	done
 
 	# Return the resulting short pwd.
