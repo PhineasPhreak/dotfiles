@@ -5,8 +5,7 @@
 #
 
 # Make vim the default editor
-export EDITOR='vim'
-export EDITOR='vim'
+export EDITOR='emacs'
 
 # shopt
 shopt -s autocd # change to named directory
@@ -111,6 +110,9 @@ alias psa='ps auxf'
 # show command "jobs" in list format
 alias jobs='jobs -l'
 
+# launch emacs in terminal
+alias temacs='emacs -nw'
+
 # shorcut 'apt' or 'apt-get'
 alias update='sudo apt-get update'
 alias install-package='sudo apt-get install $argv'
@@ -159,6 +161,6 @@ bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
 bind '"\C-H": shell-backward-kill-word'  # CTRL+Backspace
 
-#ignore upper and lowercase when TAB completion
+# ignore upper and lowercase when TAB completion
 bind "set completion-ignore-case on"
 
