@@ -7,7 +7,7 @@
 
 Create, view and edit terminal colorschemes use : [terminal.sexy](https://terminal.sexy/) | [github-terminal.sexy](https://github.com/stayradiated/terminal.sexy)
 
-## Aliases in Terminal 
+## Aliases in Terminal
 Copy this to `~/.bash_aliases` </br>
 Add Aliases definition to `.bashrc`
 ```bash
@@ -43,13 +43,6 @@ A `bash` prompt that displays information about the current git repository. In p
 
 ## Color in Terminal
 Color numbers 0–255 for terminal emulators compatible with xterm 256 colors can be found in the [xterm-256color chart](https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg)
-
-## History completion
-You can bind the up and down arrow keys to search through Bash's history. In `~/.bashrc`
-```bash
-bind '"\e[A": history-search-backward'
-bind '"\e[B": history-search-forward'
-```
 
 ## Powerline Installation
 **Documentation for Powerline : [HTML - Read The Docs](https://powerline.readthedocs.io/en/master/)** | **[PDF - Read The Docs](https://media.readthedocs.org/pdf/powerline/stable/powerline.pdf)**</br>
