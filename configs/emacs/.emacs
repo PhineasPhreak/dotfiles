@@ -30,6 +30,10 @@
 ;; Activate all the packages (in particular autoloads)
 (package-initialize)
 
+;; This code starts the server only if it's not running
+;; (load "server")
+;; (unless (server-running-p) (server-start))
+
 ;; Additional package archives such as MELPA exist to supplement what is in GnuELPA.
 ;; From: https://www.emacswiki.org/emacs/MELPA
 ;; List the repositories containing them
