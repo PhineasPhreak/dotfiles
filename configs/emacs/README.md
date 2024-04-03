@@ -19,8 +19,8 @@ To see how to add other directories, see the [emacs.wiki](https://www.emacswiki.
 To install one or more packages, press `M+x` (Alt+x) in Emacs, then type the `list-packages` command. Select the packages you wish to install.
 
 - Packages :
-  `csv-mode` : Major mode for editing comma/char separated values
-  `markdown-mode` : Major mode for Markdown-formatted text
+  - `csv-mode` : Major mode for editing comma/char separated values
+  - `markdown-mode` : Major mode for Markdown-formatted text
 
 ## How do I remove the gap around maximized Emacs frame on KDE?
 Link question : [here](https://askubuntu.com/questions/787694/how-do-i-remove-the-gap-around-maximized-emacs-frame-on-kde)
