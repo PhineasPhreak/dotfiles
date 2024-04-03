@@ -3,7 +3,7 @@
 
 The [EmacsWiki](https://www.emacswiki.org/emacs/SiteMap) is dedicated to documenting and discussing [EmacsAndXEmacs](https://www.emacswiki.org/emacs/EmacsAndXEmacs) and [EmacsLisp](https://www.emacswiki.org/emacs/EmacsLisp). See the [MissionStatement](https://www.emacswiki.org/emacs/MissionStatement) for more information.
 
-## Installation
+## Installing the configuration file
 * Linux :
 
   Copy `.emacs` in your home directory
@@ -11,6 +11,16 @@ The [EmacsWiki](https://www.emacswiki.org/emacs/SiteMap) is dedicated to documen
 * Windows :
 
   Copy `.emacs` in `C:\Users\<username>\AppData\Roaming`
+
+## Installing packages
+The *melpa-stable* directory has already been added to the `.emacs` configuration file.
+To see how to add other directories, see the [emacs.wiki](https://www.emacswiki.org/emacs/MELPA) and the list of [melpa-stable](https://stable.melpa.org/#/) and [melpa](https://melpa.org/#/) packages.
+
+To install one or more packages, press `M+x` (Alt+x) in Emacs, then type the `list-packages` command. Select the packages you wish to install.
+
+- Packages :
+  `csv-mode` : Major mode for editing comma/char separated values
+  `markdown-mode` : Major mode for Markdown-formatted text
 
 ## How do I remove the gap around maximized Emacs frame on KDE?
 Link question : [here](https://askubuntu.com/questions/787694/how-do-i-remove-the-gap-around-maximized-emacs-frame-on-kde)
