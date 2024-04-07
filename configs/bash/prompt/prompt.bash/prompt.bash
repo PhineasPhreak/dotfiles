@@ -1,4 +1,5 @@
-#! /bin/bash
+#! /usr/bin/env bash
+#
 # Merge of
 # https://github.com/b-ryan/powerline-shell/ and
 # https://github.com/skeswa/prompt and
@@ -49,7 +50,7 @@ fi
 # Set the user-host color. Defaults to blue. It can be overwritten by
 # `PROMPT_USERHOST_COLOR`.
 if [ $UID -ne 0 ]; then
-  # For simple user 
+  # For simple user
   __prompt_userhost_color="${__prompt_color_prefix}${__prompt_256_prefix}76${__prompt_color_suffix}"
   if ! [[ -z $PROMPT_USERHOST_COLOR ]]; then
     __prompt_userhost_color="${__prompt_color_prefix}${PROMPT_USERHOST_COLOR}${__prompt_color_suffix}"
@@ -206,7 +207,7 @@ function __prompt_segment_jobs() {
   #local jobsnum="$(jobs -p | wc -l)"
 
   # Compte le nombre de "jobs" avec un meilleur affichage pour le terminal
-  # car il permet de choisir uniquement les process "Running" et "Stopped" 
+  # car il permet de choisir uniquement les process "Running" et "Stopped"
   # et d'enlever les autres "Terminated" et "Done" qui ne sont pas important.
   local jobsnum=$(jobs -l | awk -F" " '{ print $3 }' | grep -E 'Running|Stopped' | wc -l)
 
