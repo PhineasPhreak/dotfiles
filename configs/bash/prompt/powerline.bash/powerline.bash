@@ -3,6 +3,15 @@
 # cf. Dernier commit depuis ma modification :
 # Mar 04, 2024 "docker: Déterminer le projet depuis le premier compose.yml" 892c3c5b4c703a3d3aeb53ccd280a2267fd5f0b1
 #
+# Merge of
+# https://gitlab.com/bersace/powerline.bash
+# https://github.com/b-ryan/powerline-shell/
+# https://github.com/skeswa/prompt
+# https://gist.github.com/sminez/11fe5d763a9e9e63be5d836715c6425c
+# Modified by phinasphreak
+#
+# Pour explorer davantage d'icônes natif au système, utilisez "kcharselct" sous KDE.
+# Others icon "⚑","⇣", "⇡", "⬇", "⬆", "★", "●", "✖", "✚", "…", "", "✼", "✔", "✎", "❒", "⚙", "⏯", "🮥", "🮼", "🙷"
 
 __powerline_min_bash_version=4.2.46  # RHEL7
 # invocation sort équivalent à GNU sort --version-sort --check=quiet
@@ -21,16 +30,6 @@ fi
 # sans passer par un sous-shell. Cela optimise énormément les performances.
 # Cette valeur doit toujours être un tableau, contenant une seule valeur si la
 # fonction retourne un scalaire.
-#
-# Merge of
-# https://gitlab.com/bersace/powerline.bash
-# https://github.com/b-ryan/powerline-shell/
-# https://github.com/skeswa/prompt
-# https://gist.github.com/sminez/11fe5d763a9e9e63be5d836715c6425c
-# Modified by phinasphreak
-#
-# Others icon "⚑","⇣", "⇡", "⬇", "⬆", "★", "●", "✖", "✚", "…", "", "✼", "✔", "✎", "⚙"
-
 __powerline_retval=()
 
 declare -A __powerline_colors
