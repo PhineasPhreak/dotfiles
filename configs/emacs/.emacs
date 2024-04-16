@@ -41,6 +41,13 @@
 (add-to-list 'package-archives
              '("melpa-stable" . "https://stable.melpa.org/packages/"))
 
+;; Start the initial frame maximized
+;; https://emacsredux.com/blog/2020/12/04/maximize-the-emacs-frame-on-startup/
+;; (add-to-list 'initial-frame-alist '(fullscreen . maximized))
+;;
+;; Start every frame maximized
+;; (add-to-list 'default-frame-alist '(fullscreen . maximized))
+
 ;; List the packages you want
 ;; (setq package-list '(use-package markdown-mode auctex))
 
@@ -56,7 +63,6 @@
  '(custom-enabled-themes '(wombat))
  '(delete-selection-mode t)
  '(global-display-line-numbers-mode t)
- '(inhibit-startup-screen t)
  '(package-selected-packages '(markdown-mode))
  '(prefer-coding-system 'utf-8-unix)
  '(save-place-mode t)
@@ -71,7 +77,17 @@
 ;; No need to see GNU agitprop.
 (setq inhibit-startup-screen t)
 
-;; No need to remind me what a scratch buffer is.
+;; Set the initial major-mode in text-mode
+(setq initial-major-mode 'text-mode)
+
+;; https://emacsredux.com/blog/2014/07/25/configure-the-scratch-buffers-mode/
+;; Custom the buffer’s initial contents, or 'nil' for nothing.
+;; (setq initial-scratch-message "\
+;; # This buffer is for notes you don't want to save, and for code or just text.
+;; # If you want to create a file, visit that file with C-x C-f,
+;; # then enter the text in that file's own buffer.\n\n")
+;;
+;; Or, no need to remind me what a scratch buffer is.
 (setq initial-scratch-message nil)
 
 ;; Turn on visible bell
@@ -81,7 +97,7 @@
 (setq ring-bell-function 'ignore)
 
 ;; Search should be case-sensitive by default
-;(setq case-fold-search nil)
+;; (setq case-fold-search nil)
 
 ;; Accept 'y' or 'n' instead of yes/no
 ;; the documentation advises against setting this variable
