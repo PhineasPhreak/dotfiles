@@ -185,6 +185,14 @@
   ;(define-key map (kbd "C-c o f") #'treemacs)
   )
 
+;; https://www.emacswiki.org/emacs/WindowResize
+;; Here is a very simple suggestion to make them more accessible.
+(global-set-key (kbd "S-C-<left>") 'shrink-window-horizontally)
+(global-set-key (kbd "S-C-<right>") 'enlarge-window-horizontally)
+(global-set-key (kbd "S-C-<down>") 'shrink-window)
+(global-set-key (kbd "S-C-<up>") 'enlarge-window)
+
+
 ;; Docs: https://www.emacswiki.org/emacs/CopyingWholeLines#h5o-10
 ;; Duplicate the current line
 (defun duplicate-current-line (&optional n)
