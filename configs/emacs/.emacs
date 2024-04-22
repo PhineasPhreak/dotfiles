@@ -6,6 +6,9 @@
 ;; Emacs Wiki :
 ;; https://www.emacswiki.org/emacs/SiteMap
 ;;
+;; Emacs Configuration Generator :
+;; https://emacs.amodernist.com/
+;;
 ;; Info :
 ;; More information about Variable use C-h v <variable> for help.
 ;;
@@ -16,8 +19,8 @@
 ;;   https://irfu.cea.fr/Pisp/vianney.lebouteiller/emacs.html
 ;; - Kevin Borling <https://github.com/kborling>
 ;;   https://gist.github.com/kborling/13f2300e60ae4878d5d96f5f4d041664
-
-
+;;
+;;
 ;; Packages :
 ;; Added by Package.el. This must come before configurations of
 ;; installed packages. Don't delete this line. If you don't want it,
@@ -26,6 +29,9 @@
 ;;
 ;; The most common method of installing packages of Emacs Lisp
 ;; From: https://www.emacswiki.org/emacs/InstallingPackages
+;; My common packages list (See README.md) :
+;; (company, markdown-mode, csv-mode, shell-pop, auctex, eglot, flycheck, pyvenv)
+
 
 ;; Activate all the packages (in particular autoloads)
 (package-initialize)
@@ -48,9 +54,10 @@
 ;; Start every frame maximized
 ;; (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
-;; List the packages you want
-;; (setq package-list '(use-package markdown-mode auctex))
-
+;; Store automatic customisation options elsewhere
+(setq custom-file (locate-user-emacs-file "custom.el"))
+(when (file-exists-p custom-file)
+  (load custom-file))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -80,7 +87,7 @@
 ;; Set the initial major-mode in text-mode
 (setq initial-major-mode 'text-mode)
 
-;; https://emacsredux.com/blog/2014/07/25/configure-the-scratch-buffers-mode/
+;; Docs : https://emacsredux.com/blog/2014/07/25/configure-the-scratch-buffers-mode/
 ;; Custom the buffer’s initial contents, or 'nil' for nothing.
 ;; (setq initial-scratch-message "\
 ;; # This buffer is for notes you don't want to save, and for code or just text.
@@ -89,6 +96,9 @@
 ;;
 ;; Or, no need to remind me what a scratch buffer is.
 (setq initial-scratch-message nil)
+
+;; Automatically pair parentheses
+(electric-pair-mode t)
 
 ;; Turn on visible bell
 (setq visible-bell t)
