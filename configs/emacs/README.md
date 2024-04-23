@@ -3,12 +3,15 @@
 
 The [EmacsWiki](https://www.emacswiki.org/emacs/SiteMap) is dedicated to documenting and discussing [EmacsAndXEmacs](https://www.emacswiki.org/emacs/EmacsAndXEmacs) and [EmacsLisp](https://www.emacswiki.org/emacs/EmacsLisp). See the [MissionStatement](https://www.emacswiki.org/emacs/MissionStatement) for more information.
 
+Emacs Configuration Generator : [here](https://emacs.amodernist.com/)
+
 ## Installing the configuration file
-* Linux :
+- **Linux :**
 
   Copy `.emacs` in your home directory
+  Copy `custom.el` in your emacs config directory `~/.emacs.d/`
 
-* Windows :
+- **Windows :**
 
   Copy `.emacs` in `C:\Users\<username>\AppData\Roaming`
 
@@ -18,17 +21,19 @@ To see how to add other directories, see the [emacs.wiki](https://www.emacswiki.
 
 To install one or more packages, press `M+x` (Alt+x) in Emacs, then type the `list-packages` command. Select the packages you wish to install.
 
-- Packages :
-  - Themes :
-    - `atom-one-dark-theme-0.4.0` : An Emacs port of the Atom One Dark theme from Atom.io.
+**Packages :**
 
-  - Mode :
-    - `csv-mode` : Major mode for editing comma/char separated values
-    - `markdown-mode` : Major mode for Markdown-formatted text
-    - `auctex` : Integrated environment for *TeX*
-    - `shell-pop` : helps you to use shell easily on Emacs. Only one key action to work [Github](https://github.com/kyagi/shell-pop-el)
-    - `company` : Modular in-buffer completion framework for Emacs [Site](https://company-mode.github.io/)|[Github](https://github.com/company-mode/company-mode)
-    - `eglot` : The Emacs Client for LSP servers [Github](https://github.com/joaotavora/eglot)
+- Themes :
+  - `atom-one-dark-theme-0.4.0` : An Emacs port of the Atom One Dark theme from Atom.io.
+
+- Mode :
+  - `csv-mode` : Major mode for editing comma/char separated values
+  - `markdown-mode` : Major mode for Markdown-formatted text
+  - `auctex` : Integrated environment for *TeX*
+  - `shell-pop` : helps you to use shell easily on Emacs. Only one key action to work [Github](https://github.com/kyagi/shell-pop-el)
+  - `company` : Modular in-buffer completion framework for Emacs [Site](https://company-mode.github.io/)|[Github](https://github.com/company-mode/company-mode)
+  - `flycheck` : Syntax checking for GNU Emacs [Site](https://www.flycheck.org/en/latest/)
+  - `eglot` : The Emacs Client for LSP servers [Github](https://github.com/joaotavora/eglot)
 
 ## How do I remove the gap around maximized Emacs frame on KDE?
 Link question : [here](https://askubuntu.com/questions/787694/how-do-i-remove-the-gap-around-maximized-emacs-frame-on-kde)
