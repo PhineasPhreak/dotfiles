@@ -40,12 +40,14 @@
 ;; (load "server")
 ;; (unless (server-running-p) (server-start))
 
+;; List the repositories containing them ("gnu" by default)
+(require 'package)
+;; Installed by default from Emacs 28 onwards
+(add-to-list 'package-archives '("nongnu" . "https://elpa.nongnu.org/nongnu/"))
+
 ;; Additional package archives such as MELPA exist to supplement what is in GnuELPA.
 ;; From: https://www.emacswiki.org/emacs/MELPA
-;; List the repositories containing them
-(require 'package)
-(add-to-list 'package-archives
-             '("melpa-stable" . "https://stable.melpa.org/packages/"))
+(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
 
 ;; Start the initial frame maximized
 ;; https://emacsredux.com/blog/2020/12/04/maximize-the-emacs-frame-on-startup/
@@ -54,31 +56,13 @@
 ;; Start every frame maximized
 ;; (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
-;; Store automatic customisation options elsewhere
-(setq custom-file (locate-user-emacs-file "custom.el"))
-(when (file-exists-p custom-file)
-  (load custom-file))
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ansi-color-faces-vector
-   [default default default italic underline success warning error])
- '(column-number-mode t)
  '(custom-enabled-themes '(wombat))
- '(delete-selection-mode t)
- '(global-display-line-numbers-mode t)
  '(package-selected-packages '(markdown-mode))
- '(prefer-coding-system 'utf-8-unix)
- '(save-place-mode t)
- '(savehist-mode nil)
- ;; '(scroll-margin 7)
- '(set-charset-priority 'unicode)
- '(show-paren-mode t)
- '(size-indication-mode t)
- '(tool-bar-mode nil)
  )
 
 ;; No need to see GNU agitprop.
@@ -97,8 +81,58 @@
 ;; Or, no need to remind me what a scratch buffer is.
 (setq initial-scratch-message nil)
 
+;; Faces used for SGR control sequences determining a face
+(setq ansi-color-faces-vector
+      [default default default italic underline success warning error])
+
+;; Colors used for SGR control sequences determining a color
+(setq ansi-color-names-vector
+      ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
+
+;; Number of lines and margin at the top and bottom of a window
+;; (setq scroll-margin 7)
+
+;; Toggle column number display in the mode line (Column Number mode)
+(setq column-number-mode t)
+
+;; Toggle Delete Selection mode
+(setq delete-selection-mode t)
+
+;; Toggle Display-Line-Numbers mode in all buffers
+(setq global-display-line-numbers-mode t)
+
+;; If non-nil, the dictionary to be used for Ispell commands in this buffer
+(setq ispell-dictionary nil)
+
+;; Save place in history file
+(setq save-place-mode t)
+
+;; Toggle saving of minibuffer history (Savehist mode)
+(setq savehist-mode nil)
+
+;; Toggle visualization of matching parens (Show Paren mode)
+(setq show-paren-mode t)
+
+;; Toggle buffer size display in the mode line (Size Indication mode)
+(setq size-indication-mode t)
+
+;; Toggle display of a menu bar on each frame (Menu Bar mode)
+;; (setq menu-bar-mode nil)
+
+;; Toggle the tool bar in all graphical frames (Tool Bar mode)
+(setq tool-bar-mode nil)
+
+;; Specify whether to have vertical scroll bars, and on which side.
+;; (setq scroll-bar-mode nil)
+
 ;; Automatically pair parentheses
 (electric-pair-mode t)
+
+;; Prefer coding system
+(prefer-coding-system 'utf-8)
+
+;; Assign higher priority to the charsets given as arguments
+(set-charset-priority 'unicode)
 
 ;; Turn on visible bell
 (setq visible-bell t)
@@ -334,6 +368,11 @@ This command does not push erased text to kill-ring."
 
 ;; Switch focus after buffer split in emacs.
 ;; Unfortunately, though, this has the side-effect of selecting the *Completions* buffer when you hit TAB in the minibuffer.
-;(defadvice split-window (after move-point-to-new-window activate)
-;  "Moves the point to the newly created window after splitting."
-;  (other-window 1))
+;; (defadvice split-window (after move-point-to-new-window activate)
+;;   "Moves the point to the newly created window after splitting."
+;;   (other-window 1))
+
+;; Store automatic customisation options elsewhere
+(setq custom-file (locate-user-emacs-file "custom.el"))
+(when (file-exists-p custom-file)
+  (load custom-file))
