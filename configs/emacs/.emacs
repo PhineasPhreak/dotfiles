@@ -61,9 +61,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes '(wombat))
- '(package-selected-packages '(markdown-mode))
  )
+
+;; Load default theme
+(load-theme 'wombat t)
 
 ;; No need to see GNU agitprop.
 (setq inhibit-startup-screen t)
