@@ -8,12 +8,13 @@ Emacs Configuration Generator : [here](https://emacs.amodernist.com/)
 ## Installing the configuration file
 - **Linux :**
 
-  Copy `.emacs` in your home directory
-  Copy `custom.el` in your emacs config directory `~/.emacs.d/`
+    Copy `.emacs` in your home directory
+
+    Copy `custom.el` in your emacs config directory `~/.emacs.d/`
 
 - **Windows :**
 
-  Copy `.emacs` in `C:\Users\<username>\AppData\Roaming`
+    Copy `.emacs` in `C:\Users\<username>\AppData\Roaming`
 
 ## Installing packages
 The *melpa-stable* directory has already been added to the `.emacs` configuration file.

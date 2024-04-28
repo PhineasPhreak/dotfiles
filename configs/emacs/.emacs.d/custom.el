@@ -61,9 +61,19 @@
 (custom-set-faces
  '(flymake-warning ((t nil)))
  )
+
+;; EDITORCONFIG
+;; editorconfig mode is enable
+;; (editorconfig-mode t)
+
 ;; COMPANY
-(global-company-mode 1)
+;; Global company mode is enable
+(global-company-mode t)
+
+;; The idle delay in seconds until completion starts automatically
 (setq company-idle-delay 0.1)
+
+;; The minimum prefix lenght for idle completion
 (setq company-minimum-prefix-length 1)
 
 ;; PYTHON
