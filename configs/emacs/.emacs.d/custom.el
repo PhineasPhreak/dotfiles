@@ -43,6 +43,8 @@
 
 ;; CUSTOM VARIABLES
 (custom-set-variables
+ '(shell-pop-window-size 50)
+ '(shell-pop-window-position "right")
  '(shell-pop-autocd-to-working-dir t)
  '(shell-pop-cleanup-buffer-at-process-exit t)
  '(shell-pop-full-span t)
@@ -53,8 +55,6 @@
        (ansi-term shell-pop-term-shell))))
  '(shell-pop-term-shell "/bin/bash")
  '(shell-pop-universal-key "C-c t")
- '(shell-pop-window-position "right")
- '(shell-pop-window-size 50)
  )
 
 ;; CUSTOM FACES
