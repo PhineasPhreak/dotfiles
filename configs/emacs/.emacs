@@ -66,6 +66,9 @@
 ;; Load default theme
 (load-theme 'wombat t)
 
+;; Set default font face
+(set-face-attribute 'default nil :font "JetBrains Mono")
+
 ;; No need to see GNU agitprop.
 (setq inhibit-startup-screen t)
 
@@ -365,7 +368,7 @@ This command does not push erased text to kill-ring."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Source Code Pro" :foundry "ADBO" :slant normal :weight semi-bold :height 134 :width normal)))))
+ )
 
 ;; Switch focus after buffer split in emacs.
 ;; Unfortunately, though, this has the side-effect of selecting the *Completions* buffer when you hit TAB in the minibuffer.
