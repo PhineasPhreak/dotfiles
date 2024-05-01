@@ -183,19 +183,25 @@
 ;; When switch the buffer make case-insensitive
 (setq read-buffer-completion-ignore-case t)
 
+;;
 ;; Indentation
-(setq-default indent-tabs-mode nil
-              tab-stop-list    ()
-              tab-width        4)
-
+;;
+;; Never mix tabs and spaces. Never use tabs, period.
+;; We need the setq-default here because this becomes
+;; a buffer-local variable when set.
 (setq-default
- ;; Never mix tabs and spaces. Never use tabs, period.
- ;; We need the setq-default here because this becomes
- ;; a buffer-local variable when set.
- ;indent-tabs-mode nil
-
+ indent-tabs-mode nil
  ;; Simple mode to highlight trailing whitespaces
- show-trailing-whitespace t)
+ show-trailing-whitespace t
+ tab-stop-list    ()
+ tab-width        4
+ )
+
+;; Switch focus after buffer split in emacs.
+;; Unfortunately, though, this has the side-effect of selecting the *Completions* buffer when you hit TAB in the minibuffer.
+;; (defadvice split-window (after move-point-to-new-window activate)
+;;   "Moves the point to the newly created window after splitting."
+;;   (other-window 1))
 
 ;;
 ;; Keybindings
@@ -327,6 +333,18 @@ This command does not push erased text to kill-ring."
 ;; If you want to use 'y' always, do this.
 (defalias 'yes-or-no-p 'y-or-n-p)
 
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+;; Store automatic customisation options elsewhere
+(setq custom-file (locate-user-emacs-file "custom.el"))
+(when (file-exists-p custom-file)
+  (load custom-file))
+
 ;; https://emacs.stackexchange.com/questions/7151/is-there-a-way-to-detect-that-emacs-is-running-in-a-terminal
 ;; https://emacs.stackexchange.com/questions/13050/different-theme-for-nw-terminal
 ;; (when (display-graphic-p)
@@ -362,21 +380,3 @@ This command does not push erased text to kill-ring."
   ;;        ("brightwhite"   15 (255 255 255)))
   ;;      )
   )
-
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
-
-;; Switch focus after buffer split in emacs.
-;; Unfortunately, though, this has the side-effect of selecting the *Completions* buffer when you hit TAB in the minibuffer.
-;; (defadvice split-window (after move-point-to-new-window activate)
-;;   "Moves the point to the newly created window after splitting."
-;;   (other-window 1))
-
-;; Store automatic customisation options elsewhere
-(setq custom-file (locate-user-emacs-file "custom.el"))
-(when (file-exists-p custom-file)
-  (load custom-file))
