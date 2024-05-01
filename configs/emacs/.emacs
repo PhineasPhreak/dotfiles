@@ -4,21 +4,24 @@
 ;; PhineasPhreak (AS PSPK)
 ;;
 ;; Emacs Wiki :
-;; https://www.emacswiki.org/emacs/SiteMap
+;; - https://www.emacswiki.org/emacs/SiteMap
 ;;
 ;; Emacs Configuration Generator :
-;; https://emacs.amodernist.com/
+;; - https://emacs.amodernist.com/
 ;;
 ;; Info :
 ;; More information about Variable use C-h v <variable> for help.
+;; More information about Function use C-h f <function> for help.
 ;;
 ;; Example :
 ;; - Smart Configuration for Emacs :
 ;;   https://github.com/patrickt/emacs
-;; - Everything with Emacs
+;; - Everything with Emacs :
 ;;   https://irfu.cea.fr/Pisp/vianney.lebouteiller/emacs.html
 ;; - Kevin Borling <https://github.com/kborling>
 ;;   https://gist.github.com/kborling/13f2300e60ae4878d5d96f5f4d041664
+;; - The best way to open remote file :
+;;   https://www.gnu.org/software/emacs/manual/html_node/emacs/Remote-Files.html
 ;;
 ;;
 ;; Packages :
