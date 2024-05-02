@@ -27,6 +27,7 @@
     <Program label="Darktable" icon="darktable">darktable</Program>
     <Program label="Gpick" icon="gpick">gpick</Program>
     <Program label="KColorChooser" icon="kcolorchooser">kcolorchooser</Program>
+    <Program label="KolourPaint" icon="kolourpaint">kolourpaint</Program>
     <Program label="Gwenview" icon="gwenview">gwenview</Program>
     <Program label="Kdenlive" icon="kdenlive">kdenlive</Program>
     <Program label="OBS Studio" icon="com.obsproject.Studio">obs</Program>
@@ -85,6 +86,7 @@
     <Program label="DesktopEditor - New Document" icon="onlyoffice-desktopeditors">/usr/bin/onlyoffice-desktopeditors --new=doc</Program>
     <Program label="DesktopEditor - New Spreadsheet" icon="onlyoffice-desktopeditors">/usr/bin/onlyoffice-desktopeditors --new=cell</Program>
     <Program label="DesktopEditor - New Presentation" icon="onlyoffice-desktopeditors">/usr/bin/onlyoffice-desktopeditors --new=slide</Program>
+    <Program label="Kile" icon="kile">kile</Program>
     <Program label="TeXstudio" icon="texstudio">texstudio</Program>
     <Program label="ghostwriter" icon="ghostwriter">ghostwriter</Program>
     <Program label="skrooge" icon="skrooge">skrooge</Program>
@@ -136,6 +138,7 @@
     <Program label="File Manager PCManFM" icon="system-file-manager">pcmanfm</Program>
     <Program label="Xfburn" icon="stock_xfburn">xfburn</Program>
     <Program label="Brasero" icon="brasero">brasero</Program>
+    <Program label="K3b" icon="k3b">k3b</Program>
     <Program label="nitrogen" icon="nitrogen">nitrogen</Program>
     <!-- Accessories end -->
   </Menu>
@@ -146,6 +149,7 @@
     <Program label="Filelight" icon="filelight">filelight</Program>
     <Program label="Font Manager" icon="org.gnome.FontManager">font-manager</Program>
     <Program label="Font Viewer" icon="org.gnome.FontViewer">/usr/libexec/font-manager/font-viewer</Program>
+    <Program label="KCharSelect" icon="kcharselect">kcharselect</Program>
     <Program label="KFontView" icon="kfontview">kfontview</Program>
     <Program label="KCalc" icon="accessories-calculator">kcalc</Program>
     <Program label="KFind" icon="kfind">kfind</Program>
