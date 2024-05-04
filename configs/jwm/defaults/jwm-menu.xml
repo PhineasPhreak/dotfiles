@@ -2,7 +2,7 @@
   <!-- Menu start -->
   <Menu label="Development" icon="applications-development">
     <Program label="Cervisia" icon="cervisia">cervisia -qwindowtitle</Program>
-    <Program label="Git GUI" icon="git">git gui</Program>
+    <Program label="Git GUI" icon="git-gui">git gui</Program>
     <Program label="Micro" icon="/usr/share/micro/micro-logo-mark.svg">micro</Program>
     <Program label="Vim" icon="gvim">vim</Program>
     <Program label="GVim" icon="gvim">gvim</Program>
@@ -49,7 +49,7 @@
     <Program label="Firefox" icon="firefox">/usr/lib/firefox/firefox</Program>
     <Program label="Firefox ESR" icon="firefox-esr">/usr/lib/firefox-esr/firefox-esr</Program>
     <Program label="HexChat" icon="io.github.Hexchat">hexchat --existing</Program>
-    <Program label="Transmission" icon="transmission">transmission-gtk</Program>
+    <Program label="Transmission" icon="transmission-remote-gtk">transmission-gtk</Program>
     <Program label="Ktorrent" icon="ktorrent">ktorrent</Program>
     <!-- <Program label="Tor Browser" icon="torbrowser">torbrowser-launcher</Program> -->
     <!-- <Program label="Tor Browser Launcher Settings" icon="torbrowser">torbrowser-launcher -\-settings</Program> -->
