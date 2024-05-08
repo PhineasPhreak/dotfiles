@@ -12,6 +12,8 @@
 ;; Info :
 ;; More information about Variable use C-h v <variable> for help.
 ;; More information about Function use C-h f <function> for help.
+;; More information about Bindings use C-h b <bindings> for help.
+;; More information about Key use C-h k <key> for help.
 ;;
 ;; Example :
 ;; - Smart Configuration for Emacs :
