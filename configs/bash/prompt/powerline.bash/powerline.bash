@@ -1,7 +1,7 @@
 #!/bin/bash
 # cf. https://gitlab.com/bersace/powerline.bash
 # cf. Dernier commit depuis ma modification :
-# Mar 04, 2024 "docker: Déterminer le projet depuis le premier compose.yml" 892c3c5b4c703a3d3aeb53ccd280a2267fd5f0b1
+# Apr 21, 2024 "Ajout du support des valeur de KUBECONFIG délimitées par des double points" 9381e335787e392ba35a088f792ab896a28f0ed8
 #
 # Merge of
 # https://gitlab.com/bersace/powerline.bash
@@ -1671,19 +1671,24 @@ __powerline_segment_jobs() {
 # KUBERNETES
 
 __powerline_segment_k8s() {
-	local contexte namespace texte
+	local contexte namespace texte configs config
+	local config_potentiellement_valide=non
 	local format='{..current-context}|{..namespace}'
-	local config="${KUBECONFIG-$HOME/.kube/config}"
+	IFS=':' read -ra configs <<<"${KUBECONFIG-$HOME/.kube/config}"
 
 	__powerline_retval=()
 
-	# Arrêt rapide si pas de fichier de configuration.
-	if ! [ -f "$config" ] ; then
-		return
-	fi
+	# Analyse de la configuration
+	for config in "${configs[@]}" ; do
+		if [[ -f "$config" && "$(< "$config")" == *current-context* ]] ; then
+			config_potentiellement_valide=oui
+			break
+		fi
+	done
 
-	# Arrêt rapide si pas de contexte configuré.
-	if ! grep -Fq current-context "$config" ; then
+	# Arrêt rapide si pas de fichier de configuration ou si aucun contexte
+	# actif n'est renseigné.
+    if [[ "$config_potentiellement_valide" != oui ]] ; then
 		return
 	fi
 
