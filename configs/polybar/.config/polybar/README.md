@@ -1,6 +1,6 @@
-## Polybar
+# Polybar
 
-### Installation:
+## Installation:
 Added PPA Debian Repositories:
 
 For installation of Polybar
@@ -17,11 +17,11 @@ For Font-Awesome:
 $ sudo apt-get install fonts-font-awesome
 ```
 
-### Others Theme Polybar
+## Others Theme Polybar
 Chaosteil GitHub: https://github.com/Chaosteil/dotfiles/tree/master/polybar/.config/polybar
 
-### Site:
-Github: https://github.com/jaagr/polybar
+## Site:
+Github: https://github.com/polybar/polybar
 
 Link for latest version (Ubuntu16.04, and 17.04): https://www.ubuntuupdates.org/pm/polybar
 
