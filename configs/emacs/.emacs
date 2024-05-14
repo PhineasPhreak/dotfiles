@@ -219,7 +219,7 @@
   (define-key map (kbd "C-c a") #'mark-whole-buffer)
   (define-key map (kbd "C-c d") #'kill-whole-line)
   (define-key map (kbd "C-x ,") #'revert-buffer)
-  (define-key map (kbd "C-;") #'comment-line)
+  (define-key map (kbd "C-c ;") #'comment-line)
   (define-key map (kbd "C-x w") #'keyboard-escape-quit)
   (define-key map (kbd "C-<tab>") #'other-window)
   ;(define-key map (kbd "C-t") #'other-window)
