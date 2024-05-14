@@ -72,7 +72,7 @@
 (load-theme 'wombat t)
 
 ;; Set default font face
-(set-face-attribute 'default nil :font "JetBrains Mono")
+;; (set-face-attribute 'default nil :font "JetBrains Mono")
 
 ;; No need to see GNU agitprop.
 (setq inhibit-startup-screen t)
