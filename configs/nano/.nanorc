@@ -42,8 +42,8 @@ set casesensitive
 ## Set the opening and closing brackets that can be found by bracket searches
 set matchbrackets "(<[{¿¡)>]}?!"
 
-## Use the blank line below the titlebar as extra editing space
-set morespace
+## Use the blank line below the titlebar as extra editing space (deprecated)
+# set morespace
 
 ## Enable mouse support, if available for your system
 set mouse
@@ -93,11 +93,11 @@ set regexp
 ## Make the Home key smarter
 set smarthome
 
-## Use smooth scrolling by default
-set smooth
+## Use smooth scrolling by default (deprecated)
+# set smooth
 
-## Allow nano to be suspended
-set suspend
+## Allow nano to be suspended (deprecated)
+# set suspend
 
 ## Use a tab size of n columns
 set tabsize 4
