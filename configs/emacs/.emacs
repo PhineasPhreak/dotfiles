@@ -216,12 +216,24 @@
   ;(define-key map (kbd "C-z") nil)
   ;(define-key map (kbd "C-x C-z") nil)
 
+  ;; Clean Whitespace
+  ;; Cleanup some blank problems in all buffer or at region
+  (define-key map (kbd "C-c .") #'whitespace-cleanup)
+
+  ;; Cleanup some blank problems at region. By default the cleanup includes both deleting and other fixes
+  ;; (define-key map (kbd "C-c /") #'whitespace-cleanup-region)
+
+  ;; To fixup white space between objects around point according to the context
+  ;; (define-key map (kbd "C-c C-c") #'fixup-whitespace)
+
   (define-key map (kbd "C-c a") #'mark-whole-buffer)
   (define-key map (kbd "C-c d") #'kill-whole-line)
   (define-key map (kbd "C-x ,") #'revert-buffer)
   (define-key map (kbd "C-c ;") #'comment-line)
   (define-key map (kbd "C-x w") #'keyboard-escape-quit)
+
   (define-key map (kbd "C-<tab>") #'other-window)
+  (define-key map (kbd "C-c <tab>") #'other-window)
   ;(define-key map (kbd "C-t") #'other-window)
 
   ;(define-key map (kbd "C-c C-<tab>") #'next-window)
