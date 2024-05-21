@@ -1,7 +1,7 @@
 #!/bin/bash
 # cf. https://gitlab.com/bersace/powerline.bash
 # cf. Dernier commit depuis ma modification :
-# Apr 21, 2024 "Ajout du support des valeur de KUBECONFIG délimitées par des double points" 9381e335787e392ba35a088f792ab896a28f0ed8
+# May 17, 2024 "Fix hostname_color8 pour class container, vm et server" b91e1d4cb9b9c3260918240201a4428d736d18f0
 #
 # Merge of
 # https://gitlab.com/bersace/powerline.bash
@@ -171,6 +171,7 @@ __powerline_autoicons() {
 		[elementary]="e"
 		[fedora]="f"
 		[freebsd]="BSD"
+        [openbsd]="BSD"
 		[gentoo]="G"
 		[linux]="linux"
 		[linuxmint]="lm"
@@ -312,6 +313,7 @@ __powerline_autoicons() {
 			unset "__powerline_icons[elementary]"
 			unset "__powerline_icons[fedora]"
 			unset "__powerline_icons[freebsd]"
+            unset "__powerline_icons[openbsd]"
 			unset "__powerline_icons[gentoo]"
 			unset "__powerline_icons[linux]"
 			unset "__powerline_icons[logo-inconnu]"
@@ -358,6 +360,7 @@ __powerline_autoicons() {
 				[elementary]=$'\uF309'     # nf-linux-elementary
 				[fedora]=$'\uF30A'         # nf-linux-fedora
 				[freebsd]=$'\uF30C'        # nf-linux-freebsd
+                [openbsd]=$'\uF328'        # nf-linux-openbsd
 				[gentoo]=$'\uF30D'         # nf-linux-gentoo
 				[linux]=$'\uF31A'          # nf-linux-tux
 				[linuxmint]=$'\uF30E'      # nf-linux-linuxmint
@@ -387,6 +390,21 @@ __powerline_autoicons() {
 __powerline_chassis() {
 	if [ -n "${POWERLINE_CHASSIS-}" ] ; then
 		__powerline_retval=("$POWERLINE_CHASSIS")
+
+	# Cas pour OpenBSD / NetBSD (sans VM)
+	elif [ -v OSTYPE ] &&  [[ "$OSTYPE" == "openbsd"* ]]; then
+		__powerline_retval=(server)
+	elif [ -v OSTYPE ] &&  [[ "$OSTYPE" == "netbsd"* ]]; then
+		__powerline_retval=(server)
+	elif [ -v OSTYPE ] &&  [[ "$OSTYPE" == "freebsd"* ]]; then
+		# FreeBSD VM
+		if sysctl kern.vm_guest |& grep -iq kvm ; then
+			__powerline_retval=(vm)
+		else
+			__powerline_retval=(server)
+		fi
+
+	# Cas pour Linux systemd/chassis, container ou vm
 	elif v=$(hostnamectl chassis 2>/dev/null) ; then
 		__powerline_retval=("$v")
 	elif v=$(hostnamectl status 2>/dev/null | grep -Po 'Chassis: \K.+') ; then
@@ -398,9 +416,6 @@ __powerline_chassis() {
 		__powerline_retval=(vm)
 	elif LC_ALL=C lscpu |& grep -iq 'hypervisor vendor' ; then
 		# Linux
-		__powerline_retval=(vm)
-	elif sysctl kern.vm_guest |& grep -iq kvm ; then
-		# FreeBSD
 		__powerline_retval=(vm)
 	fi
 }
@@ -554,6 +569,9 @@ __powerline_init_colors() {
 
 		[logo-freebsd-fond]=gris-foncé2
 		[logo-freebsd-texte]=rouge-sombre
+
+        [logo-openbsd-fond]=gris-foncé5
+		[logo-openbsd-texte]=jaune
 
 		[violet-gentoo]="48;2;83;71;120"
 		[logo-gentoo-fond]=violet-gentoo
@@ -1036,8 +1054,11 @@ __powerline_init_logo() {
 			cygwin|msys|win32)
 				id=windows
 				;;
-			*bsd*)
+			freebsd*)
 				id=freebsd
+				;;
+            openbsd*)
+				id=openbsd
 				;;
 			*)
 				id="$OSTYPE"
@@ -1073,6 +1094,9 @@ __powerline_init_logo() {
 			;;
 		freebsd)
 			printf -v s ":freebsd:logo-freebsd-fond:logo-freebsd-texte:"
+			;;
+        openbsd)
+			printf -v s ":openbsd:logo-openbsd-fond:logo-openbsd-texte:"
 			;;
 		gentoo)
 			printf -v s ":gentoo:logo-gentoo-fond:logo-gentoo-texte:"
@@ -1505,8 +1529,8 @@ __powerline_init_hostname() {
 }
 
 __powerline_hostname_color8() {
-	local classe="$1"
-	case "$classe" in
+	local class="$1"
+	case "$class" in
 		local)
 			__powerline_retval=(vert:noir)
 			;;
@@ -1516,7 +1540,7 @@ __powerline_hostname_color8() {
 		remote)
 			__powerline_retval=(bleu:blanc)
 			;;
-		container|virtualmachine)
+		container|server|vm)
 			__powerline_retval=(cyan:noir)
 			;;
 		*)
