@@ -22,6 +22,15 @@ shopt -s histappend
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
+# History completion
+# Just edit your ~/.inputrc (you might need to create one or copy the one in /etc/inputrc there)
+bind '"\e[A": history-search-backward'
+bind '"\e[B": history-search-forward'
+bind '"\C-H": shell-backward-kill-word'  # CTRL+Backspace
+
+# ignore upper and lowercase when TAB completion
+bind "set completion-ignore-case on"
+
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -152,15 +161,12 @@ alias mark-show-hold='sudo apt-mark showhold'
 alias watch='watch --color'
 
 # some more reboot and poweroff for KALI LINUX
-#alias reboot='sudo reboot'
-#alias poweroff='sudo poweroff'
+#alias sreboot='systemctl reboot'
+#alias spoweroff='systemctl poweroff'
 
-# History completion
-# Just edit your ~/.inputrc (you might need to create one or copy the one in /etc/inputrc there)
-bind '"\e[A": history-search-backward'
-bind '"\e[B": history-search-forward'
-bind '"\C-H": shell-backward-kill-word'  # CTRL+Backspace
-
-# ignore upper and lowercase when TAB completion
-bind "set completion-ignore-case on"
-
+# Add aliases for certain virtualbox commands
+alias vmlist='vboxmanage list vms'
+alias vmrunning='vboxmanage list runningvms'
+alias vmshowvminfo='vboxmanage showvminfo $1'
+alias vmstart='vboxmanage startvm $1'
+alias vmstarthl='vboxmanage startvm $1 --type headless'
