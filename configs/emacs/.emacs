@@ -296,6 +296,18 @@
 (global-set-key (kbd "C-c c") 'copy-line)
 
 
+;; Docs: https://stackoverflow.com/questions/637351/emacs-how-to-delete-text-without-kill-ring
+;; Emacs: how to delete text without kill ring
+(defun ruthlessly-kill-line ()
+  "Deletes a line, but does not put it in the kill-ring."
+  (interactive)
+  (move-beginning-of-line 1)
+  (kill-line 1)
+  (setq kill-ring (cdr kill-ring)))
+;; Key bindings for delete line without kill ring
+(global-set-key (kbd "C-c D") 'ruthlessly-kill-line)
+
+
 ;; Delete text not kill it into kill-ring
 ;; https://www.reddit.com/r/emacs/comments/2ny06e/delete_text_not_kill_it_into_killring/
 ;; https://www.reddit.com/r/emacs/comments/2s0hiq/how_can_i_make_backwardkillword_not_save_to_the/
