@@ -16,8 +16,8 @@ Host rift-srv1
 
     # Specifies a file from which the user's identity key is read when using public key authentication.
     # The default for protocol version 1 is
-    # ~/.ssh/identity; and 
-    # ~/.ssh/id_rsa or 
+    # ~/.ssh/identity; and
+    # ~/.ssh/id_rsa or
     # ~/.ssh/id_dsa for protocol version 2.
     #IdentityFile
 
@@ -30,7 +30,7 @@ Host rift-srv1
 
     # Directs ssh to additionally check the host IP address in the known_hosts file.
     #CheckHostIP
-    
+
     # Specifies the cipher to use for encrypting the session in protocol version 1.
     # or "Ciphers" for protocol version 2
     #Cipher
