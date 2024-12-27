@@ -1,7 +1,7 @@
 #!/bin/bash
 # cf. https://gitlab.com/bersace/powerline.bash
 # cf. Dernier commit depuis ma modification :
-# May 17, 2024 "Fix hostname_color8 pour class container, vm et server" b91e1d4cb9b9c3260918240201a4428d736d18f0
+# Nov 23, 2024 "FIX: Nerd fonts - Icônes horloge et jobs non déclarées" 6b11c67cf0fe9f9a1d98dcb4a6043f4c517b3e0b
 #
 # Merge of
 # https://gitlab.com/bersace/powerline.bash
@@ -259,7 +259,7 @@ __powerline_autoicons() {
 				[git]=$'\uEDCE '
 				[git-detached]=$'\uF0C1 '
 				[home]=$'\uE67D '
-				[horloge]=$'\uE0F7 '
+                [horloge]=$'\uE0F7 '
 				[jobs]=$'\ue691 '
 				[k8s]=$'\u2638 '
 				[newmail]=$'\uE0E4 '
@@ -335,6 +335,8 @@ __powerline_autoicons() {
 				[git-detached]=$'\uF06A '   # nf-fa-exclamation_circle
 				[git]=$'\uE725'            # nf-dev-git_branch
 				[home]=$'\UF02DC'          # nf-md-home
+                [horloge]=$'\uF017'        # nf-fa-clock
+				[jobs]=$'\uF08e'           # nf-fa-arrow_up_right_from_square
 				[k8s]=$'\UF0833'           # nf-md-ship_wheel
 				[newmail]=$'\UF06CF'       # nf-md-email_alert
 				[openstack]=$'\UF07B6'     # nf-md-cloud_tags
