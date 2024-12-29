@@ -262,6 +262,7 @@
 (global-set-key (kbd "S-C-<right>") 'enlarge-window-horizontally)
 (global-set-key (kbd "S-C-<down>") 'shrink-window)
 (global-set-key (kbd "S-C-<up>") 'enlarge-window)
+(global-set-key (kbd "C-x +") 'balance-windows)
 
 
 ;; Docs: https://www.emacswiki.org/emacs/CopyingWholeLines#h5o-10
