@@ -221,7 +221,7 @@
   (define-key map (kbd "C-c .") #'whitespace-cleanup)
 
   ;; Cleanup some blank problems at region. By default the cleanup includes both deleting and other fixes
-  ;; (define-key map (kbd "C-c /") #'whitespace-cleanup-region)
+  (define-key map (kbd "C-c /") #'whitespace-cleanup-region)
 
   ;; To fixup white space between objects around point according to the context
   ;; (define-key map (kbd "C-c C-c") #'fixup-whitespace)
