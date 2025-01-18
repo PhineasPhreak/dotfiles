@@ -424,7 +424,7 @@ Packages : konsole, i3lock, dmenu, rofi
 
     <!-- Some application shortcuts -->
     <!-- Execute dmenu_run with Alt+c -->
-    <Key mask="4" key="c">exec:dmenu_run  -nf '#BBBBBB' -nb '#3A3A3A' -sb '#5F676A' -sf '#EEEEEE' -fn 'Hack-10' -p '>'</Key>
+    <Key mask="4" key="t">exec:dmenu_run  -nf '#BBBBBB' -nb '#3A3A3A' -sb '#5F676A' -sf '#EEEEEE' -fn 'Hack-10' -p '>'</Key>
     <!-- Open a terminal with Alr+Enter and Super+Enter-->
     <Key mask="4" key="Return">exec:konsole</Key>
     <!-- Lock screen -->
