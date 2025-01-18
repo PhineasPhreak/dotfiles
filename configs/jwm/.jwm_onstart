@@ -1,0 +1,10 @@
+#!/bin/bash
+# Start command...
+
+# Creating jwm_menu.xml and jwm_icons.xml files with python3 script
+python3 ~/.jwm/icons.py > ~/.jwm_icons.xml &
+# python3 ~/.jwm/menu.py > ~/.jwm_menu.xml &
+
+# Modification of the delay and repetition of the keys
+xset r rate 300 50
+# picom -b --config ~/.config/picom.conf &

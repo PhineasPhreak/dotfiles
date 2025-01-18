@@ -18,13 +18,13 @@ Packages : konsole, i3lock, dmenu, rofi
 <JWM>
     <!-- A command to run when JWM starts. -->
     <StartupCommand>
-      bash .onstart
+      bash .jwm_onstart
     </StartupCommand>
 
     <!-- The root menu. -->
     <RootMenu height="20" onroot="123">
       <!-- <Include>/etc/jwm/debian-menu</Include> -->
-      <!-- <Include>.jwm-menu.xml</Include> -->
+      <!-- <Include>.jwm_menu.xml</Include> -->
       <!-- <Separator/> -->
 
       <Program label="Terminal" tooltip="Open a Terminal" icon="utilities-terminal">konsole</Program>
@@ -34,8 +34,16 @@ Packages : konsole, i3lock, dmenu, rofi
       <Program label="Lock" tooltip="Lock Session" icon="lock">i3lock -f --color "#2f343f"</Program>
       <Separator/>
       <Restart label="Restart" tooltip="Reinitializes the JWM configuration" icon="reload"/>
+
+      <!-- Reboot or Turn off your conputer using custom script, if the folder ".jwm/" exist. -->
+      <!-- Original Reboot -->
       <Program label="Reboot" tooltip="Restart computer">systemctl reboot</Program>
+      <!-- <Program label="Reboot" tooltip="Restart computer">.jwm/jwm_reboot.sh</Program> -->
+
+      <!-- Original Poweroff -->
       <Program label="Power Off" tooltip="Turn off computer">/usr/libexec/jwm/jwm-poweroff.sh</Program>
+      <!-- <Program label="Power Off" tooltip="Turn off computer">.jwm/jwm_poweroff.sh</Program> -->
+
       <Exit label="Log Out" tooltip="Quit the current session" confirm="true" icon="exit"/>
     </RootMenu>
 
@@ -148,7 +156,7 @@ Packages : konsole, i3lock, dmenu, rofi
          for icons in multiple paths.
     -->
     <!-- Custom icons path. -->
-    <!-- <Include>.jwm-icons.xml</Include> -->
+    <!-- <Include>.jwm_icons.xml</Include> -->
 
     <IconPath>/usr/share/icons/gnome/256x256/actions</IconPath>
     <IconPath>/usr/share/icons/gnome/256x256/apps</IconPath>
