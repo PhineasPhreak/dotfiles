@@ -374,6 +374,22 @@ This command does not push erased text to kill-ring."
 (global-set-key (kbd "s-k w") 'my-kill-word-at-point)
 
 
+(defun my-delete-thing-at-point (thing)
+  "Delete the 'thing-at-point' for the specified kind of THING.
+Delete the word, but does not put it in the kill-ring."
+  (let ((bounds (bounds-of-thing-at-point thing)))
+    (if bounds
+        (delete-region (car bounds) (cdr bounds))
+      (error "No %s at point" thing))))
+
+(defun my-delete-word-at-point ()
+  "Kill the word at point."
+  (interactive)
+  (my-delete-thing-at-point 'word))
+;; Key bindings for my-kill-word-at-point (s in lowersace mean Super Key)
+(global-set-key (kbd "s-k K") 'my-delete-word-at-point)
+
+
 ;; Can I use 'y-or-n-p' always, or 'yes-or-no-p' always?
 ;; If you want to use 'y' always, do this.
 (defalias 'yes-or-no-p 'y-or-n-p)
