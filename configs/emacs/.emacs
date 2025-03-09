@@ -231,6 +231,11 @@
   (define-key map (kbd "C-x ,") #'revert-buffer)
   (define-key map (kbd "C-c ;") #'comment-line)
   (define-key map (kbd "C-x w") #'keyboard-escape-quit)
+  (define-key map (kbd "C-c s") #'window-swap-states)
+  (define-key map (kbd "C-c `") #'not-modified)
+
+  (define-key map (kbd "C-c 2") #'split-root-window-below)
+  (define-key map (kbd "C-c 3") #'split-root-window-right)
 
   (define-key map (kbd "C-<tab>") #'other-window)
   (define-key map (kbd "C-c <tab>") #'other-window)
