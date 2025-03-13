@@ -71,6 +71,9 @@
 ;; Load default theme
 (load-theme 'wombat t)
 
+;; Setting the default directory (for Windows)
+;; (setq default-directory "C:\\Users\\pspk\\")
+
 ;; Set default font face
 ;; (set-face-attribute 'default nil :font "JetBrains Mono")
 
