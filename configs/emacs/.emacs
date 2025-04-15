@@ -242,26 +242,33 @@
 
   (define-key map (kbd "C-<tab>") #'other-window)
   (define-key map (kbd "C-c <tab>") #'other-window)
-  ;(define-key map (kbd "C-t") #'other-window)
+  ;; (define-key map (kbd "C-t") #'other-window)
 
-  ;(define-key map (kbd "C-c C-<tab>") #'next-window)
-  ;(define-key map (kbd "C-c C-p") #'previous-buffer)
-  ;(define-key map (kbd "C-c C-n") #'next-buffer)
+  ;; (define-key map (kbd "C-c C-<tab>") #'next-window)
+  ;; (define-key map (kbd "C-c C-p") #'previous-buffer)
+  ;; (define-key map (kbd "C-c C-n") #'next-buffer)
 
   ;; Misc
-  ;(define-key map (kbd "C-x C-b") #'ibuffer)
-  ;(define-key map (kbd "M-z") #'zap-up-to-char)
+  ;; (define-key map (kbd "C-x C-b") #'ibuffer)
+  ;; (define-key map (kbd "M-z") #'zap-up-to-char)
 
   ;; Isearch
-  ;(define-key map (kbd "C-s") #'isearch-forward-regexp)
-  ;(define-key map (kbd "C-r") #'isearch-backward-regexp)
-  ;(define-key map (kbd "C-M-s") #'isearch-forward)
-  ;(define-key map (kbd "C-M-r") #'isearch-backward)
+  ;; (define-key map (kbd "C-s") #'isearch-forward-regexp)
+  ;; (define-key map (kbd "C-r") #'isearch-backward-regexp)
+  ;; (define-key map (kbd "C-M-s") #'isearch-forward)
+  ;; (define-key map (kbd "C-M-r") #'isearch-backward)
 
   ;; Open applications
-  ;(define-key map (kbd "C-c o e") #'eshell)
-  ;(define-key map (kbd "C-c o d") #'dired)
-  ;(define-key map (kbd "C-c o f") #'treemacs)
+  ;; (define-key map (kbd "C-c o e") #'eshell)
+  ;; (define-key map (kbd "C-c o d") #'dired)
+  ;; (define-key map (kbd "C-c o f") #'treemacs)
+
+  ;; Package 'buffer-move'
+  ;; The buffer-move package lets you move the contents (buffer) of a window in another direction, using keyboard shortcuts
+  ;; (global-set-key (kbd "C-c <up>")     'buf-move-up)
+  ;; (global-set-key (kbd "C-c <down>")   'buf-move-down)
+  ;; (global-set-key (kbd "C-c <left>")   'buf-move-left)
+  ;; (global-set-key (kbd "C-c <right>")  'buf-move-right)
   )
 
 ;; https://www.emacswiki.org/emacs/WindowResize
