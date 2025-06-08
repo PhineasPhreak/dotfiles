@@ -25,6 +25,7 @@ To install one or more packages, press `M+x` (Alt+x) in Emacs, then type the `li
 **Packages :**
 
 - Themes :
+  - `spacemacs-theme` : Color theme with a dark and light versions.
   - `atom-one-dark-theme-0.4.0` : An Emacs port of the Atom One Dark theme from Atom.io.
 
 - Mode :
