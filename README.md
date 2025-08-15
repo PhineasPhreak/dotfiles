@@ -13,7 +13,7 @@ Flash OS images to SD cards & USB drives, safely and easily.
 * gnome-multi-writer : In Ubuntu `source.list` for Gnome desktop
 
 ## Awesome list
-* PS Book Pentest and Security: **[Git-Pentest](https://github.com/enaqx/awesome-pentest), [Git-Security](https://github.com/sbilly/awesome-security), [Git-Linux](https://github.com/aleksandar-todorovic/awesome-linux), [Git-Python](https://github.com/vinta/awesome-python), [Git-GameHacking](https://github.com/dsasmblr/game-hacking), [Git-HoneyPots](https://github.com/paralax/awesome-honeypots)**
+* PS Book Pentest and Security: **[Git-Pentest](https://github.com/enaqx/awesome-pentest), [Git-Security](https://github.com/sbilly/awesome-security), [Git-Linux-Software](https://github.com/luong-komorebi/Awesome-Linux-Software), [Git-Python](https://github.com/vinta/awesome-python), [Git-GameHacking](https://github.com/dsasmblr/game-hacking), [Git-HoneyPots](https://github.com/paralax/awesome-honeypots)**
 
 * Topics Awesome List on Github [AwesomeLists](https://github.com/topics/awesome)
 
@@ -22,7 +22,7 @@ Flash OS images to SD cards & USB drives, safely and easily.
 **Icon GitHub :** [Icon Here](https://octicons.github.com/)
 
 ## Git Tips
- * [How to use GIT](https://github.com/PhineasPhreak/documents-learning/blob/master/how-to-git.md#howto-git)
+[How to use GIT](https://github.com/PhineasPhreak/documents-learning/blob/master/how-to-git.md#howto-git)
 
 ### Git on Windows, Linux and MacOS
 A fast and friendly git client for Mac, Windows and Linux
