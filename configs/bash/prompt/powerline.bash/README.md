@@ -6,19 +6,19 @@ pour BASH.
 
 
 ## Fonctionalités
-- S'installe facilement. *Un seul fichier sans dépendances*.
-- *Très rapide*. Environ 30ms pour générer l'invite. *Pas de serveur !*
-- Sur deux lignes pour faciliter le *copicollage* et la garder le curseur au
-  même endroit.
-- `utilisateur@hôte` si dans un client SSH ou sudo, *coloré dynamiquement*.
-- Dossier courant, compressé avec l'initiale si trop long.
-- Nom du *virtualenv* Python.
-- Infos *git* : branche courante, modifications non validées, désynchronisation
-  avec la branche amont.
+- *Installation facile*. Un seul fichier sans dépendances.
+- *Très rapide*. Jusqu'à seulement 10ms pour générer l'invite. *Pas de serveur !*.
+- Sur deux lignes pour faciliter le *copicollage*, garder le curseur au même endroit et laisser de la place aux longues commandes.
+- `utilisateur@hôte` si connecté en sudo ou SSH, *coloré dynamiquement*.
+- Dossier courant avec *dossiers intermédiaires abrégés*.
 - En cas de commande en erreur, affichage du code de sortie et coloration du `$`.
-- *Configurable* par des variables d'env. Pas de fichier.
-- *Extensible*.
+- *Icônes* optionnelles avec [icons-in-terminal] ou [Nerd Fonts].
+- De nombreux segments disponibles : git, Python, Docker, OpenStack, Maildir, Kubernetes, etc.
+- *Configurable* par des variables shell. Pas de fichier.
+- *Extensible* : rédigez une fonction bash et vous avez votre segment personnel.
 
+[icons-in-terminal]: https://github.com/sebastiencs/icons-in-terminal/
+[Nerd Fonts]: https://github.com/ryanoasis/nerd-fonts/
 
 ## Installation
 Installe le fichier `powerline.bash` dans le repertoire `$HOME/.config/`
