@@ -1,7 +1,7 @@
 #!/bin/bash
 # cf. https://gitlab.com/bersace/powerline.bash
 # cf. Dernier commit depuis ma modification :
-# Nov 23, 2024 "FIX: Nerd fonts - Icônes horloge et jobs non déclarées" 6b11c67cf0fe9f9a1d98dcb4a6043f4c517b3e0b
+# FEB 04, 2025 "Typo" d1a7074ef36df5a7bceceda0fbc37cf17daaf564
 #
 # Merge of
 # https://gitlab.com/bersace/powerline.bash
@@ -172,6 +172,7 @@ __powerline_autoicons() {
 		[fedora]="f"
 		[freebsd]="BSD"
         [openbsd]="BSD"
+        [netbsd]="BSD"
 		[gentoo]="G"
 		[linux]="linux"
 		[linuxmint]="lm"
@@ -239,6 +240,7 @@ __powerline_autoicons() {
 			unset "__powerline_icons[elementary]"
 			unset "__powerline_icons[fedora]"
 			unset "__powerline_icons[freebsd]"
+            unset "__powerline_icons[netbsd]"
 			unset "__powerline_icons[gentoo]"
 			unset "__powerline_icons[linux]"
 			unset "__powerline_icons[logo-inconnu]"
@@ -285,6 +287,7 @@ __powerline_autoicons() {
 				[elementary]=$'\uE9EA'
 				[fedora]=$'\uE9DC'
 				[freebsd]=$'\uE9E7'
+                [netbsd]=$'\uEDFA'
 				[gentoo]=$'\uE9E9'
 				[logo-inconnu]=$'\uE025'
 				[linux]=$'\uE23A'
@@ -314,6 +317,7 @@ __powerline_autoicons() {
 			unset "__powerline_icons[fedora]"
 			unset "__powerline_icons[freebsd]"
             unset "__powerline_icons[openbsd]"
+            unset "__powerline_icons[netbsd]"
 			unset "__powerline_icons[gentoo]"
 			unset "__powerline_icons[linux]"
 			unset "__powerline_icons[logo-inconnu]"
@@ -363,6 +367,7 @@ __powerline_autoicons() {
 				[fedora]=$'\uF30A'         # nf-linux-fedora
 				[freebsd]=$'\uF30C'        # nf-linux-freebsd
                 [openbsd]=$'\uF328'        # nf-linux-openbsd
+                [netbsd]=$'\uF024'         # nf-fa-flag
 				[gentoo]=$'\uF30D'         # nf-linux-gentoo
 				[linux]=$'\uF31A'          # nf-linux-tux
 				[linuxmint]=$'\uF30E'      # nf-linux-linuxmint
@@ -405,6 +410,8 @@ __powerline_chassis() {
 		else
 			__powerline_retval=(server)
 		fi
+	elif [ -v OSTYPE ] &&  [[ "$OSTYPE" == "darwin"* ]]; then
+		__powerline_retval=(server)
 
 	# Cas pour Linux systemd/chassis, container ou vm
 	elif v=$(hostnamectl chassis 2>/dev/null) ; then
@@ -574,6 +581,9 @@ __powerline_init_colors() {
 
         [logo-openbsd-fond]=gris-foncé5
 		[logo-openbsd-texte]=jaune
+
+        [logo-netbsd-fond]=blanc
+        [logo-netbsd-texte]=orange
 
 		[violet-gentoo]="48;2;83;71;120"
 		[logo-gentoo-fond]=violet-gentoo
@@ -778,7 +788,7 @@ __powerline_palette() {
 			auto="256color"
 			;;
 
-		24bit|truecolor|*-termite|*-direct|*-kitty)
+		24bit|truecolor|*-termite|*-direct|*-kitty|*ghostty)
 			auto="24bit"
 			;;
 		*)
@@ -1062,6 +1072,9 @@ __powerline_init_logo() {
             openbsd*)
 				id=openbsd
 				;;
+            netbsd*)
+                id=netbsd
+                ;;
 			*)
 				id="$OSTYPE"
 				;;
@@ -1100,6 +1113,9 @@ __powerline_init_logo() {
         openbsd)
 			printf -v s ":openbsd:logo-openbsd-fond:logo-openbsd-texte:"
 			;;
+        netbsd)
+            printf -v s ":netbsd:logo-netbsd-fond:logo-netbsd-texte:"
+            ;;
 		gentoo)
 			printf -v s ":gentoo:logo-gentoo-fond:logo-gentoo-texte:"
 			;;
@@ -2011,7 +2027,7 @@ __powerline_hsl2rgb() {
 }
 
 
-# Abrège les dossiers intermédiaires pour raccourcir le chemine complet.
+# Abrège les dossiers intermédiaires pour raccourcir le chemin complet.
 __powerline_shorten_dir_initiale() {
 	local short_pwd=
 	local dir="$1"
@@ -2065,7 +2081,7 @@ __powerline_shorten_dir_ellipse() {
 	dir_parts=("${__powerline_retval[@]}")
 	local number_of_parts=${#dir_parts[@]}
 
-	# Ne pas abbréger les chemins de moins de 5 segments
+	# Ne pas abréger les chemins de moins de 5 segments
 	if [[ "$number_of_parts" -lt "5" ]]; then
 		__powerline_retval=("${dir}")
 		return
