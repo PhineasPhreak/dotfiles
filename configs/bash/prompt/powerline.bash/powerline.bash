@@ -1,7 +1,7 @@
 #!/bin/bash
 # cf. https://gitlab.com/bersace/powerline.bash
 # cf. Dernier commit depuis ma modification :
-# FEB 04, 2025 "Typo" d1a7074ef36df5a7bceceda0fbc37cf17daaf564
+# Jul 02, 2025 "Optimisation du segment git_lite" 7387ab4cae2bed6bc242438a5b95e9a459cbe69e
 #
 # Merge of
 # https://gitlab.com/bersace/powerline.bash
@@ -648,6 +648,9 @@ __powerline_init_colors() {
 		[git-propre-texte]=noir
 		[git-sync-fond]=gris-foncé2
 		[git-sync-texte]=gris-clair0
+        [git-lite-icone]=blanc
+		[git-lite-fond]=orange
+		[git-lite-texte]=blanc
 
 		[k8s-fond]=bleu-kubernetes
 		[k8s-texte]=gris-clair4
@@ -1366,7 +1369,7 @@ __powerline_segment_git_sync() {
 }
 
 
-# Analye git status --porcelain=v2
+# Analyse git status --porcelain=v2
 __powerline_parse_git_status_v2() {
 	local status="$1"
 	# Le retour de la fonction : sha, name, upstream, ahead/behind
@@ -1463,6 +1466,39 @@ __powerline_init_git() {
 	fi
 }
 
+# GIT branch uniquement, sans status
+__powerline_segment_git_lite() {
+	local branch
+	local detached
+
+	# Si pas de dossier .git parent, zapper.
+	__powerline_find_parent "${PWD}" .git
+	if [ -z "${__powerline_retval[*]-}" ] ; then
+		__powerline_retval=()
+		return
+	fi
+
+	read -r -a head < "${__powerline_retval[0]}/HEAD"
+
+	if [[ "${head[0]}" == *"ref:"* ]] ; then
+	 	branch=${head[1]##refs/heads/}
+	else
+		# Cas pour detached
+		detached=1
+		if desc="$(git describe --tags --abbrev=7 2>/dev/null)" ; then
+			branch="${desc}"
+		else
+			# Au pire des cas, utiliser la SHA du commit courant.
+			branch="${head[0]:0:7}"
+		fi
+	fi
+
+	anchor="${__powerline_icons[git-detached]}"
+
+	__powerline_retval=(
+		"git-lite-icone:git:git-lite-fond:git-lite-texte:${detached:+ ${anchor}}${branch}"
+	)
+}
 
 # HEURE
 
@@ -1858,10 +1894,17 @@ __powerline_segment_python() {
 	local text
 
 	if [ -v VIRTUAL_ENV ] ; then
-		# Lire le nom du venv dans le prompt. (pour les .venv/bin/activate)
-		if ! text="$(grep -m 1 -Po 'PS1="\(\K[^)]+' "$VIRTUAL_ENV/bin/activate" 2>/dev/null)" ; then
-			# ou utiliser le dossier
-				text=${VIRTUAL_ENV##*/}
+		# Lire le nom du venv dans VIRTUAL_ENV_PROMPT
+		if [ -v VIRTUAL_ENV_PROMPT ] ; then
+			# virtual env créé avec module venv
+			if  [[ ${VIRTUAL_ENV_PROMPT} =~ ^\((.*)\)[[:space:]]$ ]]; then
+				text=${BASH_REMATCH[1]}
+			else
+				text=${VIRTUAL_ENV_PROMPT}
+			fi
+		else
+		    # ou utiliser le dossier
+		    text=${VIRTUAL_ENV##*/}
 		fi
 	elif [ -v CONDA_ENV_PATH ] ; then
 		text=${CONDA_ENV_PATH##*/}
