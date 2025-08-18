@@ -10,7 +10,7 @@ export EDITOR="emacsclient -t -a ''"
 # $VISUAL use Emacs in GUI mode
 export VISUAL="emacsclient -c -a emacs"
 # removal of expressions from the history command.
-export HISTORY_IGNORE="history*:ls*:cd*:pwd:exit:clear:sudo reboot:sudo poweroff"
+export HISTIGNORE="history*:ls*:cd*:pwd:exit:clear:sudo reboot:sudo poweroff"
 
 ### SHOPT (This builtin allows you to change additional optional shell behavior.)
 shopt -s autocd # change to named directory
