@@ -4,12 +4,15 @@
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 #
 
+### EXPORT (It designates specified variables and functions to be passed to child processes.)
 # $EDITOR use Emacs in terminal
 export EDITOR="emacsclient -t -a ''"
 # $VISUAL use Emacs in GUI mode
 export VISUAL="emacsclient -c -a emacs"
+# removal of expressions from the history command.
+export HISTORY_IGNORE="history*:ls*:cd*:pwd:exit:clear:sudo reboot:sudo poweroff"
 
-# shopt
+### SHOPT (This builtin allows you to change additional optional shell behavior.)
 shopt -s autocd # change to named directory
 shopt -s cdspell # autocorrects cd misspellings
 shopt -s cmdhist # save multi-line commands in history as single line
@@ -28,27 +31,12 @@ shopt -s checkwinsize
 # Just edit your ~/.inputrc (you might need to create one or copy the one in /etc/inputrc there)
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
-bind '"\C-H": shell-backward-kill-word'  # CTRL+Backspace
+bind '"\C-H": shell-backward-kill-word' # CTRL+Backspace
 
 # ignore upper and lowercase when TAB completion
 bind "set completion-ignore-case on"
 
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    alias dir='dir --color=auto'
-    alias vdir='vdir --color=auto'
-    #alias lls='ls --color=auto -lhF'
-    #alias lss='ls --color=auto -lhFA --group-directories-first'
-    alias diff='diff --color=auto'
-
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-    alias ip='ip --color=auto'
-fi
-
+### FUNCTION
 # extr = EXTRactor for all kinds of archives
 # usage: ex <file>
 function ex {
@@ -88,6 +76,31 @@ function ex {
 fi
 }
 
+### ALIASES (allows users to create shortcuts for frequently used commands, enhancing workflow efficiency)
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
+    #alias lls='ls --color=auto -lhF'
+    #alias lss='ls --color=auto -lhFA --group-directories-first'
+    alias diff='diff --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+    alias ip='ip --color=auto'
+fi
+
+# some more ls aliases
+alias lda='ls --color=auto -lhAF --group-directories-first'
+alias ld='ls --color=auto -lhF --group-directories-first'
+alias ll='ls -lhF'
+alias la='ls -lhAF'
+alias lf='ls -lhAF'
+alias l='ls -CF'
+
 # get the error messages from journalctl
 alias jctl="journalctl -p 3 -xb"
 
@@ -122,13 +135,13 @@ alias .5='cd ../../../../..'
 #alias mv='mv -v'
 #alias rm='rm -v'
 
-# shortcut command 'df'
+# df human-readable sizes
 alias df='df -Th'
 
 # Summarize disk usage of the set of FILEs, recursively for directories
 alias du='du -h'
 
-# show free space memory
+# show free space memory total+human-readable sizes
 alias free='free -ht'
 
 # ps
@@ -154,15 +167,6 @@ alias autoremove='sudo apt-get autoremove'
 alias cleanliness='sudo apt-get clean'
 alias cache-policy='sudo apt-cache policy'
 alias list-key='sudo apt-key list'
-#alias sources='cat -n /etc/apt/sources.list && ls -lhA /etc/apt/sources.list.d/'
-
-# some more ls aliases
-alias lda='ls --color=auto -lhAF --group-directories-first'
-alias ld='ls --color=auto -lhF --group-directories-first'
-alias ll='ls -lhF'
-alias la='ls -lhAF'
-alias lf='ls -lhAF'
-alias l='ls -CF'
 
 # alias "screen" for SSH session
 alias sc='screen'
@@ -188,3 +192,6 @@ alias vmrunning='vboxmanage list runningvms'
 alias vmshowvminfo='vboxmanage showvminfo $1'
 alias vmstart='vboxmanage startvm $1'
 alias vmstarthl='vboxmanage startvm $1 --type headless'
+
+# NVIDIA GPU (For Nvidia GPU for specific process)
+alias nvidia-run="__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia $argv"
