@@ -1,3 +1,8 @@
+#   ___  ___ ___ _  __
+#  | _ \/ __| _ \ |/ /   PhineasPhreak (PSPK)
+#  |  _/\__ \  _/ ' <    https://github.com/PhineasPhreak
+#  |_|  |___/_| |_|\_\
+#
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -13,12 +18,12 @@ export VISUAL="emacsclient -c -a emacs"
 export HISTIGNORE="history*:ls*:cd*:pwd:exit:clear:sudo reboot:sudo poweroff"
 
 ### SHOPT (This builtin allows you to change additional optional shell behavior.)
-shopt -s autocd # change to named directory
-shopt -s cdspell # autocorrects cd misspellings
-shopt -s cmdhist # save multi-line commands in history as single line
-shopt -s dotglob # bash includes filenames beginning with a '.' in the results of filename expansion
-shopt -s histappend # do not overwrite history
-shopt -s expand_aliases # expand aliases
+shopt -s autocd            # change to named directory
+shopt -s cdspell           # autocorrects cd misspellings
+shopt -s cmdhist           # save multi-line commands in history as single line
+shopt -s dotglob           # bash includes filenames beginning with a '.' in the results of filename expansion
+shopt -s histappend        # do not overwrite history
+shopt -s expand_aliases    # expand aliases
 
 # append to the history file, don't overwrite it
 shopt -s histappend
