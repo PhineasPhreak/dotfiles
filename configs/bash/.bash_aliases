@@ -93,6 +93,9 @@ if [ -x /usr/bin/dircolors ]; then
     alias ip='ip --color=auto'
 fi
 
+# command watch with interpret ANSI color
+alias watch='watch --color'
+
 # some more ls aliases
 alias lda='ls --color=auto -lhAF --group-directories-first'
 alias ld='ls --color=auto -lhF --group-directories-first'
@@ -153,6 +156,9 @@ alias jobs='jobs -l'
 # launch emacs in terminal
 alias temacs='emacs -nw'
 
+# merge Xresources
+alias merge='xrdb -merge ~/.Xresources'
+
 # shorcut 'apt' or 'apt-get'
 alias update='sudo apt-get update'
 alias install-package='sudo apt-get install $argv'
@@ -178,9 +184,6 @@ alias scd='screen -d'
 
 # mark show hold packages
 alias mark-show-hold='sudo apt-mark showhold'
-
-# command watch with interpret ANSI color
-alias watch='watch --color'
 
 # some more reboot and poweroff for KALI LINUX
 #alias sreboot='systemctl reboot'
