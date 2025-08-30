@@ -3,6 +3,8 @@
 #  |  _/\__ \  _/ ' <    https://github.com/PhineasPhreak
 #  |_|  |___/_| |_|\_\
 #
+# This file should be here ~/.bash_aliases
+#
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
