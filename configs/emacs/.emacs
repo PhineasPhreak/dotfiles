@@ -386,7 +386,7 @@ This command does not push erased text to kill-ring."
   (interactive)
   (my-kill-thing-at-point 'word))
 ;; Key bindings for my-kill-word-at-point (s in lowersace mean Super Key)
-(global-set-key (kbd "s-k w") 'my-kill-word-at-point)
+(global-set-key (kbd "s-k k") 'my-kill-word-at-point)
 
 
 (defun my-delete-thing-at-point (thing)
