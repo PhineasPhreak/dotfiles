@@ -7,14 +7,14 @@
 # The pattern is matched against the host name given on the command line.
 
 
-Host rift-srv1
+Host rift-vps-srv
     User xxxx
     HostName xxx.xxx.xxx.xxx
     Port xxxx
 
     # Specifies the verbosity level of logging messages from ssh.
     # The possible values are: QUIET, FATAL, ERROR, INFO, VERBOSE, DEBUG, DEBUG1, DEBUG2, and DEBUG3.
-    LogLevel DEBUG
+    LogLevel VERBOSE
 
     # Specifies a file from which the user's identity key is read when using public key authentication.
     # The default for protocol version 1 is
@@ -50,7 +50,7 @@ Host phone_sm-g975fds
 
     # Specifies the verbosity level of logging messages from ssh.
     # The possible values are: QUIET, FATAL, ERROR, INFO, VERBOSE, DEBUG, DEBUG1, DEBUG2, and DEBUG3.
-    LogLevel DEBUG
+    LogLevel VERBOSE
 
     # Specifies a file from which the user's identity key is read when using public key authentication.
     # The default for protocol version 1 is
@@ -86,7 +86,7 @@ Host phone_sm-g973u
 
     # Specifies the verbosity level of logging messages from ssh.
     # The possible values are: QUIET, FATAL, ERROR, INFO, VERBOSE, DEBUG, DEBUG1, DEBUG2, and DEBUG3.
-    LogLevel DEBUG
+    LogLevel VERBOSE
 
     # Specifies a file from which the user's identity key is read when using public key authentication.
     # The default for protocol version 1 is
