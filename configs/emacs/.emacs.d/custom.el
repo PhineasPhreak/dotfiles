@@ -76,6 +76,9 @@
 ;; The minimum prefix lenght for idle completion
 (setq company-minimum-prefix-length 1)
 
+;; Change bindings for closing popup (same as emacs)
+(define-key company-active-map (kbd "C-x w") 'company-abort)
+
 ;; PYTHON
 ;; Configue IDE (Packages : eglot, pyvenv)
 ;; Enable LSP support by default in python buffers
@@ -85,4 +88,3 @@
 ;; PYVENV
 ;; Automatically use pyvenv-workon via dir-locals
 ;; (setq pyvenv-tracking-mode 1)
-
