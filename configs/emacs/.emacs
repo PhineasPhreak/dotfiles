@@ -117,7 +117,7 @@
 (setq ispell-dictionary nil)
 
 ;; Save place in history file
-(setq save-place-mode t)
+(save-place-mode t)
 
 ;; Toggle saving of minibuffer history (Savehist mode)
 (setq savehist-mode nil)
