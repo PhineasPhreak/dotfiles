@@ -117,7 +117,7 @@ Packages : konsole, i3lock, dmenu, rofi
       <Foreground>#FFFFFF</Foreground>
       <Opacity>1.0</Opacity>
     </TrayStyle>
-    <TaskListStyle list="desktop" group="true">
+    <TaskListStyle list="desktop" group="false">
       <Font>Sans-10</Font>
       <Active>
         <Foreground>#FFFFFF</Foreground>
