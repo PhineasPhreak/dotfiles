@@ -29,7 +29,7 @@ To install one or more packages, press `M+x` (Alt+x) in Emacs, then type the `li
   - `atom-one-dark-theme-0.4.0` : An Emacs port of the Atom One Dark theme from Atom.io.
 
 - Mode :
-  - `buffer-mode` : The buffer-move package lets you move the contents (buffer) of a window in another direction, using keyboard shortcuts [Github](https://github.com/lukhas/buffer-move)
+  - `buffer-move` : The buffer-move package lets you move the contents (buffer) of a window in another direction, using keyboard shortcuts [Github](https://github.com/lukhas/buffer-move)
   - `csv-mode` : Major mode for editing comma/char separated values
   - `markdown-mode` : Major mode for Markdown-formatted text
   - `auctex` : Integrated environment for *TeX*
