@@ -9,7 +9,10 @@
 ! If you are not using a desktop environment such as KDE, Xfce, or other that manipulates the X settings for you, you can set the desired DPI setting manually via the Xft.dpi variable in Xresources:
 ! For Xft.dpi, using integer multiples of 96 usually works best, e.g. 192 for 200% scaling.
 
-Xft.dpi: 80
+
+! Xcursor is a simple library disigned to help locate and load cursors.
+Xcursor.theme : Adwaita
+Xcursor.size: 16
 
 ! These might also be useful depending on your monitor and personal preference:
 Xft.autohint:  true
@@ -18,6 +21,8 @@ Xft.hintstyle: hintfull
 Xft.hinting:   true
 Xft.antialias: true
 Xft.rgba:      rgb
+Xft.dpi:       80
+
 
 ! ------------------------------------------------------------------------------
 ! xterm standard theme
@@ -61,6 +66,7 @@ xterm*color15:        rgb:ff/ff/ff
 xterm*boldMode:       false
 xterm*colorBDMode:    true
 xterm*colorBD:        rgb:ff/ff/ff
+
 
 ! ------------------------------------------------------------------------------
 ! UXTerm standard theme
