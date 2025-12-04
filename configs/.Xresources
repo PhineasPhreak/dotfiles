@@ -21,7 +21,7 @@ Xft.hintstyle: hintfull
 Xft.hinting:   true
 Xft.antialias: true
 Xft.rgba:      rgb
-Xft.dpi:       80
+Xft.dpi:       96
 
 
 ! ------------------------------------------------------------------------------
