@@ -430,9 +430,9 @@ Packages : konsole, i3lock, dmenu, rofi
     <!-- Lock screen -->
     <Key mask="4" key="z">exec:i3lock -f --color "#2f343f"</Key>
     <!-- More fancy using Rofi -->
-    <Key mask="4" key="c">exec:rofi -show run -theme DarkBlue -font "Hack 10" -display-run "Command"</Key>
-    <Key mask="4" key="f">exec:rofi -show drun -theme DarkBlue -font "Hack Bold 10" -display-window "Application"</Key>
-    <Key mask="4" key="x">exec:rofi -show window -theme DarkBlue -font "Hack Bold 10" -display-window "Window"</Key>
+    <Key mask="4" key="c">exec:rofi -show run -theme DarkBlue -show-icons "true" -icon-theme "Breeze" -font "Hack 10" -display-run "Command"</Key>
+    <Key mask="4" key="f">exec:rofi -show drun -theme DarkBlue -show-icons "true" -icon-theme "Breeze" -font "Hack Bold 10" -display-window "Application"</Key>
+    <Key mask="4" key="x">exec:rofi -show window -theme DarkBlue -show-icons "true" -icon-theme "Breeze" -font "Hack Bold 10" -display-window "Window"</Key>
 
     <!-- Mouse bindings -->
     <Mouse context="root" button="4">ldesktop</Mouse>
