@@ -22,6 +22,7 @@ gitk (fast, scalable, distributed revision control system (revision tree visuali
 qgit (Qt application for viewing GIT trees)
 gitg (git repository viewer)
 meld (graphical tool to diff and merge files)
+ripgrep (Recursively searches directories for a regex pattern)
 pass (lightweight directory-based password manager)
 pwgen (Automatic Password generation)
 xbindkeys (Associate a combination of keys or mouse buttons with a shell command)
