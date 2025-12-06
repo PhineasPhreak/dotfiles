@@ -241,7 +241,7 @@
   (define-key map (kbd "C-c 3") #'split-root-window-right)
 
   (define-key map (kbd "C-<tab>") #'other-window)
-  (define-key map (kbd "C-c <tab>") #'other-window)
+  (define-key map (kbd "C-c <TAB>") #'other-window)
   ;; (define-key map (kbd "C-t") #'other-window)
 
   ;; (define-key map (kbd "C-c C-<tab>") #'next-window)
