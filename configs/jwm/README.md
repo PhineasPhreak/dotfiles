@@ -10,6 +10,9 @@ JWM is distributed in source form (available here), however, several distributio
 - To customize JWM, copy `.jwmrc` file to `"$HOME/.jwmrc"` and then modify it using your favorite text editor.
 - Copy the `.jwm/` folder to `$HOME/.jwm`.
 
+Install default template
+- To install `jwm_menu.xml` and `jwm_icons.xml`, copy both files to the `$HOME/.jwm` directory.
+
 
 # Documentation
 See the [configuration documentation](https://joewing.net/projects/jwm/config.html) for comprehensive documentation on configuring JWM. JWM also comes with a manual page (run "man jwm" on the command line after installing JWM).
