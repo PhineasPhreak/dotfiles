@@ -205,6 +205,9 @@
  tab-width        4
  )
 
+;; Determine the kinds of whitespace are visualized, with a specific value. See option whitespace-style for more information.
+(setq whitespace-style (quote (face spaces tabs space-mark tab-mark trailing)))
+
 ;; Switch focus after buffer split in emacs.
 ;; Unfortunately, though, this has the side-effect of selecting the *Completions* buffer when you hit TAB in the minibuffer.
 ;; (defadvice split-window (after move-point-to-new-window activate)
