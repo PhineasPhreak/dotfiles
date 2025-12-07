@@ -12,6 +12,7 @@ Flash OS images to SD cards & USB drives, safely and easily.
 * UNetbootin : [Unetbootin](https://unetbootin.github.io/)
 * gnome-multi-writer : In Ubuntu `source.list` for Gnome desktop
 
+
 ## Awesome list
 * PS Book Pentest and Security: **[Git-Pentest](https://github.com/enaqx/awesome-pentest), [Git-Security](https://github.com/sbilly/awesome-security), [Git-Linux-Software](https://github.com/luong-komorebi/Awesome-Linux-Software), [Git-Python](https://github.com/vinta/awesome-python), [Git-GameHacking](https://github.com/dsasmblr/game-hacking), [Git-HoneyPots](https://github.com/paralax/awesome-honeypots)**
 
@@ -21,22 +22,27 @@ Flash OS images to SD cards & USB drives, safely and easily.
 
 **Icon GitHub :** [Icon Here](https://octicons.github.com/)
 
+
 ## Git Tips
-[How to use GIT](https://github.com/PhineasPhreak/documents-learning/blob/master/how-to-git.md#howto-git)
+[How to use GIT](https://github.com/PhineasPhreak/documents-learning/blob/master/How-To/Linux/how-to-git.md#howto-git)
+
 
 ### Git on Windows, Linux and MacOS
-A fast and friendly git client for Mac, Windows and Linux
+A fast and friendly git client for MacOS, Windows and Linux
 
-* For Windows and MacOS
+* For *Windows* and *MacOS*
   * [tortoise](https://tortoisegit.org/) Windows Shell Interface to Git
   * [sourcetree](https://sourcetreeapp.com/) Free Git GUI for Mac and Windows
   * [fork](https://git-fork.com/) a fast and friendly git client for Mac and Windows
 
-* For Linux
+* For *Linux*
   * [sublime-merge](https://www.sublimemerge.com/) Line-by-line Staging. Commit Editing. Unmatched Performance.
-  * [qgit](https://packages.debian.org/buster/qgit) *Debian Repositories*
-  * [gitg](https://packages.debian.org/buster/gitg) *Debian Repositories*
-  * [git-gui](https://packages.debian.org/bullseye/git-gui), [gitk](https://packages.debian.org/buster/gitk) *Debian Repositories*
+  * [qgit](https://github.com/tibirna/qgit) *Debian/Ubuntu Repositories*
+  * [gitg](https://wiki.gnome.org/Apps/Gitg/) *Debian/Ubuntu Repositories*
+  * [git-cola](https://packages.debian.org/search?keywords=git-cola&searchon=names&suite=stable&section=all) *Debian/Ubuntu Repositories*
+  * [git-gui](https://packages.debian.org/search?keywords=git-gui&searchon=names&suite=stable&section=all), [gitk](https://packages.debian.org/search?keywords=gitk&searchon=names&suite=stable&section=all) *Debian/Ubuntu Repositories*
+  * [smartgit](https://www.smartgit.dev/download/) A powerful, cross-platform Git GUI that works the way you do.
+  * [GitKraken](https://www.gitkraken.com/download) Git tools that cut busywork for developers and surface insights for leaders. And cross-platform.
 
 
 ## Site and Others
