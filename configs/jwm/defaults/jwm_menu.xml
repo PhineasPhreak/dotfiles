@@ -30,7 +30,6 @@
     <Program label="KolourPaint" icon="kolourpaint">kolourpaint</Program>
     <Program label="Gwenview" icon="gwenview">gwenview</Program>
     <Program label="Kdenlive" icon="kdenlive">kdenlive</Program>
-    <Program label="OBS Studio" icon="com.obsproject.Studio">obs</Program>
     <Program label="Kontrast" icon="org.kde.kontrast">kontrast</Program>
     <Program label="Flameshot" icon="org.flameshot.Flameshot">flameshot</Program>
     <Program label="Flameshot - Open launcher" icon="org.flameshot.Flameshot">flameshot launcher</Program>
@@ -134,8 +133,6 @@
   <Menu label="Accessories" icon="applications-accessories">
     <Program label="Diodon" icon="diodon">diodon</Program>
     <Program label="Klipper" icon="klipper">klipper</Program>
-    <Program label="Dolphin" icon="system-file-manager">dolphin</Program>
-    <Program label="File Manager PCManFM" icon="system-file-manager">pcmanfm</Program>
     <Program label="Xfburn" icon="stock_xfburn">xfburn</Program>
     <Program label="Brasero" icon="brasero">brasero</Program>
     <Program label="K3b" icon="k3b">k3b</Program>
