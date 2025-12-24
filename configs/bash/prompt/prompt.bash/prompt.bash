@@ -23,252 +23,254 @@ __prompt_no_color="\[\e[0m\]"
 # `PROMPT_PWD_COLOR`.
 __prompt_pwd_color="${__prompt_color_prefix}${__prompt_256_prefix}33${__prompt_color_suffix}"
 if ! [[ -z $PROMPT_PWD_COLOR ]]; then
-  __prompt_pwd_color="${__prompt_color_prefix}${PROMPT_PWD_COLOR}${__prompt_color_suffix}"
+    __prompt_pwd_color="${__prompt_color_prefix}${PROMPT_PWD_COLOR}${__prompt_color_suffix}"
 fi
 
 # Set the path color. Defaults to purple. It can be overwritten by
 # `PROMPT_SEGMENT_JOBS_COLOR`.
 __prompt_segment_jobs_color="${__prompt_color_prefix}${__prompt_256_prefix}202${__prompt_color_suffix}"
 if ! [[ -z $PROMPT_SEGMENT_JOBS_COLOR ]]; then
-  __prompt_segment_jobs="${__prompt_color_prefix}${PROMPT_SEGMENT_JOBS_COLOR}${__prompt_color_suffix}"
+    __prompt_segment_jobs="${__prompt_color_prefix}${PROMPT_SEGMENT_JOBS_COLOR}${__prompt_color_suffix}"
 fi
 
 # Set the path color. Defaults to purple. It can be overwritten by
 # `PROMPT_SEGMENT_PYTHON_COLOR`.
 __prompt_segment_python_color="${__prompt_color_prefix}${__prompt_256_prefix}220${__prompt_color_suffix}"
 if ! [[ -z $PROMPT_SEGMENT_PYTHON_COLOR ]]; then
-  __prompt_segment_python="${__prompt_color_prefix}${PROMPT_SEGMENT_PYTHON_COLOR}${__prompt_color_suffix}"
+    __prompt_segment_python="${__prompt_color_prefix}${PROMPT_SEGMENT_PYTHON_COLOR}${__prompt_color_suffix}"
 fi
 
 # Set the git color. Defaults to purple. It can be overwritten by
 # `PROMPT_GIT_COLOR`.
 __prompt_git_color="${__prompt_color_prefix}${__prompt_256_prefix}105${__prompt_color_suffix}"
 if ! [[ -z $PROMPT_GIT_COLOR ]]; then
-  __prompt_git_color="${__prompt_color_prefix}${PROMPT_GIT_COLOR}${__prompt_color_suffix}"
+    __prompt_git_color="${__prompt_color_prefix}${PROMPT_GIT_COLOR}${__prompt_color_suffix}"
 fi
 
 # Set the user-host color. Defaults to blue. It can be overwritten by
 # `PROMPT_USERHOST_COLOR`.
 if [ $UID -ne 0 ]; then
-  # For simple user
-  __prompt_userhost_color="${__prompt_color_prefix}${__prompt_256_prefix}76${__prompt_color_suffix}"
-  if ! [[ -z $PROMPT_USERHOST_COLOR ]]; then
-    __prompt_userhost_color="${__prompt_color_prefix}${PROMPT_USERHOST_COLOR}${__prompt_color_suffix}"
-  fi
+    # For simple user
+    __prompt_userhost_color="${__prompt_color_prefix}${__prompt_256_prefix}76${__prompt_color_suffix}"
+    if ! [[ -z $PROMPT_USERHOST_COLOR ]]; then
+        __prompt_userhost_color="${__prompt_color_prefix}${PROMPT_USERHOST_COLOR}${__prompt_color_suffix}"
+    fi
 
 else
-  # Color the 'userhost' in RED for ROOT user.
-  __prompt_userhost_color="${__prompt_color_prefix}${__prompt_256_prefix}160${__prompt_color_suffix}"
-  if ! [[ -z $PROMPT_USERHOST_COLOR ]]; then
-    __prompt_userhost_color="${__prompt_color_prefix}${PROMPT_USERHOST_COLOR}${__prompt_color_suffix}"
-  fi
+    # Color the 'userhost' in RED for ROOT user.
+    __prompt_userhost_color="${__prompt_color_prefix}${__prompt_256_prefix}160${__prompt_color_suffix}"
+    if ! [[ -z $PROMPT_USERHOST_COLOR ]]; then
+        __prompt_userhost_color="${__prompt_color_prefix}${PROMPT_USERHOST_COLOR}${__prompt_color_suffix}"
+    fi
 fi
 
 # Set the error color. Defaults to red. It can be overwritten by
 # `PROMPT_ERROR_COLOR`.
 __prompt_error_color="${__prompt_color_prefix}${__prompt_256_prefix}204${__prompt_color_suffix}"
 if ! [[ -z $PROMPT_ERROR_COLOR ]]; then
-  __prompt_error_color="${__prompt_color_prefix}${PROMPT_ERROR_COLOR}${__prompt_color_suffix}"
+    __prompt_error_color="${__prompt_color_prefix}${PROMPT_ERROR_COLOR}${__prompt_color_suffix}"
 fi
 
 # Set the dollar color. Defaults to white. It can be overwritten by
 # `PROMPT_DOLLAR_COLOR`.
 __prompt_dollar_color="${__prompt_color_prefix}${__prompt_256_prefix}255${__prompt_color_suffix}"
 if ! [[ -z $PROMPT_DOLLAR_COLOR ]]; then
-  __prompt_dollar_color="${__prompt_color_prefix}${PROMPT_DOLLAR_COLOR}${__prompt_color_suffix}"
+    __prompt_dollar_color="${__prompt_color_prefix}${PROMPT_DOLLAR_COLOR}${__prompt_color_suffix}"
 fi
 
 # Gets the current working directory path, but shortens the directories in the
 # middle of long paths to just their respective first letters.
 function __prompt_get_short_pwd {
-  # Break down the local variables.
-  local dir=`dirs +0`
-  local dir_parts=(${dir//// })
-  local number_of_parts=${#dir_parts[@]}
+    # Break down the local variables.
+    local dir=`dirs +0`
+    local dir_parts=(${dir//// })
+    local number_of_parts=${#dir_parts[@]}
 
-  # If there are less than 6 path parts, then do no shortening.
-  if [[ "$number_of_parts" -gt "5" ]]; then
-    # Leave the last 2 part parts alone.
-    local last_index="$(( $number_of_parts - 3 ))"
-    local short_pwd=""
+    # If there are less than 6 path parts, then do no shortening.
+    if [[ "$number_of_parts" -gt "5" ]]; then
+        # Leave the last 2 part parts alone.
+        local last_index="$(( $number_of_parts - 3 ))"
+        local short_pwd=""
 
-    # Check for a leading slash.
-    if [[ "${dir:0:1}" == "/" ]]; then
-      # If there is a leading slash, add one to `short_pwd`.
-      short_pwd+='/'
+        # Check for a leading slash.
+        if [[ "${dir:0:1}" == "/" ]]; then
+            # If there is a leading slash, add one to `short_pwd`.
+            short_pwd+='/'
+        fi
+
+        for i in "${!dir_parts[@]}"; do
+            # Append a '/' before we do anything (provided this isn't the first part).
+            if [[ "$i" -gt "0" ]]; then
+                short_pwd+='/'
+            fi
+
+            # Don't shorten the first/last few arguments - leave them as-is.
+            if [[ "$i" -lt "2" || "$i" -gt "$last_index" ]]; then
+                short_pwd+="${dir_parts[i]}"
+            else
+                # This means that this path part is in the middle of the path. Our logic
+                # dictates that we shorten parts in the middle like this.
+                short_pwd+="${dir_parts[i]:0:1}"
+            fi
+        done
+
+        # Return the resulting short pwd.
+        __prompt_retval="$short_pwd"
+    else
+        # We didn't change anything, so return the original pwd.
+        __prompt_retval="$dir"
     fi
-
-    for i in "${!dir_parts[@]}"; do
-      # Append a '/' before we do anything (provided this isn't the first part).
-      if [[ "$i" -gt "0" ]]; then
-        short_pwd+='/'
-      fi
-
-      # Don't shorten the first/last few arguments - leave them as-is.
-      if [[ "$i" -lt "2" || "$i" -gt "$last_index" ]]; then
-        short_pwd+="${dir_parts[i]}"
-      else
-        # This means that this path part is in the middle of the path. Our logic
-        # dictates that we shorten parts in the middle like this.
-        short_pwd+="${dir_parts[i]:0:1}"
-      fi
-    done
-
-    # Return the resulting short pwd.
-    __prompt_retval="$short_pwd"
-  else
-    # We didn't change anything, so return the original pwd.
-    __prompt_retval="$dir"
-  fi
 }
 
 # Returns the user@host. The host is overriden by `PROMPT_HOST_NAME`.
 function __prompt_get_host() {
-  # Check to see if we already have the host name cached.
-  if [[ -z $PROMPT_HOST_NAME ]]; then
-    # We do not have the friendly host name cached, so use use '\h'.
-    __prompt_retval='\u@\h'
-  else
-    # We have the host name cached! Dope! Let's use it.
-    __prompt_retval="\u@$PROMPT_HOST_NAME"
-  fi
+    # Check to see if we already have the host name cached.
+    if [[ -z $PROMPT_HOST_NAME ]]; then
+        # We do not have the friendly host name cached, so use use '\h'.
+        __prompt_retval='\u@\h'
+    else
+        # We have the host name cached! Dope! Let's use it.
+        __prompt_retval="\u@$PROMPT_HOST_NAME"
+    fi
 }
 
 # Returns the git branch (if there is one), or returns empty.
 function __prompt_get_git_stuff() {
-  local branch
-  if branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null); then
-    if [[ "$branch" == "HEAD" ]]; then
-      branch='detached*'
-    fi
+    local branch
+    if branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null); then
+        if [[ "$branch" == "HEAD" ]]; then
+            branch='detached*'
+        fi
 
-    # Added functionality for displaying file modification with git.
-    local count_add=$(git status --short | wc -l)
+        # Added functionality for displaying file modification with git.
+        local count_add=$(git status --short | wc -l)
 
-    if [[ $count_add -eq 0 ]]; then
-      count_add=""
+        if [[ $count_add -eq 0 ]]; then
+            count_add=""
+        else
+            count_add="…$count_add"
+        fi
+
+        # Return the resulting git branch/ref.
+        __prompt_retval=":$branch$count_add"
     else
-      count_add="…$count_add"
+        # Return empty if there is no git stuff.
+        __prompt_retval=''
     fi
-
-    # Return the resulting git branch/ref.
-    __prompt_retval=":$branch$count_add"
-  else
-    # Return empty if there is no git stuff.
-    __prompt_retval=''
-  fi
 }
 
 __prompt_segment_python() {
-	local text
+    local text
 
-	if [ -v VIRTUAL_ENV ] ; then
-		# Les virtualenv python classiques
-		text=${VIRTUAL_ENV##*/}
-	elif [ -v CONDA_ENV_PATH ] ; then
-		text=${CONDA_ENV_PATH##*/}
-	elif [ -v CONDA_DEFAULT_ENV ] ; then
-		text=${CONDA_DEFAULT_ENV##*/}
-	elif [ -v PYENV_ROOT ] ; then
-		# Les virtualenv et versions pyenv
-		__prompt_pyenv_version_name
-		text="${__prompt_retval[*]}"
-	fi
+    if [ -v VIRTUAL_ENV ] ; then
+        # Les virtualenv python classiques
+        text=${VIRTUAL_ENV##*/}
+    elif [ -v CONDA_ENV_PATH ] ; then
+        text=${CONDA_ENV_PATH##*/}
+    elif [ -v CONDA_DEFAULT_ENV ] ; then
+        text=${CONDA_DEFAULT_ENV##*/}
+    elif [ -v PYENV_ROOT ] ; then
+        # Les virtualenv et versions pyenv
+        __prompt_pyenv_version_name
+        text="${__prompt_retval[*]}"
+    fi
 
-	if [ -n "${text}" ] ; then
-		__prompt_retval=(":${text}")
-	else
-		__prompt_retval=()
-	fi
+    if [ -n "${text}" ] ; then
+        __prompt_retval=(":${text}")
+    else
+        __prompt_retval=()
+    fi
 }
 
 __prompt_pyenv_version_name() {
-	local dir="$PWD"
-	__prompt_retval=("${PYENV_VERSION-}")
-	if [ -n "${__prompt_retval[*]}" ] ; then
-		return
-	fi
+    local dir="$PWD"
 
-	__prompt_find_parent "${dir}" .python-version
-	if [ -n "${__prompt_retval[*]}" ] && readarray __prompt_retval < "${__prompt_retval[*]}" 2>/dev/null ; then
-		# read a trouvé quelque choses (et l'a enregistré), c'est tout bon.
-		return
-	fi
+    __prompt_retval=("${PYENV_VERSION-}")
+    if [ -n "${__prompt_retval[*]}" ] ; then
+        return
+    fi
 
-	# L'existence de ${PYENV_ROOT} a déjà été testée dans le segment "python".
-	if [ -f "${PYENV_ROOT}/version" ] ; then
-		readarray -n 1 -t __prompt_retval < "${PYENV_ROOT}"/version 2>/dev/null
-	fi
+    __prompt_find_parent "${dir}" .python-version
+    if [ -n "${__prompt_retval[*]}" ] && readarray __prompt_retval < "${__prompt_retval[*]}" 2>/dev/null ; then
+        # read a trouvé quelque choses (et l'a enregistré), c'est tout bon.
+        return
+    fi
+
+    # L'existence de ${PYENV_ROOT} a déjà été testée dans le segment "python".
+    if [ -f "${PYENV_ROOT}/version" ] ; then
+        readarray -n 1 -t __prompt_retval < "${PYENV_ROOT}"/version 2>/dev/null
+    fi
 }
 
 # This function creates count for jobs running.
 function __prompt_segment_jobs() {
-  # Ancienne methode pour calculer les "jobs" en cours.
-  #local jobsnum="$(jobs -p | wc -l)"
+    # Ancienne methode pour calculer les "jobs" en cours.
+    #local jobsnum="$(jobs -p | wc -l)"
 
-  # Compte le nombre de "jobs" avec un meilleur affichage pour le terminal
-  # car il permet de choisir uniquement les process "Running" et "Stopped"
-  # et d'enlever les autres "Terminated" et "Done" qui ne sont pas important.
-  local jobsnum=$(jobs -l | awk -F" " '{ print $3 }' | grep -E 'Running|Stopped' | wc -l)
+    # Compte le nombre de "jobs" avec un meilleur affichage pour le terminal
+    # car il permet de choisir uniquement les process "Running" et "Stopped"
+    # et d'enlever les autres "Terminated" et "Done" qui ne sont pas important.
+    local jobsnum=$(jobs -l | awk -F" " '{ print $3 }' | grep -E 'Running|Stopped' | wc -l)
 
-  # Efface "jobsnum" si valeur egal a 0
-  if [ $jobsnum -eq 0 ] ; then
-      __prompt_retval=''
-      return
-  fi
+    # Efface "jobsnum" si valeur egal a 0
+    if [ $jobsnum -eq 0 ] ; then
+        __prompt_retval=''
+        return
+    fi
 
-  __prompt_retval=":$jobsnum"
+    __prompt_retval=":$jobsnum"
 }
 
 __prompt_find_parent() {
-	local cwd="$1"
-	local name="$2"
-	__prompt_retval=()
+    local cwd="$1"
+    local name="$2"
 
-	while [ "$cwd" ] ; do
-		if [ -e "$cwd/$name" ] ; then
-			__prompt_retval=("$cwd/$name")
-			return
-		fi
-		# Sinon, on remonte d'un cran dans l'arborescence.
-		cwd="${cwd%/*}"
-	done
+    __prompt_retval=()
+
+    while [ "$cwd" ] ; do
+        if [ -e "$cwd/$name" ] ; then
+            __prompt_retval=("$cwd/$name")
+            return
+        fi
+        # Sinon, on remonte d'un cran dans l'arborescence.
+        cwd="${cwd%/*}"
+    done
 }
 
 # This function creates prompt.
 function __prompt_command() {
-  # Make the dollar red if the last command exited with error.
-  local last_command_retval="$?"
-  local dollar_color="$__prompt_dollar_color"
-  if [ $last_command_retval -ne 0 ]; then
-    dollar_color="${__prompt_error_color}:${last_command_retval}"
-  fi
+    # Make the dollar red if the last command exited with error.
+    local last_command_retval="$?"
+    local dollar_color="$__prompt_dollar_color"
+    if [ $last_command_retval -ne 0 ]; then
+        dollar_color="${__prompt_error_color}:${last_command_retval}"
+    fi
 
-  # Calculate prompt parts.
-  __prompt_get_short_pwd
-  local short_pwd="${__prompt_pwd_color}${__prompt_retval}"
+    # Calculate prompt parts.
+    __prompt_get_short_pwd
+    local short_pwd="${__prompt_pwd_color}${__prompt_retval}"
 
-  __prompt_segment_jobs
-  local jobsnum="${__prompt_segment_jobs_color}${__prompt_retval}"
+    __prompt_segment_jobs
+    local jobsnum="${__prompt_segment_jobs_color}${__prompt_retval}"
 
-  __prompt_segment_python
-  local py_segment="${__prompt_segment_python_color}${__prompt_retval}"
+    __prompt_segment_python
+    local py_segment="${__prompt_segment_python_color}${__prompt_retval}"
 
-  __prompt_get_host
-  local host="${__prompt_userhost_color}${__prompt_retval}"
+    __prompt_get_host
+    local host="${__prompt_userhost_color}${__prompt_retval}"
 
-  __prompt_get_git_stuff
-  local git_stuff="${__prompt_git_color}${__prompt_retval}"
-  local dollar="${dollar_color}"'\$'
+    __prompt_get_git_stuff
+    local git_stuff="${__prompt_git_color}${__prompt_retval}"
+    local dollar="${dollar_color}"'\$'
 
-  # Set the PS1 to the new prompt. (func pwd not in bold)
-  #PS1="${__prompt_color_prefix_bold}${host}${__prompt_no_color}${__prompt_color_prefix_no_bold}:${short_pwd}${git_stuff}${jobsnum}${__prompt_color_prefix_bold}${dollar}${__prompt_no_color} "
+    # Set the PS1 to the new prompt. (func pwd not in bold)
+    #PS1="${__prompt_color_prefix_bold}${host}${__prompt_no_color}${__prompt_color_prefix_no_bold}:${short_pwd}${git_stuff}${jobsnum}${__prompt_color_prefix_bold}${dollar}${__prompt_no_color} "
 
-  # Set the PS1 to the new prompt (with func pwd in bold) (no py_segment)
-  #PS1="${__prompt_color_prefix_bold}${host}${__prompt_no_color}${__prompt_color_prefix_no_bold}:${__prompt_color_prefix_bold}${short_pwd}${git_stuff}${__prompt_color_prefix_no_bold}${jobsnum}${__prompt_color_prefix_bold}${dollar}${__prompt_no_color} "
+    # Set the PS1 to the new prompt (with func pwd in bold) (no py_segment)
+    #PS1="${__prompt_color_prefix_bold}${host}${__prompt_no_color}${__prompt_color_prefix_no_bold}:${__prompt_color_prefix_bold}${short_pwd}${git_stuff}${__prompt_color_prefix_no_bold}${jobsnum}${__prompt_color_prefix_bold}${dollar}${__prompt_no_color} "
 
-  # Set the PS1 to the new prompt (with func pwd in bold) and (with py_segment)
-  PS1="${__prompt_color_prefix_bold}${host}${__prompt_no_color}${__prompt_color_prefix_no_bold}:${__prompt_color_prefix_bold}${short_pwd}${git_stuff}${__prompt_color_prefix_no_bold}${py_segment}${jobsnum}${__prompt_color_prefix_bold}${dollar}${__prompt_no_color} "
+    # Set the PS1 to the new prompt (with func pwd in bold) and (with py_segment)
+    PS1="${__prompt_color_prefix_bold}${host}${__prompt_no_color}${__prompt_color_prefix_no_bold}:${__prompt_color_prefix_bold}${short_pwd}${git_stuff}${__prompt_color_prefix_no_bold}${py_segment}${jobsnum}${__prompt_color_prefix_bold}${dollar}${__prompt_no_color} "
 }
 
 # Tell bash about the function above.
