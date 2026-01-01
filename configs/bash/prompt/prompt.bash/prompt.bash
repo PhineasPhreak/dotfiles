@@ -21,7 +21,7 @@ __prompt_no_color="\[\e[0m\]"
 
 # Set the path color. Defaults to green. It can be overwritten by
 # `PROMPT_PWD_COLOR`.
-__prompt_pwd_color="${__prompt_color_prefix}${__prompt_256_prefix}33${__prompt_color_suffix}"
+__prompt_pwd_color="${__prompt_color_prefix}${__prompt_256_prefix}75${__prompt_color_suffix}"
 if ! [[ -z $PROMPT_PWD_COLOR ]]; then
     __prompt_pwd_color="${__prompt_color_prefix}${PROMPT_PWD_COLOR}${__prompt_color_suffix}"
 fi
@@ -51,14 +51,14 @@ fi
 # `PROMPT_USERHOST_COLOR`.
 if [ $UID -ne 0 ]; then
     # For simple user
-    __prompt_userhost_color="${__prompt_color_prefix}${__prompt_256_prefix}76${__prompt_color_suffix}"
+    __prompt_userhost_color="${__prompt_color_prefix}${__prompt_256_prefix}35${__prompt_color_suffix}"
     if ! [[ -z $PROMPT_USERHOST_COLOR ]]; then
         __prompt_userhost_color="${__prompt_color_prefix}${PROMPT_USERHOST_COLOR}${__prompt_color_suffix}"
     fi
 
 else
     # Color the 'userhost' in RED for ROOT user.
-    __prompt_userhost_color="${__prompt_color_prefix}${__prompt_256_prefix}160${__prompt_color_suffix}"
+    __prompt_userhost_color="${__prompt_color_prefix}${__prompt_256_prefix}196${__prompt_color_suffix}"
     if ! [[ -z $PROMPT_USERHOST_COLOR ]]; then
         __prompt_userhost_color="${__prompt_color_prefix}${PROMPT_USERHOST_COLOR}${__prompt_color_suffix}"
     fi
