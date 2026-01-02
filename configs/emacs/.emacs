@@ -232,6 +232,9 @@
   ;; To fixup white space between objects around point according to the context
   ;; (define-key map (kbd "C-c C-c") #'fixup-whitespace)
 
+  (define-key map (kbd "C-c ,") #'whitespace-mode)
+  (define-key map (kbd "C-.") #'global-whitespace-mode)
+
   (define-key map (kbd "C-c a") #'mark-whole-buffer)
   (define-key map (kbd "C-c d") #'kill-whole-line)
   (define-key map (kbd "C-x ,") #'revert-buffer)
@@ -268,19 +271,19 @@
 
   ;; Package 'buffer-move'
   ;; The buffer-move package lets you move the contents (buffer) of a window in another direction, using keyboard shortcuts
-  ;; (global-set-key (kbd "C-c <up>")     'buf-move-up)
-  ;; (global-set-key (kbd "C-c <down>")   'buf-move-down)
-  ;; (global-set-key (kbd "C-c <left>")   'buf-move-left)
-  ;; (global-set-key (kbd "C-c <right>")  'buf-move-right)
+  ;; (global-set-key (kbd "C-c <up>")    #'buf-move-up)
+  ;; (global-set-key (kbd "C-c <down>")  #'buf-move-down)
+  ;; (global-set-key (kbd "C-c <left>")  #'buf-move-left)
+  ;; (global-set-key (kbd "C-c <right>") #'buf-move-right)
   )
 
 ;; https://www.emacswiki.org/emacs/WindowResize
 ;; Here is a very simple suggestion to make them more accessible.
-(global-set-key (kbd "S-C-<left>") 'shrink-window-horizontally)
-(global-set-key (kbd "S-C-<right>") 'enlarge-window-horizontally)
-(global-set-key (kbd "S-C-<down>") 'shrink-window)
-(global-set-key (kbd "S-C-<up>") 'enlarge-window)
-(global-set-key (kbd "C-x +") 'balance-windows)
+(global-set-key (kbd "S-C-<left>")  #'shrink-window-horizontally)
+(global-set-key (kbd "S-C-<right>") #'enlarge-window-horizontally)
+(global-set-key (kbd "S-C-<down>")  #'shrink-window)
+(global-set-key (kbd "S-C-<up>")    #'enlarge-window)
+(global-set-key (kbd "C-x +")       #'balance-windows)
 
 
 ;; Docs: https://www.emacswiki.org/emacs/CopyingWholeLines#h5o-10
@@ -290,15 +293,15 @@
   (interactive "p")
   (save-excursion
     (let ((nb (or n 1))
-    	  (current-line (thing-at-point 'line)))
+          (current-line (thing-at-point 'line)))
       ;; when on last line, insert a newline first
       (when (or (= 1 (forward-line 1)) (eq (point) (point-max)))
-    	(insert "\n"))
+        (insert "\n"))
 
       ;; now insert as many time as requested
       (while (> n 0)
-    	(insert current-line)
-    	(decf n)))))
+        (insert current-line)
+        (decf n)))))
 ;; Key bindings for duplicate-current-line
 (global-set-key (kbd "C-c w") 'duplicate-current-line)
 
