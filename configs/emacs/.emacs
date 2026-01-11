@@ -68,6 +68,9 @@
  ;; If there is more than one, they won't work right.
  )
 
+;;
+;; Options
+;;
 ;; Load default theme
 (load-theme 'wombat t)
 
@@ -190,6 +193,12 @@
 
 ;; When switch the buffer make case-insensitive
 (setq read-buffer-completion-ignore-case t)
+
+;;
+;; Functions
+;;
+;; Enable this variable to automatically kill the current Dired buffer when opening a new one. (in Emacs 28+)
+;; (setf dired-kill-when-opening-new-dired-buffer t)
 
 ;;
 ;; Indentation
