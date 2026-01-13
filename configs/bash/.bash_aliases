@@ -49,31 +49,31 @@ bind "set completion-ignore-case on"
 function ex {
  if [ -z "$1" ]; then
     # display usage if no parameters given
-    echo "Usage: ex <path/file_name>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz>"
+    echo "Usage: ex: <path/file_name>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz>"
     echo "       extract <path/file_name_1.ext> [path/file_name_2.ext] [path/file_name_3.ext]"
  else
     for n in "$@"
     do
       if [ -f "$n" ] ; then
           case "${n%,}" in
-            *.cbt|*.tar.bz2|*.tar.gz|*.tar.xz|*.tbz2|*.tgz|*.txz|*.tar)
-                         tar xvf "$n"       ;;
-            *.lzma)      unlzma ./"$n"      ;;
-            *.bz2)       bunzip2 ./"$n"     ;;
-            *.cbr|*.rar)       unrar x -ad ./"$n" ;;
-            *.gz)        gunzip ./"$n"      ;;
-            *.cbz|*.epub|*.zip)       unzip ./"$n"       ;;
-            *.z)         uncompress ./"$n"  ;;
-            *.7z|*.arj|*.cab|*.cb7|*.chm|*.deb|*.dmg|*.iso|*.lzh|*.msi|*.pkg|*.rpm|*.udf|*.wim|*.xar)
-                         7z x ./"$n"        ;;
-            *.xz)        unxz ./"$n"        ;;
-            *.exe)       cabextract ./"$n"  ;;
-            *.cpio)      cpio -id < ./"$n"  ;;
-            *.cba|*.ace)      unace x ./"$n"      ;;
-            *)
-                         echo "ex: '$n' - unknown archive method"
-                         return 1
-                         ;;
+              *.cbt|*.tar.bz2|*.tar.gz|*.tar.xz|*.tbz2|*.tgz|*.txz|*.tar)
+                  tar xvf "$n"       ;;
+              *.lzma)      unlzma ./"$n"      ;;
+              *.bz2)       bunzip2 ./"$n"     ;;
+              *.cbr|*.rar)       unrar x -ad ./"$n" ;;
+              *.gz)        gunzip ./"$n"      ;;
+              *.cbz|*.epub|*.zip)       unzip ./"$n"       ;;
+              *.z)         uncompress ./"$n"  ;;
+              *.7z|*.arj|*.cab|*.cb7|*.chm|*.deb|*.dmg|*.iso|*.lzh|*.msi|*.pkg|*.rpm|*.udf|*.wim|*.xar)
+                  7z x ./"$n"        ;;
+              *.xz)        unxz ./"$n"        ;;
+              *.exe)       cabextract ./"$n"  ;;
+              *.cpio)      cpio -id < ./"$n"  ;;
+              *.cba|*.ace)      unace x ./"$n"      ;;
+              *)
+                  echo "ex: '$n' - unknown archive method"
+                  return 1
+                  ;;
           esac
       else
           echo "'$n' - file does not exist"
@@ -81,6 +81,15 @@ function ex {
       fi
     done
 fi
+}
+
+# Show a directory listing when using 'cd'
+function cdls() {
+    new_directory="$*";
+    if [ $# -eq 0 ]; then
+        new_directory=${HOME};
+    fi;
+    builtin cd "${new_directory}" && /bin/ls -lhF --color=auto --time-style=long-iso --ignore=lost+found
 }
 
 ### ALIASES (allows users to create shortcuts for frequently used commands, enhancing workflow efficiency)
@@ -106,10 +115,10 @@ alias watch='watch --color'
 # some more ls aliases
 alias lda='ls --color=auto -lhAF --group-directories-first'
 alias ld='ls --color=auto -lhF --group-directories-first'
-alias ll='ls -lhF'
-alias la='ls -lhAF'
-alias lf='ls -lhAF'
-alias l='ls -CF'
+alias ll='ls --color=auto-lhF'
+alias la='ls --color=auto -lhAF'
+alias lf='ls --color=auto -lhAF'
+alias l='ls --color=auto -CF'
 
 # get the error messages from journalctl
 alias jctl="journalctl -p 3 -xb"
@@ -127,11 +136,11 @@ alias sd='sudo'
 alias cl='clear'
 
 # quick switch to directories
-alias cddown='cd ~/Downloads/'
-alias cddoc='cd ~/Documents/'
-alias cdpic='cd ~/Pictures/'
-alias cdgit='cd ~/Git/'
-alias cdlab='cd ~/Lab/'
+# alias cddown='cd ~/Downloads/'
+# alias cddoc='cd ~/Documents/'
+# alias cdpic='cd ~/Pictures/'
+# alias cdgit='cd ~/Git/'
+# alias cdlab='cd ~/Lab/'
 
 # navigation
 alias ..='cd ..'
