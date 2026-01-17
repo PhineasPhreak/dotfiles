@@ -1,7 +1,7 @@
 #!/bin/bash
 # cf. https://gitlab.com/bersace/powerline.bash
 # cf. Dernier commit depuis ma modification :
-# Jul 02, 2025 "Optimisation du segment git_lite" 7387ab4cae2bed6bc242438a5b95e9a459cbe69e
+# Nov 15, 2025 "python: Lire le nom du venv depuis venv.cfg" f4f7a51f11f481ac385e121daaadc8c7880cc408
 #
 # Merge of
 # https://gitlab.com/bersace/powerline.bash
@@ -1902,9 +1902,11 @@ __powerline_segment_python() {
 			else
 				text=${VIRTUAL_ENV_PROMPT}
 			fi
+		elif [ -f "$VIRTUAL_ENV/pyvenv.cfg" ] ; then
+			text=$(grep -oP "prompt = '\K[^']+" "$VIRTUAL_ENV/pyvenv.cfg")
 		else
-		    # ou utiliser le dossier
-		    text=${VIRTUAL_ENV##*/}
+			# ou utiliser le dossier
+			text=${VIRTUAL_ENV##*/}
 		fi
 	elif [ -v CONDA_ENV_PATH ] ; then
 		text=${CONDA_ENV_PATH##*/}
