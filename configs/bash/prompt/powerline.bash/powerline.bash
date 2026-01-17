@@ -13,7 +13,7 @@
 # Pour explorer davantage d'icônes natif au système, utilisez "kcharselct" sous KDE.
 # Others icon "⚑","⇣", "⇡", "⬇", "⬆", "★", "●", "✖", "✚", "…", "", "✼", "✔", "✎", "❒", "⚙", "⏯", "🮥", "🮼", "🙷"
 
-__powerline_min_bash_version=4.2.46	 # RHEL7
+__powerline_min_bash_version=4.2.46  # RHEL7
 # invocation sort équivalent à GNU sort --version-sort --check=quiet
 if ! printf "$__powerline_min_bash_version\n%s" "${BASH_VERSION-0}" | sort -n -t . -k 1,1 -k 2,2 -k 3,3 -c 2>/dev/null ; then
 	echo "erreur: powerline.bash requiert bash, en version $__powerline_min_bash_version ou supérieur." >&2
@@ -254,7 +254,7 @@ __powerline_autoicons() {
 			unset "__powerline_icons[windows]"
 
 			__powerline_icons+=(
-				[architecture]=$'\uE383'	# fa-microchip
+				[architecture]=$'\uE383'    # fa-microchip
 				[docker]=$'\uE8EA '
 				[etckeeper]=$'\uE025'
 				[fail]=$'\uE023 '
@@ -333,52 +333,52 @@ __powerline_autoicons() {
 			# cf. https://www.nerdfonts.com/cheat-sheet
 			__powerline_icons+=(
 				[architecture]=$'\UF061A'  # nf-md-chip
-				[docker]=$'\uF308'		   # nf-linux-docker
-				[etckeeper]=$'\uF013'	   # nf-fa-gear
-				[fail]=$'\uF071'		   # nf-fa-exclamation_triangle
-				[git-detached]=$'\uF06A '	# nf-fa-exclamation_circle
-				[git]=$'\uE725'			   # nf-dev-git_branch
-				[home]=$'\UF02DC'		   # nf-md-home
-				[horloge]=$'\uF017'		   # nf-fa-clock
-				[jobs]=$'\uF08e'		   # nf-fa-arrow_up_right_from_square
-				[k8s]=$'\UF0833'		   # nf-md-ship_wheel
-				[newmail]=$'\UF06CF'	   # nf-md-email_alert
-				[openstack]=$'\UF07B6'	   # nf-md-cloud_tags
-				[pwd]=$'\uF07B'			   # nf-fa-folder
-				[python]=$'\uE235'		   # nf-fae-python
+				[docker]=$'\uF308'         # nf-linux-docker
+				[etckeeper]=$'\uF013'      # nf-fa-gear
+				[fail]=$'\uF071'           # nf-fa-exclamation_triangle
+				[git-detached]=$'\uF06A '   # nf-fa-exclamation_circle
+				[git]=$'\uE725'            # nf-dev-git_branch
+				[home]=$'\UF02DC'          # nf-md-home
+				[horloge]=$'\uF017'        # nf-fa-clock
+				[jobs]=$'\uF08e'           # nf-fa-arrow_up_right_from_square
+				[k8s]=$'\UF0833'           # nf-md-ship_wheel
+				[newmail]=$'\UF06CF'       # nf-md-email_alert
+				[openstack]=$'\UF07B6'     # nf-md-cloud_tags
+				[pwd]=$'\uF07B'            # nf-fa-folder
+				[python]=$'\uE235'         # nf-fae-python
 
 				# chassis
-				[desktop]=$'\uF108'		   # nd-fa-desktop
-				[laptop]=$'\uF109'		   # nf-fa-laptop
-				[tablet]=$'\uF10A'		   # nf-fa-tablet
-				[convertible]=$'\uF10A'	   # nf-fa-tablet
-				[handset]=$'\uF10b'		   # nf-fa-mobile_phone
-				[vm]=$'\UF048D'			   # nf-md-server_network
-				[server]=$'\UF048B'		   # nf-md-server
-				[container]=$'\uF4B7'	   # nf-oct-container
+				[desktop]=$'\uF108'        # nd-fa-desktop
+				[laptop]=$'\uF109'         # nf-fa-laptop
+				[tablet]=$'\uF10A'         # nf-fa-tablet
+				[convertible]=$'\uF10A'    # nf-fa-tablet
+				[handset]=$'\uF10b'        # nf-fa-mobile_phone
+				[vm]=$'\UF048D'            # nf-md-server_network
+				[server]=$'\UF048B'        # nf-md-server
+				[container]=$'\uF4B7'      # nf-oct-container
 
 				# logos
-				[alpine]=$'\uF300'		   # nf-linux-alpine
-				[apple]=$'\uF302'		   # nf-linux-apple
-				[arch]=$'\uF303'		   # nf-linux-archlinux
-				[centos]=$'\uF304'		   # nf-linux-centos
-				[debian]=$'\uF306'		   # nf-linux-debian
-				[elementary]=$'\uF309'	   # nf-linux-elementary
-				[fedora]=$'\uF30A'		   # nf-linux-fedora
-				[freebsd]=$'\uF30C'		   # nf-linux-freebsd
-				[openbsd]=$'\uF328'		   # nf-linux-openbsd
-				[netbsd]=$'\uF024'		   # nf-fa-flag
-				[gentoo]=$'\uF30D'		   # nf-linux-gentoo
-				[linux]=$'\uF31A'		   # nf-linux-tux
-				[linuxmint]=$'\uF30E'	   # nf-linux-linuxmint
+				[alpine]=$'\uF300'         # nf-linux-alpine
+				[apple]=$'\uF302'          # nf-linux-apple
+				[arch]=$'\uF303'           # nf-linux-archlinux
+				[centos]=$'\uF304'         # nf-linux-centos
+				[debian]=$'\uF306'         # nf-linux-debian
+				[elementary]=$'\uF309'     # nf-linux-elementary
+				[fedora]=$'\uF30A'         # nf-linux-fedora
+				[freebsd]=$'\uF30C'        # nf-linux-freebsd
+				[openbsd]=$'\uF328'        # nf-linux-openbsd
+				[netbsd]=$'\uF024'         # nf-fa-flag
+				[gentoo]=$'\uF30D'         # nf-linux-gentoo
+				[linux]=$'\uF31A'          # nf-linux-tux
+				[linuxmint]=$'\uF30E'      # nf-linux-linuxmint
 				[logo-inconnu]=$'\uE795'   # nf-dev-terminal
-				[manjaro]=$'\uF312'		   # nf-linux-manjaro
-				[raspbian]=$'\uF315'	   # nf-linux-raspbian
-				[redhat]=$'\uF316'		   # nf-linux-redhat
-				[slackware]=$'\uF318'	   # nf-linux-slackware
-				[suse]=$'\uF314'		   # nf-linux-opensuse
-				[ubuntu]=$'\uF31C'		   # nf-linux-ubuntu_inverse
-				[windows]=$'\uE70F'		   # nf-dev-windows
+				[manjaro]=$'\uF312'        # nf-linux-manjaro
+				[raspbian]=$'\uF315'       # nf-linux-raspbian
+				[redhat]=$'\uF316'         # nf-linux-redhat
+				[slackware]=$'\uF318'      # nf-linux-slackware
+				[suse]=$'\uF314'           # nf-linux-opensuse
+				[ubuntu]=$'\uF31C'         # nf-linux-ubuntu_inverse
+				[windows]=$'\uE70F'        # nf-dev-windows
 
 			)
 			;;
@@ -673,11 +673,11 @@ __powerline_init_colors() {
 		[python-texte]=jaune-python
 
 		# Coloration pour les utilisateurs USER/ROOT
-		[user-color-bg]="48;5;036"	# USER -> vert
-		[user-color-fg]="38;5;235"	# Blanc
+		[user-color-bg]="48;5;036" # USER -> vert
+		[user-color-fg]="38;5;235" # Blanc
 
-		[root-color-bg]="48;5;160"	# ROOT -> rouge
-		[root-color-fg]="38;5;015"	# Blanc
+		[root-color-bg]="48;5;160" # ROOT -> rouge
+		[root-color-fg]="38;5;015" # Blanc
 
 		[status-fond]=rouge
 		[status-texte]=gris-clair4
@@ -790,7 +790,6 @@ __powerline_palette() {
 		*256color)
 			auto="256color"
 			;;
-
 		24bit|truecolor|*-termite|*-direct|*-kitty|*ghostty)
 			auto="24bit"
 			;;
@@ -939,7 +938,7 @@ __powerline_render_align_right() {
 	local largeur
 	local old_bg
 	local ps=''
-	local raw_ps=''	 # PS sans instructions \[\] pour calculer la largeur de l'invit
+	local raw_ps=''  # PS sans instructions \[\] pour calculer la largeur de l'invit
 	local segment
 	local text
 	local separator
@@ -1185,7 +1184,7 @@ __powerline_segment_docker() {
 		for file in "${__powerline_retval[@]}" ; do
 			if [ -f "$file" ] ; then
 				composefiles+=("$file")
-				if [ -d "${file%/*}"  ] && [ -z "${dir-}" ]	 ; then
+				if [ -d "${file%/*}"  ] && [ -z "${dir-}" ]  ; then
 					dir="${file%/*}"
 				fi
 			fi
@@ -1210,7 +1209,7 @@ __powerline_segment_docker() {
 	fi
 
 	# Extraire les noms uniques des services. La locale LANG=C est plus rapide pour sort.
-	service_names="$(LANG=C.UTF-8 sed --separate '0,/^services:/d;/^[[:alpha:]]/,$d;/^ *#/d;/^	 /d;/^$/d' "${composefiles[@]}" 2>/dev/null | sort -u)"
+	service_names="$(LANG=C.UTF-8 sed --separate '0,/^services:/d;/^[[:alpha:]]/,$d;/^ *#/d;/^   /d;/^$/d' "${composefiles[@]}" 2>/dev/null | sort -u)"
 	# Compter le nombre de services dans le fichier compose.
 	readarray service_names_a <<<"${service_names}"
 	service_nr="${#service_names_a[@]}"
@@ -1584,6 +1583,7 @@ __powerline_init_hostname() {
 
 __powerline_hostname_color8() {
 	local class="$1"
+
 	case "$class" in
 		local)
 			__powerline_retval=(vert:noir)
@@ -1752,6 +1752,7 @@ __powerline_segment_k8s() {
 	local contexte namespace texte configs config
 	local config_potentiellement_valide=non
 	local format='{..current-context}|{..namespace}'
+
 	IFS=':' read -ra configs <<<"${KUBECONFIG-$HOME/.kube/config}"
 
 	__powerline_retval=()
@@ -1897,7 +1898,7 @@ __powerline_segment_python() {
 		# Lire le nom du venv dans VIRTUAL_ENV_PROMPT
 		if [ -v VIRTUAL_ENV_PROMPT ] ; then
 			# virtual env créé avec module venv
-			if	[[ ${VIRTUAL_ENV_PROMPT} =~ ^\((.*)\)[[:space:]]$ ]]; then
+			if [[ ${VIRTUAL_ENV_PROMPT} =~ ^\((.*)\)[[:space:]]$ ]]; then
 				text=${BASH_REMATCH[1]}
 			else
 				text=${VIRTUAL_ENV_PROMPT}
@@ -2120,7 +2121,7 @@ __powerline_shorten_dir_ellipse() {
 	local short_pwd=
 	local dir="$1"
 
-	dir="${dir/$HOME/'~'}"	# Abbréger home avec ~
+	dir="${dir/$HOME/'~'}"  # Abbréger home avec ~
 
 	__powerline_split / "${dir##/}"
 	dir_parts=("${__powerline_retval[@]}")
