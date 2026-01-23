@@ -25,13 +25,15 @@ To install one or more packages, press `M+x` (Alt+x) in Emacs, then type the `li
 **Packages :**
 
 - Themes :
-  - `spacemacs-theme` : Color theme with a dark and light versions.
+  - `gruber-darker-theme` : Gruber Darker color theme for Emacs 24, Github site [gruber-darker-theme](https://github.com/rexim/gruber-darker-theme).
+  - `spacemacs-theme` : Color theme with a dark and light versions, Github site [spacemacs-theme](https://github.com/nashamri/spacemacs-theme).
   - `atom-one-dark-theme-0.4.0` : An Emacs port of the Atom One Dark theme from Atom.io.
 
 - Mode :
   - `buffer-move` : The buffer-move package lets you move the contents (buffer) of a window in another direction, using keyboard shortcuts [Github](https://github.com/lukhas/buffer-move)
   - `csv-mode` : Major mode for editing comma/char separated values
   - `markdown-mode` : Major mode for Markdown-formatted text
+  - `rainbow-mode` : Colorize color names in buffers
   - `auctex` : Integrated environment for *TeX*
   - `shell-pop` : helps you to use shell easily on Emacs. Only one key action to work [Github](https://github.com/kyagi/shell-pop-el)
   - `company` : Modular in-buffer completion framework for Emacs [Site](https://company-mode.github.io/)|[Github](https://github.com/company-mode/company-mode)
