@@ -48,7 +48,7 @@ are included. Custom by Phineasphreak (as PSPK)"
       (bg4           "#505050")
       (bg5           "#545454")
       (bg-alt        "#42444a")
-      (border        "#5d4d7a")
+      (border        "#383838")
       (cblk          "#cbc1d5")
       (cblk-bg       "#2f2b33")
       (cblk-ln       "#827591")
@@ -99,13 +99,17 @@ are included. Custom by Phineasphreak (as PSPK)"
       (black         "#242424")
       (green         "#92a65e")
       (green-bg      "#293235")
+      (green-bg-s    "#29422d")
       (cyan          "#3f9f9e")
       (red           "#b85149")
       (red-bg        "#3c2a2c")
+      (red-bg-s      "#512e31")
       (blue          "#5b98c2")
       (blue-bg       "#293239")
+      (blue-bg-s     "#2d4252")
       (magenta       "#64619a")
       (yellow        "#ccaa8f")
+      (yellow-bg     "#32322c")
       (gray          "#b2b2b2")
       (white         "#f6f3e8"))
 
@@ -113,12 +117,13 @@ are included. Custom by Phineasphreak (as PSPK)"
   (custom-theme-set-faces
    'wombat-pspk
 
-   ;; Default font and cursor color
+   ;; DEFAULT FONT / CURSOR COLOR
    `(default ((,class (:background ,bg1 :foreground ,base))))
    `(cursor ((,class (:background ,cursor))))
 
-   ;; Basic highlighting faces
-   `(border ((,class (:background ,bg-1 :foreground ,bg3))))
+   ;; BASIC HIGHLIGHTING FACES
+   `(border ((,class (:background ,bg-1 :foreground ,border))))
+   `(vertical-border ((,class (:foreground ,border))))
    `(success ((,class (:foreground ,suc))))
    `(warning ((,class (:foreground ,war))))
    `(error ((,class (:foreground ,err))))
@@ -132,22 +137,36 @@ are included. Custom by Phineasphreak (as PSPK)"
    `(highlight ((,class (:background ,highlight :foreground ,base :underline t))))
    `(region ((,class (:background ,highlight :extend t))))
    `(secondary-selection ((,class (:background ,highlight :foreground unspecified))))
-   `(isearch ((,class (:background ,isearch-bg :foreground ,isearch-fg))))
    `(lazy-highlight ((,class (:background ,lazy-hl-bg :foreground ,lazy-hl-fg))))
    `(tooltip ((,class (:background ,ttip-sl :foreground ,base :bold nil :italic nil :underline nil))))
 
-   ;; Mode line faces
+   ;; MODE LINE FACES
    `(mode-line ((,class (:background ,bg3 :foreground ,base :box (:color ,bg3 :line-width 1)))))
    `(mode-line-inactive ((,class (:background ,bg1 :foreground ,bg5 :box (:color ,bg3 :line-width 1)))))
    `(mode-line-buffer-id ((,class (:background unspecified :foreground ,buffer-name :weight bold))))
    `(mode-line-emphasis ((,class (:weight bold))))
 
-   ;; Escape and prompt faces
+   ;; ISEARCH
+   `(isearch ((,class (:foreground ,isearch-fg :background ,isearch-bg))))
+   `(isearch-fail ((,class (:foreground ,black :background ,red))))
+   `(isearch-lazy-highlight-face ((,class (:foreground ,lazy-hl-fg :background ,lazy-hl-bg))))
+
+   ;; TAB-BAR-MODE
+   `(tab-bar ((,class (:foreground ,base :background ,bg1))))
+   `(tab-bar-tab ((,class (:foreground ,base :background ,bg1 :weight bold))))
+   `(tab-bar-tab-inactive ((,class (:foreground ,base-dim :background ,bg2 :weight light))))
+
+   ;; TAB-LINE-MODE
+   `(tab-line ((,class (:foreground ,base :background ,bg1))))
+   `(tab-line-tab-current ((,class (:foreground ,base :background ,bg1 :weight bold))))
+   `(tab-line-tab-inactive ((,class (:foreground ,base-dim :background ,bg2 :weight light))))
+
+   ;; ESCAPE AND PROMPT FACES
    `(minibuffer-prompt ((,class (:foreground ,mini-buffer :weight bold))))
    `(escape-glyph ((,class (:foreground "#ddaa6f" :weight bold))))
    `(homoglyph ((,class (:foreground "#ddaa6f" :weight bold))))
 
-   ;; Font lock faces
+   ;; FONT LOCK FACES
    `(font-lock-builtin-face ((,class (:foreground "#e5786d"))))
    `(font-lock-comment-face ((,class (:foreground "#99968b"))))
    `(font-lock-comment-delimiter-face ((,class (:foreground "#99968b"))))
@@ -164,10 +183,10 @@ are included. Custom by Phineasphreak (as PSPK)"
    `(font-lock-warning-face ((,class (:foreground "#ccaa8f"))))
    `(font-lock-operator-face ((,class (:foreground "#716cff"))))
 
-   ;; Help faces
+   ;; HELP FACES
    `(help-key-binding ((,class (:background "#333333" :foreground "#f6f3e8"))))
 
-   ;;; info
+   ;; INFO
    `(info-header-xref ((,class (:foreground ,func :underline t))))
    `(info-menu ((,class (:foreground ,suc))))
    `(info-node ((,class (:foreground ,func :inherit bold))))
@@ -179,69 +198,78 @@ are included. Custom by Phineasphreak (as PSPK)"
    `(info-title-3 ((,class (:height 1.3))))
    `(info-title-4 ((,class (:height 1.2))))
 
-   ;; Button and link faces
+   ;; BUTTON / LINK FACES
    `(link ((,class (:foreground "#8ac6f2" :underline t))))
    `(link-visited ((,class (:foreground "#e5786d" :underline t))))
    `(button ((,class (:background "#333333" :foreground "#f6f3e8"))))
    `(header-line ((,class (:background "#303030" :foreground "#e7f6da"))))
 
-   ;; Line numbers
+   ;; LINE NUMBERS
    `(line-number ((,class (:inherit default :foreground "#545454"))))
    `(line-number-current-line ((,class (:inherit line-number :foreground "#f6f3e8"))))
 
-   ;;; helm
-   ;; `(helm-bookmark-directory ((,class (:inherit helm-ff-directory))))
-   ;; `(helm-bookmark-file ((,class (:foreground ,base))))
-   ;; `(helm-bookmark-gnus ((,class (:foreground ,comp))))
-   ;; `(helm-bookmark-info ((,class (:foreground ,comp))))
-   ;; `(helm-bookmark-man ((,class (:foreground ,comp))))
-   ;; `(helm-bookmark-w3m ((,class (:foreground ,comp))))
-   ;; `(helm-buffer-directory ((,class (:foreground ,base :background ,bg1))))
-   ;; `(helm-buffer-file ((,class (:foreground ,base :background ,bg1))))
-   ;; `(helm-buffer-not-saved ((,class (:foreground ,comp :background ,bg1))))
-   ;; `(helm-buffer-process ((,class (:foreground ,keyword :background ,bg1))))
-   ;; `(helm-buffer-saved-out ((,class (:foreground ,base :background ,bg1))))
-   ;; `(helm-buffer-size ((,class (:foreground ,base :background ,bg1))))
-   ;; `(helm-candidate-number ((,class (:background ,bg1 :foreground ,keyword :inherit bold))))
-   ;; `(helm-ff-directory ((,class (:foreground ,keyword :background ,bg1 :inherit bold))))
-   ;; `(helm-ff-dotted-directory ((,class (:foreground ,keyword :background ,bg1 :inherit bold))))
-   ;; `(helm-ff-dotted-symlink-directory ((,class (:foreground ,cyan :background ,bg1 :inherit bold))))
-   ;; `(helm-ff-executable ((,class (:foreground ,suc :background ,bg1 :weight normal))))
-   ;; `(helm-ff-file ((,class (:foreground ,base :background ,bg1 :weight normal))))
-   ;; `(helm-ff-invalid-symlink ((,class (:foreground ,red :background ,bg1 :inherit bold))))
-   ;; `(helm-ff-prefix ((,class (:foreground ,bg1 :background ,keyword :weight normal))))
-   ;; `(helm-ff-symlink ((,class (:foreground ,cyan :background ,bg1 :inherit bold))))
-   ;; `(helm-grep-cmd-line ((,class (:foreground ,base :background ,bg1))))
-   ;; `(helm-grep-file ((,class (:foreground ,base :background ,bg1))))
-   ;; `(helm-grep-finish ((,class (:foreground ,base :background ,bg1))))
-   ;; `(helm-grep-lineno ((,class (:foreground ,type :background ,bg1 :inherit bold))))
-   ;; `(helm-grep-match ((,class (:foreground nil :background nil :inherit helm-match))))
-   ;; `(helm-header ((,class (:foreground ,base :background ,bg1 :underline nil :box nil))))
-   ;; `(helm-header-line-left-margin ((,class (:foreground ,keyword :background ,nil))))
-   ;; `(helm-match ((,class (:background ,head1-bg :foreground ,head1))))
-   ;; `(helm-match-item ((,class (:background ,head1-bg :foreground ,head1))))
-   ;; `(helm-moccur-buffer ((,class (:foreground ,var :background ,bg1))))
-   ;; `(helm-selection ((,class (:background ,highlight))))
-   ;; `(helm-selection-line ((,class (:background ,bg2))))
-   ;; `(helm-separator ((,class (:foreground ,comp :background ,bg1))))
-   ;; `(helm-source-header ((,class (:background ,comp :foreground ,bg1 :inherit bold))))
-   ;; `(helm-time-zone-current ((,class (:foreground ,keyword :background ,bg1))))
-   ;; `(helm-time-zone-home ((,class (:foreground ,comp :background ,bg1))))
-   ;; `(helm-visible-mark ((,class (:foreground ,keyword :background ,bg3))))
+   ;; LINUM-MODE
+   `(linum ((,class (:foreground ,lnum :background ,bg2 :inherit default))))
 
-   ;; Whitespace
+   ;; LINUM-RELATIVE
+   `(linum-relative-current-face ((,class (:foreground ,comp))))
+
+   ;; HELM
+   `(helm-bookmark-directory ((,class (:inherit helm-ff-directory))))
+   `(helm-bookmark-file ((,class (:foreground ,base))))
+   `(helm-bookmark-gnus ((,class (:foreground ,comp))))
+   `(helm-bookmark-info ((,class (:foreground ,comp))))
+   `(helm-bookmark-man ((,class (:foreground ,comp))))
+   `(helm-bookmark-w3m ((,class (:foreground ,comp))))
+   `(helm-buffer-directory ((,class (:foreground ,base :background ,bg1))))
+   `(helm-buffer-file ((,class (:foreground ,base :background ,bg1))))
+   `(helm-buffer-not-saved ((,class (:foreground ,comp :background ,bg1))))
+   `(helm-buffer-process ((,class (:foreground ,keyword :background ,bg1))))
+   `(helm-buffer-saved-out ((,class (:foreground ,base :background ,bg1))))
+   `(helm-buffer-size ((,class (:foreground ,base :background ,bg1))))
+   `(helm-candidate-number ((,class (:background ,bg1 :foreground ,keyword :inherit bold))))
+   `(helm-ff-directory ((,class (:foreground ,keyword :background ,bg1 :inherit bold))))
+   `(helm-ff-dotted-directory ((,class (:foreground ,keyword :background ,bg1 :inherit bold))))
+   `(helm-ff-dotted-symlink-directory ((,class (:foreground ,cyan :background ,bg1 :inherit bold))))
+   `(helm-ff-executable ((,class (:foreground ,suc :background ,bg1 :weight normal))))
+   `(helm-ff-file ((,class (:foreground ,base :background ,bg1 :weight normal))))
+   `(helm-ff-invalid-symlink ((,class (:foreground ,red :background ,bg1 :inherit bold))))
+   `(helm-ff-prefix ((,class (:foreground ,bg1 :background ,keyword :weight normal))))
+   `(helm-ff-symlink ((,class (:foreground ,cyan :background ,bg1 :inherit bold))))
+   `(helm-grep-cmd-line ((,class (:foreground ,base :background ,bg1))))
+   `(helm-grep-file ((,class (:foreground ,base :background ,bg1))))
+   `(helm-grep-finish ((,class (:foreground ,base :background ,bg1))))
+   `(helm-grep-lineno ((,class (:foreground ,type :background ,bg1 :inherit bold))))
+   `(helm-grep-match ((,class (:foreground nil :background nil :inherit helm-match))))
+   `(helm-header ((,class (:foreground ,base :background ,bg1 :underline nil :box nil))))
+   `(helm-header-line-left-margin ((,class (:foreground ,keyword :background ,nil))))
+   `(helm-match ((,class (:background ,head1-bg :foreground ,head1))))
+   `(helm-match-item ((,class (:background ,head1-bg :foreground ,head1))))
+   `(helm-moccur-buffer ((,class (:foreground ,var :background ,bg1))))
+   `(helm-selection ((,class (:background ,highlight))))
+   `(helm-selection-line ((,class (:background ,bg2))))
+   `(helm-separator ((,class (:foreground ,comp :background ,bg1))))
+   `(helm-source-header ((,class (:background ,comp :foreground ,bg1 :inherit bold))))
+   `(helm-time-zone-current ((,class (:foreground ,keyword :background ,bg1))))
+   `(helm-time-zone-home ((,class (:foreground ,comp :background ,bg1))))
+   `(helm-visible-mark ((,class (:foreground ,keyword :background ,bg3))))
+
+   ;; WHICH-FUNCTION-MODE
+   `(which-func ((,class (:foreground ,func))))
+
+   ;; WHITESPACE
    `(whitespace-space ((,class (:background unspecified :weight bold :foreground "#505050"))))
    `(whitespace-tab ((,class (:background unspecified :weight bold :foreground "#505050"))))
    `(whitespace-hspace ((,class (:background unspecified :foreground "#453d41"))))
    `(whitespace-line ((,class (:background "#453d41" :foreground "#e5786d"))))
    `(whitespace-newline ((,class (:background unspecified :foreground "#453d41"))))
-   `(whitespace-trailing ((,class (:background "#e5786d" :bold t :foreground "#e5786d"))))
+   `(whitespace-trailing ((,class (:background "#e5786d" :weight bold :foreground "#e5786d"))))
    `(whitespace-empty ((,class (:background "#ddaa6f" :foreground "#ddaa6f"))))
    `(whitespace-indentation ((,class (:background "#ddaa6f" :foreground "#e5786d"))))
    `(whitespace-space-after-tab ((,class (:background "#ddaa6f" :foreground "#ddaa6f"))))
    `(whitespace-space-before-tab ((,class (:background "#ccaa8f" :foreground "#ccaa8f"))))
 
-   ;; Diff
+   ;; DIFF
    `(diff-added ((,class :background unspecified :foreground ,green :extend t)))
    `(diff-changed ((,class :background unspecified :foreground ,blue)))
    `(diff-header ((,class :background ,cblk-ln-bg :foreground ,cblk :extend t)))
@@ -254,12 +282,12 @@ are included. Custom by Phineasphreak (as PSPK)"
    `(diff-refine-removed ((,class :background ,red :foreground ,bg1)))
    `(diff-removed ((,class :background unspecified :foreground ,red :extend t)))
 
-   ;; Diff-hl
+   ;; DIFF-HL
    `(diff-hl-insert ((,class :background ,green :foreground ,green)))
    `(diff-hl-delete ((,class :background ,red :foreground ,red)))
    `(diff-hl-change ((,class :background ,blue :foreground ,blue)))
 
-   ;;; Ediff
+   ;; EDIFF
    `(ediff-current-diff-A ((,class(:background ,red-bg :foreground ,red :extend t))))
    `(ediff-current-diff-Ancestor ((,class(:background ,aqua-bg :foreground ,aqua :extend t))))
    `(ediff-current-diff-B ((,class(:background ,green-bg :foreground ,green :extend t))))
@@ -277,7 +305,7 @@ are included. Custom by Phineasphreak (as PSPK)"
    `(ediff-odd-diff-B ((,class(:background ,bg4 :extend t))))
    `(ediff-odd-diff-C ((,class(:background ,bg4 :extend t))))
 
-   ;; Dired
+   ;; DIRED
    `(dired-directory ((,class (:foreground ,keyword-fl :background ,bg1 :inherit bold))))
    `(dired-flagged ((,class (:foreground ,red))))
    `(dired-header ((,class (:foreground ,meta :inherit bold))))
@@ -288,7 +316,7 @@ are included. Custom by Phineasphreak (as PSPK)"
    `(dired-symlink ((,class (:foreground ,cyan :background ,bg1 :inherit bold))))
    `(dired-warning ((,class (:foreground ,war))))
 
-   ;; Gnus faces
+   ;; GNUS FACES
    `(gnus-group-news-1 ((,class (:weight bold :foreground "#95e454"))))
    `(gnus-group-news-1-low ((,class (:foreground "#95e454"))))
    `(gnus-group-news-2 ((,class (:weight bold :foreground "#cae682"))))
@@ -313,7 +341,7 @@ are included. Custom by Phineasphreak (as PSPK)"
    `(gnus-header-name ((,class (:foreground "#8ac6f2"))))
    `(gnus-header-newsgroups ((,class (:foreground "#cae682"))))
 
-   ;; Message faces
+   ;; MESSAGE FACES
    `(message-header-name ((,class (:foreground "#8ac6f2" :weight bold))))
    `(message-header-cc ((,class (:foreground "#95e454"))))
    `(message-header-other ((,class (:foreground "#95e454"))))
@@ -322,7 +350,65 @@ are included. Custom by Phineasphreak (as PSPK)"
    `(message-cited-text ((,class (:foreground "#99968b"))))
    `(message-separator ((,class (:foreground "#e5786d" :weight bold))))
 
-   ;; hl-todo
+   ;; MAGIT
+   `(magit-blame-culprit ((,class :background ,yellow-bg :foreground ,yellow)))
+   `(magit-blame-date    ((,class :background ,yellow-bg :foreground ,green)))
+   `(magit-blame-hash    ((,class :background ,yellow-bg :foreground ,func)))
+   `(magit-blame-header  ((,class :background ,yellow-bg :foreground ,green)))
+   `(magit-blame-heading ((,class :background ,yellow-bg :foreground ,green)))
+   `(magit-blame-name    ((,class :background ,yellow-bg :foreground ,yellow)))
+   `(magit-blame-sha1    ((,class :background ,yellow-bg :foreground ,func)))
+   `(magit-blame-subject ((,class :background ,yellow-bg :foreground ,yellow)))
+   `(magit-blame-summary ((,class :background ,yellow-bg :foreground ,yellow :extend t)))
+   `(magit-blame-time    ((,class :background ,yellow-bg :foreground ,green)))
+   `(magit-branch ((,class (:foreground ,const :inherit bold))))
+   `(magit-branch-current ((,class (:background ,blue-bg :foreground ,blue :inherit bold :box t))))
+   `(magit-branch-local ((,class (:background ,blue-bg :foreground ,blue :inherit bold))))
+   `(magit-branch-remote ((,class (:background ,aqua-bg :foreground ,aqua :inherit bold))))
+   `(magit-diff-context-highlight ((,class (:background ,bg2 :foreground ,base :extend t))))
+   `(magit-diff-hunk-heading ((,class (:background ,ttip-bg :foreground ,ttip :extend t))))
+   `(magit-diff-hunk-heading-highlight ((,class (:background ,ttip-sl :foreground ,base :extend t))))
+   `(magit-hash ((,class (:foreground ,var))))
+   `(magit-hunk-heading ((,class (:background ,bg3 :extend t))))
+   `(magit-hunk-heading-highlight ((,class (:background ,bg3 :extend t))))
+   `(magit-item-highlight ((,class :background ,bg2 :extend t)))
+   `(magit-log-author ((,class (:foreground ,func))))
+   `(magit-log-head-label-head ((,class (:background ,yellow :foreground ,bg1 :inherit bold))))
+   `(magit-log-head-label-local ((,class (:background ,keyword :foreground ,bg1 :inherit bold))))
+   `(magit-log-head-label-remote ((,class (:background ,suc :foreground ,bg1 :inherit bold))))
+   `(magit-log-head-label-tags ((,class (:background ,magenta :foreground ,bg1 :inherit bold))))
+   `(magit-log-head-label-wip ((,class (:background ,cyan :foreground ,bg1 :inherit bold))))
+   `(magit-log-sha1 ((,class (:foreground ,str))))
+   `(magit-process-ng ((,class (:foreground ,war :inherit bold))))
+   `(magit-process-ok ((,class (:foreground ,func :inherit bold))))
+   `(magit-reflog-amend ((,class (:foreground ,magenta))))
+   `(magit-reflog-checkout ((,class (:foreground ,blue))))
+   `(magit-reflog-cherry-pick ((,class (:foreground ,green))))
+   `(magit-reflog-commit ((,class (:foreground ,green))))
+   `(magit-reflog-merge ((,class (:foreground ,green))))
+   `(magit-reflog-other ((,class (:foreground ,cyan))))
+   `(magit-reflog-rebase ((,class (:foreground ,magenta))))
+   `(magit-reflog-remote ((,class (:foreground ,cyan))))
+   `(magit-reflog-reset ((,class (:foreground ,red))))
+   `(magit-section-heading ((,class (:foreground ,keyword :inherit bold :extend t))))
+   `(magit-section-highlight ((,class (:background ,bg2 :extend t))))
+   `(magit-section-title ((,class (:background ,bg1 :foreground ,keyword :inherit bold))))
+
+   ;; SMERGE
+   `(smerge-base ((,class (:background ,yellow-bg :extend t))))
+   `(smerge-markers ((,class (:background ,ttip-bg :foreground ,ttip :extend t))))
+   `(smerge-mine ((,class (:background ,red-bg))))
+   `(smerge-other ((,class (:background ,green-bg))))
+   `(smerge-refined-added ((,class (:background ,green-bg-s :foreground ,green))))
+   `(smerge-refined-changed ((,class (:background ,blue-bg-s :foreground ,blue))))
+   `(smerge-refined-removed ((,class (:background ,red-bg-s :foreground ,red))))
+
+   ;; MAN
+   `(Man-overstrike ((,class (:foreground ,head1 :inherit bold))))
+   `(Man-reverse ((,class (:foreground ,highlight))))
+   `(Man-underline ((,class (:foreground ,comp :underline t))))
+
+   ;; HL-TODO
    `(hl-todo-keyword-faces '(("TODO"        . ,war)
                              ("NEXT"        . ,war)
                              ("THEM"        . ,cyan)
