@@ -54,6 +54,11 @@
 ;; From: https://www.emacswiki.org/emacs/MELPA
 (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
 
+;; To ensure Emacs can find your custom themes in "~/.emacs.d/themes/",
+;; Note: Ensure the directory contains valid theme files (e.g., my-theme-theme.el)
+;; and that the file names follow the correct naming convention.
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+
 ;; Start the initial frame maximized
 ;; https://emacsredux.com/blog/2020/12/04/maximize-the-emacs-frame-on-startup/
 ;; (add-to-list 'initial-frame-alist '(fullscreen . maximized))
@@ -280,10 +285,10 @@
 
   ;; Package 'buffer-move'
   ;; The buffer-move package lets you move the contents (buffer) of a window in another direction, using keyboard shortcuts
-  ;; (global-set-key (kbd "C-c <up>")    #'buf-move-up)
-  ;; (global-set-key (kbd "C-c <down>")  #'buf-move-down)
-  ;; (global-set-key (kbd "C-c <left>")  #'buf-move-left)
-  ;; (global-set-key (kbd "C-c <right>") #'buf-move-right)
+  ;; (global-set-key (kbd "C-x c <up>")    #'buf-move-up)
+  ;; (global-set-key (kbd "C-x c <down>")  #'buf-move-down)
+  ;; (global-set-key (kbd "C-x c <left>")  #'buf-move-left)
+  ;; (global-set-key (kbd "C-x c <right>") #'buf-move-right)
   )
 
 ;; https://www.emacswiki.org/emacs/WindowResize
