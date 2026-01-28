@@ -35,7 +35,7 @@
 ;; The most common method of installing packages of Emacs Lisp
 ;; From: https://www.emacswiki.org/emacs/InstallingPackages
 ;; My common packages list (See README.md) :
-;; (company, markdown-mode, csv-mode, shell-pop, auctex, eglot, flycheck, pyvenv)
+;; (company, markdown-mode, rainbow-move, buffer-move, csv-mode, shell-pop, auctex, eglot, flycheck, pyvenv)
 
 
 ;; Activate all the packages (in particular autoloads)
@@ -65,6 +65,13 @@
 ;;
 ;; Start every frame maximized
 ;; (add-to-list 'default-frame-alist '(fullscreen . maximized))
+
+;; This ensures that show-trailing-whitespace is disabled specifically in
+;; term-mode, minibuffer and diff-mode buffers, preventing the display of trailing whitespace in terminal-like buffers.
+(add-hook 'term-mode-hook (lambda () (setq-local show-trailing-whitespace nil)))
+(add-hook 'eshell-mode-hook (lambda () (setq-local show-trailing-whitespace nil)))
+(add-hook 'diff-mode-hook (lambda () (setq-local show-trailing-whitespace nil)))
+;; (add-hook 'minibuffer-setup-hook (lambda () (setq-local show-trailing-whitespace nil)))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
