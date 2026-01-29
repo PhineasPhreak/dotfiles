@@ -127,7 +127,7 @@ are included. Custom by Phineasphreak (as PSPK)"
    `(success ((,class (:foreground ,suc))))
    `(warning ((,class (:foreground ,war))))
    `(error ((,class (:foreground ,err))))
-   `(fringe ((,class (:background ,bg2))))
+   `(fringe ((,class (:background ,bg1))))
    `(shadow ((,class (:foreground ,base-dim))))
    `(match ((,class (:background ,highlight :foreground ,mat))))
    `(eval-sexp-fu-flash ((,class (:background ,suc :foreground ,bg1))))
@@ -216,7 +216,7 @@ are included. Custom by Phineasphreak (as PSPK)"
    `(linum-relative-current-face ((,class (:foreground ,comp))))
 
    ;; TABBAR
-   `(tabbar-button ((,class (:inherit tabbar-default ))))
+   `(tabbar-button ((,class (:foreground, black))))
    `(tabbar-button-highlight ((,class (:inherit tabbar-default))))
    `(tabbar-default ((,class (:background ,bg1 :foreground ,head1 :height 0.9))))
    `(tabbar-highlight ((,class (:underline t))))
