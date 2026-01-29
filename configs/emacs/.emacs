@@ -68,9 +68,11 @@
 
 ;; This ensures that show-trailing-whitespace is disabled specifically in
 ;; term-mode, minibuffer and diff-mode buffers, preventing the display of trailing whitespace in terminal-like buffers.
+(add-hook 'Buffer-menu-mode-hook (lambda () (setq-local show-trailing-whitespace nil)))
 (add-hook 'term-mode-hook (lambda () (setq-local show-trailing-whitespace nil)))
 (add-hook 'eshell-mode-hook (lambda () (setq-local show-trailing-whitespace nil)))
 (add-hook 'diff-mode-hook (lambda () (setq-local show-trailing-whitespace nil)))
+(add-hook 'calendar-mode-hook (lambda () (setq-local show-trailing-whitespace nil)))
 ;; (add-hook 'minibuffer-setup-hook (lambda () (setq-local show-trailing-whitespace nil)))
 
 (custom-set-variables
