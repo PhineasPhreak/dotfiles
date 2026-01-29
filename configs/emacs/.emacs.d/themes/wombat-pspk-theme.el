@@ -56,7 +56,7 @@ are included. Custom by Phineasphreak (as PSPK)"
       (cursor        "#b2b2b2")
       (const         "#e59677")
       (comment       "#99968b")
-      (comment-light "#2aa1ae")
+      (comment-light "#cbc7b9")
       (comment-bg    "#292e34")
       (comp          "#e5786d")
       (err           "#b85149")
@@ -69,7 +69,7 @@ are included. Custom by Phineasphreak (as PSPK)"
       (head3-bg      "#293235")
       (head4         "#b1951d")
       (head4-bg      "#32322c")
-      (highlight     "#424242")
+      (highlight     "#404040")
       (highlight-dim "#828282")
       (keyword       "#e5786d")
       (keyword-fl    "#8ac6f2")
@@ -139,6 +139,7 @@ are included. Custom by Phineasphreak (as PSPK)"
    `(secondary-selection ((,class (:background ,highlight :foreground unspecified))))
    `(lazy-highlight ((,class (:background ,lazy-hl-bg :foreground ,lazy-hl-fg))))
    `(tooltip ((,class (:background ,ttip-sl :foreground ,base :bold nil :italic nil :underline nil))))
+   `(custom-state ((t (:foreground ,green))))
 
    ;; MODE LINE FACES
    `(mode-line ((,class (:background ,bg3 :foreground ,base :box (:color ,bg3 :line-width 1)))))
@@ -214,6 +215,44 @@ are included. Custom by Phineasphreak (as PSPK)"
    ;; LINUM-RELATIVE
    `(linum-relative-current-face ((,class (:foreground ,comp))))
 
+   ;; TABBAR
+   `(tabbar-button ((,class (:inherit tabbar-default ))))
+   `(tabbar-button-highlight ((,class (:inherit tabbar-default))))
+   `(tabbar-default ((,class (:background ,bg1 :foreground ,head1 :height 0.9))))
+   `(tabbar-highlight ((,class (:underline t))))
+   `(tabbar-selected ((,class (:inherit tabbar-default :foreground ,func :weight bold))))
+   `(tabbar-selected-modified ((,class (:inherit tabbar-default :foreground ,red :weight bold))))
+   `(tabbar-separator ((,class (:inherit tabbar-default))))
+   `(tabbar-unselected ((,class (:inherit tabbar-default :background ,bg1 :slant italic :weight light))))
+   `(tabbar-unselected-modified ((,class (:inherit tabbar-unselected :background ,bg1 :foreground ,red))))
+
+   ;; TAB-BAR-MODE
+   `(tab-bar ((,class (:foreground ,base :background ,bg1))))
+   `(tab-bar-tab ((,class (:foreground ,base :background ,bg1 :weight bold))))
+   `(tab-bar-tab-inactive ((,class (:foreground ,base-dim :background ,bg2 :weight light))))
+
+   ;; TAB-LINE-MODE
+   `(tab-line ((,class (:foreground ,base :background ,bg1))))
+   `(tab-line-tab-current ((,class (:foreground ,base :background ,bg1 :weight bold))))
+   `(tab-line-tab-inactive ((,class (:foreground ,base-dim :background ,bg2 :weight light))))
+
+   ;; TERM
+   `(term ((,class (:foreground ,base :background ,bg1))))
+   `(term-color-black ((,class (:foreground ,black :background ,black))))
+   `(term-color-blue ((,class (:foreground ,blue :background ,blue))))
+   `(term-color-cyan ((,class (:foreground ,cyan :background ,cyan))))
+   `(term-color-green ((,class (:foreground ,green :background ,green))))
+   `(term-color-magenta ((,class (:foreground ,magenta :background ,magenta))))
+   `(term-color-red ((,class (:foreground ,red :background ,red))))
+   `(term-color-white ((,class (:foreground ,base :background ,base))))
+   `(term-color-yellow ((,class (:foreground ,yellow :background ,yellow))))
+
+   ;; ESHELL
+   `(eshell-ls-backup ((,class (:foreground ,bg-alt))))
+   `(eshell-ls-directory ((,class (:foreground ,blue))))
+   `(eshell-ls-executable ((,class (:foreground ,green))))
+   `(eshell-ls-symlink ((,class (:foreground ,yellow))))
+
    ;; HELM
    `(helm-bookmark-directory ((,class (:inherit helm-ff-directory))))
    `(helm-bookmark-file ((,class (:foreground ,base))))
@@ -253,6 +292,22 @@ are included. Custom by Phineasphreak (as PSPK)"
    `(helm-time-zone-current ((,class (:foreground ,keyword :background ,bg1))))
    `(helm-time-zone-home ((,class (:foreground ,comp :background ,bg1))))
    `(helm-visible-mark ((,class (:foreground ,keyword :background ,bg3))))
+
+   ;; WEB-MODE
+   `(web-mode-builtin-face ((,class (:inherit ,font-lock-builtin-face))))
+   `(web-mode-comment-face ((,class (:inherit ,font-lock-comment-face))))
+   `(web-mode-constant-face ((,class (:inherit ,font-lock-constant-face))))
+   `(web-mode-current-element-highlight-face ((,class (:background ,bg3))))
+   `(web-mode-doctype-face ((,class (:inherit ,font-lock-comment-face))))
+   `(web-mode-function-name-face ((,class (:inherit ,font-lock-function-name-face))))
+   `(web-mode-html-attr-name-face ((,class (:foreground ,func))))
+   `(web-mode-html-attr-value-face ((,class (:foreground ,keyword))))
+   `(web-mode-html-tag-face ((,class (:foreground ,keyword))))
+   `(web-mode-keyword-face ((,class (:foreground ,keyword))))
+   `(web-mode-string-face ((,class (:foreground ,str))))
+   `(web-mode-symbol-face ((,class (:foreground ,type))))
+   `(web-mode-type-face ((,class (:inherit ,font-lock-type-face))))
+   `(web-mode-warning-face ((,class (:inherit ,font-lock-warning-face))))
 
    ;; WHICH-FUNCTION-MODE
    `(which-func ((,class (:foreground ,func))))
