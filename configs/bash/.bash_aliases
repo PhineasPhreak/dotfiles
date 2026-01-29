@@ -115,7 +115,7 @@ alias watch='watch --color'
 # some more ls aliases
 alias lda='ls --color=auto -lhAF --group-directories-first'
 alias ld='ls --color=auto -lhF --group-directories-first'
-alias ll='ls --color=auto-lhF'
+alias ll='ls --color=auto -lhF'
 alias la='ls --color=auto -lhAF'
 alias lf='ls --color=auto -lhAF'
 alias l='ls --color=auto -CF'
