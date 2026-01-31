@@ -257,6 +257,7 @@ are included. Custom by Phineasphreak (as PSPK)"
    `(ido-first-match ((,class (:foreground ,green :bold nil))))
    `(ido-only-match ((,class (:foreground ,cyan :weight bold))))
    `(ido-subdir ((,class (:foreground ,keyword-fl :weight bold))))
+   `(ido-vertical-match-face ((,class (:foreground ,const :underline nil))))
    `(ido-indicator ((,class (:foreground ,yellow :background ,red))))
 
    ;; HELM
