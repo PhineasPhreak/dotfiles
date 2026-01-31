@@ -208,6 +208,10 @@
 ;; When switch the buffer make case-insensitive
 (setq read-buffer-completion-ignore-case t)
 
+;; Toggle use of Ido for all buffer/file reading.
+(ido-mode t)
+(ido-everywhere t)
+
 ;;
 ;; Functions
 ;;

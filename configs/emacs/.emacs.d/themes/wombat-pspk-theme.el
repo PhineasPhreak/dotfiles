@@ -253,6 +253,12 @@ are included. Custom by Phineasphreak (as PSPK)"
    `(eshell-ls-executable ((,class (:foreground ,green))))
    `(eshell-ls-symlink ((,class (:foreground ,yellow))))
 
+   ;; IDO
+   `(ido-first-match ((,class (:foreground ,green :bold nil))))
+   `(ido-only-match ((,class (:foreground ,cyan :weight bold))))
+   `(ido-subdir ((,class (:foreground ,keyword-fl :weight bold))))
+   `(ido-indicator ((,class (:foreground ,yellow :background ,red))))
+
    ;; HELM
    `(helm-bookmark-directory ((,class (:inherit helm-ff-directory))))
    `(helm-bookmark-file ((,class (:foreground ,base))))
