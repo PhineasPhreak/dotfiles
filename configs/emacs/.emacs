@@ -154,15 +154,6 @@
 ;; Specify whether to have vertical scroll bars, and on which side.
 ;; (setq scroll-bar-mode nil)
 
-;; Automatically pair parentheses
-(electric-pair-mode t)
-
-;; Prefer coding system
-(prefer-coding-system 'utf-8)
-
-;; Assign higher priority to the charsets given as arguments
-(set-charset-priority 'unicode)
-
 ;; Turn on visible bell
 (setq visible-bell t)
 
@@ -208,15 +199,27 @@
 ;; When switch the buffer make case-insensitive
 (setq read-buffer-completion-ignore-case t)
 
+;; Keep files up-to-date when they change outside Emacs
+(global-auto-revert-mode t)
+
+;; Automatically pair parentheses
+(electric-pair-mode t)
+
+;; Prefer coding system
+(prefer-coding-system 'utf-8)
+
+;; Assign higher priority to the charsets given as arguments
+(set-charset-priority 'unicode)
+
 ;; Toggle use of Ido for all buffer/file reading.
 (ido-mode t)
 (ido-everywhere t)
 
-;;
-;; Functions
-;;
-;; Enable this variable to automatically kill the current Dired buffer when opening a new one. (in Emacs 28+)
-;; (setf dired-kill-when-opening-new-dired-buffer t)
+;; Switch focus after buffer split in emacs.
+;; Unfortunately, though, this has the side-effect of selecting the *Completions* buffer when you hit TAB in the minibuffer.
+;; (defadvice split-window (after move-point-to-new-window activate)
+;;   "Moves the point to the newly created window after splitting."
+;;   (other-window 1))
 
 ;;
 ;; Indentation
@@ -232,14 +235,11 @@
  tab-width        4
  )
 
+;;
+;; Whitespace
+;;
 ;; Determine the kinds of whitespace are visualized, with a specific value. See option whitespace-style for more information.
 (setq whitespace-style (quote (face spaces tabs space-mark tab-mark trailing)))
-
-;; Switch focus after buffer split in emacs.
-;; Unfortunately, though, this has the side-effect of selecting the *Completions* buffer when you hit TAB in the minibuffer.
-;; (defadvice split-window (after move-point-to-new-window activate)
-;;   "Moves the point to the newly created window after splitting."
-;;   (other-window 1))
 
 ;;
 ;; Keybindings
@@ -312,6 +312,11 @@
 (global-set-key (kbd "S-C-<up>")    #'enlarge-window)
 (global-set-key (kbd "C-x +")       #'balance-windows)
 
+;;
+;; Functions
+;;
+;; Enable this variable to automatically kill the current Dired buffer when opening a new one. (in Emacs 28+)
+;; (setf dired-kill-when-opening-new-dired-buffer t)
 
 ;; Docs: https://www.emacswiki.org/emacs/CopyingWholeLines#h5o-10
 ;; Duplicate the current line
