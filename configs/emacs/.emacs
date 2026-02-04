@@ -47,12 +47,18 @@
 
 ;; List the repositories containing them ("gnu" by default)
 (require 'package)
+
 ;; Installed by default from Emacs 28 onwards
 (add-to-list 'package-archives '("nongnu" . "https://elpa.nongnu.org/nongnu/"))
 
 ;; Additional package archives such as MELPA exist to supplement what is in GnuELPA.
 ;; From: https://www.emacswiki.org/emacs/MELPA
 (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
+
+;; Unless we've already fetched (and cached) the package archives,
+;; refresh them.
+(unless package-archive-contents
+  (package-refresh-contents))
 
 ;; To ensure Emacs can find your custom themes in "~/.emacs.d/themes/",
 ;; Note: Ensure the directory contains valid theme files (e.g., my-theme-theme.el)
@@ -85,6 +91,10 @@
 ;;
 ;; Options
 ;;
+;; Performance tweaks for modern machines
+(setq gc-cons-threshold 100000000) ; 100 mb
+(setq read-process-output-max (* 1024 1024)) ; 1mb
+
 ;; Load default theme
 (load-theme 'wombat t)
 
