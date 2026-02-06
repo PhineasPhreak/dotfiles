@@ -111,7 +111,7 @@ if [ -x /usr/bin/dircolors ]; then
     alias ld='ls --color=auto -lhF --group-directories-first'
     alias ll='ls --color=auto -lhF'
     alias la='ls --color=auto -lhAF'
-    alias lf='ls --color=auto -lhAF'
+    alias lf='ls --color=auto -lhAF --time-style=long-iso --group-directories-first'
     #alias lls='ls --color=auto -lhF'
     #alias lss='ls --color=auto -lhFA --group-directories-first'
 
