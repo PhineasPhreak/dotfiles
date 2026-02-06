@@ -11,7 +11,9 @@
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 #
 
+###
 ### EXPORT (It designates specified variables and functions to be passed to child processes.)
+###
 # $EDITOR use Emacs in terminal
 export EDITOR="emacsclient -t -a ''"
 # $VISUAL use Emacs in GUI mode
@@ -19,7 +21,9 @@ export VISUAL="emacsclient -c -a emacs"
 # removal of expressions from the history command.
 export HISTIGNORE="history*:ls*:cd*:pwd:exit:clear:sudo reboot:sudo poweroff"
 
+###
 ### SHOPT (This builtin allows you to change additional optional shell behavior.)
+###
 shopt -s autocd            # change to named directory
 shopt -s cdspell           # autocorrects cd misspellings
 shopt -s cmdhist           # save multi-line commands in history as single line
@@ -43,7 +47,9 @@ bind '"\C-H": shell-backward-kill-word' # CTRL+Backspace
 # ignore upper and lowercase when TAB completion
 bind "set completion-ignore-case on"
 
+###
 ### FUNCTION
+###
 # extr = EXTRactor for all kinds of archives
 # usage: ex <file>
 function ex {
@@ -92,33 +98,35 @@ function cdls() {
     builtin cd "${new_directory}" && /bin/ls -lhF --color=auto --time-style=long-iso --ignore=lost+found
 }
 
+###
 ### ALIASES (allows users to create shortcuts for frequently used commands, enhancing workflow efficiency)
+###
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    # ls aliases
     alias ls='ls --color=auto'
-    alias dir='dir --color=auto'
-    alias vdir='vdir --color=auto'
+    alias l='ls --color=auto -CF'
+    alias lda='ls --color=auto -lhAF --group-directories-first'
+    alias ld='ls --color=auto -lhF --group-directories-first'
+    alias ll='ls --color=auto -lhF'
+    alias la='ls --color=auto -lhAF'
+    alias lf='ls --color=auto -lhAF'
     #alias lls='ls --color=auto -lhF'
     #alias lss='ls --color=auto -lhFA --group-directories-first'
-    alias diff='diff --color=auto'
 
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
+
+    alias diff='diff --color=auto'
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
     alias ip='ip --color=auto'
+
+    # command watch with interpret ANSI color
+    alias watch='watch --color'
 fi
-
-# command watch with interpret ANSI color
-alias watch='watch --color'
-
-# some more ls aliases
-alias lda='ls --color=auto -lhAF --group-directories-first'
-alias ld='ls --color=auto -lhF --group-directories-first'
-alias ll='ls --color=auto -lhF'
-alias la='ls --color=auto -lhAF'
-alias lf='ls --color=auto -lhAF'
-alias l='ls --color=auto -CF'
 
 # get the error messages from journalctl
 alias jctl="journalctl -p 3 -xb"
@@ -135,13 +143,6 @@ alias sd='sudo'
 # alias 'clear' in 'cl'
 alias cl='clear'
 
-# quick switch to directories
-# alias cddown='cd ~/Downloads/'
-# alias cddoc='cd ~/Documents/'
-# alias cdpic='cd ~/Pictures/'
-# alias cdgit='cd ~/Git/'
-# alias cdlab='cd ~/Lab/'
-
 # navigation
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -149,7 +150,7 @@ alias .3='cd ../../..'
 alias .4='cd ../../../..'
 alias .5='cd ../../../../..'
 
-# prompt before overwrite with option "-i" for "cp", "mv' and "rm"
+# verbose command with option "-v" for "cp", "mv' and "rm"
 #alias cp='cp -v'
 #alias mv='mv -v'
 #alias rm='rm -v'
@@ -170,7 +171,7 @@ alias psa='ps auxf'
 alias jobs='jobs -l'
 
 # launch emacs in terminal
-alias temacs='emacs -nw'
+alias temacs="emacsclient -t -a ''"
 
 # merge Xresources
 alias merge='xrdb -merge ~/.Xresources'
@@ -201,9 +202,14 @@ alias scd='screen -d'
 # mark show hold packages
 alias mark-show-hold='sudo apt-mark showhold'
 
-# some more reboot and poweroff for KALI LINUX
-#alias sreboot='systemctl reboot'
-#alias spoweroff='systemctl poweroff'
+# custom command to reboot and poweroff with "shutdown" or "systemctl"
+# Use "systemctl" command.
+#alias sys-reboot='systemctl reboot'
+#alias sys-poweroff='systemctl poweroff'
+
+# Use "shutdown" command
+#alias sreboot='shutdown --reboot now'
+#alias spoweroff='shutdown --poweroff now'
 
 # Add aliases for certain virtualbox commands
 alias vmlist='vboxmanage list vms'
@@ -212,5 +218,6 @@ alias vmshowvminfo='vboxmanage showvminfo $1'
 alias vmstart='vboxmanage startvm $1'
 alias vmstarthl='vboxmanage startvm $1 --type headless'
 
+# If dual GPU or more (Intel/Nvidia/AMD)
 # NVIDIA GPU (For Nvidia GPU for specific process)
 alias nvidia-run="__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia $argv"
