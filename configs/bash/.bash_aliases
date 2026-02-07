@@ -19,7 +19,7 @@ export EDITOR="emacsclient -t -a ''"
 # $VISUAL use Emacs in GUI mode
 export VISUAL="emacsclient -c -a emacs"
 # removal of expressions from the history command.
-export HISTIGNORE="history*:ls*:cd*:pwd:exit:clear:sudo reboot:sudo poweroff"
+export HISTIGNORE="history*:l*:ls*:lda*:ld*:ll*:la*:lf*:cd*:cdls*:pwd:exit:clear:sudo reboot:sudo poweroff"
 
 ###
 ### SHOPT (This builtin allows you to change additional optional shell behavior.)
