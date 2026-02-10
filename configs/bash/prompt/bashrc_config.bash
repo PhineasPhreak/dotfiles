@@ -1,6 +1,5 @@
 #!/bin/bash
-
-
+#
 ################################################
 ### Configuration powerline.bash/prompt.bash ###
 ################################################
@@ -9,18 +8,21 @@
 # you can choose with this variable between "prompt.bash" and "powerline.bash".
 #
 # To make simple choose between "prompt.bash" or "powerline.bash".
+
+
 PWL_PRT="powerline.bash"
 DIRECTORY=""
+USER_LOGIN="$(who | grep 'tty' | awk 'NR==1{print $1}')"
 
+# Identifying the currently logged-in user
 if [[ $UID -eq 1000 ]]; then
     # UID=1000 --> USER
-    DIRECTORY="/home/$USER"
+    DIRECTORY="/home/${USER}"
 else
     # UID=0 --> ROOT
     # Enter user name manually
-    DIRECTORY="/home/pspk"
+    DIRECTORY="/home/${USER_LOGIN}"
 fi
-
 
 # change the prompt if powerline fonts is supported or not
 if [[ $TERM == "xterm-256color" || $TERM == "screen-256color" ]]; then
@@ -40,6 +42,14 @@ if [[ $TERM == "xterm-256color" || $TERM == "screen-256color" ]]; then
         if [ -f ${DIRECTORY}/.config/prompt/prompt.bash ]; then
             source ${DIRECTORY}/.config/prompt/prompt.bash
         fi
+    fi
+fi
+
+# for terminal term in emacs
+if [[ $TERM == "eterm-color" ]]; then
+    # Use skeswa/prompt
+    if [ -f ${DIRECTORY}/.config/prompt/prompt.bash ]; then
+        source ${DIRECTORY}/.config/prompt/prompt.bash
     fi
 fi
 
