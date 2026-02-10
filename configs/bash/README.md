@@ -23,9 +23,9 @@ fi
 ## Configure `.bashrc`
 Add the code block to your `.bashrc` file.
 ```bash
-# Use "bashrc_config.bash" for configure powerline.bash/prompt.bash
-if [ -f ~/.config/prompt/bashrc_config.bash ]; then
-    source ~/.config/prompt/bashrc_config.bash
+# Use "bashrc_prompt.bash" for configure powerline.bash/prompt.bash
+if [ -f ~/.config/prompt/bashrc_prompt.bash ]; then
+    source ~/.config/prompt/bashrc_prompt.bash
 fi
 ```
 
