@@ -13,7 +13,7 @@ Flash OS images to SD cards & USB drives, safely and easily.
 - balenaEtcher : [balenaEtcher](https://www.balena.io/etcher)
 - UNetbootin : [Unetbootin](https://unetbootin.github.io/)
 - Under **Gnome** desktop : `gnome-multi-writer` or `usb-creator-gtk` package in *Debian/Ubuntu*
-- under **KDE plasma** desktop : `usb-creator-kde` package in *Debian/Ubuntu*
+- Under **KDE plasma** desktop : `usb-creator-kde` package in *Debian/Ubuntu*
 
 
 ## Awesome list
@@ -27,7 +27,8 @@ Flash OS images to SD cards & USB drives, safely and easily.
 
 
 ## Git Tips
-[How to use GIT](https://github.com/PhineasPhreak/documents-learning/blob/master/How-To/Linux/how-to-git.md#howto-git)
+- [How to use GIT](https://github.com/PhineasPhreak/documents-learning/blob/master/How-To/Linux/how-to-git.md#howto-git)
+- [How to use GIT Bare Repositories](https://github.com/PhineasPhreak/documents-learning/blob/master/How-To/Linux/how-to-create-bare-repository-on-server.md#git-how-to-create-a-bare-repository-on-local-or-remote-server)
 
 
 ### Git on Windows, Linux and MacOS
