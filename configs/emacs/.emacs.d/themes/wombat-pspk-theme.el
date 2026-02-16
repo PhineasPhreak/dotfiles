@@ -139,7 +139,8 @@ are included. Custom by Phineasphreak (as PSPK)"
    `(secondary-selection ((,class (:background ,highlight :foreground unspecified))))
    `(lazy-highlight ((,class (:background ,lazy-hl-bg :foreground ,lazy-hl-fg))))
    `(tooltip ((,class (:background ,ttip-sl :foreground ,base :bold nil :italic nil :underline nil))))
-   `(custom-state ((t (:foreground ,green))))
+   `(custom-state ((,class (:foreground ,green))))
+   `(highlight-changes ((,class (:foreground ,green))))
 
    ;; MODE LINE FACES
    `(mode-line ((,class (:background ,bg3 :foreground ,base :box (:color ,bg3 :line-width 1)))))
