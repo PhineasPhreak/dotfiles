@@ -28,7 +28,7 @@
 ;; candidates are called backends, modules for displaying them are frontends.
 (use-package company
   :ensure t
-  :bind ("C-x w" . company-abort)
+  :bind ("C-x g" . company-abort)
   :custom
   ;; Global company mode is enable
   (global-company-mode t)
