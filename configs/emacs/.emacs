@@ -96,7 +96,7 @@
 (setq read-process-output-max (* 1024 1024)) ; 1mb
 
 ;; Load default theme
-(load-theme 'wombat t)
+(load-theme 'wombat-pspk t)
 
 ;; Setting the default directory (for Windows)
 ;; (setq default-directory "C:\\Users\\pspk\\")
@@ -473,13 +473,13 @@ Delete the word, but does not put it in the kill-ring."
 ;; https://emacs.stackexchange.com/questions/13050/different-theme-for-nw-terminal
 ;; (when (display-graphic-p)
 ;;   ;; Do any keybindings and theme setup here
-;;   (load-theme 'wombat t)
+;;   (load-theme 'wombat-pspk t)
 ;;   )
 
 ;; A way to detect that emacs is running in a terminal
 (unless (display-graphic-p)
   ;; Remove any keybindings and theme setup here
-  (load-theme 'wombat t)
+  (load-theme 'wombat-pspk t)
 
   ;; Enable mouse support in terminal
   (xterm-mouse-mode 1)
