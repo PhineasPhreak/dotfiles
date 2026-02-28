@@ -15,6 +15,9 @@
 ;; More information about Bindings use C-h b <bindings> for help.
 ;; More information about Key use C-h k <key> for help.
 ;;
+;; It’s not an uncommon occurrence to find yourself editing a file that uses tabs instead of whitespaces, or vice versa.
+;; The commands "tabify" and "untabify" do just that; they convert the region to tabs or whitespaces. When you "untabify" or "tabify".
+;;
 ;; Example :
 ;; - Smart Configuration for Emacs :
 ;;   https://github.com/patrickt/emacs
