@@ -5,10 +5,10 @@ configuration {
     display-drun: "Applications:";
     display-window: "Windows:";
     drun-display-format: "{name}";
-    font: "JetBrainsMono Nerd Font Medium 10";
+    font: "Hack Bold 11";
     modi: "window,run,drun";
-    show-icons: false;
-    icon-theme: "Paper";  // Enter here your Icon theme
+    show-icons: true;
+    icon-theme: "Breeze-dark";
 
     // MISC
     max-history-size: 25;
