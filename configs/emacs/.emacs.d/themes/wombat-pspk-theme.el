@@ -255,8 +255,8 @@ are included. Custom by Phineasphreak (as PSPK)"
    `(eshell-ls-symlink ((,class (:foreground ,yellow))))
 
    ;; IDO
-   `(ido-first-match ((,class (:foreground ,green :bold nil))))
-   `(ido-only-match ((,class (:foreground ,cyan :weight bold))))
+   `(ido-first-match ((,class (:foreground ,buffer-name))))
+   `(ido-only-match ((,class (:foreground ,green :weight bold))))
    `(ido-subdir ((,class (:foreground ,keyword-fl :weight bold))))
    `(ido-vertical-match-face ((,class (:foreground ,const :underline nil))))
    `(ido-indicator ((,class (:foreground ,yellow :background ,red))))
