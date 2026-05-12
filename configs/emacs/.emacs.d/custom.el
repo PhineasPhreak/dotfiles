@@ -73,6 +73,11 @@
        (ansi-term shell-pop-term-shell))))
   (shell-pop-term-shell "/bin/bash"))
 
+;; Provides a comprehensive major mode for editing TradingView Pine Script v6 and older files.
+;; Pine script mode automatically loads for ".pine", ".pinescript" files.
+;; (use-package pine-script-mode
+;;   :ensure t)
+
 ;; Adds LSP support. Note that you must have the respective LSP
 ;; server installed on your machine to use it with Eglot. e.g.
 ;; rust-analyzer to use Eglot with `rust-mode'. Or,
