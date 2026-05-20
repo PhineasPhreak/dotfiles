@@ -3,7 +3,7 @@
 
 The [EmacsWiki](https://www.emacswiki.org/emacs/SiteMap) is dedicated to documenting and discussing [EmacsAndXEmacs](https://www.emacswiki.org/emacs/EmacsAndXEmacs) and [EmacsLisp](https://www.emacswiki.org/emacs/EmacsLisp). See the [MissionStatement](https://www.emacswiki.org/emacs/MissionStatement) for more information.
 
-Emacs Configuration Generator : [here](https://emacs.amodernist.com/)
+Emacs Configuration Generator : [Site](https://emacs.amodernist.com/) | [Github](https://github.com/mgmarlow/emacs-config-generator)
 
 ## Installing the configuration file
 - **Linux :**
@@ -39,6 +39,7 @@ To install one or more packages, press `M+x` (Alt+x) in Emacs, then type the `li
   - `company` : Modular in-buffer completion framework for Emacs [Site](https://company-mode.github.io/)|[Github](https://github.com/company-mode/company-mode)
   - `flycheck` : Syntax checking for GNU Emacs [Site](https://www.flycheck.org/en/latest/)
   - `eglot` : The Emacs Client for LSP servers [Github](https://github.com/joaotavora/eglot)
+  - `pine-script-mode` : Major mode for TradingView Pine Script v6 and older [Github](https://github.com/ericcrosson/pine-script-mode)
 
 ## How do I remove the gap around maximized Emacs frame on KDE?
 Link question : [here](https://askubuntu.com/questions/787694/how-do-i-remove-the-gap-around-maximized-emacs-frame-on-kde)
