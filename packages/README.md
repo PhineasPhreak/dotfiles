@@ -1,9 +1,19 @@
 ## Packages (*pkg.lst*)
-List packages to install
+List packages to install for Linux distribution (Ubuntu, Debian, Fedora, Archlinux, FreeBSD).
+
+
+Check out all the available packages on the respective distribution websites :
+|:-----------------------------------------------------------|
+| [Ubuntu Packages](https://packages.ubuntu.com/)            |
+| [Debian Packages](https://www.debian.org/distrib/packages) |
+| [Fedora Packages](https://packages.fedoraproject.org/)     |
+| [Archlinux Packages](https://archlinux.org/packages/)      |
 
 
 ## KDE Plasma desktop (*kde.lst*)
-List of specific packages for the KDE Plasma desktop for Linux
+List of specific packages for the KDE Plasma desktop for Linux.
+
+- See all KDE applications on [apps.kde.org](https://apps.kde.org/)
 
 
 ## Developpement (*dev.lst*)
@@ -14,31 +24,26 @@ IDE : [Intellij IDEA & Pycharm](https://www.jetbrains.com/products.html?fromMenu
 
 
 ## i3wm (*i3wm.lst*)
-Multiple packages for the i3wm desktop
+Multiple packages for the i3wm desktop.
 
-* Polybar configuration : `polybar` [Myconfig polybar](https://github.com/PhineasPhreak/dotfiles/tree/master/configs/polybar/.config/polybar)
+- See also [i3wm configuration](https://github.com/PhineasPhreak/dotfiles/tree/master/configs/i3wm/.config/i3) from my repositories
 
 
 ## Gnome Shell Extension (*gnome-shell-extension.lst*)
-List of specefic packages for Gnome Shell Extension
+List of specefic packages for Gnome Shell Extension.
 
-* Site : [Gnome Shell Extension](https://extensions.gnome.org/)
+- Site : [Gnome Shell Extension](https://extensions.gnome.org/)
 
 
 ## Browser Extensions (Chrome/Brave and Firefox)
 Small programs that add new features to your browser and personalize your browsing experience.
 
-* For **Google Chrome** or **Chromium**, **Brave**`chrome-extensions.lst`
-* For **Firefox**`firefox-add-ons.lst`
+- For **Google Chrome** or **Chromium**, **Brave**`chrome-extensions.lst`
+- For **Firefox**`firefox-add-ons.lst`
 
 
-## Python Package with pip3
-`pip` is the package installer for Python. You can use pip to install packages from the Python Package Index and other indexes.
-
-* Site : [pypi](https://pypi.org/)
-* Package : `bpytop`
-
-
-### Man Pages for tool
-* Linux Commands : [Linux Commands](https://www.commandlinux.com/man-pages-sections)
-* Man pages : [Man.cx](https://man.cx/)
+### Man Pages for commands, tools, etc
+- Man pages (Main) : [Man.cx](https://man.cx/)
+- FreeBSD Manual Pages : [FreeBSD Man Pages](https://man.freebsd.org/cgi/man.cgi)
+- Man pages (die.net) : [Die.net](https://linux.die.net/man/)
+- Man pages (man.he.net) : [man.he.net](https://man.he.net/)
