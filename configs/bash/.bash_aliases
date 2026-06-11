@@ -176,20 +176,26 @@ alias temacs="emacsclient -t -a ''"
 # merge Xresources
 alias merge='xrdb -merge ~/.Xresources'
 
+# wget show only progress bar
+alias wgetnv='wget -nv --show-progress'
+
 # shorcut 'apt' or 'apt-get'
-alias update='sudo apt-get update'
-alias install-package='sudo apt-get install $argv'
-alias search-package='sudo apt-cache search $argv'
-alias show-package='sudo apt-cache show $argv'
-alias get-upgrade='sudo apt-get upgrade'
-alias apt-upgrade='sudo apt upgrade'
-alias full-upgrade='sudo apt full-upgrade'
-alias dist-upgrade='sudo apt-get dist-upgrade'
-alias list-upgradable='sudo apt list --upgradable'
-alias autoremove='sudo apt-get autoremove'
-alias cleanliness='sudo apt-get clean'
-alias cache-policy='sudo apt-cache policy'
-alias list-key='sudo apt-key list'
+#alias update='sudo apt-get update'
+#alias install-package='sudo apt-get install $argv'
+#alias search-package='sudo apt-cache search $argv'
+#alias show-package='sudo apt-cache show $argv'
+#alias get-upgrade='sudo apt-get upgrade'
+#alias apt-upgrade='sudo apt upgrade'
+#alias full-upgrade='sudo apt full-upgrade'
+#alias dist-upgrade='sudo apt-get dist-upgrade'
+#alias list-upgradable='sudo apt list --upgradable'
+#alias autoremove='sudo apt-get autoremove'
+#alias cleanliness='sudo apt-get clean'
+#alias cache-policy='sudo apt-cache policy'
+#alias list-key='sudo apt-key list'
+
+# mark show hold packages
+#alias mark-show-hold='sudo apt-mark showhold'
 
 # alias "screen" for SSH session
 alias sc='screen'
@@ -198,9 +204,6 @@ alias scs='screen -S'
 alias scr='screen -r'
 alias scx='screen -x'
 alias scd='screen -d'
-
-# mark show hold packages
-alias mark-show-hold='sudo apt-mark showhold'
 
 # custom command to reboot and poweroff with "shutdown" or "systemctl"
 # Use "systemctl" command.
