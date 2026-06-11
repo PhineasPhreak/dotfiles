@@ -3,11 +3,14 @@ List packages to install for Linux distribution (Ubuntu, Debian, Fedora, Archlin
 
 
 Check out all the available packages on the respective distribution websites :
-|:-----------------------------------------------------------|
-| [Ubuntu Packages](https://packages.ubuntu.com/)            |
-| [Debian Packages](https://www.debian.org/distrib/packages) |
-| [Fedora Packages](https://packages.fedoraproject.org/)     |
-| [Archlinux Packages](https://archlinux.org/packages/)      |
+
+| Website Packages                                            |
+|:------------------------------------------------------------|
+| [Ubuntu Packages](https://packages.ubuntu.com/)             |
+| [Debian Packages](https://www.debian.org/distrib/packages)  |
+| [Fedora Packages](https://packages.fedoraproject.org/)      |
+| [Archlinux Packages](https://archlinux.org/packages/)       |
+| [FreeBSD Packages](https://ports.freebsd.org/cgi/ports.cgi) |
 
 
 ## KDE Plasma desktop (*kde.lst*)
