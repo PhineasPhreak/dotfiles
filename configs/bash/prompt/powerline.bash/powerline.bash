@@ -1,7 +1,7 @@
 #!/bin/bash
 # cf. https://gitlab.com/bersace/powerline.bash
 # cf. Dernier commit depuis ma modification :
-# Nov 15, 2025 "python: Lire le nom du venv depuis venv.cfg" f4f7a51f11f481ac385e121daaadc8c7880cc408
+# Apr 22, 2026 "ajout du logo NixOs" e3341cedca2741177b8c044988d2e44ae8278587
 #
 # Merge of
 # https://gitlab.com/bersace/powerline.bash
@@ -13,7 +13,7 @@
 # Pour explorer davantage d'icônes natif au système, utilisez "kcharselct" sous KDE.
 # Others icon "⚑","⇣", "⇡", "⬇", "⬆", "★", "●", "✖", "✚", "…", "", "✼", "✔", "✎", "❒", "⚙", "⏯", "🮥", "🮼", "🙷"
 
-__powerline_min_bash_version=4.2.46  # RHEL7
+__powerline_min_bash_version=4.2.46	 # RHEL7
 # invocation sort équivalent à GNU sort --version-sort --check=quiet
 if ! printf "$__powerline_min_bash_version\n%s" "${BASH_VERSION-0}" | sort -n -t . -k 1,1 -k 2,2 -k 3,3 -c 2>/dev/null ; then
 	echo "erreur: powerline.bash requiert bash, en version $__powerline_min_bash_version ou supérieur." >&2
@@ -178,6 +178,7 @@ __powerline_autoicons() {
 		[linuxmint]="lm"
 		[logo-inconnu]="?"
 		[manjaro]="M"
+		[nixos]="n"
 		[raspbian]="RPI"
 		[redhat]="RH"
 		[slackware]=".S"
@@ -246,6 +247,7 @@ __powerline_autoicons() {
 			unset "__powerline_icons[logo-inconnu]"
 			unset "__powerline_icons[linuxmint]"
 			unset "__powerline_icons[manjaro]"
+			unset "__powerline_icons[nixos]"
 			unset "__powerline_icons[raspbian]"
 			unset "__powerline_icons[redhat]"
 			unset "__powerline_icons[slackware]"
@@ -254,7 +256,7 @@ __powerline_autoicons() {
 			unset "__powerline_icons[windows]"
 
 			__powerline_icons+=(
-				[architecture]=$'\uE383'    # fa-microchip
+				[architecture]=$'\uE383'	# fa-microchip
 				[docker]=$'\uE8EA '
 				[etckeeper]=$'\uE025'
 				[fail]=$'\uE023 '
@@ -293,6 +295,7 @@ __powerline_autoicons() {
 				[linux]=$'\uE23A'
 				[linuxmint]=$'\uE9DD'
 				[manjaro]=$'\uE9F1'
+				[nixos]=$'\uF313'
 				[raspbian]=$'\uE9F0'
 				[suse]=$'\uE9E1'
 				[slackware]=$'\uE9E3'
@@ -323,6 +326,7 @@ __powerline_autoicons() {
 			unset "__powerline_icons[logo-inconnu]"
 			unset "__powerline_icons[linuxmint]"
 			unset "__powerline_icons[manjaro]"
+			unset "__powerline_icons[nixos]"
 			unset "__powerline_icons[raspbian]"
 			unset "__powerline_icons[redhat]"
 			unset "__powerline_icons[slackware]"
@@ -342,6 +346,7 @@ __powerline_autoicons() {
 				[horloge]=$'\uF017'        # nf-fa-clock
 				[jobs]=$'\uF08e'           # nf-fa-arrow_up_right_from_square
 				[k8s]=$'\UF0833'           # nf-md-ship_wheel
+				[aws]=$'\uf0ef'            # nf-fa-aws
 				[newmail]=$'\UF06CF'       # nf-md-email_alert
 				[openstack]=$'\UF07B6'     # nf-md-cloud_tags
 				[pwd]=$'\uF07B'            # nf-fa-folder
@@ -373,6 +378,7 @@ __powerline_autoicons() {
 				[linuxmint]=$'\uF30E'      # nf-linux-linuxmint
 				[logo-inconnu]=$'\uE795'   # nf-dev-terminal
 				[manjaro]=$'\uF312'        # nf-linux-manjaro
+				[nixos]=$'\uF313'          # nf-linux-nixos
 				[raspbian]=$'\uF315'       # nf-linux-raspbian
 				[redhat]=$'\uF316'         # nf-linux-redhat
 				[slackware]=$'\uF318'      # nf-linux-slackware
@@ -414,10 +420,16 @@ __powerline_chassis() {
 		__powerline_retval=(server)
 
 	# Cas pour Linux systemd/chassis, container ou vm
-	elif v=$(hostnamectl chassis 2>/dev/null) ; then
-		__powerline_retval=("$v")
-	elif v=$(hostnamectl status 2>/dev/null | grep -Po 'Chassis: \K.+') ; then
-		__powerline_retval=("$v")
+	elif type -p hostnamectl &>/dev/null ; then
+		v=$(hostnamectl chassis 2>/dev/null)
+		if [ -n "$v" ] ; then
+			__powerline_retval=("$v")
+		else
+			v=$(hostnamectl status 2>/dev/null | grep -Po 'Chassis: \K.+')
+			if [ -n "$v" ] ; then
+				__powerline_retval=("$v")
+			fi
+		fi
 	elif [ -f /.dockerenv ] ; then
 		__powerline_retval=(container)
 	elif type -p systemd-detect-virt &>/dev/null && systemd-detect-virt --quiet ; then
@@ -471,6 +483,10 @@ __powerline_autosegments() {
 
 	if type -p kubectl >/dev/null ; then
 		__powerline_retval+=(k8s)
+	fi
+
+	if type -p aws >/dev/null ; then
+		__powerline_retval+=(aws)
 	fi
 
 	__powerline_retval+=(status jobs)
@@ -603,6 +619,11 @@ __powerline_init_colors() {
 		[logo-mint-fond]=vert-mint
 		[logo-mint-texte]=blanc
 
+		[bleu-nixos]="48;2;126;186;228"
+		[gris-nixos]="48;2;245;247;250"
+		[logo-nixos-fond]=gris-nixos
+		[logo-nixos-texte]=bleu-nixos
+
 		[rouge-raspbian]="48;2;188;17;66"
 		[logo-raspbian-fond]=rouge-raspbian
 		[logo-raspbian-texte]=noir
@@ -654,6 +675,9 @@ __powerline_init_colors() {
 
 		[k8s-fond]=bleu-kubernetes
 		[k8s-texte]=gris-clair4
+
+		[aws-fond]=orange
+		[aws-texte]=gris-clair4
 
 		[maildir-fond]=jaune
 		[maildir-texte]=bleu-gras
@@ -938,7 +962,7 @@ __powerline_render_align_right() {
 	local largeur
 	local old_bg
 	local ps=''
-	local raw_ps=''  # PS sans instructions \[\] pour calculer la largeur de l'invit
+	local raw_ps=''	 # PS sans instructions \[\] pour calculer la largeur de l'invit
 	local segment
 	local text
 	local separator
@@ -1130,6 +1154,9 @@ __powerline_init_logo() {
 		manjaro)
 			printf -v s ":manjaro:logo-manjaro-fond:logo-manjaro-texte:"
 			;;
+		nixos)
+			printf -v s ":nixos:logo-nixos-fond:logo-nixos-texte:"
+			;;
 		*suse*)
 			printf -v s ":suse:logo-suse-fond:logo-suse-texte:"
 			;;
@@ -1166,6 +1193,22 @@ __powerline_segment_logo() {
 	)
 }
 
+__powerline_segment_aws() {
+	local profile=""
+
+	# Récupérer le profil depuis les variables d'environnement
+	profile="${AWS_PROFILE-${AWS_DEFAULT_PROFILE-}}"
+
+	# N'afficher que si un profil est explicitement défini
+	if [ -n "${profile}" ]; then
+		__powerline_retval=(
+			"blanc:aws:aws-fond:aws-texte:${profile}"
+		)
+	else
+		__powerline_retval=()
+	fi
+}
+
 __powerline_segment_docker() {
 	local bg
 	local composefiles
@@ -1184,7 +1227,7 @@ __powerline_segment_docker() {
 		for file in "${__powerline_retval[@]}" ; do
 			if [ -f "$file" ] ; then
 				composefiles+=("$file")
-				if [ -d "${file%/*}"  ] && [ -z "${dir-}" ]  ; then
+				if [ -d "${file%/*}"  ] && [ -z "${dir-}" ]	 ; then
 					dir="${file%/*}"
 				fi
 			fi
@@ -1209,7 +1252,7 @@ __powerline_segment_docker() {
 	fi
 
 	# Extraire les noms uniques des services. La locale LANG=C est plus rapide pour sort.
-	service_names="$(LANG=C.UTF-8 sed --separate '0,/^services:/d;/^[[:alpha:]]/,$d;/^ *#/d;/^   /d;/^$/d' "${composefiles[@]}" 2>/dev/null | sort -u)"
+	service_names="$(LANG=C.UTF-8 sed --separate '0,/^services:/d;/^[[:alpha:]]/,$d;/^ *#/d;/^	 /d;/^$/d' "${composefiles[@]}" 2>/dev/null | sort -u)"
 	# Compter le nombre de services dans le fichier compose.
 	readarray service_names_a <<<"${service_names}"
 	service_nr="${#service_names_a[@]}"
@@ -2121,7 +2164,7 @@ __powerline_shorten_dir_ellipse() {
 	local short_pwd=
 	local dir="$1"
 
-	dir="${dir/$HOME/'~'}"  # Abbréger home avec ~
+	dir="${dir/$HOME/'~'}"	# Abbréger home avec ~
 
 	__powerline_split / "${dir##/}"
 	dir_parts=("${__powerline_retval[@]}")
