@@ -21,11 +21,13 @@ fi
 ```
 
 ## Configure `.bashrc`
-Add the code block to your `.bashrc` file.
+Add the code block to your `.bashrc` file. By default, the prompt value is set to "powerline.bash"
+To switch modes, set the variable before sourcing: `export PWL_PRT="prompt.bash"`
 ```bash
-# Use "bashrc_prompt.bash" for configure powerline.bash/prompt.bash
-if [ -f ~/.config/prompt/bashrc_prompt.bash ]; then
-    source ~/.config/prompt/bashrc_prompt.bash
+# Use "loader.bash" for configure powerline.bash/prompt.bash, default powerline.bash
+if [ -f ~/.config/prompt/loader.bash ]; then
+    #export PWL_PRT="prompt.bash"
+    source ~/.config/prompt/loader.bash
 fi
 ```
 

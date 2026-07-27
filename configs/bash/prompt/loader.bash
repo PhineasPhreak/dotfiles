@@ -1,78 +1,68 @@
 #!/bin/bash
 #
-################################################
-### Configuration powerline.bash/prompt.bash ###
-################################################
+# Shell Prompt Configuration
+# Selects between 'powerline.bash' and 'prompt.bash' based on environment and user choice.
 #
-# If the variable environment is 'xterm-256color' and you still want the 'prompt.bash'
-# you can choose with this variable between "prompt.bash" and "powerline.bash".
-#
-# To make simple choose between "prompt.bash" or "powerline.bash".
 
+# Configuration: Set to "powerline.bash" or "prompt.bash"
+# If export not declared in .bashrc file "powerline.bash" is default
+PWL_PRT="${PWL_PRT:-powerline.bash}"
 
-PWL_PRT="powerline.bash"
-DIRECTORY=""
-USER_LOGIN="$(who | grep 'tty' | awk 'NR==1{print $1}')"
+# Determine the home directory of the current user safely
+# Using 'eval echo ~$USER' handles edge cases better than manual path construction
+CURRENT_USER="${USER:-$(whoami)}"
+HOME_DIR=$(eval echo ~"$CURRENT_USER")
+CONFIG_DIR="${HOME_DIR}/.config/prompt"
 
-# Identifying the currently logged-in user
-if [[ $UID -eq 1000 ]]; then
-    # UID=1000 --> USER
-    DIRECTORY="/home/${USER}"
+# Define the prompt file to load based on user choice
+if [[ "$PWL_PRT" == "powerline.bash" ]]; then
+    PROMPT_SCRIPT="${CONFIG_DIR}/powerline.bash"
 else
-    # UID=0 --> ROOT
-    # Enter user name manually
-    DIRECTORY="/home/${USER_LOGIN}"
+    PROMPT_SCRIPT="${CONFIG_DIR}/prompt.bash"
 fi
 
-# change the prompt if powerline fonts is supported or not
-if [[ $TERM == "xterm-256color" || $TERM == "screen-256color" ]]; then
-    if [[ $PWL_PRT == "powerline.bash" ]]; then
-        # You choose "powerline.bash"
-        # Use powerline.bash for shell
-        if [ -f ${DIRECTORY}/.config/prompt/powerline.bash ]; then
-            # Copier et adapter ceci dans votre .bashrc
-            source ${DIRECTORY}/.config/prompt/powerline.bash
+# Check if the prompt script exists
+if [[ ! -f "$PROMPT_SCRIPT" ]]; then
+    # Optional: Uncomment the line below to warn if the file is missing
+    # echo "Warning: Prompt script not found at $PROMPT_SCRIPT" >&2
+    return 0 2>/dev/null || exit 0
+fi
+
+# Determine if we should load the prompt based on the terminal type
+# Supports: xterm, screen, emacs (dumb), vscode, jetbrains, and linux (tty)
+LOAD_PROMPT=false
+
+case "$TERM" in
+    xterm-256color|screen-256color)
+        LOAD_PROMPT=true
+        ;;
+
+    linux|dumb|eterm-color)
+        # Forcing using "prompt.bash"
+        PROMPT_SCRIPT="${CONFIG_DIR}/prompt.bash"
+        source "$PROMPT_SCRIPT"
+        ;;
+
+    *)
+        # No custom prompt, default from .bashrc file
+        LOAD_PROMPT=false
+        ;;
+esac
+
+# Check for specific terminal emulators (VSCode, JetBrains)
+if [[ "$TERM_PROGRAM" == "vscode" ]] || [[ "$TERMINAL_EMULATOR" == "JetBrains-JediTerm" ]]; then
+    LOAD_PROMPT=true
+fi
+
+# Source the script if conditions are met
+if [[ "$LOAD_PROMPT" == true ]]; then
+    source "$PROMPT_SCRIPT"
+
+    # If using powerline.bash, it often sets a PROMPT_COMMAND
+    if [[ "$PWL_PRT" == "powerline.bash" ]]; then
+        # Ensure the function exists before assigning PROMPT_COMMAND to avoid errors
+        if declare -f __update_ps1 > /dev/null 2>&1; then
             PROMPT_COMMAND='__update_ps1 $?'
         fi
-    fi
-
-    if [[ $PWL_PRT == "prompt.bash" ]]; then
-        # You choose "prompt.bash"
-        # Use skeswa/prompt
-        if [ -f ${DIRECTORY}/.config/prompt/prompt.bash ]; then
-            source ${DIRECTORY}/.config/prompt/prompt.bash
-        fi
-    fi
-fi
-
-# for terminal term in emacs
-if [[ $TERM == "eterm-color" ]]; then
-    # Use skeswa/prompt
-    if [ -f ${DIRECTORY}/.config/prompt/prompt.bash ]; then
-        source ${DIRECTORY}/.config/prompt/prompt.bash
-    fi
-fi
-
-# for terminal in vscode
-if [[ $TERM_PROGRAM == "vscode" ]]; then
-    # Use skeswa/prompt
-    if [ -f ${DIRECTORY}/.config/prompt/prompt.bash ]; then
-        source ${DIRECTORY}/.config/prompt/prompt.bash
-    fi
-fi
-
-# for terminal in Pycharm (JetBrains)
-if [[ $TERMINAL_EMULATOR == "JetBrains-JediTerm" ]]; then
-    # Use skeswa/prompt
-    if [ -f ${DIRECTORY}/.config/prompt/prompt.bash ]; then
-        source ${DIRECTORY}/.config/prompt/prompt.bash
-    fi
-fi
-
-# when you use tty's session (with CTRL + F1-F6 to access the terminal that you want)
-if [[ $TERM == "linux" ]]; then
-    # Use skeswa/prompt
-    if [ -f ${DIRECTORY}/.config/prompt/prompt.bash ]; then
-        source ${DIRECTORY}/.config/prompt/prompt.bash
     fi
 fi
