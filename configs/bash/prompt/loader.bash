@@ -14,11 +14,17 @@ CURRENT_USER="${USER:-$(whoami)}"
 HOME_DIR=$(eval echo ~"$CURRENT_USER")
 CONFIG_DIR="${HOME_DIR}/.config/prompt"
 
+# Variable for "powerline.bash/prompt.bash"
+PROMPT_SCRIPT_PWL="${CONFIG_DIR}/powerline.bash"
+PROMPT_SCRIPT_PRT="${CONFIG_DIR}/prompt.bash"
+
 # Define the prompt file to load based on user choice
 if [[ "$PWL_PRT" == "powerline.bash" ]]; then
-    PROMPT_SCRIPT="${CONFIG_DIR}/powerline.bash"
+    # For powerline.bash
+    PROMPT_SCRIPT="${PROMPT_SCRIPT_PWL}"
 else
-    PROMPT_SCRIPT="${CONFIG_DIR}/prompt.bash"
+    # For prompt.bash
+    PROMPT_SCRIPT="${PROMPT_SCRIPT_PRT}"
 fi
 
 # Check if the prompt script exists
@@ -39,7 +45,7 @@ case "$TERM" in
 
     linux|dumb|eterm-color)
         # Forcing using "prompt.bash"
-        PROMPT_SCRIPT="${CONFIG_DIR}/prompt.bash"
+        PROMPT_SCRIPT="${PROMPT_SCRIPT_PRT}"
         source "$PROMPT_SCRIPT"
         ;;
 
