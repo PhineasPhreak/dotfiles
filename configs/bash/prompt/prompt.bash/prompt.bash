@@ -163,15 +163,27 @@ __prompt_segment_python() {
     local text
 
     if [ -v VIRTUAL_ENV ] ; then
-        # Les virtualenv python classiques
-        text=${VIRTUAL_ENV##*/}
+        # Lire le nom du venv dans VIRTUAL_ENV_PROMPT
+        if [ -v VIRTUAL_ENV_PROMPT ] ; then
+            # virtual env créé avec module venv
+            if [[ ${VIRTUAL_ENV_PROMPT} =~ ^\((.*)\)[[:space:]]$ ]]; then
+                text=${BASH_REMATCH[1]}
+            else
+                text=${VIRTUAL_ENV_PROMPT}
+            fi
+        elif [ -f "$VIRTUAL_ENV/pyvenv.cfg" ] ; then
+            text=$(grep -oP "prompt = '\K[^']+" "$VIRTUAL_ENV/pyvenv.cfg")
+        else
+            # ou utiliser le dossier
+            text=${VIRTUAL_ENV##*/}
+        fi
     elif [ -v CONDA_ENV_PATH ] ; then
         text=${CONDA_ENV_PATH##*/}
     elif [ -v CONDA_DEFAULT_ENV ] ; then
         text=${CONDA_DEFAULT_ENV##*/}
     elif [ -v PYENV_ROOT ] ; then
         # Les virtualenv et versions pyenv
-        __prompt_pyenv_version_name
+        __powerline_pyenv_version_name
         text="${__prompt_retval[*]}"
     fi
 
