@@ -29,7 +29,7 @@
 (use-package company
   :ensure t
   :bind ("C-x g" . company-abort)
-  :custom
+  :config
   ;; Global company mode is enable
   (global-company-mode t)
   ;; The idle delay in seconds until completion starts automatically
@@ -57,21 +57,21 @@
   :ensure t)
 
 ;; This is a utility which helps you pop up and pop out shell buffer window easily.
-(use-package shell-pop
-  :ensure nil
-  :bind ("C-c t" . shell-pop)
-  :custom
-  (shell-pop-window-position "right")
-  (shell-pop-window-size 50)
-  (shell-pop-autocd-to-working-dir t)
-  (shell-pop-cleanup-buffer-at-process-exit t)
-  (shell-pop-full-span t)
-  (shell-pop-restore-window-configuration t)
-  (shell-pop-shell-type
-   '("ansi-term" "*terminal*"
-     (lambda nil
-       (ansi-term shell-pop-term-shell))))
-  (shell-pop-term-shell "/bin/bash"))
+;; (use-package shell-pop
+;;   :ensure nil
+;;   :bind ("C-c t" . shell-pop)
+;;   :custom
+;;   (shell-pop-window-position "right")
+;;   (shell-pop-window-size 50)
+;;   (shell-pop-autocd-to-working-dir t)
+;;   (shell-pop-cleanup-buffer-at-process-exit t)
+;;   (shell-pop-full-span t)
+;;   (shell-pop-restore-window-configuration t)
+;;   (shell-pop-shell-type
+;;    '("ansi-term" "*terminal*"
+;;      (lambda nil
+;;        (ansi-term shell-pop-term-shell))))
+;;   (shell-pop-term-shell "/bin/bash"))
 
 ;; Provides a comprehensive major mode for editing TradingView Pine Script v6 and older files.
 ;; Pine script mode automatically loads for ".pine", ".pinescript" files.
@@ -83,7 +83,7 @@
 ;; rust-analyzer to use Eglot with `rust-mode'. Or,
 ;; python3-pylsp to use Eglot with `python-mode'.
 ;; (use-package eglot
-;;   :ensure t
+;;   :ensure t ;; Built-in since Emacs 29
 ;;   :bind (("s-<mouse-1>" . eglot-find-implementation)
 ;;          ("C-c ." . eglot-code-action-quickfix)))
 
@@ -98,6 +98,24 @@
 ;;   :ensure t
 ;;   :custom
 ;;   (pyvenv-tracking-mode t))
+;;   :config
+;;   (pyvenv-mode 1)
+;;   ;; Update Python shell interpreter upon activation
+;;   (setq pyvenv-post-activate-hooks
+;;         (list (lambda ()
+;;                 (setq python-shell-interpreter
+;;                       (concat pyvenv-virtual-env "bin/python3")))))
+;;   ;; Reset interpreter upon deactivation
+;;   (setq pyvenv-post-deactivate-hooks
+;;         (list (lambda ()
+;;                 (setq python-shell-interpreter "python3"))))
+;;   ;; Optional: Auto-activate venv for Python buffers
+;;   (add-hook 'python-mode-hook #'pyvenv-mode)
+;;   ;; Optional: Auto-restart LSP if using lsp-mode
+;;   (add-hook 'pyvenv-post-activate-hooks
+;;             (lambda ()
+;;               (if (bound-and-true-p lsp-mode)
+;;                   (lsp-workspace-restart))))
 
 ;; Flycheck is a modern on-the-fly syntax checking extension for GNU Emacs,
 ;; intended as replacement for the older Flymake extension which is part of GNU Emacs.
@@ -125,5 +143,4 @@
 ;; ADD-HOOK
 ;; Configue IDE (Packages : eglot, pyvenv)
 ;; Enable LSP support by default in python buffers
-(add-hook 'python-mode-hook #'eglot-ensure)
-(add-hook 'python-mode-hook #'pyvenv-mode)
+;; (add-hook 'python-mode-hook #'eglot-ensure)
