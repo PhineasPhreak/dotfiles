@@ -212,6 +212,9 @@
 ;; When switch the buffer make case-insensitive
 (setq read-buffer-completion-ignore-case t)
 
+;; Enable this variable to automatically kill the current Dired buffer when opening a new one. (in Emacs 28+)
+;; (setq dired-kill-when-opening-new-dired-buffer t)
+
 ;; Keep files up-to-date when they change outside Emacs
 (global-auto-revert-mode t)
 
@@ -328,9 +331,6 @@
 ;;
 ;; Functions
 ;;
-;; Enable this variable to automatically kill the current Dired buffer when opening a new one. (in Emacs 28+)
-;; (setf dired-kill-when-opening-new-dired-buffer t)
-
 ;; Docs: https://www.emacswiki.org/emacs/CopyingWholeLines#h5o-10
 ;; Duplicate the current line
 (defun duplicate-current-line (&optional n)
