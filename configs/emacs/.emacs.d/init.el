@@ -216,7 +216,7 @@
 (setq dired-kill-when-opening-new-dired-buffer t)
 
 ;; To wrap long lines in Emacs while maintaining their original indentation. (in Emacs 30+)
-(global-visual-line-mode t)
+;; (global-visual-line-mode t)
 (global-visual-wrap-prefix-mode t)
 
 ;; Keep files up-to-date when they change outside Emacs
